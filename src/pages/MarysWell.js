@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import Marys from '../Marys';
+import '../App.css';
+import Marys from '../components/Marys';
 
 function MarysWell() {
   return (

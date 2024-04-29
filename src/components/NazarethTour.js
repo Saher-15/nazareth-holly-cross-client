@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import './HeroSection.css';
+import '../styles/HeroSection.css';
 
 function NazarethTour() {
   return (

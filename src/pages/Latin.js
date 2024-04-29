@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import LatinChurch from '../LatinChurch';
+import '../App.css';
+import LatinChurch from '../components/LatinChurch';
 
 function Latin() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import Nazareth from '../Nazareth';
+import '../App.css';
+import Nazareth from '../components/Nazareth';
 
 function City() {
   return (

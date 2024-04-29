@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import GreekChurch from '../GreekChurch';
+import '../App.css';
+import GreekChurch from '../components/GreekChurch';
 
 function Greek() {
   return (

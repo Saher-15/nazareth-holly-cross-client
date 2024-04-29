@@ -1,7 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import Candle from '../Candle'
-
+import '../App.css';
+import Candle from '../components/Candle';
 function Services() {
   return (
     <>

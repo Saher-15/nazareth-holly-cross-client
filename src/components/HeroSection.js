@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Button } from './Button';
-import './HeroSection.css';
+import '../styles/HeroSection.css';
 
 function HeroSection() {
   return (
@@ -10,14 +10,16 @@ function HeroSection() {
       <h1>JESUS CITY AWAITS</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
-        {/*<Button
+        <Button
+          destination='/services'
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
         >
           LIGHT A CANDLE
-        </Button>*/}
+        </Button>
         <Button
+          destination='/tour'
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'

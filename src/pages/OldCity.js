@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.css';
-import OldNazareth from '../OldNazareth';
+import '../App.css';
+import OldNazareth from '../components/OldNazareth';
 
 function OldCity() {
   return (
