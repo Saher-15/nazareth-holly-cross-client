@@ -1,43 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Product } from "../components/Product";
-import { PRODUCTS } from "../Products";
-import "../styles/Shop.css";
 import axios from "axios";
-
-
+import "../styles/Shop.css";
+import "../App.css";
 
 function Shop() {
-
-const [data, setData]=useState();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-
-    async function getAllProduct() {
-      await axios.get(' https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts').then(res => {
-        const data = res.data
-        console.log(res)
-        console.log(res.data)
-        setData(data)
-
-      })
+    async function getAllProducts() {
+      try {
+        const response = await axios.get(
+          "https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts"
+        );
+        setProducts(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     }
 
-    getAllProduct();
-
-
-  }, [])
+    getAllProducts();
+  }, []);
 
   return (
-    <div className="shop">
-
+    <div className="shop-container">
       <div className="products">
-        {PRODUCTS.map((product) => (
-          <Product data={product} />
+        {products.map((product) => (
+          <Product
+            key={product._id}
+            id={product._id}
+            productName={product.name}
+            price={product.price}
+            productImage={product.img}
+          />
         ))}
       </div>
     </div>
-
-
   );
 }
 

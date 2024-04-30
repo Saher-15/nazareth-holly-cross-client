@@ -51,3 +51,19 @@
     color: white;
     cursor: pointer;
   }
+
+  /* Example CSS in Shop.css */
+
+.shop-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Define styles for Product component */
