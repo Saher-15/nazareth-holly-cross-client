@@ -1,0 +1,116 @@
+/* shop.css */
+
+/* Shop Container */
+.shop {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Cart Logo */
+.cart-logo {
+  font-size: 24px;
+}
+
+.cart-logo a {
+  color: #333; /* Adjust color as needed */
+}
+
+/* Search */
+.search {
+  margin-bottom: 20px;
+}
+
+.search input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight border color when focused */
+}
+
+/* Products Container */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Product */
+.product {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Product Image */
+.product img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Product Details */
+.product .details {
+  margin-top: 10px;
+}
+
+/* Product Title */
+.product .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Product Price */
+.product .price {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pagination Button */
+.pagination button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Pagination Button Hover */
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+/* Pagination Text */
+.pagination-text {
+  margin: 0 20px;
+  font-size: 16px;
+  color: #333;
+}
+

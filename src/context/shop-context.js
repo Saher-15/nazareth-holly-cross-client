@@ -1,55 +1,71 @@
-import { createContext, useState } from "react";
-import { PRODUCTS } from "../Products";
+import React, { createContext, useContext, useState } from "react";
 
-export const ShopContext = createContext(null);
+const ShopContext = createContext(null);
 
-const getDefaultCart = () => {
-  let cart = {};
-  for (let i = 1; i < PRODUCTS.length + 1; i++) {
-    cart[i] = 0;
-  }
-  return cart;
-};
+const ShopContextProvider = (props) => {
+  const [cartItems, setCartItems] = useState([]);
 
-export const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState(getDefaultCart());
-
-  const getTotalCartAmount = () => {
-    let totalAmount = 0;
-    for (const item in cartItems) {
-      if (cartItems[item] > 0) {
-        let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
-        totalAmount += cartItems[item] * itemInfo.price;
-      }
+  // Function to add a product to the cart
+  const addToCart = (product) => {
+    // Check if the product already exists in the cart
+    const existingProductIndex = cartItems.findIndex(item => item._id === product._id);
+  
+    if (existingProductIndex !== -1) {
+      // If the product exists, create a new array with updated quantity
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingProductIndex] = {
+        ...updatedCartItems[existingProductIndex],
+        quantity: updatedCartItems[existingProductIndex].quantity + 1
+      };
+      setCartItems(updatedCartItems);
+    } else {
+      // If the product is not in the cart, add it with quantity 1
+      setCartItems(prevCartItems => [...prevCartItems, { ...product, quantity: 1 }]);
     }
-    return totalAmount;
+  };
+  
+  // Function to remove a product from the cart
+  const removeFromCart = (productId) => {
+    const updatedCartItems = cartItems.map(item => {
+      if (item._id === productId) {
+        const updatedQuantity = item.quantity - 1;
+        if (updatedQuantity <= 0) {
+          // If the quantity becomes less than or equal to 0, remove the product from the cart
+          return null;
+        } else {
+          return { ...item, quantity: updatedQuantity };
+        }
+      }
+      return item;
+    }).filter(Boolean); // Remove any null values from the array
+    setCartItems(updatedCartItems);
+
+  
   };
 
-  const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-  };
-
-  const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
-  };
-
-  const updateCartItemCount = (newAmount, itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: newAmount }));
-  };
-
-  const checkout = () => {
-    setCartItems(getDefaultCart());
+  // Function to update the count of a product in the cart
+  const updateCartItemCount = (productId, newCount) => {
+    setCartItems((prevCartItems) =>
+      prevCartItems.map((item) =>
+        item._id === productId ? { ...item, count: newCount } : item
+      )
+    );
   };
 
   const contextValue = {
     cartItems,
     addToCart,
-    updateCartItemCount,
     removeFromCart,
-    getTotalCartAmount,
-    checkout,
+    updateCartItemCount,
   };
 
-  const Provider = ShopContext.Provider;
-  return Provider({ value: contextValue }, props.children);
+  return (
+    <ShopContext.Provider value={contextValue}>
+      {props.children}
+    </ShopContext.Provider>
+  );
 };
+
+export const useShopContext = () => useContext(ShopContext);
+
+export default ShopContextProvider;

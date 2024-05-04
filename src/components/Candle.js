@@ -1,118 +1,160 @@
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import "../styles/Candle.css";
+import React, { useState } from "react";
 import { Button } from './Button';
+import axios from "axios";
+import { Container, Row, Col } from "react-bootstrap";
 
-const ContactUs = () => {
-    const [formData, setFormData] = useState({
-        firstname: "",
-        lastname: "",
-        address: "",
-        email: "",
-        phonenumber: "",
-        pray: "",
-    });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
+function Contact() {
+  const [form, setForm] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    confirmEmail: "",
+    pray: ""
+  });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const [lightButtonClicked, setLightButtonClicked] = useState(false);
+  const [emailMatchError, setEmailMatchError] = useState("");
+  const [inputWarning, setInputWarning] = useState("");
 
-        try {
-            await emailjs.send(
-                process.env.REACT_APP_EMAILJS_SERVICE_ID,
-                process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-                formData,
-                process.env.REACT_APP_EMAILJS_USER_ID
-            );
+  const handleChangeForm = (e) => {
+    const { name, value } = e.target;
+    setForm((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-            alert("Message sent successfully!");
-            setFormData({
-                firstname: "",
-                lastname: "",
-                address: "",
-                email: "",
-                phonenumber: "",
-                pray: "",
-            });
-        } catch (error) {
-            console.error("Error sending message:", error);
-            alert("An error occurred while sending the message. Please try again later.");
-        }
-    };
+  const handleLightButton = async () => {
+    // Check if any input fields are empty
+    if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray) {
+      setInputWarning("Please fill out all fields");
+      setTimeout(() => {
+        setInputWarning(""); // Clear the warning message after 2 seconds
+      }, 2000);
+      return;
+    }
 
-    return (
-        <div className='hero-container'>
-            <video src='/videos/video-4.mp4' autoPlay loop muted />
-            <div className="contact-container">
-                <h2>LIGHT A PRAYER CANDLE</h2>
-                <form className="contact-form" onSubmit={handleSubmit}>
+    // Check if both email inputs match
+    if (form.email !== form.confirmEmail) {
+      setEmailMatchError("Emails do not match");
+      return;
+    }
+
+    // Call the light a candle API
+    const { firstname, lastname, email, pray } = form;
+    try {
+      await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle', { firstName: firstname, lastName: lastname, email, pray });
+      setLightButtonClicked(true);
+    } catch (error) {
+      console.error("Error lighting a candle:", error);
+    }
+  };
+
+  return (
+    <div className="contact">
+      <div className="leftSide">
+      
+        <p className="prayer-message">Feel free to share your prayer with us, and we'll light a candle for you at Jesus City Church.
+          <br /><br />Once done, we'll send you a video confirmation to your email address.<h6><br/><br/><br/><br/><br/>to light a candle you have to pay 1$</h6></p>      
+      </div>
+
+      <div className="rightSide">
+        <video autoPlay loop muted className="video-bg">
+          <source src="/videos/video-5.mp4" type="video/mp4" />
+        </video>
+        <h1> LIGHT A PRAY CANDLE</h1>
+
+        <Container>
+
+          <Row className="sec_sp">
+
+            <Col lg="6">
+
+              <form className="contact-form center-form" onSubmit={(e) => e.preventDefault()}>
+                <Row>
+                  <Col lg="6" className="form-group">
                     <input
-                        type="text"
-                        name="firstname"
-                        placeholder="First Name"
-                        value={formData.firstname}
-                        onChange={handleChange}
-                        required
+                      type="text"
+                      name="firstname"
+                      placeholder="First Name"
+                      value={form.firstname}
+                      onChange={handleChangeForm}
+                      required
                     />
+                  </Col>
+                  <Col lg="6" className="form-group">
                     <input
-                        type="text"
-                        name="lastname"
-                        placeholder="Last Name"
-                        value={formData.lastname}
-                        onChange={handleChange}
-                        required
+                      type="text"
+                      name="lastname"
+                      placeholder="Last Name"
+                      value={form.lastname}
+                      onChange={handleChangeForm}
+                      required
                     />
+                  </Col>
+                  <Col lg="12" className="form-group">
                     <input
-                        type="text"
-                        name="laaddress"
-                        placeholder="Address"
-                        value={formData.adress}
-                        onChange={handleChange}
-                        required
+                      type="email"
+                      name="email"
+                      placeholder="Your Email"
+                      value={form.email}
+                      onChange={handleChangeForm}
+                      required
                     />
+                  </Col>
+                  <Col lg="12" className="form-group">
                     <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
+                      type="email"
+                      name="confirmEmail"
+                      placeholder="Confirm Email"
+                      value={form.confirmEmail}
+                      onChange={handleChangeForm}
+                      required
                     />
-                    <input
-                        type="text"
-                        name="phonenumber"
-                        placeholder="Phone Number"
-                        value={formData.phonenumber}
-                        onChange={handleChange}
-                        required
-                    />
+                    {emailMatchError && <p>{emailMatchError}</p>}
+                  </Col>
+                  <Col lg="12" className="form-group">
                     <textarea
-                        name="pray"
-                        placeholder="Your Pray"
-                        value={formData.pray}
-                        onChange={handleChange}
-                        required
+                      name="pray"
+                      placeholder="Your Pray"
+                      value={form.pray}
+                      onChange={handleChangeForm}
+                      required
                     ></textarea>
-                    <div className='hero-btns'>
+                  </Col>
+                  <Col lg="12" className="form-group">
+                    {inputWarning && <p>{inputWarning}</p>}
+                  </Col>
+                </Row>
+                <div className='hero-btns'>
 
-                        <Button className='btns'
-                            buttonStyle='btn--outline'
-                            buttonSize='btn--large'
-                            type="submit">LIGHT
-                        </Button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
+                  <Col lg="12" className="form-group">
+
+                    <Button
+                      className='btns'
+                      onClick={handleLightButton}
+                      buttonStyle='btn--outline'
+                      buttonSize='btn--medium'
+                      type="button"
+                    >
+                      LIGHT
+                    </Button>
+
+                  </Col>
+
+                  {/* Display confirmation message if the light button was clicked */}
+                  {lightButtonClicked && <p>Note: Your candle has been lit!</p>}
+                </div>
+              </form>
+
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </div>
+  );
 }
 
-
-export default ContactUs;
+export default Contact;

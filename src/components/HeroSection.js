@@ -6,12 +6,12 @@ import '../styles/HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <video src='/videos/video-3.mp4' autoPlay loop muted />
+      <video src='/videos/video-7.mp4' autoPlay loop muted />
       <h1>JESUS CITY AWAITS</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
         <Button
-          destination='/services'
+          destination='/candle'
           className='btns'
           buttonStyle='btn--primary'
           buttonSize='btn--large'
@@ -23,7 +23,6 @@ function HeroSection() {
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
-          onClick={console.log('hey')}
         >
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>

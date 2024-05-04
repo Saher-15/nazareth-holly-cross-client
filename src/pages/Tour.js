@@ -5,7 +5,7 @@ import NazarethTour from '../components/NazarethTour'
 function Tour() {
   return (
     <>
-    < NazarethTour/>
+    <NazarethTour/>
     </>
   );
 }

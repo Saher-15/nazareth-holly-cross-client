@@ -1,0 +1,101 @@
+/* cart.css */
+
+/* Cart Container */
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cart Title */
+.cart h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+/* Cart Item */
+.cartItem {
+  width: 700px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 30px;
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+/* Cart Item Image */
+.cartItem img {
+  margin-left: 20px;
+  width: 200px;
+  height: auto;
+  border-radius: 25px 25px 25px 25px; /* Rounded border on the right side of the image */
+}
+
+/* Cart Item Description */
+.cartItem .description {
+  flex-grow: 1; /* Allow description to grow to fill available space */
+  padding: 20px;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Quantity Counter */
+.countHandler input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Checkout Container */
+.checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 30px;
+}
+
+/* Subtotal */
+.subtotal {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Checkout Buttons Container */
+.checkout-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Checkout Button */
+.checkout button {
+  width: 150px;
+  height: 50px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Checkout Button Hover */
+.checkout button:hover {
+  background-color: #0056b3;
+}

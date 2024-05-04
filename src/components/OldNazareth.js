@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Pages.css'
+import '../styles/Pages.css';
 function OldNazareth() {
   return (
     <div className='mypage'>

@@ -1,0 +1,63 @@
+.product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .description {
+    text-align: center;
+  }
+  
+  .addToCartWrapper {
+    display: flex; /* Use flexbox to align items */
+    justify-content: center; /* Center items horizontally */
+  }
+  
+  .addToCartBttn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .addToCartBttn:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  .addToCartBttn:hover {
+    background-color: #0056b3;
+  }
+  
+  .message {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .addToCartBttn {
+    background-color: #28a745; /* Green background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* Increased padding for better visual */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .addToCartBttn:hover {
+    background-color: #218838; /* Darker green color on hover */
+  }
+  
