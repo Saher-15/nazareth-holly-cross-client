@@ -2,10 +2,9 @@ import "../styles/Candle.css";
 import React, { useState } from "react";
 import { Button } from './Button';
 import axios from "axios";
-import { Container, Row, Col } from "react-bootstrap";
 
 
-function Contact() {
+function Candle() {
   const [form, setForm] = useState({
     firstname: "",
     lastname: "",
@@ -53,108 +52,96 @@ function Contact() {
   };
 
   return (
-    <div className="contact">
+    <div className="candle">
+      <div className="blur-background"></div> {/* Add a div for the blurred background */}
+
       <div className="leftSide">
-      
-        <p className="prayer-message">Feel free to share your prayer with us, and we'll light a candle for you at Jesus City Church.
-          <br /><br />Once done, we'll send you a video confirmation to your email address.<h6><br/><br/><br/><br/><br/>to light a candle you have to pay 1$</h6></p>      
+        <p className="prayer-message">Feel free to share your prayer with us<br/> and we'll light a candle for you at Jesus City Church.
+          <br /><br />Once done<br/> we'll send you a video confirmation to your email address.</p>
       </div>
 
       <div className="rightSide">
-        <video autoPlay loop muted className="video-bg">
-          <source src="/videos/video-5.mp4" type="video/mp4" />
-        </video>
+
         <h1> LIGHT A PRAY CANDLE</h1>
 
-        <Container>
+        <div>
+          <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
+            <div className="form-group">
+              <div className="name-container">
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  value={form.firstname}
+                  onChange={handleChangeForm}
+                  required
+                  className="form-control"
+                />
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  value={form.lastname}
+                  onChange={handleChangeForm}
+                  required
+                  className="form-control"
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={handleChangeForm}
+                required
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                name="confirmEmail"
+                placeholder="Confirm Email"
+                value={form.confirmEmail}
+                onChange={handleChangeForm}
+                required
+                className="form-control"
+              />
+              {emailMatchError && <p className="error-message">{emailMatchError}</p>}
+            </div>
+            <div className="form-group">
+              <textarea
+                name="pray"
+                placeholder="Your Prayer"
+                value={form.pray}
+                onChange={handleChangeForm}
+                required
+                className="form-control"
+              ></textarea>
+              {inputWarning && <p className="error-message">{inputWarning}</p>}
+            </div>
+            <h5>to light a candle you have to pay 1$</h5>
+            <div className='hero-btns'>
+              <Button
+                className='btns'
+                onClick={handleLightButton}
+                buttonStyle='btn--outline'
+                buttonSize='btn--medium'
+                type="button"
+              >
+                LIGHT
+              </Button>
+              {lightButtonClicked && <p>Note: Your candle has been lit!</p>}
+            </div>
+          </form>
 
-          <Row className="sec_sp">
 
-            <Col lg="6">
-
-              <form className="contact-form center-form" onSubmit={(e) => e.preventDefault()}>
-                <Row>
-                  <Col lg="6" className="form-group">
-                    <input
-                      type="text"
-                      name="firstname"
-                      placeholder="First Name"
-                      value={form.firstname}
-                      onChange={handleChangeForm}
-                      required
-                    />
-                  </Col>
-                  <Col lg="6" className="form-group">
-                    <input
-                      type="text"
-                      name="lastname"
-                      placeholder="Last Name"
-                      value={form.lastname}
-                      onChange={handleChangeForm}
-                      required
-                    />
-                  </Col>
-                  <Col lg="12" className="form-group">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      value={form.email}
-                      onChange={handleChangeForm}
-                      required
-                    />
-                  </Col>
-                  <Col lg="12" className="form-group">
-                    <input
-                      type="email"
-                      name="confirmEmail"
-                      placeholder="Confirm Email"
-                      value={form.confirmEmail}
-                      onChange={handleChangeForm}
-                      required
-                    />
-                    {emailMatchError && <p>{emailMatchError}</p>}
-                  </Col>
-                  <Col lg="12" className="form-group">
-                    <textarea
-                      name="pray"
-                      placeholder="Your Pray"
-                      value={form.pray}
-                      onChange={handleChangeForm}
-                      required
-                    ></textarea>
-                  </Col>
-                  <Col lg="12" className="form-group">
-                    {inputWarning && <p>{inputWarning}</p>}
-                  </Col>
-                </Row>
-                <div className='hero-btns'>
-
-                  <Col lg="12" className="form-group">
-
-                    <Button
-                      className='btns'
-                      onClick={handleLightButton}
-                      buttonStyle='btn--outline'
-                      buttonSize='btn--medium'
-                      type="button"
-                    >
-                      LIGHT
-                    </Button>
-
-                  </Col>
-
-                  {/* Display confirmation message if the light button was clicked */}
-                  {lightButtonClicked && <p>Note: Your candle has been lit!</p>}
-                </div>
-              </form>
-
-            </Col>
-          </Row>
-        </Container>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Contact;
+export default Candle;

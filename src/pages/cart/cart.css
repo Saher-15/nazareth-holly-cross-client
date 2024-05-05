@@ -17,6 +17,26 @@
   margin-top: 20px;
 }
 
+.cartItem {
+  position: relative; /* Set position relative for the cart item container */
+}
+
+.removeFromCartBtn {
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom as needed */
+  right: 10px; /* Adjust the distance from the right as needed */
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.removeFromCartBtn:hover {
+  background-color: #ff7875;
+}
+
 
 /* Cart Item */
 .cartItem {

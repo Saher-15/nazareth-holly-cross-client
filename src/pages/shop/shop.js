@@ -10,7 +10,7 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const [setCart] = useState({}); // State to track quantity of each product
+  const [sortOrder, setSortOrder] = useState(""); // State to track sorting order
   const itemsPerPage = 12;
 
   useEffect(() => {
@@ -48,12 +48,13 @@ const Shop = () => {
     setSearchQuery(event.target.value);
   };
 
+  const handleSortOrderChange = (event) => {
+    setSortOrder(event.target.value);
+  };
+
   const addToCart = (productId) => {
     // Update cart state with quantity of the product
-    setCart((prevCart) => ({
-      ...prevCart,
-      [productId]: (prevCart[productId] || 0) + 1,
-    }));
+    // Implementation of addToCart logic
   };
 
   // Filter products based on search query
@@ -61,15 +62,20 @@ const Shop = () => {
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Sort products based on sorting order
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (sortOrder === "lowToHigh") {
+      return a.price - b.price;
+    } else if (sortOrder === "highToLow") {
+      return b.price - a.price;
+    } else {
+      return 0; // Maintain original order if no sorting order is selected
+    }
+  });
+
   return (
     <div className="shop">
-      <div className="header">
-        <div className="cart-logo">
-          <Link to="/cart">
-            <i className="fas fa-shopping-cart"></i>
-          </Link>
-        </div>
-      </div>
+      
       <div className="search">
         <input
           type="text"
@@ -78,8 +84,27 @@ const Shop = () => {
           onChange={handleSearchInputChange}
         />
       </div>
+      <div className="header">
+        <div className="sorting">
+          <label htmlFor="sortOrder">Sort by:</label>
+          <select
+            id="sortOrder"
+            value={sortOrder}
+            onChange={handleSortOrderChange}
+          >
+            <option value="">None</option>
+            <option value="lowToHigh">Price: Low to High</option>
+            <option value="highToLow">Price: High to Low</option>
+          </select>
+        </div>
+        <div className="cart-logo">
+          <Link to="/cart">
+            <i className="fas fa-shopping-cart"></i>
+          </Link>
+        </div>
+      </div>
       <div className="products">
-        {filteredProducts.map((item) => (
+        {sortedProducts.map((item) => (
           <Product
             key={item._id}
             item={item}
@@ -87,6 +112,7 @@ const Shop = () => {
           />
         ))}
       </div>
+      
       <div className="pagination">
         <button onClick={prevPage} disabled={currentPage === 1}>
           Previous
@@ -98,7 +124,6 @@ const Shop = () => {
           Next
         </button>
       </div>
-      
     </div>
   );
 };

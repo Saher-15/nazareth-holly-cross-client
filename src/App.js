@@ -15,12 +15,11 @@ import Shop from "./pages/shop/shop";
 import Cart from "./pages/cart/cart";
 import ShopContextProvider from "./context/shop-context";
 
-function App() {
 
+function App() {
 
   return (
     <ShopContextProvider>
-
       <Router>
         <Routes>
           <Route path="/" element={<Layout><Home /></Layout>} />
@@ -37,7 +36,6 @@ function App() {
         </Routes>
       </Router>
     </ShopContextProvider>
-
   );
 }
 

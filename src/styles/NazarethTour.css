@@ -1,11 +1,57 @@
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Fallback background color */
+}
+
 .player-wrapper {
-    position: relative;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-  }
-  
-  .react-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.play-btn {
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.seek-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-slider {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.time-display {
+  font-size: 14px;
+  color: #666;
+}

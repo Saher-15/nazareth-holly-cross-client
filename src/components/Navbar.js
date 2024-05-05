@@ -14,7 +14,7 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <span>NAZARETH HOLLY CROSS</span> {/* Wrap the text in a span */}
+            <span>NAZARETH HOLY CROSS</span> {/* Wrap the text in a span */}
             <i className="fas fa-cross"></i>
           </Link>
 

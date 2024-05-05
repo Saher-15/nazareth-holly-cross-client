@@ -21,15 +21,13 @@ const Product = ({ item }) => {
         </p>
         <p> ${price}</p>
       </div>
-      <div className="addToCartWrapper"> 
+      <div className="addToCartWrapper">
         <button className="addToCartBttn" onClick={handleClick}>
-          Add To Cart 
+          Add To Cart
         </button>
-
       </div>
-      <div className="addToCartWrapper"> 
-                   {cartItemCount > 0 && <> ({cartItemCount})</>}
-
+      <div className="addToCartWrapper">
+        {cartItemCount > 0 && <> Qt:({cartItemCount})</>}
 
       </div>
     </div>

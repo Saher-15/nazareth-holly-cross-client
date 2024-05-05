@@ -15,7 +15,7 @@ function Footer() {
 
           <Link to='/privacy-policy' className='privacy-policy-link'>Privacy Policy</Link>
 
-          <small class='website-rights'>NAZARETH HOLLY CROSS © 2024</small>
+          <small class='website-rights'>NAZARETH HOLY CROSS © 2024</small>
 
         </div>
     </div>

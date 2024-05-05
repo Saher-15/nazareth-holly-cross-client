@@ -1,62 +1,10 @@
-/* Candle.css */
 
-/* Video */
-
-
-/* Hero Container */
-
-
-/* Center Text */
-
-
-/* Center Form */
-.center-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-
-}
-
-/* Section Spacing */
-.sec_sp {
-  margin-top: 3rem;
-  color: #fff;
-
-}
-
-/* Secondary Color Text */
-.color_sec {
-  color: #fff;
-}
-
-/* Contact Form */
-.contact-form {
-  margin-top: 30px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.contact-form textarea {
-  height: 100px;
-}
 
 /* Hero Buttons */
 .hero-btns {
   margin-top: 32px;
 }
 
-.hero-btns .btn {
-  margin: 6px;
-}
 
 /* Confirmation Message */
 .confirmation-msg {
@@ -92,71 +40,45 @@
   }
 }
 
-
-.prayer-text {
-  margin-left: 20px; /* Adjust the margin as needed */
-}
-
-.background-container {
-position: relative;
-}
-
-.background-image {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-image: url('/images/img-10.jpg');
-background-size: cover;
-background-position: center;
-filter: blur(3px); /* Adjust the blur intensity as needed */
-z-index: -1;
-}
-
-.container {
-position: relative;
-z-index: 1;
-}
-
-
-.contact {
+.candle {
   width: 100%;
   height: 90vh;
   display: flex;
 }
 
-.contact .leftSide {
+
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  background-image: url("/images/img-12.jpg"); /* Background image */
+  background-size: cover; /* Ensure the background image covers the entire div */
+  background-position: center; /* Center the background image */
+  z-index: -1; /* Move the background behind the content */
+  filter: blur(3px);
+}
+
+
+.candle .leftSide {
   flex: 50%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
-.contact .rightSide {
+.background-container {
+  background-image: url("/images/candle.jpg");
+  filter: blur(8px); /* Adjust the blur value as needed */
+}
+
+.candle .rightSide {
   height: 100%;
   flex: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
-}
-
-.contact .rightSide h1 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-weight: 10;
-  font-size: 50px;
-  margin-left: 30px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  height: auto;
-  padding: 30px;
 }
 
 form input {
@@ -175,6 +97,7 @@ form textarea {
   border-bottom: 1px solid #121619;
   color: black;
 }
+
 input::placeholder,
 textarea::placeholder {
   font-weight: bold;
@@ -184,22 +107,6 @@ textarea::placeholder {
 form input:focus,
 textarea:focus {
   outline: none;
-}
-
-form label {
-  margin-top: 15px;
-  color: grey;
-}
-
-form button {
-  margin-top: 40px;
-  width: 140px;
-  height: 40px;
-  border: none;
-  background-color: #121619;
-  color: whitesmoke;
-  font-size: 15px;
-  cursor: pointer;
 }
 
 .prayer-message {
@@ -212,10 +119,51 @@ form button {
 }
 
 .leftSide {
-  background-color: #242424;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   padding: 20px; /* Add padding for spacing */
+}
+
+.name-container input[type="text"]:last-child {
+  margin-left: 10px; /* Adjust the margin-left to create space between the inputs */
+}
+
+/* Name inputs */
+input[type="text"] {
+  width: calc(100% - 5px); /* Set the width to half of the container width minus 5 pixels for spacing */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Email inputs */
+input[type="email"], input[name="confirmEmail"], textarea[name="pray"] {
+  width: calc(100%); /* Set the width to half of the container width minus 5 pixels for spacing */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.candle-form {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Adjust the height if necessary */
+}
+
+.form-group {
+  width: 100%;
+  max-width: 300px; /* Adjust the max-width as needed */
+  margin-bottom: 20px;
+}
+
+.name-container {
+  display: flex;
+  justify-content: space-between;
 }

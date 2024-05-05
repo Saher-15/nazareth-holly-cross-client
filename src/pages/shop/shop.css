@@ -18,6 +18,7 @@
 /* Cart Logo */
 .cart-logo {
   font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .cart-logo a {
@@ -114,3 +115,23 @@
   color: #333;
 }
 
+/* Sorting */
+.sorting {
+  margin-bottom: 20px;
+}
+
+.sorting label {
+  margin-right: 10px;
+}
+
+.sorting select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.sorting select:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight border color when focused */
+}
