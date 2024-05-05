@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import Product from "./product";
 
 import "./shop.css";
@@ -10,7 +10,9 @@ const Shop = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortOrder, setSortOrder] = useState(""); // State to track sorting order
+  const [sortOrder, setSortOrder] = useState("");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(100);
   const itemsPerPage = 12;
 
   useEffect(() => {
@@ -20,7 +22,6 @@ const Shop = () => {
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
-        // Only set totalPages when component mounts
         if (currentPage === 1) {
           setTotalPages(response.data.next);
         }
@@ -31,6 +32,12 @@ const Shop = () => {
 
     getAllProducts();
   }, [currentPage]);
+
+  useEffect(() => {
+    // Set default values when the component mounts
+    setMinPrice(0);
+    setMaxPrice(100);
+  }, []); // Empty dependency array to run this effect only once, when the component mounts
 
   const nextPage = () => {
     if (currentPage < totalPages) {
@@ -57,25 +64,23 @@ const Shop = () => {
     // Implementation of addToCart logic
   };
 
-  // Filter products based on search query
   const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+    product.price >= minPrice && product.price <= maxPrice
   );
 
-  // Sort products based on sorting order
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOrder === "lowToHigh") {
       return a.price - b.price;
     } else if (sortOrder === "highToLow") {
       return b.price - a.price;
     } else {
-      return 0; // Maintain original order if no sorting order is selected
+      return 0;
     }
   });
 
   return (
     <div className="shop">
-      
       <div className="search">
         <input
           type="text"
@@ -97,6 +102,8 @@ const Shop = () => {
             <option value="highToLow">Price: High to Low</option>
           </select>
         </div>
+        
+
         <div className="cart-logo">
           <Link to="/cart">
             <i className="fas fa-shopping-cart"></i>
@@ -112,16 +119,15 @@ const Shop = () => {
           />
         ))}
       </div>
-      
       <div className="pagination">
         <button onClick={prevPage} disabled={currentPage === 1}>
-          Previous
+          <i className="fas fa-chevron-left"></i> Previous
         </button>
         <span className="pagination-text">
           {currentPage} of {totalPages}
         </span>
         <button onClick={nextPage} disabled={currentPage === totalPages}>
-          Next
+          Next <i className="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>

@@ -95,7 +95,7 @@
 .pagination button {
   padding: 10px 20px;
   border: none;
-  background-color: #007bff;
+  background-color: #242424;
   color: #fff;
   font-size: 16px;
   border-radius: 8px;
@@ -134,4 +134,19 @@
 .sorting select:focus {
   outline: none;
   border-color: #007bff; /* Highlight border color when focused */
+}
+
+/* Add this to your shop.css file */
+.price-input {
+  margin-bottom: 20px;
+
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.price-input:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color when focused */
 }
