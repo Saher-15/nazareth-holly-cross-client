@@ -38,6 +38,7 @@ video {
   
   .hero-btns .btn {
     margin: 6px;
+    border-radius: 25px;
   }
   
   .fa-play-circle {

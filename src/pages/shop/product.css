@@ -21,12 +21,15 @@
   }
   
   .addToCartBttn {
+
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    margin-right: 10px;
+
   }
   
   
@@ -36,7 +39,8 @@
   
   
   .addToCartBttn:hover {
-    background-color: #0056b3;
+    background-color: #000;
+    color:#b6b6b6;
   }
   
   .message {
@@ -49,16 +53,16 @@
   }
   
   .addToCartBttn {
-    background-color: #28a745; /* Green background color */
+    background-color: #242424; /* Green background color */
     color: #fff; /* White text color */
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 10px 20px; /* Increased padding for better visual */
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition for hover effect */
+    margin-left: 10px;
+
   }
   
-  .addToCartBttn:hover {
-    background-color: #218838; /* Darker green color on hover */
-  }
+
   
