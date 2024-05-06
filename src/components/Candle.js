@@ -56,8 +56,8 @@ function Candle() {
       <div className="blur-background"></div> {/* Add a div for the blurred background */}
 
       <div className="leftSide">
-        <p className="prayer-message">Feel free to share your prayer with us<br/> and we'll light a candle for you at Jesus City Church.
-          <br /><br />Once done<br/> we'll send you a video confirmation to your email address.</p>
+        <p className="prayer-message">Feel free to share your prayer with us<br /> and we'll light a candle for you at Jesus City Church.
+          <br /><br />Once done<br /> we'll send you a video confirmation to your email address.</p>
       </div>
 
       <div className="rightSide">
@@ -136,8 +136,6 @@ function Candle() {
               {lightButtonClicked && <p>Note: Your candle has been lit!</p>}
             </div>
           </form>
-
-
         </div>
       </div>
     </div>
