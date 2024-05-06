@@ -116,13 +116,13 @@ const Shop = () => {
       </div>
       <div className="pagination">
         <button onClick={prevPage} disabled={currentPage === 1}>
-          <i className="fas fa-chevron-left"></i> Previous
+          <i className="fas fa-chevron-left"></i>
         </button>
         <span className="pagination-text">
           {currentPage} of {totalPages}
         </span>
         <button onClick={nextPage} disabled={currentPage === totalPages}>
-          Next <i className="fas fa-chevron-right"></i>
+          <i className="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>
