@@ -6,116 +6,98 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px; /* Added padding for better spacing */
 }
 
 /* Cart Title */
 .cart h1 {
-  font-size: 28px;
+  font-size: 24px; /* Adjusted font size for smaller screens */
   color: #333;
-  margin-bottom: 20px;
+  margin: 20px 0; /* Adjusted margin for better spacing */
   text-align: center;
-  margin-top: 20px;
 }
 
+/* Cart Item */
 .cartItem {
-  position: relative; /* Set position relative for the cart item container */
+  width: 90%; /* Adjusted width for better responsiveness */
+  max-width: 700px; /* Added max-width for larger screens */
+  display: flex;
+  flex-direction: column; /* Changed flex direction for better stacking on smaller screens */
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  margin: 20px 0; /* Adjusted margin for better spacing */
+  overflow: hidden; /* Hide any overflowing content */
 }
 
+/* Cart Item Image */
+.cartItem img {
+  width: 100%; /* Made image width responsive */
+  border-radius: 25px 25px 0 0; /* Adjusted border radius for better appearance */
+}
+
+/* Cart Item Description */
+.cartItem .description {
+  padding: 20px;
+  font-size: 16px; /* Adjusted font size for smaller screens */
+}
+
+/* Quantity Counter */
+.countHandler input {
+  width: 60px; /* Adjusted width for better touch target on smaller screens */
+  height: 40px;
+}
+
+/* Checkout Container */
+.checkout {
+  flex-direction: column; /* Changed flex direction for better stacking on smaller screens */
+  margin-top: 30px;
+}
+
+/* Subtotal */
+.subtotal {
+  font-size: 18px; /* Adjusted font size for smaller screens */
+}
+
+/* Checkout Button */
+.checkout button {
+  width: 100%; /* Made button width responsive */
+  max-width: 200px; /* Added max-width for larger screens */
+}
+
+/* Checkout Button */
+.checkout button,
+.continueShopping button {
+  width: 100%; /* Made button width responsive */
+  max-width: 200px; /* Added max-width for larger screens */
+  height: 50px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  margin: 10px 0; /* Adjusted margin for better spacing */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Checkout Button Hover */
+.checkout button:hover,
+.continueShopping button:hover {
+  background-color: #0056b3;
+}
+
+/* Remove Button */
 .removeFromCartBtn {
-  position: absolute;
-  bottom: 10px; /* Adjust the distance from the bottom as needed */
-  right: 10px; /* Adjust the distance from the right as needed */
+  width: 120px; /* Set width to a fixed value */
+  height: 40px; /* Set height to a fixed value */
   background-color: #ff4d4f;
   color: white;
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .removeFromCartBtn:hover {
   background-color: #ff7875;
-}
-
-
-/* Cart Item */
-.cartItem {
-  width: 700px;
-  height: 250px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  border-radius: 25px;
-  margin: 30px;
-  overflow: hidden; /* Hide any overflowing content */
-}
-
-/* Cart Item Image */
-.cartItem img {
-  margin-left: 20px;
-  width: 200px;
-  height: auto;
-  border-radius: 25px 25px 25px 25px; /* Rounded border on the right side of the image */
-}
-
-/* Cart Item Description */
-.cartItem .description {
-  flex-grow: 1; /* Allow description to grow to fill available space */
-  padding: 20px;
-  font-size: 18px;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Quantity Counter */
-.countHandler input {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  font-weight: bold;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-/* Checkout Container */
-.checkout {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 700px;
-  margin-top: 30px;
-}
-
-/* Subtotal */
-.subtotal {
-  font-size: 20px;
-  color: #333;
-}
-
-/* Checkout Buttons Container */
-.checkout-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Checkout Button */
-.checkout button {
-  width: 150px;
-  height: 50px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  margin: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Checkout Button Hover */
-.checkout button:hover {
-  background-color: #0056b3;
 }
