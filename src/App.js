@@ -14,7 +14,7 @@ import Privacy from "./pages/Privacy";
 import Shop from "./pages/shop/shop";
 import Cart from "./pages/cart/cart";
 import ShopContextProvider from "./context/shop-context";
-
+import About from "./pages/About";
 
 function App() {
 
@@ -31,8 +31,9 @@ function App() {
           <Route path="/latin" element={<Layout><Latin /></Layout>} />
           <Route path="/greek" element={<Layout><Greek /></Layout>} />
           <Route path="/privacy-policy" element={<Layout><Privacy /></Layout>} />
-          <Route path="/shop" element={<Layout><Shop/></Layout>} />
+          <Route path="/shop" element={<Layout><Shop /></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
+          <Route path="/about" element={<Layout><About /></Layout>} />
         </Routes>
       </Router>
     </ShopContextProvider>
