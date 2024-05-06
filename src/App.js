@@ -31,7 +31,7 @@ function App() {
           <Route path="/latin" element={<Layout><Latin /></Layout>} />
           <Route path="/greek" element={<Layout><Greek /></Layout>} />
           <Route path="/privacy-policy" element={<Layout><Privacy /></Layout>} />
-          <Route path="/shop" element={<Layout><Shop /></Layout>} />
+          <Route path="/shop" element={<Layout><Shop/></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
         </Routes>
       </Router>

@@ -4,17 +4,12 @@ import { useShopContext } from "../../context/shop-context";
 import CartItem from "./cartItem";
 import "./cart.css";
 
-
 const Cart = () => {
-  const { cartItems } = useShopContext();
+  const { cartItems, decreaseFromCart } = useShopContext(); // Import removeFromCart function from your context
 
   const navigate = useNavigate();
-  console.log(cartItems);
+
   const [totalAmount, setTotalAmount] = useState();
-
-  const checkout = () => {
-
-  }
 
   useEffect(() => {
     function calcTotalAmount() {
@@ -28,34 +23,26 @@ const Cart = () => {
     calcTotalAmount();
   }, [cartItems]);
 
-
-
   return (
     <div className="cart">
       <div>
         <h1>Your Cart Items</h1>
       </div>
       <div className="cart">
-        {cartItems.map((product) => {
-
-          return <CartItem data={product} key={product._id}/>;
-
-        })}
+        {cartItems.map((product) => (
+          <CartItem
+            key={product._id}
+            data={product}
+            decreaseFromCart={() => decreaseFromCart(product._id)} // Pass removeFromCart function to CartItem component
+          />
+        ))}
       </div>
 
       {totalAmount > 0 ? (
         <div className="checkout">
           <p> Subtotal: ${totalAmount} </p>
           <button onClick={() => navigate("/shop")}> Continue Shopping </button>
-          <button
-            onClick={() => {
-              checkout();
-              // navigate("/checkout");
-            }}
-          >
-            {" "}
-            Checkout{" "}
-          </button>
+          <button onClick={() => navigate("/checkout")}> Checkout </button>
         </div>
       ) : (
         <div className="checkout">

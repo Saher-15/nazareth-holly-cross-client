@@ -25,7 +25,7 @@ const ShopContextProvider = (props) => {
   };
   
   // Function to remove a product from the cart
-  const removeFromCart = (productId) => {
+  const decreaseFromCart = (productId) => {
     const updatedCartItems = cartItems.map(item => {
       if (item._id === productId) {
         const updatedQuantity = item.quantity - 1;
@@ -43,6 +43,14 @@ const ShopContextProvider = (props) => {
   
   };
 
+    // Function to remove a product from the cart
+    const removeFromCart = (productId) => {
+      const updatedCartItems = cartItems.filter(
+        (item) => item._id !== productId
+      );
+      setCartItems(updatedCartItems);
+    };
+
   // Function to update the count of a product in the cart
   const updateCartItemCount = (productId, newCount) => {
     setCartItems((prevCartItems) =>
@@ -57,6 +65,7 @@ const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     updateCartItemCount,
+    decreaseFromCart
   };
 
   return (

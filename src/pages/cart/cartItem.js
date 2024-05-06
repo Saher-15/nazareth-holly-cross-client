@@ -3,11 +3,11 @@ import { useShopContext } from "../../context/shop-context";
 
 const CartItem = ({ data }) => {
   const { _id, name, price, img, quantity } = data;
-  const { addToCart, updateCartItemCount, removeFromCart } = useShopContext();
+  const { addToCart, updateCartItemCount, decreaseFromCart,removeFromCart  } = useShopContext();
 
   return (
     <div className="cartItem">
-      <img src={img} alt="" />
+      <img src={img} alt={data.title} />
       <div className="description">
         <p>
           <b>{name}</b>
@@ -18,7 +18,7 @@ const CartItem = ({ data }) => {
             className="addToCartBttn"
             onClick={() => {
               if (quantity > 1) {
-                removeFromCart(_id);
+                decreaseFromCart(_id);
               }
             }}
             disabled={quantity <= 1} // Disable the button if quantity is less than or equal to 1
@@ -35,14 +35,14 @@ const CartItem = ({ data }) => {
           >
             +
           </button>
-          
+
         </div>
         <button
-            className="removeFromCartBtn" // Style this button as needed
-            onClick={() => removeFromCart(_id)} // Remove the item from the cart
-          >
-            Remove
-          </button>
+          className="removeFromCartBtn" // Style this button as needed
+          onClick={() => removeFromCart(_id)} // Remove the item from the cart
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
