@@ -60,16 +60,10 @@
   filter: blur(3px);
 }
 
-
 .candle .leftSide {
   flex: 50%;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.background-container {
-  background-image: url("/images/candle.jpg");
-  filter: blur(8px); /* Adjust the blur value as needed */
 }
 
 .candle .rightSide {

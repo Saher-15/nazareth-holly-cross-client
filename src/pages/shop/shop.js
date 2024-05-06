@@ -25,6 +25,8 @@ const Shop = () => {
         if (currentPage === 1) {
           setTotalPages(response.data.next);
         }
+        // Scroll to top when new products are loaded
+        window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -57,11 +59,6 @@ const Shop = () => {
 
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
-  };
-
-  const addToCart = (productId) => {
-    // Update cart state with quantity of the product
-    // Implementation of addToCart logic
   };
 
   const filteredProducts = products.filter((product) =>
@@ -102,7 +99,6 @@ const Shop = () => {
             <option value="highToLow">Price: High to Low</option>
           </select>
         </div>
-        
 
         <div className="cart-logo">
           <Link to="/cart">
@@ -115,7 +111,6 @@ const Shop = () => {
           <Product
             key={item._id}
             item={item}
-            addToCart={() => addToCart(item._id)}
           />
         ))}
       </div>

@@ -1,26 +1,25 @@
-/* shop.css */
-
 /* Shop Container */
 .shop {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px; /* Adjust padding for smaller screens */
 }
 
 /* Header */
 .header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Stack items vertically on smaller screens */
+  align-items: center; /* Center items horizontally */
   margin-bottom: 20px;
 }
 
 /* Cart Logo */
 .cart-logo {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduce margin for smaller screens */
 }
 
+/* Cart Logo Link */
 .cart-logo a {
   color: #333; /* Adjust color as needed */
 }
@@ -36,11 +35,6 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-}
-
-.search input:focus {
-  outline: none;
-  border-color: #007bff; /* Highlight border color when focused */
 }
 
 /* Products Container */
@@ -65,28 +59,11 @@
   border-radius: 8px;
 }
 
-/* Product Details */
-.product .details {
-  margin-top: 10px;
-}
-
-/* Product Title */
-.product .title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Product Price */
-.product .price {
-  font-size: 16px;
-  color: #666;
-}
-
 /* Pagination */
 .pagination {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap; /* Ensure pagination wraps on smaller screens */
   justify-content: center;
   align-items: center;
 }
@@ -94,6 +71,7 @@
 /* Pagination Button */
 .pagination button {
   padding: 10px 20px;
+  margin: 5px;
   border: none;
   background-color: #242424;
   color: #fff;
@@ -110,7 +88,7 @@
 
 /* Pagination Text */
 .pagination-text {
-  margin: 0 20px;
+  margin: 5px 20px; /* Adjust margin for smaller screens */
   font-size: 16px;
   color: #333;
 }
@@ -118,10 +96,13 @@
 /* Sorting */
 .sorting {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Stack items vertically on smaller screens */
+  align-items: center; /* Center items horizontally */
 }
 
 .sorting label {
-  margin-right: 10px;
+  margin-bottom: 10px; /* Reduce margin for smaller screens */
 }
 
 .sorting select {
@@ -129,24 +110,41 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  width: 100%; /* Ensure select takes full width */
 }
 
-.sorting select:focus {
-  outline: none;
-  border-color: #007bff; /* Highlight border color when focused */
-}
-
-/* Add this to your shop.css file */
 .price-input {
   margin-bottom: 20px;
-
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  width: 100%; /* Ensure input takes full width */
 }
 
-.price-input:focus {
-  outline: none;
-  border-color: #007bff; /* Change border color when focused */
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .cart-logo {
+    font-size: 20px; /* Reduce font size for smaller screens */
+  }
+
+  .search input {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .pagination button {
+    padding: 8px 16px; /* Adjust button padding for smaller screens */
+  }
+
+  .pagination-text {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .sorting select {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .price-input {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
 }
