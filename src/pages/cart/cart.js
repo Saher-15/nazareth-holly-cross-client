@@ -47,6 +47,7 @@ const Cart = () => {
         </div>
       ) : (
         <div className="checkout">
+        
           <h1> Your Shopping Cart is Empty</h1>
           <button onClick={() => navigate("/shop")}> Back To Shopping </button>
         </div>

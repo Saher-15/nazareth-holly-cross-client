@@ -1,29 +1,45 @@
 .ms-alert {
-    background-color: #f44336; /* Red background color */
-    color: white; /* White text color */
-    padding: 15px; /* Padding */
-    margin-bottom: 20px; /* Bottom margin */
-    border-radius: 4px; /* Rounded corners */
-    position: relative; /* Position relative */
+  background-color: #f44336; /* Red background color */
+  color: white; /* White text color */
+  padding: 15px; /* Padding */
+  margin-bottom: 20px; /* Bottom margin */
+  border-radius: 4px; /* Rounded corners */
+  position: relative; /* Position relative */
+}
+
+.ms-close {
+  cursor: pointer; /* Cursor pointer */
+  position: absolute; /* Position absolute */
+  top: 5px; /* Align to top with some space */
+  right: 15px; /* Align to right */
+  color: white; /* White text color */
+}
+
+.ms-close:hover {
+  color: black; /* Black text color on hover */
+}
+
+.ms-action2 {
+  background-color: #f44336; /* Red background color */
+}
+
+.ms-small {
+  font-size: 14px; /* Small font size */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .ms-alert {
+    padding: 10px; /* Decrease padding for smaller screens */
+    margin-bottom: 15px; /* Decrease bottom margin for smaller screens */
   }
-  
+
   .ms-close {
-    cursor: pointer; /* Cursor pointer */
-    position: absolute; /* Position absolute */
-    top: 0; /* Align to top */
-    right: 15px; /* Align to right */
-    color: white; /* White text color */
+    top: 3px; /* Adjust top position for smaller screens */
+    right: 10px; /* Adjust right position for smaller screens */
   }
-  
-  .ms-close:hover {
-    color: black; /* Black text color on hover */
-  }
-  
-  .ms-action2 {
-    background-color: #f44336; /* Red background color */
-  }
-  
+
   .ms-small {
-    font-size: 14px; /* Small font size */
+    font-size: 12px; /* Decrease font size for smaller screens */
   }
-  
+}

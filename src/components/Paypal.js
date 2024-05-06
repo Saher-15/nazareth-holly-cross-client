@@ -36,7 +36,7 @@ export default function PayPalComponent({ totalAmount, cartItems }) {
                 },
                 body: JSON.stringify({ "intent": intent, "amount": totalAmount })
             });
-            
+
             if (!response.ok) {
                 throw new Error('Failed to create order');
             }
@@ -48,7 +48,7 @@ export default function PayPalComponent({ totalAmount, cartItems }) {
             console.error('Error creating order:', error);
             // Handle error here
         }
-        
+
     };
 
     const onApprove = async (data, actions) => {
@@ -81,12 +81,15 @@ export default function PayPalComponent({ totalAmount, cartItems }) {
         <div className="App">
             <PayPalScriptProvider options={initialOptions} >
                 {!showConfirmation && ( // Render PayPalButtons if showConfirmation is false
-                    <PayPalButtons
-                        createOrder={createOrder}
-                        onApprove={onApprove}
-                        onCancel={onCancel} // Handle cancellation
-                        onError={onError} // Handle error
-                    />
+                    <div className="paypal-buttons-container">
+                        <PayPalButtons
+                            createOrder={createOrder}
+                            onApprove={onApprove}
+                            onCancel={onCancel}
+                            onError={onError}
+                        />
+                    </div>
+
                 )}
             </PayPalScriptProvider>
             {/* Pass order details and cartItems to ConfirmationOrder if showConfirmation is true */}
