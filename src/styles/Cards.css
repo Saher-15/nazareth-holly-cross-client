@@ -1,5 +1,5 @@
 .cards {
-  padding: 4rem;
+  padding: 2rem; /* Adjust padding for smaller screens */
   background: #fff;
 }
 
@@ -11,24 +11,26 @@ h1 {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1120px;
-  width: 90%;
+  max-width: 90%; /* Adjust max-width for smaller screens */
   margin: 0 auto;
 }
 
 .cards__wrapper {
   position: relative;
-  margin: 50px 0 45px;
+  margin: 2rem 0 1.5rem; /* Adjust margin for smaller screens */
 }
 
 .cards__items {
-  margin-bottom: 24px;
+  margin-bottom: 1rem; /* Adjust margin for smaller screens */
+  display: flex; /* Ensure flexbox behavior for better responsiveness */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  justify-content: center; /* Center items horizontally */
 }
 
 .cards__item {
   display: flex;
   flex: 1;
-  margin: 0 1rem;
+  margin: 0 0.5rem; /* Adjust margin for smaller screens */
   border-radius: 10px;
 }
 
@@ -62,7 +64,7 @@ h1 {
   bottom: 0;
   margin-left: 10px;
   padding: 6px 8px;
-  max-width: calc((100%) - 60px);
+  max-width: calc(100% - 20px); /* Adjust max-width for smaller screens */
   font-size: 12px;
   font-weight: 700;
   color: #fff;
@@ -90,29 +92,17 @@ h1 {
 }
 
 .cards__item__info {
-  padding: 20px 30px 30px;
+  padding: 1rem; /* Adjust padding for smaller screens */
 }
 
 .cards__item__text {
   color: #252e48;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px; /* Adjust font size for smaller screens */
+  line-height: 22px; /* Adjust line height for smaller screens */
 }
 
-@media only screen and (min-width: 1200px) {
-  .content__blog__container {
-    width: 84%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .cards__items {
-    display: flex;
-  }
-}
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 768px) {
   .cards__item {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Adjust margin for medium screens */
   }
 }
