@@ -87,36 +87,30 @@ const Shop = () => {
         />
       </div>
       <div className="header">
-  <div className="sorting-and-cart">
-    <div className="sorting">
-      <label htmlFor="sortOrder">Sort by:</label>
-      <select
-        id="sortOrder"
-        value={sortOrder}
-        onChange={handleSortOrderChange}
-      >
-        <option value="">None</option>
-        <option value="lowToHigh">Price: Low to High</option>
-        <option value="highToLow">Price: High to Low</option>
-      </select>
-    </div>
-    <div className="cart-logo">
-      <Link to="/cart">
-        <i className="fas fa-shopping-cart"></i>
-      </Link>
-    </div>
-  </div>
-</div>
-
-
-
+        <div className="sorting-and-cart">
+          <div className="sorting">
+            <label htmlFor="sortOrder">Sort by:</label>
+            <select
+              id="sortOrder"
+              value={sortOrder}
+              onChange={handleSortOrderChange}
+            >
+              <option value="">None</option>
+              <option value="lowToHigh">Price: Low to High</option>
+              <option value="highToLow">Price: High to Low</option>
+            </select>
+          </div>
+          <div className="cart-logo">
+            <Link to="/cart">
+              <i className="fas fa-shopping-cart"></i>
+            </Link>
+          </div>
+        </div>
+      </div>
 
       <div className="products">
         {sortedProducts.map((item) => (
-          <Product
-            key={item._id}
-            item={item}
-          />
+          <Product key={item._id} item={item} />
         ))}
       </div>
       <div className="pagination">

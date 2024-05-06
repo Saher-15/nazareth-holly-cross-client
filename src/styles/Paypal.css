@@ -1,0 +1,29 @@
+.ms-alert {
+    background-color: #f44336; /* Red background color */
+    color: white; /* White text color */
+    padding: 15px; /* Padding */
+    margin-bottom: 20px; /* Bottom margin */
+    border-radius: 4px; /* Rounded corners */
+    position: relative; /* Position relative */
+  }
+  
+  .ms-close {
+    cursor: pointer; /* Cursor pointer */
+    position: absolute; /* Position absolute */
+    top: 0; /* Align to top */
+    right: 15px; /* Align to right */
+    color: white; /* White text color */
+  }
+  
+  .ms-close:hover {
+    color: black; /* Black text color on hover */
+  }
+  
+  .ms-action2 {
+    background-color: #f44336; /* Red background color */
+  }
+  
+  .ms-small {
+    font-size: 14px; /* Small font size */
+  }
+  

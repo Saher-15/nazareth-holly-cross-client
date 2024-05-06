@@ -98,7 +98,8 @@
 /* Sorting */
 .sorting {
   /* You can add margin-right to create space between sorting and cart logo */
-  margin-right: 20px; /* Add space between sorting and cart */
+
+  padding-right: 100px;
 }
 
 /* Sorting and Cart Container */
@@ -117,6 +118,7 @@
   border-radius: 5px;
   font-size: 16px;
   width: 100%; /* Ensure select takes full width */
+  
 }
 
 .price-input {

@@ -15,6 +15,7 @@ import Shop from "./pages/shop/shop";
 import Cart from "./pages/cart/cart";
 import ShopContextProvider from "./context/shop-context";
 import About from "./pages/About";
+import CheckOut from "./pages/CheckOut";
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
           <Route path="/shop" element={<Layout><Shop /></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
           <Route path="/about" element={<Layout><About /></Layout>} />
+          <Route path="/checkout" element={<Layout><CheckOut /></Layout>} />
+
         </Routes>
       </Router>
     </ShopContextProvider>

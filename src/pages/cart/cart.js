@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
 import CartItem from "./cartItem";
-import Paypal from "../../components/Paypal";
 
 import "./cart.css";
 
@@ -44,7 +43,7 @@ const Cart = () => {
         <div className="checkout">
           <p> Subtotal: ${totalAmount} </p>
           <button onClick={() => navigate("/shop")}> Continue Shopping </button>
-          <Paypal amount={totalAmount} />
+          <button onClick={() => navigate("/checkout", { state: { totalAmount: totalAmount, cartItems: cartItems } })}> Checkout </button>
         </div>
       ) : (
         <div className="checkout">
