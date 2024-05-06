@@ -61,6 +61,8 @@
   flex: 50%;
   background-position: center;
   background-repeat: no-repeat;
+  padding-left: 30px;
+
 }
 
 .candle .rightSide {
@@ -70,6 +72,7 @@
   flex-direction: column;
   justify-content: center;
   color: #fff;
+  padding-right: 30px;
 }
 
 form input {
