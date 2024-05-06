@@ -4,6 +4,8 @@ video {
   height: 100%;
   position: fixed;
   z-index: -1;
+  /* Add autoplay attribute */
+  autoplay: true;
 }
 
 .hero-container {
