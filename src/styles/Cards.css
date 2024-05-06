@@ -32,6 +32,7 @@ h1 {
   flex: 1;
   margin: 0 0.5rem; /* Adjust margin for smaller screens */
   border-radius: 10px;
+  padding-top: 10px;
 }
 
 .cards__item__link {
@@ -104,5 +105,11 @@ h1 {
 @media only screen and (min-width: 768px) {
   .cards__item {
     margin-bottom: 1.5rem; /* Adjust margin for medium screens */
+  }
+
+  .countHandler input {
+    width: 60px; /* Adjusted width for better touch target on smaller screens */
+    height: 40px;
+    text-align: center; /* Center text horizontally */
   }
 }

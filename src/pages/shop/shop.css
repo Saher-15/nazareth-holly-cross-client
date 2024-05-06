@@ -8,13 +8,15 @@
 /* Header */
 .header {
   display: flex;
-  flex-direction: column; /* Stack items vertically on smaller screens */
-  align-items: center; /* Center items horizontally */
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-/* Cart Logo */
 .cart-logo {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+  justify-content: flex-end; /* Move items to the end of the container */
   font-size: 24px;
   margin-bottom: 10px; /* Reduce margin for smaller screens */
 }
@@ -95,10 +97,14 @@
 
 /* Sorting */
 .sorting {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column; /* Stack items vertically on smaller screens */
-  align-items: center; /* Center items horizontally */
+  /* You can add margin-right to create space between sorting and cart logo */
+  margin-right: 20px; /* Add space between sorting and cart */
+}
+
+/* Sorting and Cart Container */
+.sorting-and-cart {
+  display: flex; /* Display children in a row */
+  align-items: center; /* Vertically center the items */
 }
 
 .sorting label {

@@ -3,7 +3,7 @@ import { useShopContext } from "../../context/shop-context";
 
 const CartItem = ({ data }) => {
   const { _id, name, price, img, quantity } = data;
-  const { addToCart, updateCartItemCount, decreaseFromCart,removeFromCart  } = useShopContext();
+  const { addToCart, updateCartItemCount, decreaseFromCart, removeFromCart } = useShopContext();
 
   return (
     <div className="cartItem">
@@ -28,7 +28,9 @@ const CartItem = ({ data }) => {
           <input
             value={quantity}
             onChange={(e) => updateCartItemCount(Number(e.target.value), _id)}
+            style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}
           />
+
           <button
             className="addToCartBttn"
             onClick={() => addToCart(data)}
@@ -43,7 +45,11 @@ const CartItem = ({ data }) => {
         >
           Remove
         </button>
+
+
+
       </div>
+
     </div>
   );
 };
