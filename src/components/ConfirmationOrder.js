@@ -1,35 +1,38 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 
-function ThankYou({ cartItems, firstName, lastName, email, address, totalPrice }) {
+function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice }) {
     useEffect(() => {
         const sendOrderDetails = async () => {
             try {
-                // Construct the request body with customer information, total price, and products
                 const requestBody = {
                     firstName,
                     lastName,
+                    phone,
                     email,
-                    address,
+                    street,
+                    city,
+                    state,
+                    postal,
+                    country,
                     totalPrice,
                     products: cartItems.map(item => ({
-                        productId: item.productId,
+                        productID: item._id,
                         quantity: item.quantity
                     }))
                 };
 
-                // Send the request body to your backend API
-                const response = await axios.post("https://your-api-endpoint.com/send-order-details", requestBody);
-                console.log(response.data); // Log response if needed
+                console.log(requestBody);
+                return;
+                const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
+                console.log(response.data);
             } catch (error) {
                 console.error('Error sending order details:', error);
-                // Handle error here
             }
         };
 
-        // Call the function to send order details
         sendOrderDetails();
-    }, [cartItems, firstName, lastName, email, address, totalPrice]); // Include all dependencies in the dependency array
+    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice]);
 
     return (
         <div style={styles.container}>

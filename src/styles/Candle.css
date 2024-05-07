@@ -133,7 +133,7 @@ input[type="text"] {
 }
 
 /* Email inputs */
-input[type="email"], input[name="confirmEmail"], textarea[name="pray"] {
+input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="tel"] {
   width: calc(100%); /* Set the width to half of the container width minus 5 pixels for spacing */
   padding: 10px;
   margin-bottom: 10px;
