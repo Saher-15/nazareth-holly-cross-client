@@ -4,7 +4,5 @@ import { createRoot } from 'react-dom/client'; // Import createRoot from react-d
 
 const root = createRoot(document.getElementById("root")); // Use createRoot from react-dom/client
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );

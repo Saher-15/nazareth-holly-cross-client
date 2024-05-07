@@ -22,21 +22,19 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         country: ""
     });
 
-    console.log(cartItems);///////
-
-
     const [value, setValue] = useState('')
     const options = useMemo(() => countryList().getData(), [])
 
     const changeHandler = value => {
         setValue(value)
+        setForm(prev => ({ ...prev, country: value.label }))
 
     }
     const [emailMatchError] = useState("");
     const [inputWarning] = useState("");
 
     const handleChangeForm = (e) => {
-        const { name, value } = e.target || e;
+        const { name, value } = e.target
         setForm((prevData) => ({
             ...prevData,
             [name]: value,
@@ -103,7 +101,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         })
             .then((response) => response.json())
             .then((order_details) => {
-                console.log(order_id);
                 setOrderDetails(order_details); // Store order details in state
                 setShowConfirmation(true); // Show ConfirmationOrder component after payment is completed
             })
@@ -112,8 +109,11 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             });
     };
 
+
     return (
         <div className="App">
+            <h1 className="title">Payment Method</h1>
+
             <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
                     <div className="name-container">
@@ -219,7 +219,8 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
                         <Select
                             options={options}
-                            onChange={(selectedOption) => handleChangeForm({ name: "country", value: selectedOption.value })}
+                            onChange={changeHandler}
+                            value={value}
                             placeholder="Select Country"
                             className="country-select"
                         />

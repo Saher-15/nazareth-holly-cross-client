@@ -13,6 +13,8 @@ const Shop = () => {
   const [sortOrder, setSortOrder] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100);
+  const [sliderMin, setSliderMin] = useState(0);
+  const [sliderMax, setSliderMax] = useState(100);
   const itemsPerPage = 12;
 
   useEffect(() => {
@@ -53,12 +55,18 @@ const Shop = () => {
     }
   };
 
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
+  };
+
+  const handleMinSliderChange = (event) => {
+    setSliderMin(event.target.value);
+    setMinPrice(parseInt(event.target.value));
+  };
+
+  const handleMaxSliderChange = (event) => {
+    setSliderMax(event.target.value);
+    setMaxPrice(parseInt(event.target.value));
   };
 
   const filteredProducts = products.filter((product) =>
@@ -78,18 +86,11 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={searchQuery}
-          onChange={handleSearchInputChange}
-        />
-      </div>
       <div className="header">
         <div className="sorting-and-cart">
           <div className="sorting">
             <label htmlFor="sortOrder">Sort by:</label>
+            
             <select
               id="sortOrder"
               value={sortOrder}
@@ -99,6 +100,7 @@ const Shop = () => {
               <option value="lowToHigh">Price: Low to High</option>
               <option value="highToLow">Price: High to Low</option>
             </select>
+            
           </div>
           <div className="cart-logo">
             <Link to="/cart">
@@ -106,6 +108,20 @@ const Shop = () => {
             </Link>
           </div>
         </div>
+      </div>
+
+      <div className="price-filter">
+        <span>Price Range:</span>
+        
+        <input
+          type="range"
+          min="0"
+          max="100"
+          value={sliderMax}
+          onChange={handleMaxSliderChange}
+        />
+        <span></span>
+        <span>${sliderMax}</span>
       </div>
 
       <div className="products">

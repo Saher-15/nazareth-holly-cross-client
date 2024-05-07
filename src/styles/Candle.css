@@ -123,6 +123,10 @@ textarea:focus {
   margin-left: 10px; /* Adjust the margin-left to create space between the inputs */
 }
 
+/* Style for country select */
+.country-select {
+  width: 100%; /* Take up full width */
+}
 /* Name inputs */
 input[type="text"] {
   width: calc(100% - 5px); /* Set the width to half of the container width minus 5 pixels for spacing */

@@ -1,5 +1,6 @@
 import "../styles/Candle.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from './Button';
 import axios from "axios";
 
@@ -12,6 +13,8 @@ function Candle() {
     confirmEmail: "",
     pray: ""
   });
+
+  const navigate = useNavigate();
 
   const [lightButtonClicked, setLightButtonClicked] = useState(false);
   const [emailMatchError, setEmailMatchError] = useState("");
@@ -43,6 +46,7 @@ function Candle() {
 
     // Call the light a candle API
     const { firstname, lastname, email, pray } = form;
+    return;
     try {
       await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle', { firstName: firstname, lastName: lastname, email, pray });
       setLightButtonClicked(true);
@@ -124,9 +128,23 @@ function Candle() {
             </div>
             <h5>to light a candle you have to pay 1$</h5>
             <div className='hero-btns'>
+              <button onClick={() => navigate("/checkoutcandle", {
+                state: {
+                  form:form
+                }
+              })}> Checkout </button>
+
               <Button
                 className='btns'
-                onClick={handleLightButton}
+                onClick={() => navigate("/checkoutcandle", {
+                  state:
+                  {
+                    firstName: form.firstname,
+                    lastName: form.lastname,
+                    email: form.email,
+                    pray: form.pray
+                  }
+                })}
                 buttonStyle='btn--outline'
                 buttonSize='btn--medium'
                 type="button"

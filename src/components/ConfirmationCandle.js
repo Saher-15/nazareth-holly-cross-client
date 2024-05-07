@@ -1,28 +1,18 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 
-function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice }) {
+function ThankYou({ firstName, lastName, email, prayer }) {
     useEffect(() => {
         const sendOrderDetails = async () => {
             try {
                 const requestBody = {
                     firstName,
                     lastName,
-                    phone,
                     email,
-                    street,
-                    city,
-                    state,
-                    postal,
-                    country,
-                    totalPrice,
-                    products: cartItems.map(item => ({
-                        productID: item._id,
-                        quantity: item.quantity
-                    }))
+                    prayer
                 };
-                return;
-                const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
+                
+                const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle", requestBody);
                 console.log(response.data);
             } catch (error) {
                 console.error('Error sending order details:', error);
@@ -30,7 +20,8 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
         };
 
         sendOrderDetails();
-    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice]); // Add dependencies here
+    }, [firstName, lastName, email, prayer]); // Add dependencies here
+    console.log(firstName, lastName, email, prayer);
 
     return (
         <div style={styles.container}>

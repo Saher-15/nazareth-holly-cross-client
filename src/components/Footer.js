@@ -12,7 +12,6 @@ function Footer() {
           <p className='contact-item'>Phone: +1234567890</p>
         </div>
         <div className="footer-links">
-          <Link to='/privacy-policy' className='privacy-policy-link'>Privacy Policy</Link>
           <Link to='/about' className='about-us-link'>About Us</Link>
         </div>
         <small className='website-rights'>NAZARETH HOLY CROSS © 2024</small>
