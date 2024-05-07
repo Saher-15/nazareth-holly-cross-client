@@ -19,7 +19,7 @@ const Shop = () => {
     async function getAllProducts() {
       try {
         const response = await axios.get(
-          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?{page=${currentPage}&size=${itemsPerPage}}`
+          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
         if (currentPage === 1) {

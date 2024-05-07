@@ -16,7 +16,7 @@ import Cart from "./pages/cart/cart";
 import ShopContextProvider from "./context/shop-context";
 import About from "./pages/About";
 import CheckOut from "./pages/CheckOut";
-
+import Shope from "./pages/shop/shope";
 function App() {
 
   return (
@@ -32,7 +32,7 @@ function App() {
           <Route path="/latin" element={<Layout><Latin /></Layout>} />
           <Route path="/greek" element={<Layout><Greek /></Layout>} />
           <Route path="/privacy-policy" element={<Layout><Privacy /></Layout>} />
-          <Route path="/shop" element={<Layout><Shop /></Layout>} />
+          <Route path="/shop" element={<Layout><Shope /></Layout>} />
           <Route path="/cart" element={<Layout><Cart /></Layout>} />
           <Route path="/about" element={<Layout><About /></Layout>} />
           <Route path="/checkout" element={<Layout><CheckOut /></Layout>} />
