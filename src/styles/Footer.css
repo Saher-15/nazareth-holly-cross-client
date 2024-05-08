@@ -60,12 +60,21 @@
   width: 90%;
   max-width: 1000px;
   margin: 1rem auto 0 auto;
+  
 }
 /* Footer.css */
-
-/* Footer.css */
-
 .contact-item{
   margin-left: 20px; /* Add margin to the right */
 
+}
+
+.about-us-link {
+  color: #007bff; /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make text bold */
+  font-size: 16px; /* Adjust font size */
+}
+
+.about-us-link:hover {
+  color: #0056b3; /* Text color on hover */
 }

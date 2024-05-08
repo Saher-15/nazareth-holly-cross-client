@@ -8,7 +8,6 @@ function HeroSection() {
     <div className='hero-container'>
 <video src='/videos/video-7.mp4' autoPlay loop muted playsInline controls />
       <h1>JESUS CITY AWAITS</h1>
-      <p>What are you waiting for?</p>
       <div className='hero-btns'>
         <Button
           destination='/candle'

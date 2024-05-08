@@ -112,7 +112,11 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
     return (
         <div className="App">
+            <div className="leftSide">
+
             <h1 className="title">Payment Method</h1>
+            </div>
+            
 
             <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
@@ -173,6 +177,17 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                     {emailMatchError && <p className="error-message">{emailMatchError}</p>}
                 </div>
                 <div className="form-group">
+                    <Select
+                        options={options}
+                        onChange={changeHandler}
+                        value={value}
+                        placeholder="Select Country"
+                        className="country-select"
+                    />
+
+                </div>
+                <div className="form-group">
+
                     <input
                         type="email"
                         name="street"
@@ -183,6 +198,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         className="form-control"
                     />
                 </div>
+
                 <div className="form-group">
                     <div className="name-container">
                         <input
@@ -208,7 +224,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                 <div className="form-group">
                     <div className="name-container">
                         <input
-                            type="text"
+                            type="tel"
                             name="postal"
                             placeholder="Postal/ Zip Code"
                             value={form.postal}
@@ -216,16 +232,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                             required
                             className="form-control"
                         />
-
-                        <Select
-                            options={options}
-                            onChange={changeHandler}
-                            value={value}
-                            placeholder="Select Country"
-                            className="country-select"
-                        />
                     </div>
-
                 </div>
 
             </form>

@@ -1,9 +1,6 @@
-import "../styles/Candle.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button } from './Button';
 import axios from "axios";
-
 
 function Candle() {
   const [form, setForm] = useState({
@@ -16,7 +13,6 @@ function Candle() {
 
   const navigate = useNavigate();
 
-  const [lightButtonClicked, setLightButtonClicked] = useState(false);
   const [emailMatchError, setEmailMatchError] = useState("");
   const [inputWarning, setInputWarning] = useState("");
 
@@ -31,7 +27,6 @@ function Candle() {
   const handleLightButton = async () => {
     // Check if any input fields are empty
     if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray) {
-      setInputWarning("Please fill out all fields");
       setTimeout(() => {
         setInputWarning(""); // Clear the warning message after 2 seconds
       }, 2000);
@@ -41,15 +36,14 @@ function Candle() {
     // Check if both email inputs match
     if (form.email !== form.confirmEmail) {
       setEmailMatchError("Emails do not match");
+      setTimeout(() => {
+        setEmailMatchError(""); // Clear the error message after 2 seconds
+      }, 2000);
       return;
     }
 
-    // Call the light a candle API
-    const { firstname, lastname, email, pray } = form;
-    return;
     try {
-      await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle', { firstName: firstname, lastName: lastname, email, pray });
-      setLightButtonClicked(true);
+      navigate("/checkoutcandle", { state: { form: form } });
     } catch (error) {
       console.error("Error lighting a candle:", error);
     }
@@ -127,31 +121,10 @@ function Candle() {
               {inputWarning && <p className="error-message">{inputWarning}</p>}
             </div>
             <h5>to light a candle you have to pay 1$</h5>
-            <div className='hero-btns'>
-              <button onClick={() => navigate("/checkoutcandle", {
-                state: {
-                  form:form
-                }
-              })}> Checkout </button>
+            <div className='hero-btns-candle'>
+            <button onClick={handleLightButton}>LIGHT</button>
 
-              <Button
-                className='btns'
-                onClick={() => navigate("/checkoutcandle", {
-                  state:
-                  {
-                    firstName: form.firstname,
-                    lastName: form.lastname,
-                    email: form.email,
-                    pray: form.pray
-                  }
-                })}
-                buttonStyle='btn--outline'
-                buttonSize='btn--medium'
-                type="button"
-              >
-                LIGHT
-              </Button>
-              {lightButtonClicked && <p>Note: Your candle has been lit!</p>}
+                
             </div>
           </form>
         </div>

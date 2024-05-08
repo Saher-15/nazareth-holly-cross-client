@@ -17,6 +17,7 @@ import About from "./pages/About";
 import CheckOut from "./pages/CheckOut";
 import Shope from "./pages/shop/shope";
 import CheckOutCandle from "./pages/CheckOutCandle";
+import ProductPage from "./pages/shop/ProductPage";
 function App() {
 
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/about" element={<Layout><About /></Layout>} />
           <Route path="/checkout" element={<Layout><CheckOut /></Layout>} />
           <Route path="/checkoutcandle" element={<Layout><CheckOutCandle /></Layout>} />
+          <Route path="/product" element={<Layout><ProductPage /></Layout>} />
 
         </Routes>
       </Router>

@@ -1,11 +1,32 @@
 /* Hero Buttons */
 .hero-btns {
-  margin-top: 32px;
+  text-align: center;
 }
 
 /* Confirmation Message */
 .confirmation-msg {
   color: #fff;
+  text-align: center;
+}
+
+.hero-btns-candle button {
+  padding: 10px 20px;
+  background-color: #ffffff38;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+}
+
+.hero-btns button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+h5 {
+  font-size: 14px;
   text-align: center;
 }
 
@@ -38,9 +59,10 @@
 }
 
 .candle {
-  width: 100%;
-  height: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 .blur-background {
@@ -112,21 +134,18 @@ textarea:focus {
 }
 
 .leftSide {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 20px; /* Add padding for spacing */
+  padding: 20px; Add padding for spacing */
+  flex: 1;
 }
 
 .name-container input[type="text"]:last-child {
   margin-left: 10px; /* Adjust the margin-left to create space between the inputs */
 }
 
-/* Style for country select */
-.country-select {
-  width: 100%; /* Take up full width */
-}
 /* Name inputs */
 input[type="text"] {
   width: calc(100% - 5px); /* Set the width to half of the container width minus 5 pixels for spacing */
@@ -164,3 +183,4 @@ input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="t
   display: flex;
   justify-content: space-between;
 }
+

@@ -53,10 +53,6 @@ const Shop = () => {
     }
   };
 
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
   };
@@ -78,14 +74,7 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={searchQuery}
-          onChange={handleSearchInputChange}
-        />
-      </div>
+      
       <div className="header">
         <div className="sorting-and-cart">
           <div className="sorting">
@@ -109,8 +98,10 @@ const Shop = () => {
       </div>
 
       <div className="products">
-        {sortedProducts.map((item) => (
-          <Product key={item._id} item={item} />
+        {products.map((item) => (
+          <Link key={item._id} to={`/product/${item._id}`}>
+            <Product item={item} />
+          </Link>
         ))}
       </div>
       <div className="pagination">

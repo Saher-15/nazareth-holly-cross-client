@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useShopContext } from "../../context/shop-context";
+import { Link } from "react-router-dom";
+
 import "../shop/product.css";
 
 const Product = ({ item }) => {
@@ -19,7 +21,9 @@ const Product = ({ item }) => {
 
   return (
     <div className="product">
-      <img src={img} alt="" />
+      <Link to={`/product/${_id}`}>
+        <img src={img} alt="" />
+      </Link>
       <div className="description">
         <p>
           <b>{name}</b>

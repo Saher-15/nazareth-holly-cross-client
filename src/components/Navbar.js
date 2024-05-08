@@ -12,12 +12,12 @@ function Navbar() {
     <>
 
       <nav className='navbar'>
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu} >
+        <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px"}}></i>
+        <span> NAZARETH HOLY CROSS </span>
+        <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px"}}></i>
+        </Link>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <span>NAZARETH HOLY CROSS</span> {/* Wrap the text in a span */}
-            <i className="fas fa-cross"></i>
-          </Link>
-
 
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />

@@ -90,7 +90,7 @@ const Shop = () => {
         <div className="sorting-and-cart">
           <div className="sorting">
             <label htmlFor="sortOrder">Sort by:</label>
-            
+
             <select
               id="sortOrder"
               value={sortOrder}
@@ -100,7 +100,20 @@ const Shop = () => {
               <option value="lowToHigh">Price: Low to High</option>
               <option value="highToLow">Price: High to Low</option>
             </select>
-            
+
+          </div>
+          <div className="price-filter">
+            <span>Price Range:</span>
+
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={sliderMax}
+              onChange={handleMaxSliderChange}
+            />
+            <span></span>
+            <span>${sliderMax}</span>
           </div>
           <div className="cart-logo">
             <Link to="/cart">
@@ -110,19 +123,7 @@ const Shop = () => {
         </div>
       </div>
 
-      <div className="price-filter">
-        <span>Price Range:</span>
-        
-        <input
-          type="range"
-          min="0"
-          max="100"
-          value={sliderMax}
-          onChange={handleMaxSliderChange}
-        />
-        <span></span>
-        <span>${sliderMax}</span>
-      </div>
+
 
       <div className="products">
         {sortedProducts.map((item) => (

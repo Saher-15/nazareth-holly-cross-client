@@ -135,6 +135,8 @@
     color: #242424;
     transition: 250ms;
   }
+
+  
 }
 
 @media screen and (max-width: 600px) {
