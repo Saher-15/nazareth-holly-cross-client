@@ -1,7 +1,7 @@
 .cards {
-  padding: 2rem; /* Adjust padding for smaller screens */
-  background: #fff;
-}
+  padding: 2rem;
+background-color: rgba(255, 255, 255, 0.8);}
+
 
 h1 {
   text-align: center;
