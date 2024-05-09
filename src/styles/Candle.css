@@ -30,34 +30,6 @@ h5 {
   text-align: center;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 960px) {
-  .hero-container > h2 {
-    font-size: 70px;
-    margin-top: -150px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero-container > h2 {
-    font-size: 50px;
-    margin-top: -100px;
-  }
-
-  .hero-container > p {
-    font-size: 30px;
-  }
-
-  .btn-mobile {
-    display: block;
-    text-decoration: none;
-  }
-
-  .btn {
-    width: 100%;
-  }
-}
-
 .candle {
   display: flex;
   justify-content: space-between;
@@ -71,11 +43,11 @@ h5 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/img-12.jpg"); /* Background image */
+  background-image: url("/images/candle.jpg"); /* Background image */
   background-size: cover; /* Ensure the background image covers the entire div */
   background-position: center; /* Center the background image */
   z-index: -1; /* Move the background behind the content */
-  filter: blur(3px);
+  filter: blur(1px);
 }
 
 .candle .leftSide {
@@ -134,11 +106,11 @@ textarea:focus {
 }
 
 .leftSide {
-  /* display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 20px; Add padding for spacing */
+  padding: 20px; 
   flex: 1;
 }
 
@@ -184,3 +156,45 @@ input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="t
   justify-content: space-between;
 }
 
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .candle {
+    padding: 10px;
+  }
+
+  .candle .leftSide,
+  .candle .rightSide {
+    padding: 20px;
+  }
+
+  .candle-form {
+    height: auto;
+  }
+
+  form input,
+  form textarea {
+    width: calc(100% - 20px);
+    max-width: 100%;
+  }
+
+  .name-container {
+    flex-direction: column;
+  }
+
+  .name-container input[type="text"] {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  .name-container input[type="text"]:last-child {
+    margin-left: 0;
+    margin-top: 10px; /* Add margin-top to create space between the inputs on smaller screens */
+  }
+
+  input[type="text"] {
+    width: calc(100% - 20px); /* Adjust the width to accommodate for padding */
+    margin-bottom: 10px;
+  }
+}

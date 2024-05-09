@@ -1,12 +1,12 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState } from 'react'
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import ConfirmationCandle from '../components/ConfirmationCandle'; // Import ConfirmationCandle component
-import "../styles/Candle.css";
+import "../styles/PaypalCandle.css";
 
 const PayPalComponent = ({form}) => {
     const [showConfirmation, setShowConfirmation] = useState(false); // State to control visibility of ConfirmationCandle
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
-    const [orderDetails, setOrderDetails] = useState(null); // State to store order details
+    const [setOrderDetails] = useState(null); // State to store order details
     
     const initialOptions = {
         clientId: "AZXaYL8OS1Iv7LLmAO9aPD-sgLShLbEl9jzdYx2hHSAmKtWlekv2dEwzXgalzfySvEfDo7hXcIVJZsA-"
@@ -79,6 +79,11 @@ const PayPalComponent = ({form}) => {
     return (
         <div className="App">
             <h1 className="title">Payment Method</h1>
+            <p>
+                O blessed Lord, Lord of light. As I light this candle, I am mindful of your love for me, and my faith in You. I ask you to help me be a light in this world for You.
+            </p>
+            <div className="paypal-card">
+
             <PayPalScriptProvider options={initialOptions} >
                 {!showConfirmation && ( // Render PayPalButtons if showConfirmation is false
                     <div className="paypal-buttons-container">
@@ -91,6 +96,7 @@ const PayPalComponent = ({form}) => {
                     </div>
                 )}
             </PayPalScriptProvider>
+            </div>
             {/* Pass order details and cartItems to ConfirmationCandle if showConfirmation is true */}
             {showConfirmation && (
                 <ConfirmationCandle

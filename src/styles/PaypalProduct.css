@@ -1,0 +1,140 @@
+/* Candle.css */
+
+/* Main container styles */
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.left-side {
+    flex: 1;
+    padding: 20px;
+}
+
+.right-side {
+    flex: 1;
+    padding: 20px;
+}
+
+  
+  /* Title styles */
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styles */
+  .candle-form {
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .name-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-control {
+    width: calc(50% - 10px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .country-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  /* PayPal buttons container styles */
+  .paypal-buttons-container {
+    margin-bottom: 0px;
+  }
+  
+  /* PayPal card styles */
+  .paypal-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 50px;
+}
+  
+  /* Alert message styles */
+  .ms-alert {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .ms-close {
+    float: right;
+    cursor: pointer;
+  }
+  
+  /* ConfirmationOrder styles */
+  /* You can add specific styles for ConfirmationOrder component if needed */
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 20px;
+    }
+    
+    .form-control {
+      width: 100%;
+    }
+    
+    .name-container {
+      flex-direction: column;
+    }
+    
+    .name-container input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+    }
+
+    .right-side {
+        margin-top: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .title {
+      font-size: 18px;
+    }
+    
+    .form-control,
+    .country-select {
+      font-size: 14px;
+    }
+  }
+

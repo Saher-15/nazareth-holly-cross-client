@@ -3,7 +3,10 @@ import axios from 'axios';
 
 function ThankYou({ firstName, lastName, email, prayer }) {
     useEffect(() => {
+        console.log(firstName, lastName, email, prayer);
+
         const sendOrderDetails = async () => {
+
             try {
                 const requestBody = {
                     firstName,
@@ -11,7 +14,6 @@ function ThankYou({ firstName, lastName, email, prayer }) {
                     email,
                     prayer
                 };
-                
                 const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle", requestBody);
                 console.log(response.data);
             } catch (error) {
@@ -21,7 +23,7 @@ function ThankYou({ firstName, lastName, email, prayer }) {
 
         sendOrderDetails();
     }, [firstName, lastName, email, prayer]); // Add dependencies here
-    console.log(firstName, lastName, email, prayer);
+    console.log("---------");
 
     return (
         <div style={styles.container}>

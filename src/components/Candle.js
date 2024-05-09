@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import "../styles/Candle.css";
 
 function Candle() {
   const [form, setForm] = useState({
@@ -60,7 +60,7 @@ function Candle() {
 
       <div className="rightSide">
 
-        <h1> LIGHT A PRAY CANDLE</h1>
+        {/* <h1> LIGHT A PRAY CANDLE</h1> */}
 
         <div>
           <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>

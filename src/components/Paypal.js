@@ -1,14 +1,15 @@
-import React, { useState, useMemo } from 'react'
-import Select from 'react-select'
-import countryList from 'react-select-country-list'
+import React, { useState, useMemo } from 'react';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import ConfirmationOrder from '../components/ConfirmationOrder'; // Import ConfirmationOrder component
-import "../styles/Candle.css";
+// import "../styles/Candle.css";
+import "../styles/PaypalProduct.css";
 
 const PayPalComponent = ({ totalAmount, cartItems }) => {
     const [showConfirmation, setShowConfirmation] = useState(false); // State to control visibility of ConfirmationOrder
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
-    const [orderDetails, setOrderDetails] = useState(null); // State to store order details
+    const [setOrderDetails] = useState(null); // State to store order details
     const [form, setForm] = useState({
         firstname: "",
         lastname: "",
@@ -31,7 +32,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
     }
     const [emailMatchError] = useState("");
-    const [inputWarning] = useState("");
 
     const handleChangeForm = (e) => {
         const { name, value } = e.target
@@ -83,7 +83,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         }
     };
 
-    const onApprove = async (data, actions) => {
+    const onApprove = async (data) => {
         const order_id = data.orderID;
         console.log(data);
 
@@ -109,168 +109,170 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             });
     };
 
-
     return (
         <div className="App">
-            <div className="leftSide">
+            <div className="container">
+                <div className="left-side">
+                    <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
+                        <div className="form-group">
+                            <div className="name-container">
+                                <input
+                                    type="text"
+                                    name="firstname"
+                                    placeholder="First Name"
+                                    value={form.firstname}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                                <input
+                                    type="text"
+                                    name="lastname"
+                                    placeholder="Last Name"
+                                    value={form.lastname}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
 
-            <h1 className="title">Payment Method</h1>
+                            <div className="name-container">
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={form.email}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                                <input
+                                    type="text"
+                                    name="confirmEmail"
+                                    placeholder="Confirm Email"
+                                    value={form.confirmEmail}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                                {emailMatchError && <p className="error-message">{emailMatchError}</p>}
+                            </div>
+                            
+                        </div>
+                        <div className="form-group">
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="Phone Number"
+                                    value={form.phone}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                            </div>
+                        <div className="form-group">
+                            <Select
+                                options={options}
+                                onChange={changeHandler}
+                                value={value}
+                                placeholder="Select Country"
+                                className="country-select"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <div className="name-container">
+                                <input
+                                    type="text"
+                                    name="city"
+                                    placeholder="City"
+                                    value={form.city}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                                <input
+                                    type="text"
+                                    name="street"
+                                    placeholder="Street Address"
+                                    value={form.street}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <div className="name-container">
+
+                                <input
+                                    type="text"
+                                    name="postal"
+                                    placeholder="Postal/ Zip Code"
+                                    value={form.postal}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+
+                                <input
+                                    type="text"
+                                    name="state"
+                                    placeholder="State/ Province"
+                                    value={form.state}
+                                    onChange={handleChangeForm}
+                                    required
+                                    className="form-control"
+                                />
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <div className="name-container">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div className="right-side">
+                    <div className="paypal-card">
+                        <PayPalScriptProvider options={initialOptions} >
+                            {!showConfirmation && (
+                                <div className="paypal-buttons-container">
+                                    <PayPalButtons
+                                        createOrder={createOrder}
+                                        onApprove={onApprove}
+                                        onCancel={onCancel}
+                                        onError={onError}
+                                    />
+                                </div>
+                            )}
+                        </PayPalScriptProvider>
+                        {showConfirmation && (
+                            <ConfirmationOrder
+                                cartItems={cartItems}
+                                firstName={form.firstname}
+                                lastName={form.lastname}
+                                phone={form.phone}
+                                email={form.email}
+                                street={form.street}
+                                city={form.city}
+                                state={form.state}
+                                postal={form.postal}
+                                country={form.country}
+                                totalPrice={totalAmount}
+                            />
+                        )}
+                        {showAlert && (
+                            <div className="ms-alert ms-action2 ms-small">
+                                <span className="ms-close"></span>
+                                <p>Order cancelled!</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
-            
-
-            <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
-                <div className="form-group">
-                    <div className="name-container">
-                        <input
-                            type="text"
-                            name="firstname"
-                            placeholder="First Name"
-                            value={form.firstname}
-                            onChange={handleChangeForm}
-                            required
-                            className="form-control"
-                        />
-                        <input
-                            type="text"
-                            name="lastname"
-                            placeholder="Last Name"
-                            value={form.lastname}
-                            onChange={handleChangeForm}
-                            required
-                            className="form-control"
-                        />
-                    </div>
-                </div>
-
-                <div className="form-group">
-                    <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone Number"
-                        value={form.phone}
-                        onChange={handleChangeForm}
-                        required
-                        className="form-control"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email"
-                        value={form.email}
-                        onChange={handleChangeForm}
-                        required
-                        className="form-control"
-                    />
-                </div>
-                <div className="form-group">
-                    <input
-                        type="email"
-                        name="confirmEmail"
-                        placeholder="Confirm Email"
-                        value={form.confirmEmail}
-                        onChange={handleChangeForm}
-                        required
-                        className="form-control"
-                    />
-                    {emailMatchError && <p className="error-message">{emailMatchError}</p>}
-                </div>
-                <div className="form-group">
-                    <Select
-                        options={options}
-                        onChange={changeHandler}
-                        value={value}
-                        placeholder="Select Country"
-                        className="country-select"
-                    />
-
-                </div>
-                <div className="form-group">
-
-                    <input
-                        type="email"
-                        name="street"
-                        placeholder="Street Address"
-                        value={form.street}
-                        onChange={handleChangeForm}
-                        required
-                        className="form-control"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <div className="name-container">
-                        <input
-                            type="text"
-                            name="city"
-                            placeholder="City"
-                            value={form.city}
-                            onChange={handleChangeForm}
-                            required
-                            className="form-control"
-                        />
-                        <input
-                            type="text"
-                            name="state"
-                            placeholder="State/ Province"
-                            value={form.state}
-                            onChange={handleChangeForm}
-                            required
-                            className="form-control"
-                        />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="name-container">
-                        <input
-                            type="tel"
-                            name="postal"
-                            placeholder="Postal/ Zip Code"
-                            value={form.postal}
-                            onChange={handleChangeForm}
-                            required
-                            className="form-control"
-                        />
-                    </div>
-                </div>
-
-            </form>
-            <PayPalScriptProvider options={initialOptions} >
-                {!showConfirmation && ( // Render PayPalButtons if showConfirmation is false
-                    <div className="paypal-buttons-container">
-                        <PayPalButtons
-                            createOrder={createOrder}
-                            onApprove={onApprove}
-                            onCancel={onCancel}
-                            onError={onError}
-                        />
-                    </div>
-                )}
-            </PayPalScriptProvider>
-            {/* Pass order details and cartItems to ConfirmationOrder if showConfirmation is true */}
-            {showConfirmation && (
-                <ConfirmationOrder
-                    cartItems={cartItems}
-                    firstName={form.firstname}
-                    lastName={form.lastname}
-                    phone={form.phone}
-                    email={form.email}
-                    street={form.street}
-                    city={form.city}
-                    state={form.state}
-                    postal={form.postal}
-                    country={form.country}
-                    totalPrice={totalAmount}
-                />
-            )}
-            {/* Display alert message if showAlert is true */}
-            {showAlert && (
-                <div className="ms-alert ms-action2 ms-small">
-                    <span className="ms-close"></span>
-                    <p>Order cancelled!</p>
-                </div>
-            )}
         </div>
     );
 }

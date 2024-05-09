@@ -1,23 +1,19 @@
 /* Footer.css */
 
 /* General styles */
+/* General styles */
 .footer-container {
   background-color: #242424;
   padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   color: #fff;
-  font-family: Arial, sans-serif; /* Set a fallback font */
-  text-align: center; /* Center-align text */
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 /* Footer links */
 .footer-links {
-  width: 100%;
-  max-width: 1000px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 1rem;
 }
@@ -28,9 +24,6 @@
 }
 
 .footer-link-items {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   margin: 0.5rem;
 }
 
@@ -48,33 +41,40 @@
 
 /* Website rights */
 .website-rights {
-  margin-bottom: 0.5rem;
-  margin-right: 20px; /* Add margin to the right */
-
+  margin-bottom: 1rem;
 }
 
+/* Social media and contact info */
 .social-media-wrap {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 1000px;
-  margin: 1rem auto 0 auto;
-  
 }
-/* Footer.css */
-.contact-item{
-  margin-left: 20px; /* Add margin to the right */
 
+.contact-item {
+  margin: 5px 0;
 }
 
 .about-us-link {
-  color: #007bff; /* Text color */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Make text bold */
-  font-size: 16px; /* Adjust font size */
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .about-us-link:hover {
-  color: #0056b3; /* Text color on hover */
+  color: #0056b3;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-link-items {
+    margin: 10px 0;
+  }
 }

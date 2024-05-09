@@ -9,17 +9,17 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100);
+  const [sliderMax, setSliderMax] = useState(100);
   const itemsPerPage = 12;
 
   useEffect(() => {
     async function getAllProducts() {
       try {
         const response = await axios.get(
-          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?{page=${currentPage}&size=${itemsPerPage}}`
+          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
         if (currentPage === 1) {
@@ -57,8 +57,12 @@ const Shop = () => {
     setSortOrder(event.target.value);
   };
 
+  const handleMaxSliderChange = (event) => {
+    setSliderMax(event.target.value);
+    setMaxPrice(parseInt(event.target.value));
+  };
+
   const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
     product.price >= minPrice && product.price <= maxPrice
   );
 
@@ -74,11 +78,11 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      
       <div className="header">
         <div className="sorting-and-cart">
           <div className="sorting">
             <label htmlFor="sortOrder">Sort by:</label>
+
             <select
               id="sortOrder"
               value={sortOrder}
@@ -88,6 +92,20 @@ const Shop = () => {
               <option value="lowToHigh">Price: Low to High</option>
               <option value="highToLow">Price: High to Low</option>
             </select>
+
+          </div>
+          <div className="price-filter">
+            <span>Price Range:</span>
+
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={sliderMax}
+              onChange={handleMaxSliderChange}
+            />
+            <span></span>
+            <span>${sliderMax}</span>
           </div>
           <div className="cart-logo">
             <Link to="/cart">
@@ -97,11 +115,11 @@ const Shop = () => {
         </div>
       </div>
 
+
+
       <div className="products">
-        {products.map((item) => (
-          <Link key={item._id} to={`/product/${item._id}`}>
-            <Product item={item} />
-          </Link>
+        {sortedProducts.map((item) => (
+          <Product key={item._id} item={item} />
         ))}
       </div>
       <div className="pagination">

@@ -1,3 +1,6 @@
+/* Navbar.css */
+
+/* General styles */
 .navbar {
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   height: 80px;
@@ -135,12 +138,10 @@
     color: #242424;
     transition: 250ms;
   }
-
-  
 }
 
 @media screen and (max-width: 600px) {
   .navbar-logo {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
