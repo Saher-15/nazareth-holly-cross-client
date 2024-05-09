@@ -5,7 +5,6 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import ConfirmationOrder from '../components/ConfirmationOrder'; // Import ConfirmationOrder component
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import flags from 'country-flag-icons/react/3x2'
 import "../styles/PaypalProduct.css";
 
 const PayPalComponent = ({ totalAmount, cartItems }) => {
@@ -24,17 +23,23 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         country: ""
     });
     const [phoneValue, setphoneValue] = useState()
+    const [emailMatchError] = useState("");
 
 
     const [value, setValue] = useState('')
     const options = useMemo(() => countryList().getData(), [])
+
+    const changePhoneHandler = value => {
+        setphoneValue(value)
+        setForm(prev => ({ ...prev, phone: value }))
+
+    }
 
     const changeHandler = value => {
         setValue(value)
         setForm(prev => ({ ...prev, country: value.label }))
 
     }
-    const [emailMatchError] = useState("");
 
     const handleChangeForm = (e) => {
         const { name, value } = e.target
@@ -169,7 +174,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <div className="form-group">
                             <PhoneInput
                                 value={phoneValue}
-                                onChange={setphoneValue}
+                                onChange={changePhoneHandler}
                                 international
                                 countryCallingCodeEditable={false}
                                 defaultCountry='US'
