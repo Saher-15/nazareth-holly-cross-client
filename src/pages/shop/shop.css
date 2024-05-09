@@ -30,11 +30,11 @@
 }
 
 .cart-logo i {
-  color: #007bff; /* Change the color as needed */
+  color: rgba(255, 0, 0, 1); /* Change the color as needed */
 }
 
 .cart-logo i:hover {
-  color: #0056b3; /* Change the color as needed */
+  color: rgba(255, 0, 0, 0.5); /* Change the color as needed */
 }
 
 

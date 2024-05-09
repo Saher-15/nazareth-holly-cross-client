@@ -61,75 +61,77 @@ function Candle() {
       <div className="rightSide">
 
         {/* <h1> LIGHT A PRAY CANDLE</h1> */}
+        <div className="candle-card">
+          <div className="background-image" style={{ backgroundImage: "url('/images/jesus.png')" }}></div>
 
-        <div>
-          <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="form-group">
-              <div className="name-container">
+          <div>
+            <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
+              <div className="form-group">
+                <div className="name-container">
+                  <input
+                    type="text"
+                    name="firstname"
+                    placeholder="First Name"
+                    value={form.firstname}
+                    onChange={handleChangeForm}
+                    required
+                    className="form-control"
+                  />
+                  <input
+                    type="text"
+                    name="lastname"
+                    placeholder="Last Name"
+                    value={form.lastname}
+                    onChange={handleChangeForm}
+                    required
+                    className="form-control"
+                  />
+                </div>
+              </div>
+              <div className="form-group">
                 <input
-                  type="text"
-                  name="firstname"
-                  placeholder="First Name"
-                  value={form.firstname}
-                  onChange={handleChangeForm}
-                  required
-                  className="form-control"
-                />
-                <input
-                  type="text"
-                  name="lastname"
-                  placeholder="Last Name"
-                  value={form.lastname}
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={form.email}
                   onChange={handleChangeForm}
                   required
                   className="form-control"
                 />
               </div>
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={form.email}
-                onChange={handleChangeForm}
-                required
-                className="form-control"
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="confirmEmail"
-                placeholder="Confirm Email"
-                value={form.confirmEmail}
-                onChange={handleChangeForm}
-                required
-                className="form-control"
-              />
-              {emailMatchError && <p className="error-message">{emailMatchError}</p>}
-            </div>
-            <div className="form-group">
-              <textarea
-                name="pray"
-                placeholder="Your Prayer"
-                value={form.pray}
-                onChange={handleChangeForm}
-                required
-                className="form-control"
-              ></textarea>
-              {inputWarning && <p className="error-message">{inputWarning}</p>}
-            </div>
-            <h5>to light a candle you have to pay 1$</h5>
-            <div className='hero-btns-candle'>
-            <button onClick={handleLightButton}>LIGHT</button>
+              <div className="form-group">
+                <input
+                  type="email"
+                  name="confirmEmail"
+                  placeholder="Confirm Email"
+                  value={form.confirmEmail}
+                  onChange={handleChangeForm}
+                  required
+                  className="form-control"
+                />
+                {emailMatchError && <p className="error-message">{emailMatchError}</p>}
+              </div>
+              <div className="form-group">
+                <textarea
+                  name="pray"
+                  placeholder="Your Prayer"
+                  value={form.pray}
+                  onChange={handleChangeForm}
+                  required
+                  className="form-control"
+                ></textarea>
+                {inputWarning && <p className="error-message">{inputWarning}</p>}
+              </div>
+              <h5>to light a candle you have to pay 1$</h5>
+              <div className='hero-btns-candle'>
+                <button onClick={handleLightButton}>LIGHT</button>
+              </div>
 
-                
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

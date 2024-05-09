@@ -21,7 +21,7 @@ const Product = ({ item }) => {
 
   return (
     <div className="product">
-      <Link to={`/product/${_id}`}>
+      <Link to={{ pathname: `/product/${_id}`, state: { productId: _id } }}>
         <img src={img} alt="" />
       </Link>
       <div className="description">

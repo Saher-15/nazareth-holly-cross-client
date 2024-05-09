@@ -3,13 +3,14 @@ import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import ConfirmationOrder from '../components/ConfirmationOrder'; // Import ConfirmationOrder component
-// import "../styles/Candle.css";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import flags from 'country-flag-icons/react/3x2'
 import "../styles/PaypalProduct.css";
 
 const PayPalComponent = ({ totalAmount, cartItems }) => {
     const [showConfirmation, setShowConfirmation] = useState(false); // State to control visibility of ConfirmationOrder
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
-    const [setOrderDetails] = useState(null); // State to store order details
     const [form, setForm] = useState({
         firstname: "",
         lastname: "",
@@ -22,6 +23,8 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         postal: "",
         country: ""
     });
+    const [phoneValue, setphoneValue] = useState()
+
 
     const [value, setValue] = useState('')
     const options = useMemo(() => countryList().getData(), [])
@@ -99,11 +102,11 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             },
             body: JSON.stringify(requestBody)
         })
-            .then((response) => response.json())
-            .then((order_details) => {
-                setOrderDetails(order_details); // Store order details in state
+            .then((response) => {
                 setShowConfirmation(true); // Show ConfirmationOrder component after payment is completed
+                response.json()
             })
+
             .catch((error) => {
                 console.log(error);
             });
@@ -113,6 +116,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         <div className="App">
             <div className="container">
                 <div className="left-side">
+                    <h2 style={{ marginBottom: '25px', textAlign: 'center' }}>Contact & Delivery Information</h2>
                     <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
                         <div className="form-group">
                             <div className="name-container">
@@ -136,8 +140,8 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                 />
                             </div>
                         </div>
-                        <div className="form-group">
 
+                        <div className="form-group">
                             <div className="name-container">
                                 <input
                                     type="text"
@@ -151,27 +155,29 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                 <input
                                     type="text"
                                     name="confirmEmail"
-                                    placeholder="Confirm Email"
+                                    placeholder="Confirmation Email"
                                     value={form.confirmEmail}
                                     onChange={handleChangeForm}
                                     required
                                     className="form-control"
                                 />
-                                {emailMatchError && <p className="error-message">{emailMatchError}</p>}
-                            </div>
-                            
+                            </div>{emailMatchError && <p className="error-message">{emailMatchError}</p>}
                         </div>
+
+
+
                         <div className="form-group">
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    placeholder="Phone Number"
-                                    value={form.phone}
-                                    onChange={handleChangeForm}
-                                    required
-                                    className="form-control"
-                                />
-                            </div>
+                            <PhoneInput
+                                value={phoneValue}
+                                onChange={setphoneValue}
+                                international
+                                countryCallingCodeEditable={false}
+                                defaultCountry='US'
+
+                            />
+
+                        </div>
+
                         <div className="form-group">
                             <Select
                                 options={options}
@@ -238,6 +244,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                 <div className="right-side">
                     <div className="paypal-card">
                         <PayPalScriptProvider options={initialOptions} >
+                            <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>Payment Method</h2>
                             {!showConfirmation && (
                                 <div className="paypal-buttons-container">
                                     <PayPalButtons

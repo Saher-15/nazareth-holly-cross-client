@@ -1,0 +1,102 @@
+.product-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  
+  .cart-logo-product {
+    font-size: 24px;
+  }
+  
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .description {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .product-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .product-price {
+    font-size: 18px;
+  }
+  
+  .product-description {
+    margin-top: 10px;
+  }
+  
+  .button-wrapper {
+    margin-top: 20px;
+  }
+  
+  .add-to-cart-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .cart-item-count {
+    margin-top: 10px;
+  }
+  
+  .message {
+    margin-top: 20px;
+    color: green;
+  }
+  
+  .checkout {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .continue-shopping-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Add border radius for a polished look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  .add-to-cart-button {
+    padding: 12px 24px; /* Increase padding for better clickability */
+    background-color: #4CAF50; /* Use a professional green color */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px; /* Add border radius for a rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add smooth transition on hover */
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #45a049; /* Darken the button color on hover */
+  }
+  
+  

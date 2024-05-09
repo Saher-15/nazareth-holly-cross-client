@@ -8,11 +8,6 @@
   padding: 20px;
 }
 
-/* Title styles */
-.title {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 
 /* Paragraph styles */
 p {
@@ -25,10 +20,22 @@ p {
 .paypal-card {
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   padding: 20px;
   max-width: 400px;
   width: 100%;
+}
+
+.prayer-text {
+  font-family: 'Times New Roman', Times, serif; /* Change the font family */
+  font-size: 18px; /* Adjust the font size */
+  line-height: 1.5; /* Adjust the line height */
+  color: rgba(255, 0, 0, 0.75); /* Set the text color */
+  text-align: center; /* Center-align the text */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  background-color: #3e3e3e; /* Set background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
 }
 
 /* PayPal buttons container styles */
