@@ -6,7 +6,6 @@ import "../styles/PaypalCandle.css";
 const PayPalComponent = ({ form }) => {
     const [showConfirmation, setShowConfirmation] = useState(false); // State to control visibility of ConfirmationCandle
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
-    const [setOrderDetails] = useState(null); // State to store order details
 
     const initialOptions = {
         clientId: "AZXaYL8OS1Iv7LLmAO9aPD-sgLShLbEl9jzdYx2hHSAmKtWlekv2dEwzXgalzfySvEfDo7hXcIVJZsA-"
@@ -68,7 +67,6 @@ const PayPalComponent = ({ form }) => {
         })
             .then((response) => response.json())
             .then((order_details) => {
-                setOrderDetails(order_details); // Store order details in state
                 setShowConfirmation(true); // Show ConfirmationCandle component after payment is completed
             })
             .catch((error) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Product from "./product";
 
 import "./shop.css";
@@ -13,6 +13,7 @@ const Shop = () => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100);
   const [sliderMax, setSliderMax] = useState(100);
+  const [cartCount, setCartCount] = useState(0); // State to track cart count
   const itemsPerPage = 12;
 
   useEffect(() => {
@@ -62,8 +63,13 @@ const Shop = () => {
     setMaxPrice(parseInt(event.target.value));
   };
 
-  const filteredProducts = products.filter((product) =>
-    product.price >= minPrice && product.price <= maxPrice
+  const handleAddToCart = () => {
+    // Increment cart count when an item is added to the cart
+    setCartCount(cartCount + 1);
+  };
+
+  const filteredProducts = products.filter(
+    (product) => product.price >= minPrice && product.price <= maxPrice
   );
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -82,7 +88,6 @@ const Shop = () => {
         <div className="sorting-and-cart">
           <div className="sorting">
             <label htmlFor="sortOrder">Sort by:</label>
-
             <select
               id="sortOrder"
               value={sortOrder}
@@ -92,11 +97,9 @@ const Shop = () => {
               <option value="lowToHigh">Price: Low to High</option>
               <option value="highToLow">Price: High to Low</option>
             </select>
-
           </div>
           <div className="price-filter">
             <span>Price Range:</span>
-
             <input
               type="range"
               min="0"
@@ -104,22 +107,19 @@ const Shop = () => {
               value={sliderMax}
               onChange={handleMaxSliderChange}
             />
-            <span></span>
             <span>${sliderMax}</span>
           </div>
-          <div className="cart-logo">
+          {/* <div className="cart-logo">
             <Link to="/cart">
               <i className="fas fa-shopping-cart"></i>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 
-
-
       <div className="products">
         {sortedProducts.map((item) => (
-          <Product key={item._id} item={item} />
+          <Product key={item._id} item={item} onAddToCart={handleAddToCart} /> // Pass handleAddToCart function as props
         ))}
       </div>
       <div className="pagination">

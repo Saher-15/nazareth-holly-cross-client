@@ -1,69 +1,78 @@
 .product {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product img {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .description {
-    text-align: center;
-  }
-  
-  .addToCartWrapper {
-    display: flex; /* Use flexbox to align items */
-    justify-content: center; /* Center items horizontally */
-  }
-  
-  .addToCartBttn {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-right: 10px;
+/* Product Image */
+.product img {
+  width: 300px !important;
+  /* Set a fixed width */
+  height: 300px !important;
+  /* Set a fixed height */
+  border-radius: 25px !important;
+  /* Adjusted border radius for better appearance */
+}
 
-  }
-  
-  
-  .addToCartBttn:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  .addToCartBttn:hover {
-    background-color: #000;
-    color:#b6b6b6;
-  }
-  
-  .message {
-    
-    background-color: #28a745;
-    color: #fff;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .addToCartBttn {
-    background-color: #242424; /* Green background color */
-    color: #fff; /* White text color */
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px; /* Increased padding for better visual */
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-    margin-left: 10px;
+.description {
+  text-align: center;
+}
 
-  }
-  
+.addToCartWrapper {
+  display: flex;
+  /* Use flexbox to align items */
+  justify-content: center;
+  /* Center items horizontally */
+}
 
-  
+.addToCartBttn {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.addToCartBttn:hover {
+  background-color: #000;
+  color: #b6b6b6;
+}
+
+.message {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.addToCartBttn {
+  background-color: #242424;
+  /* Green background color */
+  color: #fff;
+  /* White text color */
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  /* Increased padding for better visual */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  /* Smooth transition for hover effect */
+  margin-left: 10px;
+
+}
+
+.product {
+  position: relative;
+  /* Add other styling properties for the product card */
+}
+
+.cart-icon-wrapper {
+  position: absolute;
+  bottom: 10px;
+  /* Adjust as needed */
+  right: 10px;
+  /* Adjust as needed */
+}

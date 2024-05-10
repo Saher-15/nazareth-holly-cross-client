@@ -35,12 +35,16 @@ const Product = ({ item }) => {
           Add To Cart
         </button>
       </div>
-      <div className="addToCartWrapper">
-        {cartItemCount > 0 && <> Qt:({cartItemCount})</>}
-      </div>
       {showMessage && (
         <div className="message">Product added to cart!</div>
       )}
+      {/* Position the cart icon to bottom right corner */}
+      <div className="cart-icon-wrapper">
+        <Link to="/cart" className="cart-link">
+          <i className="fas fa-shopping-cart"></i>
+          {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
+        </Link>
+      </div>
     </div>
   );
 };

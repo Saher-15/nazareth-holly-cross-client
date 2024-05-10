@@ -5,7 +5,6 @@
   padding: 20px; /* Adjust padding for smaller screens */
 }
 
-
 .sorting-and-cart {
   display: flex;
   align-items: center;
@@ -24,21 +23,6 @@
   padding: 5px;
   border-radius: 5px;
 }
-
-.cart-logo {
-  font-size: 24px;
-}
-
-.cart-logo i {
-  color: rgba(255, 0, 0, 1); /* Change the color as needed */
-}
-
-.cart-logo i:hover {
-  color: rgba(255, 0, 0, 0.5); /* Change the color as needed */
-}
-
-
-
 
 /* Products Container */
 .products {

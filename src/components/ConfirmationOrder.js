@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { useShopContext } from '../context/shop-context'; // Import the context hook
 
 function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice }) {
+    const { clearCart } = useShopContext(); // Get the clearCart function from the context
+
     useEffect(() => {
         const sendOrderDetails = async () => {
             try {
@@ -23,6 +26,8 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                 };
                 const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
                 console.log(response.data);
+
+                // Clear the cart after the order has been successfully processed
             } catch (error) {
                 console.error('Error sending order details:', error);
             }
@@ -30,6 +35,7 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
 
         sendOrderDetails();
     }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice]); // Add dependencies here
+    clearCart();
 
     return (
         <div style={styles.container}>

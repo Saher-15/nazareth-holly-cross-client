@@ -60,12 +60,18 @@ const ShopContextProvider = (props) => {
     );
   };
 
+    // Function to clear all items from the cart
+    const clearCart = () => {
+      setCartItems([]);
+    };
+
   const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
     updateCartItemCount,
-    decreaseFromCart
+    decreaseFromCart,
+    clearCart
   };
 
   return (

@@ -23,7 +23,6 @@ function ThankYou({ firstName, lastName, email, prayer }) {
 
         sendOrderDetails();
     }, [firstName, lastName, email, prayer]); // Add dependencies here
-    console.log("---------");
 
     return (
         <div style={styles.container}>
