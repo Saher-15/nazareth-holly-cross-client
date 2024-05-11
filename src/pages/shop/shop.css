@@ -24,6 +24,16 @@
   border-radius: 5px;
 }
 
+.price-filter {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.price-filter input[type="range"] {
+  flex: 1; /* Take up remaining space */
+  margin: 0 5px; /* Adjust spacing */
+}
+
 /* Products Container */
 .products {
   display: grid;
@@ -70,7 +80,8 @@
 
 /* Pagination Button Hover */
 .pagination button:hover {
-  background-color: #0056b3;
+  background-color: #000;
+  color: #b6b6b6;
 }
 
 /* Pagination Text */

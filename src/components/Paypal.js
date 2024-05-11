@@ -22,23 +22,19 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         postal: "",
         country: ""
     });
-    const [phoneValue, setphoneValue] = useState()
-    const [emailMatchError] = useState("");
-
-
-    const [value, setValue] = useState('')
-    const options = useMemo(() => countryList().getData(), [])
+    const [phoneValue, setphoneValue] = useState();
+    const [emailMatchError, setEmailMatchError] = useState("");
+    const [value, setValue] = useState('');
+    const options = useMemo(() => countryList().getData(), []);
 
     const changePhoneHandler = value => {
         setphoneValue(value)
         setForm(prev => ({ ...prev, phone: value }))
-
     }
 
     const changeHandler = value => {
         setValue(value)
         setForm(prev => ({ ...prev, country: value.label }))
-
     }
 
     const handleChangeForm = (e) => {
@@ -117,11 +113,18 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             });
     };
 
+    // Check if any of the required fields are empty
+    const isFormIncomplete = Object.values(form).some(value => value === "");
+
+    // Check if both email fields match
+    const doEmailsMatch = form.email === form.confirmEmail;
+
     return (
         <div className="App">
             <div className="container">
                 <div className="left-side">
                     <h2 style={{ marginBottom: '25px', textAlign: 'center' }}>Contact & Delivery Information</h2>
+                    {isFormIncomplete && <p style={{ color: 'red', textAlign: 'center' }}>Please fill in all details to continue.</p>}
                     <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
                         <div className="form-group">
                             <div className="name-container">
@@ -153,7 +156,10 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                     name="email"
                                     placeholder="Email"
                                     value={form.email}
-                                    onChange={handleChangeForm}
+                                    onChange={(e) => {
+                                        handleChangeForm(e);
+                                        setEmailMatchError(e.target.value === form.email ? "" : "Emails don't match");
+                                    }}
                                     required
                                     className="form-control"
                                 />
@@ -162,14 +168,15 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                     name="confirmEmail"
                                     placeholder="Confirmation Email"
                                     value={form.confirmEmail}
-                                    onChange={handleChangeForm}
+                                    onChange={(e) => {
+                                        handleChangeForm(e);
+                                        setEmailMatchError(e.target.value === form.email ? "" : "Emails don't match");
+                                    }}
                                     required
                                     className="form-control"
                                 />
                             </div>{emailMatchError && <p className="error-message">{emailMatchError}</p>}
                         </div>
-
-
 
                         <div className="form-group">
                             <PhoneInput
@@ -178,9 +185,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                 international
                                 countryCallingCodeEditable={false}
                                 defaultCountry='US'
-
                             />
-
                         </div>
 
                         <div className="form-group">
@@ -217,7 +222,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
                         <div className="form-group">
                             <div className="name-container">
-
                                 <input
                                     type="text"
                                     name="postal"
@@ -227,7 +231,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                     required
                                     className="form-control"
                                 />
-
                                 <input
                                     type="text"
                                     name="state"
@@ -239,18 +242,13 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                 />
                             </div>
                         </div>
-                        <div className="form-group">
-                            <div className="name-container">
-
-                            </div>
-                        </div>
                     </form>
                 </div>
                 <div className="right-side">
                     <div className="paypal-card">
                         <PayPalScriptProvider options={initialOptions} >
                             <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>Payment Method</h2>
-                            {!showConfirmation && (
+                            {!showConfirmation && !isFormIncomplete && doEmailsMatch && (
                                 <div className="paypal-buttons-container">
                                     <PayPalButtons
                                         createOrder={createOrder}

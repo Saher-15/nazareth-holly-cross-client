@@ -1,0 +1,107 @@
+/* Contact.css */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 10px;
+    margin-right: 0px;
+    padding-bottom: 20px;
+}
+
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size:auto;
+    background-position: center; /* Center the background image */
+    filter: brightness(0.5);
+  }
+
+.form-container input[type="text"],
+.form-container input[type="email"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #333;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.form-container textarea {
+    width: 100%;
+    height: 100px; /* Adjust the height as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
+  
+  textarea:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default focus outline */
+  }
+  
+.form-container button {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.form-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+.name-field {
+  margin-right: 20px; /* Adjust the spacing between fields */
+}
+
+.h-4 {
+    color: #333;
+    text-align: center;
+}
+
+.background-image {
+    background-image: url('/images/jesus.png');
+    background-size: cover;
+    min-height: 100vh;
+  }
+  
+  /* Additional styles for responsiveness */
+@media screen and (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+}

@@ -62,26 +62,31 @@ const ProductPage = () => {
 
   return (
     <div className="product-container">
-      <div className="header">
-        <div className="cart-container">
-          <Link to="/cart" className="cart-link">
-            <i className="fas fa-shopping-cart"></i>
-            {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
-          </Link>
-        </div>
+      <div className="button-container">
+        <button className="back-button" onClick={() => navigate("/shop")}>
+          <i className="fas fa-chevron-left"></i>
+        </button>
+
+        <Link to="/cart" className="cart-link-logo">
+          <i className="fas fa-shopping-cart"></i>
+          {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
+        </Link>
       </div>
+
       <div className="product-details">
-        <img className="product-image" src={img} alt={name} />
+        <div>
+          <img className="product-image" src={img} alt={name} />
+          <div className="centered-content">
+            <button className="add-to-cart-button" onClick={handleClick}>Add To Cart</button>
+            {showMessage && <div className="message">Product added to cart!</div>}
+          </div>
+
+        </div>
         <div className="description">
           <h1 className="product-name">{name}</h1>
           <p className="product-price">${price}</p>
           <p className="product-description">{description}</p>
-          <button className="add-to-cart-button" onClick={handleClick}>Add To Cart</button>
-          {showMessage && <div className="message">Product added to cart!</div>}
         </div>
-      </div>
-      <div className="checkout">
-        <button className="continue-shopping-button" onClick={() => navigate("/shop")}>Continue Shopping</button>
       </div>
     </div>
   );

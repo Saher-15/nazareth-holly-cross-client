@@ -59,14 +59,15 @@ function Candle() {
       </div>
 
       <div className="rightSide">
+      <h1>Personal prayer and candle lighting</h1>
 
         {/* <h1> LIGHT A PRAY CANDLE</h1> */}
         <div className="candle-card">
-          <div className="background-image" style={{ backgroundImage: "url('/images/jesus.png')" }}></div>
 
           <div>
             <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
+              
                 <div className="name-container">
                   <input
                     type="text"
