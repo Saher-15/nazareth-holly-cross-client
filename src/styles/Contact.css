@@ -88,8 +88,8 @@
   margin-right: 20px; /* Adjust the spacing between fields */
 }
 
-.h-4 {
-    color: #333;
+.h2t {
+    color: #fff;
     text-align: center;
 }
 
@@ -98,6 +98,7 @@
     background-size: cover;
     min-height: 100vh;
   }
+
   
   /* Additional styles for responsiveness */
 @media screen and (max-width: 600px) {

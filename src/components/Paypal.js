@@ -158,7 +158,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                     value={form.email}
                                     onChange={(e) => {
                                         handleChangeForm(e);
-                                        setEmailMatchError(e.target.value === form.email ? "" : "Emails don't match");
+                                        setEmailMatchError(e.target.value === form.confirmEmail ? "" : "Emails don't match");
                                     }}
                                     required
                                     className="form-control"

@@ -24,6 +24,14 @@
     transition: all 0.3s ease-out;
 }
 
+.btn--half{
+    background-color:  rgba(255, 255, 255, 0.5);;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+}
+
 .btn--medium{
     padding: 8px 20px;
     font-size: 20px;

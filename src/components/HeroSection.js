@@ -17,6 +17,14 @@ function HeroSection() {
         >
           LIGHT A CANDLE
         </Button>
+        {/* <Button
+          destination='/shop'
+          className='btns'
+          buttonStyle='btn--half'
+          buttonSize='btn--large'
+        >
+          SHOP
+        </Button> */}
         <Button
           destination='/tour'
           className='btns'

@@ -18,6 +18,7 @@ import CheckOut from "./pages/CheckOut";
 import ContactUs from "./pages/ContactUs";
 import CheckOutCandle from "./pages/CheckOutCandle";
 import ProductPage from "./pages/shop/ProductPage";
+
 function App() {
 
   return (
@@ -39,6 +40,9 @@ function App() {
           <Route path="/checkout" element={<Layout><CheckOut /></Layout>} />
           <Route path="/checkoutcandle" element={<Layout><CheckOutCandle /></Layout>} />
           <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
+
+
+
 
         </Routes>
       </Router>

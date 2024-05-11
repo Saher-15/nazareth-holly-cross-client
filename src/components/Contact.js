@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../styles/Contact.css'; // Import CSS file for styling
 
-function SimpleForm() {
+function Contact() {
   // State to store form data
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    fullName: '',
     email: '',
     confirmEmail: '',
     phoneNumber: '',
@@ -25,7 +25,7 @@ function SimpleForm() {
   };
 
   // Handler function to submit form data
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Check if emails match
@@ -39,36 +39,50 @@ function SimpleForm() {
 
     // You can perform validation here
     // Example: Check if fields are empty
-    if (formData.firstName === '' || formData.lastName === '' || formData.email === '') {
+    if (formData.fullName === '' || formData.email === '' || formData.phoneNumber === '' || formData.text === '') {
       alert('Please fill in all fields');
       return;
     }
 
-    // Process the form data
+    try {
+      // Send form data to server
+      const response = await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/contact_us_request', formData);
 
-    // You can also send the data to a server using fetch or Axios
+      // Handle success
+      console.log('Form data sent successfully:', response.data);
 
-    // Reset the form
-    setFormData({
-      fullName: '',
-      email: '',
-      phoneNumber: '',
-      text: ''
-    });
+      // Reset form fields
+      setFormData({
+        fullName: '',
+        email: '',
+        confirmEmail: '',
+        phoneNumber: '',
+        text: ''
+      });
+
+      // Optionally show a success message
+    } catch (error) {
+      // Handle error
+      console.error('Error sending form data:', error);
+      alert('Failed to send form data');
+    }
   };
 
   return (
-    <div >
+    <div>
       <div className="background-img" style={{ backgroundImage: "url('/images/jesus.png')" }}></div>
       <div className="form-container">
+
         <form onSubmit={handleSubmit}>
+          <h2 className='h2t'>CONTACT US</h2>
+
           <br /><br />
           <input
             placeholder="Full Name"
             type="text"
             id="fullName"
             name="fullName"
-            value={formData.firstName}
+            value={formData.fullName}
             onChange={handleChange}
           />
           <br /><br />
@@ -111,4 +125,4 @@ function SimpleForm() {
   );
 }
 
-export default SimpleForm;
+export default Contact;
