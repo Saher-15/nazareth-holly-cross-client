@@ -66,6 +66,10 @@ video {
   .btn {
     width: 100%;
   }
+
+  .fa-play-circle {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) {

@@ -9,10 +9,11 @@
   text-align: center;
 }
 
-.personal-pray{
-  font:x-large;
+.personal-pray {
+  font: x-large;
   text-align: center;
 }
+
 .hero-btns-candle button {
   padding: 10px 20px;
   background-color: #ffffff38;
@@ -42,7 +43,7 @@ h5 {
 }
 
 .blur-background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,8 +59,7 @@ h5 {
   flex: 50%;
   background-position: center;
   background-repeat: no-repeat;
-  padding-left: 30px; 
-
+  padding-left: 30px;
 }
 
 .candle .rightSide {
@@ -69,7 +69,7 @@ h5 {
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  padding-right: 30px; 
+  padding-right: 30px;
 }
 
 form input {
@@ -91,10 +91,18 @@ form textarea {
 
 input::placeholder,
 textarea::placeholder {
-  font-weight: bold;
-  color: rgb(197, 197, 197);
+  font-weight: normal; /* Change font weight to normal */
+  color: rgba(197, 197, 197, 0.7); /* Reduce opacity for a lighter color */
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Adjust placeholder styles for email inputs */
+input[type="email"]::placeholder,
+input[name="confirmEmail"]::placeholder {
+  color: rgba(197, 197, 197, 0.9); /* Increase opacity for a slightly darker color */
+}
+
+
 form input:focus,
 textarea:focus {
   outline: none;
@@ -106,7 +114,7 @@ textarea:focus {
   font-family: Georgia, serif;
   font-weight: bold;
   color: white;
-  text-align: center; 
+  text-align: center;
 }
 
 .leftSide {
@@ -114,7 +122,7 @@ textarea:focus {
   align-items: center;
   justify-content: center;
   color: white;
-  padding: 20px; 
+  padding: 20px;
   flex: 1;
 }
 
@@ -132,7 +140,10 @@ input[type="text"] {
 }
 
 /* Email inputs */
-input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="tel"] {
+input[type="email"],
+input[name="confirmEmail"],
+textarea[name="pray"],
+[type="tel"] {
   width: calc(100%); /* Set the width to half of the container width minus 5 pixels for spacing */
   padding: 10px;
   margin-bottom: 10px;
@@ -141,12 +152,11 @@ input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="t
 }
 
 .candle-form {
-  height: 100px;
+  height: 70vh; /* Adjust the height if necessary */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh; /* Adjust the height if necessary */
 }
 
 .form-group {
@@ -160,21 +170,23 @@ input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="t
   justify-content: space-between;
 }
 
-
-
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .candle {
     padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .candle .leftSide,
   .candle .rightSide {
-    padding: 20px;
+    flex: 100%;
+    padding: 20px 0;
   }
 
-  .candle-form {
-    height: auto;
+  .blur-background {
+    height: 100%;
   }
 
   form input,
@@ -194,11 +206,11 @@ input[type="email"], input[name="confirmEmail"], textarea[name="pray"], [type="t
 
   .name-container input[type="text"]:last-child {
     margin-left: 0;
-    margin-top: 10px; /* Add margin-top to create space between the inputs on smaller screens */
+    margin-top: 10px;
   }
 
   input[type="text"] {
-    width: calc(100% - 20px); /* Adjust the width to accommodate for padding */
+    width: calc(100% - 20px);
     margin-bottom: 10px;
   }
 }

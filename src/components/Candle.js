@@ -59,7 +59,7 @@ function Candle() {
       </div>
 
       <div className="rightSide">
-      <h1>Personal prayer and candle lighting</h1>
+        <p className="prayer-message">Personal prayer and candle lighting</p>
 
         {/* <h1> LIGHT A PRAY CANDLE</h1> */}
         <div className="candle-card">
@@ -67,7 +67,7 @@ function Candle() {
           <div>
             <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
-              
+
                 <div className="name-container">
                   <input
                     type="text"
@@ -123,7 +123,7 @@ function Candle() {
                 ></textarea>
                 {inputWarning && <p className="error-message">{inputWarning}</p>}
               </div>
-              <h5>to light a candle you have to pay 1$</h5>
+              <h5>to light a candle you have to pay 2$</h5>
               <div className='hero-btns-candle'>
                 <button onClick={handleLightButton}>LIGHT</button>
               </div>

@@ -9,7 +9,7 @@
 }
 
 .background-img {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -17,7 +17,7 @@
     z-index: -1;
     background-size:auto;
     background-position: center; /* Center the background image */
-    filter: brightness(0.5);
+    filter: brightness(0.4);
   }
 
 .form-container input[type="text"],

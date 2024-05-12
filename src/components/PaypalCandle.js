@@ -33,7 +33,7 @@ const PayPalComponent = ({ form }) => {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 },
-                body: JSON.stringify({ "intent": intent, "amount": "1" })
+                body: JSON.stringify({ "intent": intent, "amount": "2" })
             });
 
             if (!response.ok) {
