@@ -1,0 +1,215 @@
+.shopTitle {
+  margin-top: 100px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.header {
+  margin-bottom: 50px;
+  /* Add margin at the bottom of the header */
+}
+
+.products-container {
+  margin-top: 20px;
+  /* Add margin at the top of the products container */
+}
+
+.products {
+  width: 100%;
+  /* Ensure the products container spans the full width */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* Distribute items evenly across the row */
+}
+
+.product {
+  border-radius: 15px;
+  width: calc((100% / 3) - 20px);
+  /* Adjusted width for three products in a row */
+  height: auto;
+  margin-bottom: 20px;
+  /* Adjust margin as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product img {
+  width: 400px;
+}
+
+.product .description {
+  text-align: center;
+}
+
+.product:hover {
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+
+.addToCartBttn {
+  background-color: transparent;
+  border: 2px solid rgb(19, 19, 19);
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+}
+
+.addToCartBttn:hover {
+  background-color: rgb(19, 19, 19);
+  color: white;
+  cursor: pointer;
+}
+
+.shop-container {
+  padding: 20px;
+  /* Add padding around product info */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Display 3 products in a row */
+  gap: 20px;
+  /* Add gap between products */
+  justify-content: center;
+  /* Center the products horizontally */
+}
+
+/* Remove underlining from product title */
+.product-card .product-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-decoration: none !important; /* Remove underline */
+}
+
+.product-card .product-price {
+  font-weight: bold;
+  color: #009688;
+  text-decoration: none !important; /* Remove underline */
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  /* Set background color */
+  color: #333;
+  /* Set text color */
+}
+
+.container {
+  max-width: 1200px;
+  /* Set maximum container width */
+  margin: 0 auto;
+  /* Center the container horizontally */
+  padding: 20px;
+  /* Add padding to the container */
+}
+
+/* Product Styles */
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  /* Use flexbox */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  /* Add translateY effect on hover */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Center the image vertically */
+}
+
+.product-info {
+  padding: 20px;
+  /* Add padding around product info */
+  display: flex;
+  /* Use flexbox */
+  flex-direction: column;
+  /* Arrange items vertically */
+  justify-content: center;
+  /* Center content vertically */
+  align-items: center;
+  /* Center content horizontally */
+  color: #242424;
+  
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-decoration: none !important; /* Remove underline */
+
+}
+
+.product-price {
+  font-weight: bold;
+  color: #009688;
+  text-decoration: none !important; /* Remove underline */
+
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(50% - 20px);
+    /* Set product card width for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    width: calc(100% - 20px);
+    /* Set product card width for mobile screens */
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  /* Add margin at the top of the pagination */
+  color: #000;
+  /* Set text color to white */
+}
+
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}

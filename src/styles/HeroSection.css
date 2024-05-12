@@ -13,7 +13,6 @@ video {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url('/images/img-home.jpg') center center/cover no-repeat; /* Add background image */
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
 }
 

@@ -3,7 +3,6 @@ import axios from 'axios';
 
 function ThankYou({ firstName, lastName, email, prayer }) {
     useEffect(() => {
-        console.log(firstName, lastName, email, prayer);
 
         const sendOrderDetails = async () => {
 
