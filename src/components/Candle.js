@@ -54,8 +54,9 @@ function Candle() {
       <div className="blur-background"></div> {/* Add a div for the blurred background */}
 
       <div className="leftSide">
-        <p className="prayer-message">Feel free to share your prayer with us<br /> and we'll light a candle for you at Jesus City Church.
-          <br /><br />Once done<br /> we'll send you a video confirmation to your email address.</p>
+        <p className="prayer-message">Light a candle in a Nazareth church <br /> send us your wish or prayer and we will light a candle for you, keeping the ancient tradition alive.<br /><br /><h5>to light a candle you have to pay 2$</h5></p>
+
+
       </div>
 
       <div className="rightSide">
@@ -123,7 +124,6 @@ function Candle() {
                 ></textarea>
                 {inputWarning && <p className="error-message">{inputWarning}</p>}
               </div>
-              <h5>to light a candle you have to pay 2$</h5>
               <div className='hero-btns-candle'>
                 <button onClick={handleLightButton}>LIGHT</button>
               </div>
