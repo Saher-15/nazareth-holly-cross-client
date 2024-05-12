@@ -32,6 +32,7 @@
 /* Cart Item Image */
 .cartItem img {
   width: 100%; /* Made image width responsive */
+  height: 200px;
   border-radius: 25px 25px 0 0; /* Adjusted border radius for better appearance */
 }
 
@@ -42,10 +43,15 @@
 }
 
 /* Quantity Counter */
-.countHandler input {
+.countHandler1 input {
   width: 60px; /* Adjusted width for better touch target on smaller screens */
   height: 40px;
 }
+
+countHandler1{
+  text-align: center;
+}
+
 
 /* Checkout Container */
 .checkout {
@@ -87,7 +93,7 @@
 
 /* Remove Button */
 .removeFromCartBtn {
-  width: 120px; /* Set width to a fixed value */
+  width: 100px; /* Set width to a fixed value */
   height: 40px; /* Set height to a fixed value */
   background-color: #ff4d4f;
   color: white;
@@ -97,6 +103,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
+  text-align: center;
 }
 
 .removeFromCartBtn:hover {

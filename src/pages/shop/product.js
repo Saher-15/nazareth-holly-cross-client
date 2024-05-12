@@ -21,15 +21,13 @@ const Product = ({ item }) => {
 
   return (
     <div className="product">
+
       <Link to={{ pathname: `/product/${_id}`, state: { productId: _id } }}>
         <img src={img} alt="" />
       </Link>
-      <div className="description">
-        <p>
-          <b>{name}</b>
-        </p>
-        <p>${price}</p>
-      </div>
+      <p className="nameCard">{name}</p>
+
+        <p className="nameCard">${price}</p>
       <div className="addToCartWrapper">
         <button className="addToCartBttn" onClick={handleClick}>
           Add To Cart

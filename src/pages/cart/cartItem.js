@@ -13,7 +13,7 @@ const CartItem = ({ data }) => {
           <b>{name}</b>
         </p>
         <p> Price: ${price}</p>
-        <div className="countHandler">
+        <div className="countHandler" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button
             className="addToCartBttn"
             onClick={() => {
@@ -30,28 +30,24 @@ const CartItem = ({ data }) => {
             onChange={(e) => updateCartItemCount(Number(e.target.value), _id)}
             style={{ textAlign: 'center', paddingTop: '10px', paddingBottom: '10px' }}
           />
-
           <button
             className="addToCartBttn"
             onClick={() => addToCart(data)}
           >
             +
           </button>
-
         </div>
-        <button
-          className="removeFromCartBtn" // Style this button as needed
-          onClick={() => removeFromCart(_id)} // Remove the item from the cart
-        >
-          Remove
-        </button>
-
-
-
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button
+            className="removeFromCartBtn"  // Style this button as needed
+            onClick={() => removeFromCart(_id)} // Remove the item from the cart
+          >
+            Remove
+          </button>
+        </div>
       </div>
-
     </div>
   );
-};
+};  
 
 export default CartItem;

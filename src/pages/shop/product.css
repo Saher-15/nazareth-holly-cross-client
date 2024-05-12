@@ -8,17 +8,15 @@
 
 /* Product Image */
 .product img {
-  width: 300px !important;
+  width: auto;
   /* Set a fixed width */
-  height: 300px !important;
+  height: 300px;
   /* Set a fixed height */
   border-radius: 25px !important;
   /* Adjusted border radius for better appearance */
 }
 
-.description {
-  text-align: center;
-}
+
 
 .addToCartWrapper {
   display: flex;
