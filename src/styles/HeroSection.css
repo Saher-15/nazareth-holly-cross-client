@@ -6,6 +6,10 @@ video {
   z-index: -1;
 }
 
+.video .fa-play-circle {
+  display: none;
+}
+
 .hero-container {
   height: 100vh;
   width: 100%;
