@@ -2,7 +2,10 @@ import React from 'react';
 import { Button } from './Button';
 import '../styles/HeroSection.css';
 
+
 function HeroSection() {
+
+
   return (
     <div className='hero-container'>
       <video src='/videos/video-7.mp4' autoPlay loop muted playsInline controls />
@@ -33,6 +36,8 @@ function HeroSection() {
         >
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>
+
+
       </div>
     </div>
   );
