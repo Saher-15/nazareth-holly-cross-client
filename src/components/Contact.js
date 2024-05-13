@@ -11,6 +11,9 @@ function Contact() {
     msg: ''
   });
 
+  // State to manage the visibility of the message
+  const [showMessage, setShowMessage] = useState(false);
+
   // Handler function to update form data
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +26,6 @@ function Contact() {
   // Handler function to submit form data
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     if (formData.fullName === '' || formData.email === '' || formData.phone === '' || formData.msg === '') {
       alert('Please fill in all fields');
@@ -46,7 +48,11 @@ function Contact() {
         msg: ''
       });
 
-      // Optionally show a success message
+      // Show success message for 2 seconds
+      setShowMessage(true);
+      setTimeout(() => {
+        setShowMessage(false);
+      }, 3000);
     } catch (error) {
       // Handle error
       console.error('Error sending form data:', error);
@@ -97,6 +103,7 @@ function Contact() {
           /><br /><br />
           <button type="submit">Submit</button>
         </form>
+        {showMessage && <p style={{color: "#fff"}}>Message submitted successfully!</p>}
       </div>
     </div>
   );
