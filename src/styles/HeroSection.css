@@ -76,6 +76,11 @@ video {
   .hero-btns {
     margin-top: 2vh;
   }
+  video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
 }
 
 @media screen and (max-width: 480px) {
