@@ -10,13 +10,13 @@
     cursor: pointer;
 }
 
-.btn--primary{
+.btn--primary {
     background-color: var(--primary);
     color: #242424;
     border: 1px solid var(--primary);
 }
 
-.btn--outline{
+.btn--outline {
     background-color: transparent;
     color: #fff;
     padding: 8px 20px;
@@ -24,25 +24,25 @@
     transition: all 0.3s ease-out;
 }
 
-.btn--half{
-    background-color:  rgba(255, 255, 255, 0.5);;
-    color: rgba(0, 0, 0, 0.9);
+.btn--half {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.7);
     padding: 8px 20px;
     border: 1px solid var(--primary);
     transition: all 0.3s ease-out;
 }
 
-.btn--medium{
+.btn--medium {
     padding: 8px 20px;
     font-size: 20px;
 }
 
-.btn--large{
+.btn--large {
     padding: 12px 26px;
     font-size: 20px;
 }
 
-.btn--medium:hover, 
+.btn--medium:hover,
 .btn--large:hover {
     background-color: #fff;
     color: #242424;
@@ -53,10 +53,11 @@
 @media screen and (max-width: 768px) {
     .btn--medium {
         font-size: 18px;
+        padding: 8px 16px; /* Adjusted padding */
     }
-    
+
     .btn--large {
-        padding: 10px 24px;
+        padding: 10px 20px; /* Adjusted padding */
         font-size: 18px;
     }
 }
@@ -64,10 +65,11 @@
 @media screen and (max-width: 480px) {
     .btn--medium {
         font-size: 16px;
+        padding: 6px 12px; /* Adjusted padding */
     }
-    
+
     .btn--large {
-        padding: 8px 20px;
+        padding: 8px 16px; /* Adjusted padding */
         font-size: 16px;
     }
 }
