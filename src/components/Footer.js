@@ -8,7 +8,7 @@ function Footer() {
 
       <div className='social-media-wrap'>
         <div className='contact-info'>
-          <p className='contact-item'>Email: nazarethhollycross@gmail.com</p>
+          <p className='contact-item'>Email: nazarethholycross@gmail.com</p>
           <p className='contact-item'>Phone: +1234567890</p>
         </div>
         <div className="footer-links">
