@@ -8,9 +8,12 @@ video {
   filter: brightness(0.5); /* Adjust the brightness value as needed */
 }
 
-/* Hide play button within video container */
-.video .fa-play-circle {
-  display: none;
+/* Hide play button and volume controls */
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-volume-slider {
+  display: none !important;
+  -webkit-appearance: none;
 }
 
 /* Styles for hero container */
@@ -76,11 +79,6 @@ video {
   .hero-btns {
     margin-top: 2vh;
   }
-  video::-webkit-media-controls-start-playback-button {
-    display: none !important;
-    -webkit-appearance: none;
-  }
-
 }
 
 @media screen and (max-width: 480px) {
