@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { Link } from "react-router-dom";
 import Product from "./product";
-
 import "./shop.css";
+import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo component
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -14,10 +13,12 @@ const Shop = () => {
   const [maxPrice, setMaxPrice] = useState(100);
   const [sliderMax, setSliderMax] = useState(100);
   const [cartCount, setCartCount] = useState(0); // State to track cart count
+  const [loading, setLoading] = useState(true); // Add loading state
   const itemsPerPage = 12;
 
   useEffect(() => {
     async function getAllProducts() {
+      setLoading(true); // Set loading to true before fetching data
       try {
         const response = await axios.get(
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
@@ -30,6 +31,8 @@ const Shop = () => {
         window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false); // Set loading to false after fetching data
       }
     }
 
@@ -84,55 +87,56 @@ const Shop = () => {
 
   return (
     <div className="shop">
-      <div className="header">
-        <div className="sorting-and-cart">
-          <div className="sorting">
-            <label htmlFor="sortOrder">Sort by:</label>
-            <select
-              id="sortOrder"
-              value={sortOrder}
-              onChange={handleSortOrderChange}
-            >
-              <option value="">None</option>
-              <option value="lowToHigh">Price: Low to High</option>
-              <option value="highToLow">Price: High to Low</option>
-            </select>
+      {loading ? (
+        <LoadingLogo />
+      ) : (
+        <>
+          <div className="header">
+            <div className="sorting-and-cart">
+              <div className="sorting">
+                <label htmlFor="sortOrder">Sort by:</label>
+                <select
+                  id="sortOrder"
+                  value={sortOrder}
+                  onChange={handleSortOrderChange}
+                >
+                  <option value="">None</option>
+                  <option value="lowToHigh">Price: Low to High</option>
+                  <option value="highToLow">Price: High to Low</option>
+                </select>
+              </div>
+              <div className="price-filter">
+                <span>Price Range:</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={sliderMax}
+                  onChange={handleMaxSliderChange}
+                />
+                <span>${sliderMax}</span>
+              </div>
+            </div>
           </div>
-          <div className="price-filter">
-            <span>Price Range:</span>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={sliderMax}
-              onChange={handleMaxSliderChange}
-            />
-            <span>${sliderMax}</span>
-          </div>
-          {/* <div className="cart-logo">
-            <Link to="/cart">
-              <i className="fas fa-shopping-cart"></i>
-            </Link>
-          </div> */}
-        </div>
-      </div>
 
-      <div className="products">
-        {sortedProducts.map((item) => (
-          <Product key={item._id} item={item} onAddToCart={handleAddToCart} /> // Pass handleAddToCart function as props
-        ))}
-      </div>
-      <div className="pagination">
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          <i className="fas fa-chevron-left"></i>
-        </button>
-        <span className="pagination-text">
-          {currentPage} of {totalPages}
-        </span>
-        <button onClick={nextPage} disabled={currentPage === totalPages}>
-          <i className="fas fa-chevron-right"></i>
-        </button>
-      </div>
+          <div className="products">
+            {sortedProducts.map((item) => (
+              <Product key={item._id} item={item} onAddToCart={handleAddToCart} /> // Pass handleAddToCart function as props
+            ))}
+          </div>
+          <div className="pagination">
+            <button onClick={prevPage} disabled={currentPage === 1}>
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            <span className="pagination-text">
+              {currentPage} of {totalPages}
+            </span>
+            <button onClick={nextPage} disabled={currentPage === totalPages}>
+              <i className="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
