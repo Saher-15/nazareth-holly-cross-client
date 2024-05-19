@@ -124,7 +124,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             <div className="container">
                 <div className="left-side">
                     <h2 style={{ marginBottom: '25px', textAlign: 'center' }}>Contact & Delivery Information</h2>
-                    {isFormIncomplete && <p style={{ color: 'red', textAlign: 'center' }}>Please fill in all details to continue.</p>}
                     <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
                         <div className="form-group">
                             <div className="name-container">
@@ -247,6 +246,8 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                 <div className="right-side">
                     <div className="paypal-card">
                         <PayPalScriptProvider options={initialOptions} >
+                            {isFormIncomplete && <p style={{ color: 'red', textAlign: 'center' }}>Please fill in all details to continue.</p>}
+
                             <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>Payment Method</h2>
                             {!showConfirmation && !isFormIncomplete && doEmailsMatch && (
                                 <div className="paypal-buttons-container">

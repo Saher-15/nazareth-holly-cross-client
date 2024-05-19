@@ -218,3 +218,41 @@ textarea[name="pray"],
     margin-bottom: 10px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .hero-btns-candle button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .candle-form {
+    height: auto;
+    padding: 20px;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: none;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[name="confirmEmail"],
+  textarea[name="pray"],
+  [type="tel"] {
+    width: 100%;
+  }
+
+  .name-container {
+    flex-direction: column;
+  }
+
+  .name-container input[type="text"]:last-child {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .prayer-message {
+    font-size: 20px;
+  }
+}
