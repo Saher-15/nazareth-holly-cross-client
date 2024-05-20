@@ -9,10 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Add this to move items to opposite ends */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .sorting {
   margin-right: 20px;
+  flex: 1;
 }
 
 .sorting label {
@@ -27,6 +29,7 @@
 .price-filter {
   display: flex;
   align-items: center; /* Align items vertically */
+  flex: 1;
 }
 
 .price-filter input[type="range"] {
@@ -41,19 +44,24 @@
   grid-gap: 20px;
 }
 
-.products p{
+.products p {
   text-align: center;
 }
 
-.product p{
+.product p {
   text-align: center;
-
 }
+
 /* Product */
 .product {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 /* Product Image */
@@ -61,6 +69,7 @@
   width: 100%;
   height: 250px;
   border-radius: 8px;
+  object-fit: cover; /* Ensure image covers the area */
 }
 
 /* Pagination */
@@ -98,8 +107,29 @@
   color: #333;
 }
 
-
 /* Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .shop {
+    padding: 10px;
+  }
+
+  .sorting-and-cart {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sorting,
+  .price-filter {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .sorting select,
+  .price-filter input[type="range"] {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .cart-logo {
     font-size: 20px; /* Reduce font size for smaller screens */
@@ -124,5 +154,45 @@
   .price-input {
     font-size: 14px; /* Reduce font size for smaller screens */
   }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .product img {
+    height: 200px;
+  }
 }
 
+@media screen and (max-width: 576px) {
+  .pagination button {
+    padding: 6px 12px; /* Adjust button padding for smaller screens */
+  }
+
+  .pagination-text {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .sorting select,
+  .price-filter input[type="range"] {
+    font-size: 12px; /* Reduce font size for smaller screens */
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .product img {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .products {
+    grid-template-columns: 1fr; /* One product per row on very small screens */
+  }
+
+  .product img {
+    height: auto;
+  }
+}
