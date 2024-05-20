@@ -5,7 +5,7 @@ video {
   height: 100%;
   position: fixed;
   z-index: -1;
-  filter: brightness(0.5); /* Adjust the brightness value as needed */
+  filter: brightness(0.6); /* Adjust the brightness value as needed */
 }
 
 /* Hide play button and volume controls */
