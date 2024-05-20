@@ -25,9 +25,8 @@
   margin-top: 10px;
 }
 
-.hero-btns-candle button:hover{
+.hero-btns-candle button:hover {
   background-color: rgba(0,0,0,0.5);
-
 }
 
 .hero-btns button:disabled {
@@ -42,6 +41,7 @@ h5 {
 
 .candle {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -60,26 +60,20 @@ h5 {
   filter: brightness(0.45); /* Reduce brightness to darken the background image */
 }
 
-.candle .leftSide {
-  flex: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-left: 30px;
+.candle .leftSide, .candle .rightSide {
+  width: 100%;
+  padding: 20px;
 }
 
 .candle .rightSide {
-  height: 100%;
-  flex: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  padding-right: 30px;
 }
 
-form input {
-  height: 40px;
-  width: 80%;
+form input, form textarea {
+  width: 100%;
   border: none;
   border-bottom: 1px solid #121619;
   color: black;
@@ -88,10 +82,6 @@ form input {
 form textarea {
   margin-top: 15px;
   height: 120px;
-  width: 80%;
-  border: none;
-  border-bottom: 1px solid #121619;
-  color: black;
 }
 
 input::placeholder,
@@ -107,7 +97,6 @@ input[name="confirmEmail"]::placeholder {
   color: rgba(197, 197, 197, 0.9); /* Increase opacity for a slightly darker color */
 }
 
-
 form input:focus,
 textarea:focus {
   outline: none;
@@ -121,34 +110,17 @@ textarea:focus {
   text-align: center;
 }
 
-.leftSide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 20px;
-  flex: 1;
-}
-
 .name-container input[type="text"]:last-child {
   margin-left: 10px; /* Adjust the margin-left to create space between the inputs */
 }
 
 /* Name inputs */
-input[type="text"] {
-  width: calc(100% - 5px); /* Set the width to half of the container width minus 5 pixels for spacing */
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Email inputs */
+input[type="text"],
 input[type="email"],
 input[name="confirmEmail"],
 textarea[name="pray"],
 [type="tel"] {
-  width: calc(100%); /* Set the width to half of the container width minus 5 pixels for spacing */
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -156,7 +128,7 @@ textarea[name="pray"],
 }
 
 .candle-form {
-  height: 70vh; /* Adjust the height if necessary */
+  height: auto; /* Adjust the height if necessary */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,50 +143,36 @@ textarea[name="pray"],
 
 .name-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
+@media (min-width: 600px) {
   .candle {
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: row;
   }
 
-  .candle .leftSide,
-  .candle .rightSide {
-    flex: 100%;
-    padding: 20px 0;
-  }
-
-  .blur-background {
-    height: 100%;
-  }
-
-  form input,
-  form textarea {
-    width: calc(100% - 20px);
-    max-width: 100%;
+  .candle .leftSide, .candle .rightSide {
+    width: 50%;
+    padding: 30px;
   }
 
   .name-container {
-    flex-direction: column;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-btns-candle button {
+    padding: 15px 30px;
   }
 
-  .name-container input[type="text"] {
-    margin-bottom: 10px;
-    margin-right: 0;
+  .candle .leftSide, .candle .rightSide {
+    padding: 40px;
   }
+}
 
-  .name-container input[type="text"]:last-child {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  input[type="text"] {
-    width: calc(100% - 20px);
-    margin-bottom: 10px;
+@media (min-width: 992px) {
+  .candle-form {
+    height: 70vh; /* Adjust the height if necessary */
   }
 }

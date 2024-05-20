@@ -69,26 +69,27 @@ function Candle() {
             <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-group">
 
-                <div className="name-container">
-                  <input
-                    type="text"
-                    name="firstname"
-                    placeholder="First Name"
-                    value={form.firstname}
-                    onChange={handleChangeForm}
-                    required
-                    className="form-control"
-                  />
-                  <input
-                    type="text"
-                    name="lastname"
-                    placeholder="Last Name"
-                    value={form.lastname}
-                    onChange={handleChangeForm}
-                    required
-                    className="form-control"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  value={form.firstname}
+                  onChange={handleChangeForm}
+                  required
+                  className="form-control"
+                />
+              </div>
+              <div className="form-group">
+
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  value={form.lastname}
+                  onChange={handleChangeForm}
+                  required
+                  className="form-control"
+                />
               </div>
               <div className="form-group">
                 <input
