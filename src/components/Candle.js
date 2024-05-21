@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Candle.css";
 
@@ -48,6 +48,11 @@ function Candle() {
       console.error("Error lighting a candle:", error);
     }
   };
+
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo(0, 0);
+  }, []); // Empty dependency array ensures this effect runs only once, on mount
 
   return (
     <div className="candle">

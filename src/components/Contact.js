@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Contact.css'; // Import CSS file for styling
 
@@ -59,6 +59,11 @@ function Contact() {
       alert('Failed to send form data');
     }
   };
+
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo(0, 0);
+  }, []); // Empty dependency array ensures this effect runs only once, on mount
 
   return (
     <div>

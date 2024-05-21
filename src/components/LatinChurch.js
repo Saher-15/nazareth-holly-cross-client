@@ -1,34 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/Pages.css';
-import { SiGooglemaps   } from "react-icons/si";
+import { SiGooglemaps } from "react-icons/si";
 
-const GreekChurch = () => {
+const LatinCurch = () => {
 
   const handleClickMap = () => {
-    window.location.href = 'https://www.google.com/maps/place/%D9%83%D9%86%D9%8A%D8%B3%D8%A9+%D8%A7%D9%84%D8%A8%D8%B4%D8%A7%D8%B1%D8%A9+%D9%84%D9%84%D8%B1%D9%88%D9%85+%D8%A7%D9%84%D8%A7%D8%B1%D8%AB%D9%88%D8%B0%D9%83%D8%B3%E2%80%AD/@32.7070723,35.3016619,17z/data=!4m6!3m5!1s0x151c4c29d17b5477:0xc7296709e9a3ab85!8m2!3d32.7070723!4d35.3016619!16s%2Fm%2F03gtxsl?entry=ttu'; 
+    window.location.href = 'https://www.google.com/maps/place/Nazareth+City+center/@32.7021997,35.2974033,17z/data=!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu';
   };
+
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo(0, 0);
+  }, []); // Empty dependency array ensures this effect runs only once, on mount
+
+  
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Welcome to Nazareth</h1>
+        <h1>Welcome to Nazareth
+          <SiGooglemaps
+            className="custom-icon-size text-blue-500 hover:text-red-500 absolute top-0 left-0 m-4"
+            onClick={handleClickMap}
+          />
+        </h1>
         <p>
-          Explore the beauty of Nazareth's Old City
-          <SiGooglemaps   className="text-6xl max-sm:text-4xl text-accent-content" onClick={handleClickMap}/>        
+          Explore the beauty of the Latin Church
         </p>
-        
       </div>
-      <div className='gallery'>
-        <img src="/images/img-2.jpg" alt='Nazareth 1' className='gallery-image' />
-        <img src="/images/img-1.jpg" alt='Nazareth 2' className='gallery-image' />
-        <img src="/images/img-3.jpg" alt='Nazareth 3' className='gallery-image' />
+      <div className='content'>
+        <p>
+          The Latin Church, also known as the Basilica of the Annunciation, is a significant religious site located in Nazareth, Israel. It stands as one of the largest churches in the Middle East and holds deep religious significance for Christians worldwide.
+        </p>
+        <p>
+          <strong>Historical Background:</strong> The site is traditionally believed to be the place where the Angel Gabriel announced to the Virgin Mary that she would conceive and give birth to Jesus, an event known as the Annunciation. The basilica has a long history dating back to the early centuries of Christianity, with successive churches built on the site over time.
+        </p>
+        <p>
+          <strong>Architectural Features:</strong> The current basilica, constructed between 1955 and 1969, features a distinctive two-story structure. The upper church is used for worship services, while the lower church encloses the Grotto of the Annunciation, believed to be the actual site of the Annunciation. The basilica's architecture blends modern styles with traditional elements, and its interior is adorned with mosaics, frescoes, and artworks depicting scenes from the life of Christ.
+        </p>
+        <p>
+          <strong>Visiting the Basilica:</strong> The Basilica of the Annunciation is a popular destination for pilgrims and tourists visiting Nazareth. Visitors can explore both the upper and lower churches, admire the artistic and architectural features, and participate in religious ceremonies and events held at the basilica. The site offers a profound spiritual experience and serves as a symbol of faith and heritage.
+        </p>
       </div>
-      <p>
-        Nazareth’s Old City is most famous for its shuk (outdoor market) which attracts Israelis from across the country looking for traditional Arabic produce. This in itself is an experience, and a great contrast to the air-conditioned malls dotted around the country. For those interested in Christianity, the Old City and surrounds are filled with important Christian sites, including the Church of the Annunciation.
-      </p>
     </div>
   );
 }
 
-export default GreekChurch;
-
-
+export default LatinCurch;
