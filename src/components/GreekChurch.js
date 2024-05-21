@@ -26,14 +26,14 @@ const GreekChurch = () => {
           Explore the beauty of Greek Church
         </p>
       </div>
-      <div className='gallery'>
+      {/* <div className='gallery'>
         <img src="/images/try1.jpeg" alt='Greek Orthodox Church of the Annunciation' className='gallery-image' />
         <img src="/images/candle2.jpeg" alt='Greek Orthodox Church of the Annunciation' className='gallery-image' />
         <img src="/images/greek1.jpeg" alt='Greek Orthodox Church of the Annunciation' className='gallery-image' />
         <img src="/images/greek2.jpeg" alt='Greek Orthodox Church of the Annunciation' className='gallery-image' />
         <img src="/images/greek3.jpeg" alt='Greek Orthodox Church of the Annunciation' className='gallery-image' />
 
-      </div>
+      </div> */}
       <div className='content'>
 
         <p>
