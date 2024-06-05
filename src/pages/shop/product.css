@@ -6,17 +6,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Product Image */
-.product img {
+.img-size{
   width: auto;
   /* Set a fixed width */
   height: 300px;
   /* Set a fixed height */
   border-radius: 25px !important;
-  /* Adjusted border radius for better appearance */
 }
-
-
 
 .addToCartWrapper {
   display: flex;
