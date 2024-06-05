@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from './Button';
 import '../styles/HeroSection.css';
 
 function HeroSection() {
   const soundUrl = '/sounds/christians.mp3';
   const audioRef = useRef(new Audio(soundUrl));
-  const [isPlaying, setIsPlaying] = useState(true);
 
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
@@ -23,15 +22,15 @@ function HeroSection() {
     };
   }, []);
 
-  const togglePlayPause = () => {
-    const audio = audioRef.current;
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
+  // const togglePlayPause = () => {
+  //   const audio = audioRef.current;
+  //   if (isPlaying) {
+  //     audio.pause();
+  //   } else {
+  //     audio.play();
+  //   }
+  //   setIsPlaying(!isPlaying);
+  // };
 
   return (
     <div className='hero-container'>
@@ -63,14 +62,14 @@ function HeroSection() {
         >
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>
-        <Button
+        {/* <Button
           onClick={togglePlayPause}
           className='btns btn--sound-control'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
           <i className={isPlaying ? 'fas fa-pause' : 'fas fa-play'}></i>
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
