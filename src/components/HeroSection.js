@@ -1,18 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from './Button';
 import '../styles/HeroSection.css';
 
-
 function HeroSection() {
+  const soundUrl = '/sounds/christians.mp3';
+  const audioRef = useRef(new Audio(soundUrl));
+  const [isPlaying, setIsPlaying] = useState(true);
+
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this effect runs only once, on mount
 
+    // Initialize and start playing the audio
+    const audio = audioRef.current;
+    audio.loop = true;
+    audio.play();
+
+    // Cleanup on unmount
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  const togglePlayPause = () => {
+    const audio = audioRef.current;
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className='hero-container'>
-      <video src='/videos/video-7.mp4' autoPlay loop muted playsInline controls />
+      <video src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} />
       <h1>JESUS CITY AWAITS</h1>
       <p>GRACE IN EVERY CLICK</p>
       <div className='hero-btns'>
@@ -40,8 +63,14 @@ function HeroSection() {
         >
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>
-
-
+        <Button
+          onClick={togglePlayPause}
+          className='btns btn--sound-control'
+          buttonStyle='btn--outline'
+          buttonSize='btn--large'
+        >
+          <i className={isPlaying ? 'fas fa-pause' : 'fas fa-play'}></i>
+        </Button>
       </div>
     </div>
   );
