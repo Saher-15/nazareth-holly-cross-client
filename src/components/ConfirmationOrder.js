@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useShopContext } from '../context/shop-context'; // Import the context hook
 
 function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice }) {
     const { clearCart } = useShopContext(); // Get the clearCart function from the context
+    const navigate = useNavigate(); // Get the navigate function
 
     useEffect(() => {
         const sendOrderDetails = async () => {
@@ -24,21 +26,26 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                         productName: item.name,
                         quantity: item.quantity
                     }))
-
                 };
 
                 const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
                 console.log(response);
 
                 // Clear the cart after the order has been successfully processed
+                clearCart();
+
+                // Wait for 3 seconds before navigating to home
+                setTimeout(() => {
+                    navigate("/");
+                }, 3000);
+
             } catch (error) {
                 console.error('Error sending order details:', error);
             }
         };
 
         sendOrderDetails();
-    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice]); // Add dependencies here
-    clearCart();
+    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice, clearCart, navigate]); // Add dependencies here
 
     return (
         <div style={styles.container}>
