@@ -9,13 +9,7 @@ video {
   /* Adjust the brightness value as needed */
 }
 
-/* Hide play button and volume controls */
-video::-webkit-media-controls-start-playback-button,
-video::-webkit-media-controls-enclosure,
-video::-webkit-media-controls-volume-slider {
-  display: none !important;
-  -webkit-appearance: none;
-}
+
 
 /* Styles for hero container */
 .hero-container {
