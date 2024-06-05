@@ -21,11 +21,14 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                     totalPrice,
                     products: cartItems.map(item => ({
                         productID: item._id,
+                        productName: item.name,
                         quantity: item.quantity
                     }))
+
                 };
+
                 const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
-                console.log(response.data);
+                console.log(response);
 
                 // Clear the cart after the order has been successfully processed
             } catch (error) {
