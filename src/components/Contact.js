@@ -105,7 +105,7 @@ function Contact() {
             name="msg"
             value={formData.msg}
             onChange={handleChange}
-          /><br /><br />
+          /><br /><br /><br />
           <button type="submit">Submit</button>
         </form>
         {showMessage && <p style={{color: "#fff"}}>Message submitted successfully!</p>}
