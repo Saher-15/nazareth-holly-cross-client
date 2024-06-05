@@ -122,7 +122,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
     return (
         <div className="App">
             <div className="container">
-                <div className="left-side">
+                {/* <div className="left-side"> */}
                     <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
                         <h2 style={{ textAlign: 'center',padding:'10px' }}>Contact & Delivery Information</h2>
                         <div className="form-group">
@@ -239,8 +239,8 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                             </div>
                         </div>
                     </form>
-                </div>
-                <div className="right-side">
+                {/* </div> */}
+                {/* <div className="right-side"> */}
                     <div className="paypal-card">
                         <PayPalScriptProvider options={initialOptions} >
                             {isFormIncomplete && <p style={{ color: 'red', textAlign: 'center' }}>Please fill in all details to continue.</p>}
@@ -278,7 +278,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                             </div>
                         )}
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         </div>
     );
