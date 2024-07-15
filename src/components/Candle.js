@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Candle.css";
 
 function Candle() {
   const [form, setForm] = useState({
@@ -12,7 +11,6 @@ function Candle() {
   });
 
   const navigate = useNavigate();
-
   const [emailMatchError, setEmailMatchError] = useState("");
   const [inputWarning, setInputWarning] = useState("");
 
@@ -59,84 +57,100 @@ function Candle() {
       <div className="blur-background"></div> {/* Add a div for the blurred background */}
 
       <div className="leftSide">
-        <p className="prayer-message">Light a candle in a Nazareth church <br /> send us your wish or prayer and we will light a candle for you, keeping the ancient tradition alive.<br /><br /><h5>to light a candle you have to pay 2$</h5></p>
-
-
+        <p className="prayer-message">Light a candle in a Nazareth church <br /> send us your wish or prayer and we will light a candle for you, keeping the ancient tradition alive.<br /><br /></p>
       </div>
 
       <div className="rightSide">
-        <p className="prayer-message">Personal prayer and candle lighting</p>
+        <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
+          <label
+            htmlFor="first-name"
+            className="block text-sm font-semibold leading-6 text-accent-content"
+          >
+            LIGHT A PRAY CANDLE
+          </label>
+          <br />
+          <div className="form-group">
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="First Name"
+                value={form.firstname}
+                onChange={handleChangeForm}
+                required
+                autoComplete="given-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
 
-        {/* <h1> LIGHT A PRAY CANDLE</h1> */}
-        <div className="candle-card">
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Last Name"
+                value={form.lastname}
+                onChange={handleChangeForm}
+                required
+                autoComplete="family-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
 
-          <div>
-            <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
-              <div className="form-group">
+            <div className="mt-2.5">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={handleChangeForm}
+                required
+                autoComplete="email"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
 
-                <input
-                  type="text"
-                  name="firstname"
-                  placeholder="First Name"
-                  value={form.firstname}
-                  onChange={handleChangeForm}
-                  required
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
+            <div className="mt-2.5">
+              <input
+                type="email"
+                name="confirmEmail"
+                id="confirmEmail"
+                placeholder="Confirm Email"
+                value={form.confirmEmail}
+                onChange={handleChangeForm}
+                required
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+              {emailMatchError && <p className="error-message">{emailMatchError}</p>}
+            </div>
 
-                <input
-                  type="text"
-                  name="lastname"
-                  placeholder="Last Name"
-                  value={form.lastname}
-                  onChange={handleChangeForm}
-                  required
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={form.email}
-                  onChange={handleChangeForm}
-                  required
-                  className="form-control"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="confirmEmail"
-                  placeholder="Confirm Email"
-                  value={form.confirmEmail}
-                  onChange={handleChangeForm}
-                  required
-                  className="form-control"
-                />
-                {emailMatchError && <p className="error-message">{emailMatchError}</p>}
-              </div>
-              <div className="form-group">
-                <textarea
-                  name="pray"
-                  placeholder="Your Prayer"
-                  value={form.pray}
-                  onChange={handleChangeForm}
-                  required
-                  className="form-control"
-                ></textarea>
-                {inputWarning && <p className="error-message">{inputWarning}</p>}
-              </div>
-              <div className='hero-btns-candle'>
-                <button onClick={handleLightButton}>LIGHT</button>
-              </div>
-
-            </form>
+            <div className="form-group">
+              <textarea
+                name="pray"
+                placeholder="Your Prayer"
+                value={form.pray}
+                onChange={handleChangeForm}
+                required
+                className="form-control"
+              ></textarea>
+              {inputWarning && <p className="error-message">{inputWarning}</p>}
+            </div>
           </div>
-        </div>
+
+          <label
+            htmlFor="first-name"
+            className="block text-sm font-semibold leading-6 text-accent-content"
+          >
+            To light a candle you have to pay 2$
+          </label>
+
+          <div className='hero-btns-candle'>
+            <button onClick={handleLightButton}>LIGHT</button>
+          </div>
+        </form>
+
       </div>
     </div >
   );

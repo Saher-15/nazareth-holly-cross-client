@@ -1,25 +1,25 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Button } from './Button';
 import '../styles/HeroSection.css';
 
 function HeroSection() {
-  const soundUrl = '/sounds/christians.mp3';
-  const audioRef = useRef(new Audio(soundUrl));
+  // const soundUrl = '/sounds/christians.mp3';
+  // const audioRef = useRef(new Audio(soundUrl));
 
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
 
     // Initialize and start playing the audio
-    const audio = audioRef.current;
-    audio.loop = true;
-    audio.play();
+    // const audio = audioRef.current;
+    // audio.loop = true;
+    // audio.play();
 
-    // Cleanup on unmount
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
+    // // Cleanup on unmount
+    // return () => {
+    //   audio.pause();
+    //   audio.currentTime = 0;
+    // };
   }, []);
 
   // const togglePlayPause = () => {

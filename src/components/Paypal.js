@@ -124,7 +124,12 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             <div className="container">
                 {/* <div className="left-side"> */}
                 <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
-                    <h2 style={{ textAlign: 'center', padding: '10px' }}>Contact & Delivery Information</h2>
+                    <label
+                        htmlFor="first-name"
+                        className="block text-sm font-semibold leading-6 text-accent-content"
+                    >
+                        Contact & Delivery Information
+                    </label>
                     <div className="form-group">
                         <div >
                             <input

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Contact.css'; // Import CSS file for styling
+import "../styles/Candle.css";
 
 function Contact() {
   // State to store form data
@@ -66,49 +67,79 @@ function Contact() {
   }, []); // Empty dependency array ensures this effect runs only once, on mount
 
   return (
-    <div>
+    <div className="candle">
       <div className="background-img" style={{ backgroundImage: "url('/images/jesus.png')" }}></div>
-      <div className="form-container">
+      <div className="leftSide">
+        {showMessage && <p style={{ color: "#fff" }}>Message submitted successfully!</p>}
+      </div>
+      <div className="rightSide">
+        <form className="candle-form center-form" onSubmit={handleSubmit}>
+          <label
+            htmlFor="first-name"
+            className="block text-sm font-semibold leading-6 text-accent-content"
+          >
+            <h2 className='h2t'>CONTACT US</h2>
+          </label>
+          <br />
+          <div className="form-group">
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                placeholder="Full Name"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+                autoComplete="given-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
 
-        <form onSubmit={handleSubmit}>
-          <h2 className='h2t'>CONTACT US</h2>
+            <div className="mt-2.5">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                autoComplete="email"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
 
-          <br /><br />
-          <input
-            placeholder="Full Name"
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-          />
-          <br /><br />
-          <input
-            placeholder="Email"
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          /><br /><br />
-          <input
-            placeholder="Phone Number"
-            type="text"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-          /><br /><br />
-          <textarea
-            placeholder="Text"
-            id="msg"
-            name="msg"
-            value={formData.msg}
-            onChange={handleChange}
-          /><br /><br /><br />
-          <button type="submit">Submit</button>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                autoComplete="family-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+
+            <textarea
+              placeholder="Text"
+              id="msg"
+              name="msg"
+              value={formData.msg}
+              onChange={handleChange}
+              required
+            />
+            <br />
+          </div>
+
+          <div className='hero-btns-candle'>
+            <button type="submit">Submit</button>
+          </div>
+
         </form>
-        {showMessage && <p style={{color: "#fff"}}>Message submitted successfully!</p>}
       </div>
     </div>
   );

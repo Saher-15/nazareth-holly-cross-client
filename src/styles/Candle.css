@@ -103,12 +103,18 @@ textarea:focus {
 }
 
 .prayer-message {
+  display: flex;
+  justify-content: space-between;
   font-size: 24px;
-  font-family: Georgia, serif;
-  font-weight: bold;
+  font-family: 'Lato', sans-serif;  /* Changed the font family */
   color: white;
   text-align: center;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 0.5rem;
 }
+
+
+
 
 .name-container input[type="text"]:last-child {
   margin-left: 10px; /* Adjust the margin-left to create space between the inputs */

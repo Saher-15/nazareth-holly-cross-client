@@ -76,9 +76,9 @@ const PayPalComponent = ({ form }) => {
 
     return (
         <div className="App">
-            <p class="prayer-text">
+            {/* <p class="prayer-text">
                 O blessed Lord, Lord of light. As I light this candle, I am mindful of your love for me, and my faith in You. I ask you to help me be a light in this world for You.
-            </p>
+            </p> */}
 
             <div className="paypal-card">
 
