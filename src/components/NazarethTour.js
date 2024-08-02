@@ -34,7 +34,7 @@ const NazarethTour = () => {
       <div className="player-wrapper">
         <ReactPlayer
           ref={playerRef}
-          url="/videos/video-7.mp4"
+          url="/videos/tour.mp4"
           playing={playing}
           loop={true}
           muted={false}
