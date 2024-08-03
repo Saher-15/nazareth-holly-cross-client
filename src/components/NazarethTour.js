@@ -56,7 +56,7 @@ const NazarethTour = () => {
               onChange={handleSeekChange}
               className="progress-slider"
             />
-            <span className="time-display">{formatTime(duration * played)} / {formatTime(duration)}</span>
+            <span className="time-display">{formatTime(duration * played)} / 8:53</span>
           </div>
         </div>
       </div>
