@@ -1,7 +1,7 @@
 /* NazarethTour.css */
 
 /* Container styles */
-.container {
+.container-tour {
   display: flex;
   flex-direction: column;
   align-items: center;
