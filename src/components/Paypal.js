@@ -120,16 +120,20 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
     const doEmailsMatch = form.email === form.confirmEmail;
 
     return (
-        <div className="App">
+        <div className="App" >
             <div className="container">
                 {/* <div className="left-side"> */}
                 <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
+                    <br />
+
                     <label
                         htmlFor="first-name"
                         className="block text-sm font-semibold leading-6 text-accent-content"
                     >
                         Contact & Delivery Information
                     </label>
+                    <br />
+
                     <div className="form-group">
                         <div >
                             <input

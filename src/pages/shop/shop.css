@@ -2,7 +2,9 @@
 .shop {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px; /* Adjust padding for smaller screens */
+  padding: 20px; /* Adjust padding for smaller screens */  background-color: #1c1c1c;
+  background-color: #1c1c1c3a;
+
 }
 
 .sorting-and-cart {

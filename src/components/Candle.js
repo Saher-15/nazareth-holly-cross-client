@@ -33,7 +33,7 @@ function Candle() {
 
     // Check if both email inputs match
     if (form.email !== form.confirmEmail) {
-      setEmailMatchError("Emails do not match");
+      setEmailMatchError("Emails don't match");
       setTimeout(() => {
         setEmailMatchError(""); // Clear the error message after 2 seconds
       }, 2000);
