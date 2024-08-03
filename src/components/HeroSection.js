@@ -34,7 +34,7 @@ function HeroSection() {
 
   return (
     <div className='hero-container'>
-      <video src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} />
+      <video className='hero-v' src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} />
       <h1>JESUS CITY AWAITS</h1>
       <p>GRACE IN EVERY CLICK</p>
       <div className='hero-btns'>
