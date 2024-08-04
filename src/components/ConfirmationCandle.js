@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
 
 function ThankYou({ firstName, lastName, email, prayer }) {
+    const navigate = useNavigate(); // Get the navigate function
+
     useEffect(() => {
 
         const sendOrderDetails = async () => {
@@ -14,13 +17,18 @@ function ThankYou({ firstName, lastName, email, prayer }) {
                     prayer
                 };
                 await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle", requestBody);
+                setTimeout(() => {
+                    navigate("/");
+                }, 5000);
             } catch (error) {
                 console.error('Error sending order details:', error);
             }
+
+            
         };
 
         sendOrderDetails();
-    }, [firstName, lastName, email, prayer]); // Add dependencies here
+    }, [firstName, lastName, email, prayer, navigate]); // Add dependencies here
 
     return (
         <div style={styles.container}>

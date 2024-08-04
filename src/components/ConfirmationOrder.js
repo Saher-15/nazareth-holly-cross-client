@@ -36,7 +36,7 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                 // Wait for 3 seconds before navigating to home
                 setTimeout(() => {
                     navigate("/");
-                }, 3000);
+                }, 5000);
 
             } catch (error) {
                 console.error('Error sending order details:', error);
