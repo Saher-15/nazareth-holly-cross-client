@@ -22,12 +22,11 @@ function Footer() {
               nazarethholycross@gmail.com
             </span>
           </li>
-          <li>
-            <div className="footer-links">
-              <Link to='/about' className='about-us-link'>About Us</Link>
-            </div>
-          </li>
         </ul>
+      </div>
+      <br />
+      <div className="footer-links">
+        <Link to='/about' className='about-us-link'>About Us</Link>
       </div>
       <aside>
         <p className="text-white text-2xl max-sm:text-sm text-accent-content">
