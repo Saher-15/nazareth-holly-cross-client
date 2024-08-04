@@ -86,7 +86,7 @@ const Shop = () => {
   });
 
   return (
-    <div className="shop">
+    <div className="shop-page">
       {loading ? (
         <LoadingLogo />
       ) : (

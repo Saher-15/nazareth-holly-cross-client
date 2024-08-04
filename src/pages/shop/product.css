@@ -1,33 +1,33 @@
+/* General Styles */
 .product {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-.img-size{
-  width: auto;
-  /* Set a fixed width */
-  height: 220px;
-  /* Set a fixed height */
+.img-size {
+  width: 100%;
+  height: 50vh;
   border-radius: 25px !important;
 }
 
 .addToCartWrapper {
   display: flex;
-  /* Use flexbox to align items */
   justify-content: center;
-  /* Center items horizontally */
 }
 
 .addToCartBttn {
+  background-color: #242424;
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 20px;
+  padding: 10px 20px;
   cursor: pointer;
-  margin-right: 10px;
+  transition: background-color 0.3s;
+  margin-left: 10px;
 }
 
 .addToCartBttn:hover {
@@ -42,33 +42,10 @@
   text-align: center;
 }
 
-.addToCartBttn {
-  background-color: #242424;
-  /* Green background color */
-  color: #fff;
-  /* White text color */
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  /* Increased padding for better visual */
-  cursor: pointer;
-  transition: background-color 0.3s;
-  /* Smooth transition for hover effect */
-  margin-left: 10px;
-
-}
-
-.product {
-  position: relative;
-  /* Add other styling properties for the product card */
-}
-
 .cart-icon-wrapper {
   position: absolute;
   bottom: 10px;
-  /* Adjust as needed */
   right: 10px;
-  /* Adjust as needed */
 }
 
 .cart-link {
@@ -76,4 +53,69 @@
   align-items: center;
   text-decoration: none;
   color: #242424;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .img-size {
+    height: 40vh;
+  }
+
+  .addToCartBttn {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product {
+    padding: 15px;
+  }
+
+  .img-size {
+    height: 35vh;
+  }
+
+  .addToCartBttn {
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .img-size {
+    height: 30vh;
+  }
+
+  .addToCartBttn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .message {
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product {
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+
+  .img-size {
+    height: 25vh;
+  }
+
+  .addToCartBttn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .message {
+    padding: 3px 6px;
+  }
 }
