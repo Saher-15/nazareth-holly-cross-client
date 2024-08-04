@@ -51,7 +51,6 @@ const PayPalComponent = ({ form }) => {
 
     const onApprove = async (data, actions) => {
         const order_id = data.orderID;
-        console.log(data);
 
         const requestBody = {
             "intent": intent,

@@ -28,8 +28,7 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                     }))
                 };
 
-                const response = await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
-                console.log(response);
+                await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/newOrder", requestBody);
 
                 // Clear the cart after the order has been successfully processed
                 clearCart();

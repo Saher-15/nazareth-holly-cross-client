@@ -89,7 +89,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
     const onApprove = async (data) => {
         const order_id = data.orderID;
-        console.log(data);
 
         const requestBody = {
             "intent": intent,
