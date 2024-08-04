@@ -140,10 +140,9 @@ function Candle() {
           </div>
 
           <label
-            htmlFor="first-name"
-            className="block text-sm font-semibold leading-6 text-accent-content"
+            className="block text-sm font-semibold leading-6 text-accent-content text-center"
           >
-            To light a candle you have to pay 2$
+            To light a candle, pay $2
           </label>
 
           <div className='hero-btns-candle'>
