@@ -44,7 +44,7 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
         };
 
         sendOrderDetails();
-    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice, clearCart, navigate]); // Add dependencies here
+    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice, navigate]); // Add dependencies here
 
     return (
         <div style={styles.container}>

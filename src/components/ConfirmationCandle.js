@@ -16,7 +16,11 @@ function ThankYou({ firstName, lastName, email, prayer }) {
                     email,
                     prayer
                 };
+
+                console.log("thankyouuuuuu--")
+
                 await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle", requestBody);
+
                 setTimeout(() => {
                     navigate("/");
                 }, 5000);
