@@ -7,7 +7,7 @@ import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo componen
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [currentPage] = useState(1);
-  const [setTotalPages] = useState(1);
+  // const [setTotalPages] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100);
@@ -22,12 +22,10 @@ const Shop = () => {
       setLoading(true); // Set loading to true before fetching data
       try {
         const response = await axios.get(
-          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
+          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${1}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
-        if (currentPage === 1) {
-          setTotalPages(response.data.next);
-        }
+
         // Scroll to top when new products are loaded
         window.scrollTo(0, 0);
       } catch (error) {
