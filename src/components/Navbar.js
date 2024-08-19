@@ -15,7 +15,6 @@ function Navbar() {
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu} >
         <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px"}}></i>
         <span> NAZARETH HOLY CROSS </span>
-        <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px"}}></i>
         </Link>
         <div className='navbar-container'>
 
