@@ -145,18 +145,18 @@
 @media screen and (max-width: 600px) {
   .navbar-logo {
     margin-top: 20px;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 
 @media screen and (max-width: 400px) {
   .navbar-logo {
     margin-top: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   } 
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
   .navbar-logo {
     margin-top: 25px;
     font-size: 0.7rem;
