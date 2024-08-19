@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
 import CartItem from "./cartItem";
-
 import "./cart.css";
 
 const Cart = () => {

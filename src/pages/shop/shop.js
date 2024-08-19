@@ -120,7 +120,9 @@ const Shop = () => {
           </div>
 
           {sortedProducts.length === 0 ? (
-            <p>No products found matching your criteria.</p>
+            <div className="no-products-message">
+              <p><br/><br/><br/><br/><br/><br/>No products found matching your criteria.<br/><br/><br/><br/><br/><br/></p>
+            </div>
           ) : (
             <div className="products">
               {sortedProducts.map((item) => (

@@ -4,6 +4,9 @@
   margin: 0 auto;
   padding: 20px;
   background-color: #1c1c1c3a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push footer to the bottom */
 }
 
 .header-filter {
@@ -14,12 +17,13 @@
   flex-wrap: wrap; /* Allow wrapping if needed */
 }
 
+
 .header-filter input[type="text"] {
   flex: 1;
   order: 1; /* Left-aligned */
   padding: 8px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
 }
 
 .filters {
@@ -35,17 +39,42 @@
   margin: 0 10px;
 }
 
+/* Enhanced Sort Filter Styles */
 .sort {
   flex: 1;
   order: 3; /* Right-aligned */
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px; /* Increased gap for better spacing */
+  padding: 12px; /* Increased padding for better spacing */
+  border-radius: 8px; /* Rounded corners */
 }
 
-.sort label,
+.sort label {
+  color: #000; /* Light text color for readability */
+  font-weight: bold; /* Bold label text */
+  font-size: 16px; /* Slightly larger font size */
+}
+
 .sort select {
-  margin-left: 10px;
+  padding: 8px 12px; /* Padding for comfort */
+  border-radius: 5px;
+  border: 1px solid #666; /* Subtle border */
+  background-color: #555; /* Dark background */
+  color: #e0e0e0; /* Light text color */
+  font-size: 16px; /* Consistent font size with label */
+  cursor: pointer; /* Pointer cursor for better UX */
+}
+
+.sort select option {
+  background-color: #1c1c1c; /* Consistent background */
+  color: #e0e0e0; /* Consistent text color */
+}
+
+.sort select:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #888; /* Highlight border on focus */
+  background-color: #444; /* Slightly lighter background on focus */
 }
 
 /* Products Container */
@@ -62,6 +91,22 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   padding: 15px;
   text-align: center;
+}
+
+/* No Products Message */
+.no-products-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Take up the remaining space */
+  text-align: center;
+}
+
+.no-products-message p {
+  font-size: 30px; /* Larger font size for visibility */
+  color: #000;
+  margin: 0;
+  padding: 40px;
 }
 
 /* Responsive Styles */
