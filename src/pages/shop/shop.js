@@ -6,8 +6,8 @@ import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo componen
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage] = useState(1);
+  const [setTotalPages] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100);
