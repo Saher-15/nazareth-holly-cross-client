@@ -119,7 +119,7 @@ const Shop = () => {
 
           {sortedProducts.length === 0 ? (
             <div className="no-products-message">
-              <p><br/><br/><br/><br/><br/><br/>No products found matching your criteria.<br/><br/><br/><br/><br/><br/></p>
+              <p>No products found matching your criteria.</p>
             </div>
           ) : (
             <div className="products">
