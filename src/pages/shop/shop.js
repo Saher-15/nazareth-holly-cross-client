@@ -9,7 +9,7 @@ const Shop = () => {
   const [currentPage] = useState(1);
   // const [setTotalPages] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
-  const [minPrice, setMinPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState(10);
   const [maxPrice, setMaxPrice] = useState(100);
   const [sliderMax, setSliderMax] = useState(100);
   const [cartCount, setCartCount] = useState(0); // State to track cart count
@@ -40,7 +40,7 @@ const Shop = () => {
 
   useEffect(() => {
     // Set default values when the component mounts
-    setMinPrice(0);
+    setMinPrice(10);
     setMaxPrice(100);
   }, []); // Empty dependency array to run this effect only once, when the component mounts
 
@@ -96,7 +96,7 @@ const Shop = () => {
               <span>Price Range:</span>
               <input
                 type="range"
-                min="0"
+                min="10"
                 max="100"
                 value={sliderMax}
                 onChange={handleMaxSliderChange}
