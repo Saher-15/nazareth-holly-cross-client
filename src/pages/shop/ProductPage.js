@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const ProductPage = () => {
   const { addToCart, cartItems } = useShopContext();
-  const { id } = useParams(); // Extract the id parameter from the URL
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const cartItem = cartItems.find((cartItem) => cartItem._id === id); // Find the cart item corresponding to the product
-  const cartItemCount = cartItem ? cartItem.quantity : 0; // If cart item exists, get its quantity, else default to 0
+  const cartItem = cartItems.find((cartItem) => cartItem._id === id);
+  const cartItemCount = cartItem ? cartItem.quantity : 0;
   const navigate = useNavigate();
-  const [showMessage, setShowMessage] = useState(false); // State to manage message visibility
+  const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
-    // Fetch product details from your API
     const fetchProduct = async () => {
       try {
         const response = await fetch(`https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getProduct/${id}`);
@@ -46,7 +43,7 @@ const ProductPage = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
@@ -54,10 +51,9 @@ const ProductPage = () => {
   }
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className="error-message">Product not found</div>;
   }
 
-  // Proceed with rendering the product details
   const { name, price, img, description } = product;
 
   return (
@@ -74,13 +70,14 @@ const ProductPage = () => {
       </div>
 
       <div className="product-details">
-        <div>
+        <div className="image-container">
           <img className="product-image" src={img} alt={name} />
           <div className="centered-content">
-            <button className="add-to-cart-button" onClick={handleClick}>Add To Cart</button>
+            <button className="add-to-cart-button" onClick={handleClick}>
+              Add To Cart
+            </button>
             {showMessage && <div className="message">Product added to cart!</div>}
           </div>
-
         </div>
         <div className="description">
           <h1 className="product-name">{name}</h1>
