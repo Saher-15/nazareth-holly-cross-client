@@ -28,8 +28,12 @@
   cursor: pointer;
   position: relative;
   font-size: 24px;
+  color: #666;
 }
 
+.cart-link-logo:hover {
+  color: #333;
+}
 .cart-item-count {
   background-color: #e74c3c;
   color: #fff;
