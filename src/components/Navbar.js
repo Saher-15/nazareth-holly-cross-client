@@ -14,10 +14,9 @@ function Navbar() {
       <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu} >
         <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px"}}></i>
-        <span> NAZARETH HOLY CROSS </span>
+        <span>NAZARETH HOLY CROSS</span>
         </Link>
         <div className='navbar-container'>
-
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>

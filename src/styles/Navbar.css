@@ -104,6 +104,8 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 15px;
+    font-size: 1.5rem;
   }
 
   .menu-icon {
@@ -142,6 +144,21 @@
 
 @media screen and (max-width: 600px) {
   .navbar-logo {
-    font-size: 1.2rem;
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-logo {
+    margin-top: 20px;
+    font-size: 0.9rem;
+  } 
+}
+
+@media screen and (max-width: 320px) {
+  .navbar-logo {
+    margin-top: 25px;
+    font-size: 0.7rem;
   }
 }
