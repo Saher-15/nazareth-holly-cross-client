@@ -7,8 +7,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Push footer to the bottom */
-  height: 100vh;
-
 }
 
 .header-filter {
@@ -102,13 +100,16 @@
   align-items: center;
   flex: 1; /* Take up the remaining space */
   text-align: center;
+  
 }
 
 .no-products-message p {
   font-size: 30px; /* Larger font size for visibility */
   color: #000;
   margin: 0;
-  padding: 40px;
+  padding: 80px;
+  height: 100vh;
+
 }
 
 /* Responsive Styles */
