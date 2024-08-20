@@ -5,7 +5,7 @@
   height: 100%;
   position: fixed;
   z-index: -1;
-  filter: brightness(0.7);
+  filter: brightness(0.8);
   border-radius: 0;
 }
 
@@ -17,7 +17,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   position: relative; /* Ensure that absolutely positioned elements are relative to this container */
 }
@@ -65,8 +65,11 @@
 
 /* Sound Control Button */
 .sound-control-btn {
-  position: relative; /* Position relative within the hero-container */
-  z-index: 1; /* Ensure it is above the video but below other elements if needed */
+  position: fixed; /* Fixes the button in place */
+  top: 16%; /* Centers the button vertically */
+  left: 20px; /* Positions the button close to the left edge of the screen */
+  transform: translateY(-50%); /* Offsets the button by half its height to vertically center it */
+  z-index: 1; /* Ensure it is above the video */
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -74,13 +77,12 @@
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  align-self: flex-start; /* Align to the right within its container */
 }
 
 /* Hover Effects for Sound Control Button */
 .sound-control-btn:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Subtle background change on hover */
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
 }
 
 /* Sound Control Icon */
