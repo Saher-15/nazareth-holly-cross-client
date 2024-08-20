@@ -18,10 +18,37 @@
 }
 
 /* Additional styles for responsiveness */
+@media screen and (max-width: 1024px) {
+  .home,
+  .services,
+  .tour {
+    font-size: 2.5rem; /* Adjust font size for tablets */
+  }
+}
+
 @media screen and (max-width: 768px) {
   .home,
   .services,
   .tour {
     font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Responsive styles for landscape mode on small devices */
+@media screen and (max-width: 480px) and (orientation: landscape) {
+  .home,
+  .services,
+  .tour {
+    flex-direction: column; /* Stack content vertically */
+    font-size: 1.5rem; /* Further reduce font size for landscape orientation on small devices */
+  }
+}
+
+/* Responsive styles for portrait mode on small devices */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .home,
+  .services,
+  .tour {
+    font-size: 2rem; /* Adjust font size for portrait orientation on small devices */
   }
 }
