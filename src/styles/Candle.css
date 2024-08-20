@@ -42,7 +42,6 @@ h5 {
 .candle {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 20px;
   height: 100vh;
