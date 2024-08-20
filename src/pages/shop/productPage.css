@@ -125,8 +125,7 @@
 
 /* Message that appears when a product is added to the cart */
 .message {
-  background-color: #2ecc71;
-  color: #fff;
+  color: green;
   padding: 10px 20px;
   border-radius: 25px;
   margin-top: 15px;

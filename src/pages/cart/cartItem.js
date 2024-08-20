@@ -1,5 +1,6 @@
 import React from "react";
 import { useShopContext } from "../../context/shop-context";
+import "./cartItem.css";
 
 const CartItem = ({ data }) => {
   const { _id, name, price, img, quantity } = data;
@@ -48,6 +49,6 @@ const CartItem = ({ data }) => {
       </div>
     </div>
   );
-};  
+};
 
 export default CartItem;

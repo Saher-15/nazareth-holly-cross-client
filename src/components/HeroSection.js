@@ -1,42 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import '../styles/HeroSection.css';
 
 function HeroSection() {
-  // const soundUrl = '/sounds/christians.mp3';
-  // const audioRef = useRef(new Audio(soundUrl));
+  const [isPlaying, setIsPlaying] = useState(true);
+  const audioRef = useRef(new Audio('/sounds/christians.mp3'));
 
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
 
     // Initialize and start playing the audio
-    // const audio = audioRef.current;
-    // audio.loop = true;
-    // audio.play();
+    const audio = audioRef.current;
+    audio.loop = true;
 
-    // // Cleanup on unmount
-    // return () => {
-    //   audio.pause();
-    //   audio.currentTime = 0;
-    // };
+    // Cleanup on unmount
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
   }, []);
 
-  // const togglePlayPause = () => {
-  //   const audio = audioRef.current;
-  //   if (isPlaying) {
-  //     audio.pause();
-  //   } else {
-  //     audio.play();
-  //   }
-  //   setIsPlaying(!isPlaying);
-  // };
+  const togglePlayPause = () => {
+    const audio = audioRef.current;
+    if (isPlaying) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className='hero-container'>
+    
       <video className='hero-v' src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} />
       <h1>JESUS CITY AWAITS</h1>
       <p>GRACE IN EVERY CLICK</p>
+      <button className='sound-control-btn' onClick={togglePlayPause}>
+          <i className={isPlaying ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
+        </button>
       <div className='hero-btns'>
         <Button
           destination='/candle'
@@ -62,14 +65,6 @@ function HeroSection() {
         >
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>
-        {/* <Button
-          onClick={togglePlayPause}
-          className='btns btn--sound-control'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          <i className={isPlaying ? 'fas fa-pause' : 'fas fa-play'}></i>
-        </Button> */}
       </div>
     </div>
   );

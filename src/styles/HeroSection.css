@@ -1,4 +1,4 @@
-/* Default styles for video */
+/* Video Background */
 .hero-v {
   object-fit: cover;
   width: 100%;
@@ -6,14 +6,10 @@
   position: fixed;
   z-index: -1;
   filter: brightness(0.7);
-  border-radius: 0px;
-
-  /* Adjust the brightness value as needed */
+  border-radius: 0;
 }
 
-
-
-/* Styles for hero container */
+/* Hero Section Container */
 .hero-container {
   height: 100vh;
   width: 100%;
@@ -21,109 +17,112 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
-  /* Added padding for better alignment on smaller screens */
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+  position: relative; /* Ensure that absolutely positioned elements are relative to this container */
 }
 
-/* Styles for heading */
-.hero-container>h1 {
+/* Hero Heading */
+.hero-container > h1 {
   color: #fff;
   font-size: 4vw;
-  /* Responsive font size based on viewport width */
   margin-top: -8vh;
-  /* Adjusted margin for better centering */
+  text-align: center;
+  text-transform: uppercase; /* Makes text all uppercase */
+  letter-spacing: 2px; /* Adds space between letters */
 }
 
-/* Styles for paragraph */
-.hero-container>p {
+/* Hero Subtext */
+.hero-container > p {
   margin-top: 2vh;
-  /* Adjusted margin for better spacing */
   color: #fff;
   font-size: 2vw;
-  /* Responsive font size based on viewport width */
+  text-align: center;
+  font-style: italic; /* Adds a subtle italic style */
 }
 
-/* Styles for buttons container */
+/* Button Container */
 .hero-btns {
   margin-top: 4vh;
-  /* Adjusted margin for better spacing */
   display: flex;
   flex-wrap: wrap;
-  /* Allow buttons to wrap on smaller screens */
   justify-content: center;
-  /* Center align buttons */
 }
 
-/* Styles for individual button */
+/* Individual Button Styles */
 .hero-btns .btn {
   margin: 10px;
-  /* Increased margin for better spacing */
   border-radius: 10px;
-  padding: 10px 20px;
-  /* Increased padding for better touch target */
+  padding: 12px 24px; /* Enhanced padding for better aesthetics */
+  font-size: 1.2rem; /* Slightly larger text for better readability */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effects */
 }
 
-/* Styles for play button icon */
-.fa-play-circle {
-  margin-left: 4px;
+.hero-btns .btn:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle background change on hover */
 }
 
-/* Media queries for responsiveness */
+/* Sound Control Button */
+.sound-control-btn {
+  position: relative; /* Position relative within the hero-container */
+  z-index: 1; /* Ensure it is above the video but below other elements if needed */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  align-self: flex-start; /* Align to the right within its container */
+}
+
+/* Hover Effects for Sound Control Button */
+.sound-control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Subtle background change on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Sound Control Icon */
+.sound-control-btn i {
+  font-size: 1.5rem;
+}
+
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
-
-  /* Adjust heading size and margin-top for small screens */
-  .hero-container>h1 {
+  .hero-container > h1 {
     font-size: 8vw;
-    /* Responsive font size based on viewport width */
     margin-top: -10vh;
-    /* Adjusted margin for better centering */
   }
 
-  /* Adjust paragraph size for small screens */
-  .hero-container>p {
+  .hero-container > p {
     font-size: 3vw;
-    /* Responsive font size based on viewport width */
   }
 
-  /* Decrease margin-top for buttons on smaller screens */
   .hero-btns {
     margin-top: 2vh;
   }
 
-  .btn-mobile {
-    display: block;
-    text-decoration: none;
+  .sound-control-btn {
+    padding: 8px;
   }
 
+  .sound-control-btn i {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
-
-  /* Adjust heading size and margin-top for extra small screens */
-  .hero-container>h1 {
+  .hero-container > h1 {
     font-size: 10vw;
-    /* Responsive font size based on viewport width */
     margin-top: -12vh;
-    /* Adjusted margin for better centering */
   }
 
-  /* Adjust paragraph size for extra small screens */
-  .hero-container>p {
+  .hero-container > p {
     font-size: 4vw;
-    /* Responsive font size based on viewport width */
   }
 
-  /* Decrease margin-top for buttons on extra small screens */
   .hero-btns {
     margin-top: 1vh;
-  }
-}
-
-
-@media screen and (max-width: 960px) {
-  .hero-container>h1 {
-    font-size: 70px;
-    margin-top: -150px;
   }
 }
