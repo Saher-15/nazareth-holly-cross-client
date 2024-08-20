@@ -18,7 +18,7 @@ import CheckOut from "./pages/CheckOut";
 import ContactUs from "./pages/ContactUs";
 import CheckOutCandle from "./pages/CheckOutCandle";
 import ProductPage from "./pages/shop/ProductPage";
-
+import Live from "./pages/Live"
 function App() {
 
   return (
@@ -40,6 +40,7 @@ function App() {
           <Route path="/checkout" element={<Layout><CheckOut /></Layout>} />
           <Route path="/checkoutcandle" element={<Layout><CheckOutCandle /></Layout>} />
           <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
+          <Route path="/Live" element={<Layout><Live /></Layout>} />
 
 
 

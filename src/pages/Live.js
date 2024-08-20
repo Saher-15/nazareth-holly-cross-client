@@ -1,5 +1,5 @@
 import React from 'react';
-import LiveVideo from './LiveVideo';
+import LiveVideo from '../components/LiveVideo';
 
 const App = () => {
   return (
