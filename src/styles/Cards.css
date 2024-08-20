@@ -1,6 +1,8 @@
 .cards {
   padding: 2rem;
-background-color: rgba(255, 255, 255, 0.8);}
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 100vh;
+}
 
 
 h1 {
@@ -11,26 +13,33 @@ h1 {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 90%; /* Adjust max-width for smaller screens */
+  max-width: 90%;
+  /* Adjust max-width for smaller screens */
   margin: 0 auto;
 }
 
 .cards__wrapper {
   position: relative;
-  margin: 2rem 0 1.5rem; /* Adjust margin for smaller screens */
+  margin: 2rem 0 1.5rem;
+  /* Adjust margin for smaller screens */
 }
 
 .cards__items {
-  margin-bottom: 1rem; /* Adjust margin for smaller screens */
-  display: flex; /* Ensure flexbox behavior for better responsiveness */
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  justify-content: center; /* Center items horizontally */
+  margin-bottom: 1rem;
+  /* Adjust margin for smaller screens */
+  display: flex;
+  /* Ensure flexbox behavior for better responsiveness */
+  flex-wrap: wrap;
+  /* Allow items to wrap on smaller screens */
+  justify-content: center;
+  /* Center items horizontally */
 }
 
 .cards__item {
   display: flex;
   flex: 1;
-  margin: 0 0.5rem; /* Adjust margin for smaller screens */
+  margin: 0 0.5rem;
+  /* Adjust margin for smaller screens */
   border-radius: 10px;
   padding-top: 10px;
 }
@@ -65,7 +74,8 @@ h1 {
   bottom: 0;
   margin-left: 10px;
   padding: 6px 8px;
-  max-width: calc(100% - 20px); /* Adjust max-width for smaller screens */
+  max-width: calc(100% - 20px);
+  /* Adjust max-width for smaller screens */
   font-size: 12px;
   font-weight: 700;
   color: #fff;
@@ -93,23 +103,29 @@ h1 {
 }
 
 .cards__item__info {
-  padding: 1rem; /* Adjust padding for smaller screens */
+  padding: 1rem;
+  /* Adjust padding for smaller screens */
 }
 
 .cards__item__text {
   color: #252e48;
-  font-size: 16px; /* Adjust font size for smaller screens */
-  line-height: 22px; /* Adjust line height for smaller screens */
+  font-size: 16px;
+  /* Adjust font size for smaller screens */
+  line-height: 22px;
+  /* Adjust line height for smaller screens */
 }
 
 @media only screen and (min-width: 768px) {
   .cards__item {
-    margin-bottom: 1.5rem; /* Adjust margin for medium screens */
+    margin-bottom: 1.5rem;
+    /* Adjust margin for medium screens */
   }
 
   .countHandler input {
-    width: 60px; /* Adjusted width for better touch target on smaller screens */
+    width: 60px;
+    /* Adjusted width for better touch target on smaller screens */
     height: 40px;
-    text-align: center; /* Center text horizontally */
+    text-align: center;
+    /* Center text horizontally */
   }
 }
