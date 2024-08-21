@@ -1,34 +1,14 @@
-/* Container for the entire product page */
-.product-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Button container for back and cart buttons */
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.back-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-}
-
+/* Ensure the button stays fixed at the top right */
 .cart-link-logo {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  position: relative;
   font-size: 24px;
   color: #666;
+  position: fixed;
+   /* Adjust as needed for spacing from the top */
+  right: 20px; /* Adjust as needed for spacing from the right */
+  z-index: 1000; /* Ensure it stays above other content */
 }
 
 .cart-link-logo:hover {
@@ -46,8 +26,35 @@
   align-items: center;
   font-size: 14px;
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -10px; /* Adjust as needed for spacing */
+  right: -10px; /* Adjust as needed for spacing */
+  z-index: 1001; /* Ensure it stays above the cart icon */
+}
+
+/* Additional styling for the product page */
+.product-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button container for back button (no cart button here) */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Back button styling */
+.back-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
 }
 
 /* Styling for the product details section */
