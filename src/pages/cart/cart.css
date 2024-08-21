@@ -4,7 +4,7 @@
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center items horizontally */
   margin-top: 30px; /* Space above the checkout section */
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* Subtotal */

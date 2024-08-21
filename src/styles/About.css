@@ -3,7 +3,6 @@
     min-height: 100vh; /* Ensure the container takes up at least the viewport height */
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Stack content vertically */
-    justify-content: flex-start; /* Align content at the top */
     align-items: center; /* Center content horizontally */
     padding: 20px;
     box-sizing: border-box; /* Ensure padding is included in the height */

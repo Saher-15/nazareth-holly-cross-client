@@ -24,7 +24,6 @@ const ProductPage = () => {
           throw new Error('Failed to fetch product');
         }
         const data = await response.json();
-        console.log(data)
         setProduct(data);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -74,15 +73,22 @@ const ProductPage = () => {
 
       <div className="product-details">
         <div className="image-container">
-          <img className="product-image" src={img} alt={name} />
-          <div className="other-product-images mt-1 grid grid-cols-3 w-96 gap-y-1 gap-x-2 max-sm:grid-cols-2 max-sm:w-64">
+          <img className="product-image" src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]} alt={name} />
+          <div className="other-product-images">
+            <img
+              src={img}
+              key={nanoid()}
+              onClick={() => setCurrentImage(0)}
+              alt={name}
+              className={`thumbnail ${currentImage === 0 ? 'active' : ''}`}
+            />
             {additionalImageUrls.map((imageObj, index) => (
               <img
                 src={`${imageObj}`}
                 key={nanoid()}
-                onClick={() => setCurrentImage(index)}
+                onClick={() => setCurrentImage(index + 1)}
                 alt={name}
-                className="w-32 border border-gray-600 cursor-pointer"
+                className={`thumbnail ${currentImage === index + 1 ? 'active' : ''}`}
               />
             ))}
           </div>
