@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
+import { nanoid } from "nanoid";
 
 const ProductPage = () => {
   const { addToCart, cartItems } = useShopContext();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
@@ -22,6 +24,7 @@ const ProductPage = () => {
           throw new Error('Failed to fetch product');
         }
         const data = await response.json();
+        console.log(data)
         setProduct(data);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -54,7 +57,7 @@ const ProductPage = () => {
     return <div className="error-message">Product not found</div>;
   }
 
-  const { name, price, img, description } = product;
+  const { name, price, img, description, additionalImageUrls } = product;
 
   return (
     <div className="product-container">
@@ -72,6 +75,17 @@ const ProductPage = () => {
       <div className="product-details">
         <div className="image-container">
           <img className="product-image" src={img} alt={name} />
+          <div className="other-product-images mt-1 grid grid-cols-3 w-96 gap-y-1 gap-x-2 max-sm:grid-cols-2 max-sm:w-64">
+            {additionalImageUrls.map((imageObj, index) => (
+              <img
+                src={`${imageObj}`}
+                key={nanoid()}
+                onClick={() => setCurrentImage(index)}
+                alt={name}
+                className="w-32 border border-gray-600 cursor-pointer"
+              />
+            ))}
+          </div>
           <div className="centered-content">
             <button className="add-to-cart-button" onClick={handleClick}>
               Add To Cart
