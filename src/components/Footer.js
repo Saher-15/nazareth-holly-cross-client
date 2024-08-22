@@ -10,12 +10,12 @@ function Footer() {
 
       <div className="topbar border-b border-gray-800">
         <ul>
-          <li>
+          {/* <li>
             <FaHeadphones className="text-white text-2xl max-sm:text-lg text-accent-content" />{" "}
             <span className="text-white text-2xl max-sm:text-lg text-accent-content">
               +972 504368748
             </span>
-          </li>
+          </li> */}
           <li>
             <FaRegEnvelope className="text-white text-2xl max-sm:text-lg text-accent-content" />{" "}
             <span className="text-white text-2xl max-sm:text-lg text-accent-content">
