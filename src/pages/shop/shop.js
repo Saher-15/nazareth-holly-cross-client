@@ -7,7 +7,7 @@ import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo componen
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [currentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+  const [setTotalPages] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
   const [minPrice, setMinPrice] = useState(5);
   const [maxPrice, setMaxPrice] = useState(100);
@@ -38,7 +38,7 @@ const Shop = () => {
     }
 
     getAllProducts();
-  }, [currentPage]);
+  }, [currentPage, setTotalPages]);
 
   useEffect(() => {
     // Set default values when the component mounts
