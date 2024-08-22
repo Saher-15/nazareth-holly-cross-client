@@ -7,25 +7,27 @@ import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo componen
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [currentPage] = useState(1);
-  // const [setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
-  const [minPrice, setMinPrice] = useState(10);
+  const [minPrice, setMinPrice] = useState(5);
   const [maxPrice, setMaxPrice] = useState(100);
   const [sliderMax, setSliderMax] = useState(100);
   const [cartCount, setCartCount] = useState(0); // State to track cart count
   const [loading, setLoading] = useState(true); // Add loading state
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
-  const itemsPerPage = 30;
+  const itemsPerPage = 60;
 
   useEffect(() => {
     async function getAllProducts() {
       setLoading(true); // Set loading to true before fetching data
       try {
         const response = await axios.get(
-          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${1}&size=${itemsPerPage}`
+          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
-        console.log("yesyesyes")
+        if (currentPage === 1) {
+          setTotalPages(response.data.next);
+        }
         // Scroll to top when new products are loaded
         window.scrollTo(0, 0);
       } catch (error) {
@@ -40,7 +42,7 @@ const Shop = () => {
 
   useEffect(() => {
     // Set default values when the component mounts
-    setMinPrice(10);
+    setMinPrice(5);
     setMaxPrice(100);
   }, []); // Empty dependency array to run this effect only once, when the component mounts
 
@@ -96,7 +98,7 @@ const Shop = () => {
               <span>Price Range:</span>
               <input
                 type="range"
-                min="10"
+                min="5"
                 max="100"
                 value={sliderMax}
                 onChange={handleMaxSliderChange}
