@@ -9,9 +9,6 @@ const Shop = () => {
   const [currentPage] = useState(1);
   const [setTotalPages] = useState(1);
   const [sortOrder, setSortOrder] = useState("");
-  const [minPrice, setMinPrice] = useState(5);
-  const [maxPrice, setMaxPrice] = useState(100);
-  const [sliderMax, setSliderMax] = useState(100);
   const [cartCount, setCartCount] = useState(0); // State to track cart count
   const [loading, setLoading] = useState(true); // Add loading state
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
@@ -25,9 +22,9 @@ const Shop = () => {
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
-        if (currentPage === 1) {
-          setTotalPages(response.data.next);
-        }
+        // if (currentPage === 1) {
+        //   setTotalPages(response.data.next);
+        // }
         // Scroll to top when new products are loaded
         window.scrollTo(0, 0);
       } catch (error) {
@@ -40,19 +37,8 @@ const Shop = () => {
     getAllProducts();
   }, [currentPage, setTotalPages]);
 
-  useEffect(() => {
-    // Set default values when the component mounts
-    setMinPrice(5);
-    setMaxPrice(100);
-  }, []); // Empty dependency array to run this effect only once, when the component mounts
-
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
-  };
-
-  const handleMaxSliderChange = (event) => {
-    setSliderMax(event.target.value);
-    setMaxPrice(parseInt(event.target.value));
   };
 
   const handleAddToCart = () => {
@@ -64,11 +50,8 @@ const Shop = () => {
     setSearchQuery(event.target.value.toLowerCase());
   };
 
-  const filteredProducts = products.filter(
-    (product) =>
-      product.price >= minPrice &&
-      product.price <= maxPrice &&
-      product.name.toLowerCase().includes(searchQuery)
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery)
   );
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -94,25 +77,14 @@ const Shop = () => {
               value={searchQuery}
               onChange={handleSearchChange}
             />
-            <div className="filters">
-              <span>Price Range:</span>
-              <input
-                type="range"
-                min="5"
-                max="100"
-                value={sliderMax}
-                onChange={handleMaxSliderChange}
-              />
-              <span>${sliderMax}</span>
-            </div>
             <div className="sort">
-              <label htmlFor="sortOrder">Sort by:</label>
+              {/* <label htmlFor="sortOrder">Sort by:</label> */}
               <select
                 id="sortOrder"
                 value={sortOrder}
                 onChange={handleSortOrderChange}
               >
-                <option value="">None</option>
+                <option value="">Sort: None</option>
                 <option value="lowToHigh">Price: Low to High</option>
                 <option value="highToLow">Price: High to Low</option>
               </select>

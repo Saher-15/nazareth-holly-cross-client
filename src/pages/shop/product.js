@@ -21,7 +21,7 @@ const Product = ({ item }) => {
       <p className="nameCard">{name}</p>
       <p className="price">${price}</p> {/* Changed class to price */}
       <div className="addToCartWrapper">
-        <button className="addToCartBttn" onClick={handleClick}>
+        <button className="addToCartBttn-" onClick={handleClick}>
           Add To Cart
         </button>
       </div>

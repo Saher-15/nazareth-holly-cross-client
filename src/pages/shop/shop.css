@@ -1,81 +1,71 @@
 /* Shop Container */
 .shop-page {
-  max-width: auto;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   background-color: #1c1c1c3a;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
 }
 
+/* Header Filter */
 .header-filter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px; /* Space between elements */
-  flex-wrap: wrap; /* Allow wrapping if needed */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-
+/* Text Input */
 .header-filter input[type="text"] {
   flex: 1;
-  order: 1; /* Left-aligned */
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #000;
 }
 
-.filters {
-  flex: 2;
-  order: 2; /* Centered */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.filters input[type="range"] {
-  margin: 0 10px;
-}
-
-/* Enhanced Sort Filter Styles */
+/* Sort */
 .sort {
   flex: 1;
-  order: 3; /* Right-aligned */
   display: flex;
   align-items: center;
-  gap: 15px; /* Increased gap for better spacing */
-  padding: 12px; /* Increased padding for better spacing */
-  border-radius: 8px; /* Rounded corners */
+  gap: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  margin-left: auto; /* Pushes the sort filter to the right */
 }
 
+/* Sort Label */
 .sort label {
-  color: #000; /* Light text color for readability */
-  font-weight: bold; /* Bold label text */
-  font-size: 16px; /* Slightly larger font size */
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
 }
 
+/* Sort Select */
 .sort select {
-  padding: 8px 12px; /* Padding for comfort */
+  padding: 8px 12px;
   border-radius: 5px;
-  border: 1px solid #666; /* Subtle border */
-  background-color: #555; /* Dark background */
-  color: #e0e0e0; /* Light text color */
-  font-size: 16px; /* Consistent font size with label */
-  cursor: pointer; /* Pointer cursor for better UX */
+  border: 1px solid #666;
+  background-color: #555;
+  color: #e0e0e0;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: auto; /* Pushes the sort filter to the right */
+
 }
 
 .sort select option {
-  background-color: #1c1c1c; /* Consistent background */
-  color: #e0e0e0; /* Consistent text color */
+  background-color: #1c1c1c;
+  color: #e0e0e0;
 }
 
 .sort select:focus {
-  outline: none; /* Remove default focus outline */
-  border-color: #888; /* Highlight border on focus */
-  background-color: #444; /* Slightly lighter background on focus */
+  outline: none;
+  border-color: #888;
+  background-color: #444;
 }
 
 /* Products Container */
@@ -99,41 +89,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1; /* Take up the remaining space */
+  flex: 1;
   text-align: center;
-  
 }
 
 .no-products-message p {
-  font-size: 30px; /* Larger font size for visibility */
+  font-size: 30px;
   color: #000;
   margin: 0;
   padding: 80px;
   height: 100vh;
-
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 1024px) {
-  .header {
+  .header-filter {
     flex-direction: column;
   }
 
-  .header input[type="text"],
-  .filters,
+  .header-filter input[type="text"],
   .sort {
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .filters input[type="range"] {
-    width: 100%;
+  .sort {
+    margin-left: 0; /* Reset margin for smaller screens */
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
 @media screen and (max-width: 768px) {
-  .header input[type="text"],
-  .filters,
+  .header-filter input[type="text"],
   .sort {
     font-size: 14px;
   }
@@ -149,8 +139,8 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 390px) {
   .products {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
 }
