@@ -102,6 +102,7 @@ const ProductPage = () => {
         <div className="description">
           <h1 className="product-name">{name}</h1>
           <p className="product-price">${price}</p>
+          <p>Free shipping</p>
           <p className="product-description">{description}</p>
         </div>
       </div>
