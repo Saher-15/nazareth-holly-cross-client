@@ -68,7 +68,7 @@
 /* Sound Control Button */
 .sound-control-btn {
   position: fixed; /* Fixes the button in place */
-  top: 19%; /* Centers the button vertically */
+  top: 50%; /* Centers the button vertically */
   left: 20px; /* Positions the button close to the left edge of the screen */
   transform: translateY(-50%); /* Offsets the button by half its height to vertically center it */
   z-index: 1; /* Ensure it is above the video */

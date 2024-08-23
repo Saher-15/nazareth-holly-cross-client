@@ -1,7 +1,6 @@
 /* Footer.css */
 
 /* General styles */
-/* General styles */
 .footer-container {
   background-color: #242424;
   padding: 2rem 0;
@@ -38,7 +37,6 @@
   margin-bottom: 0.25rem;
 }
 
-
 /* Website rights */
 .website-rights {
   margin-bottom: 1rem;
@@ -67,6 +65,26 @@
   color: #0056b3;
 }
 
+/* Topbar styling */
+.topbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.topbar li {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.topbar li span {
+  margin-left: 5px;
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .footer-links {
@@ -76,5 +94,13 @@
   
   .footer-link-items {
     margin: 10px 0;
+  }
+
+  .topbar ul {
+    flex-direction: column;
+  }
+
+  .topbar li {
+    margin-bottom: 10px;
   }
 }

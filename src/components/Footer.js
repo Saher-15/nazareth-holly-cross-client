@@ -8,6 +8,10 @@ function Footer() {
   return (
     <div className='footer-container'>
 
+      <div className="footer-links">
+        <Link to='/about' className='about-us-link'>About Us</Link>
+      </div>
+
       <div className="topbar border-b border-gray-800">
         <ul>
           {/* <li>
@@ -24,10 +28,8 @@ function Footer() {
           </li>
         </ul>
       </div>
-      <br />
-      <div className="footer-links">
-        <Link to='/about' className='about-us-link'>About Us</Link>
-      </div>
+
+
       <aside>
         <p className="text-white text-2xl max-sm:text-sm text-accent-content">
           Copyright © 2024 - All right reserved by NazarethHolyCross<br />Created by Saher Saadi
