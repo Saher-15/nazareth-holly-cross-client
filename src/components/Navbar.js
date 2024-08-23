@@ -55,7 +55,7 @@ function Navbar() {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Contact Us
+                Contact
               </Link>
             </li>
           </ul>
