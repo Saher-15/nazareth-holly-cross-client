@@ -93,7 +93,7 @@ const ProductPage = () => {
             ))}
           </div>
           <div className="centered-content">
-            <button className="addToCartBttn" onClick={handleClick}>
+            <button className="add-to-cart-button" onClick={handleClick}>
               Add To Cart
             </button>
             {showMessage && <div className="message">Product added to cart!</div>}
