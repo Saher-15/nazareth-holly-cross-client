@@ -14,7 +14,7 @@
   .cartItem img {
     width: 200px;
     height: 200px;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 8px;
     margin-bottom: 12px;
     display: block; /* Ensures the image is treated as a block-level element */

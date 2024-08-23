@@ -1,23 +1,36 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
 import "./cartItem.css";
 
 const CartItem = ({ data }) => {
+  const navigate = useNavigate();
   const { _id, name, price, img, quantity } = data;
   const { addToCart, updateCartItemCount, decreaseFromCart, removeFromCart } = useShopContext();
 
+  // Function to handle click on the image
+  const handleImageClick = () => {
+    navigate(`/product/${_id}`);
+  };
+
   return (
     <div className="cartItem">
-      <img src={img} alt={data.title} />
+      <img 
+        src={img} 
+        alt={name} 
+        onClick={handleImageClick} 
+        style={{ cursor: 'pointer' }} // Indicates that the image is clickable
+      />
       <div className="description">
         <p>
           <b>{name}</b>
         </p>
-        <p> Price: ${price}</p>
+        <p>Price: ${price}</p>
         <div className="countHandler" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button
             className="addToCartBttn"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from bubbling up
               if (quantity > 1) {
                 decreaseFromCart(_id);
               }
@@ -33,15 +46,21 @@ const CartItem = ({ data }) => {
           />
           <button
             className="addToCartBttn"
-            onClick={() => addToCart(data)}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from bubbling up
+              addToCart(data);
+            }}
           >
             +
           </button>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button
-            className="removeFromCartBtn"  // Style this button as needed
-            onClick={() => removeFromCart(_id)} // Remove the item from the cart
+            className="removeFromCartBtn" // Style this button as needed
+            onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from bubbling up
+              removeFromCart(_id); // Remove the item from the cart
+            }}
           >
             Remove
           </button>
