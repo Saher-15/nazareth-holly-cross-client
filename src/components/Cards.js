@@ -9,10 +9,10 @@ function Cards() {
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-9.jpg'
-              text="Explore the Mary's well deep in Nazareth"
-              label="Mary's Well"
-              path='/MarysWell'
+              src='images/img-3.jpg'
+              text='Explore The Church Of The Annunciation'
+              label='Latin Church'
+              path='/Latin'
             />
             <CardItem
               src='images/img-2.jpg'
@@ -23,10 +23,10 @@ function Cards() {
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-3.jpg'
-              text='Explore The Church Of The Annunciation'
-              label='Latin Church'
-              path='/Latin'
+              src='images/img-9.jpg'
+              text="Explore the Mary's well deep in Nazareth"
+              label="Mary's Well"
+              path='/MarysWell'
             />
             <CardItem
               src='images/img-4.jpg'
