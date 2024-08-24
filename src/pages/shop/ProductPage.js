@@ -74,6 +74,16 @@ const ProductPage = () => {
       <div className="product-details">
         <div className="image-container">
           <img className="product-image" src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]} alt={name} />
+          
+          <div className="centered-content">
+            <button className="add-to-cart-button" onClick={handleClick}>
+              Add To Cart
+            </button>
+            {showMessage && <div className="message">Product added to cart!</div>}
+          </div>
+        </div>
+        <div className="description">
+          <h1 className="product-name">{name}</h1>
           <div className="other-product-images">
             <img
               src={img}
@@ -92,18 +102,10 @@ const ProductPage = () => {
               />
             ))}
           </div>
-          <div className="centered-content">
-            <button className="add-to-cart-button" onClick={handleClick}>
-              Add To Cart
-            </button>
-            {showMessage && <div className="message">Product added to cart!</div>}
-          </div>
-        </div>
-        <div className="description">
-          <h1 className="product-name">{name}</h1>
           <p className="product-price">${price}</p>
           <p>Free shipping</p>
           <p className="product-description">{description}</p>
+          
         </div>
       </div>
     </div>
