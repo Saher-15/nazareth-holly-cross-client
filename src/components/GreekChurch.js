@@ -105,7 +105,6 @@ const GreekChurch = () => {
             src={images[selectedImageIndex]}
             alt={`Enlarged view ${selectedImageIndex + 1}`}
           />
-          <div className="caption">{`Image ${selectedImageIndex + 1} of ${images.length}`}</div>
           <a
             className="prev"
             onClick={(e) => {

@@ -1,5 +1,5 @@
 .mypage {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
@@ -9,11 +9,8 @@
   text-align: center;
   margin-bottom: 20px;
   display: flex;
-  /* Add display flex */
   flex-direction: column;
-  /* Stack items vertically */
   justify-content: center;
-  /* Center items vertically */
 }
 
 .header-title {
@@ -43,18 +40,17 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   object-fit: cover;
-
 }
 
 /* Modal styles */
@@ -73,7 +69,8 @@
 }
 
 .modal-content {
-  width: 100%;
+  width: 90%;
+  max-width: 800px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
@@ -142,19 +139,15 @@
 /* Ensure smooth scrolling on all devices */
 @media screen and (max-width: 600px) {
   .gallery-image {
-    width: 150px;
-    /* Adjust width for smaller screens */
-    height: 150px;
-    /* Adjust height for smaller screens */
+    width: 100px;
+    height: 100px;
   }
 }
 
 .description {
-  /* font-size: 16px; */
   line-height: 1.5;
 }
 
-/* New styles for the content section */
 .content {
   font-size: 16px;
   line-height: 1.6;
@@ -173,7 +166,6 @@
 .content ul {
   margin-bottom: 20px;
   text-align: left;
-
 }
 
 .content ul {
@@ -193,26 +185,19 @@
 
 .custom-icon-size {
   font-size: 2rem;
-  /* Adjust this value as needed */
   color: #1e90ff;
-  /* Set the initial color (DodgerBlue in this case) */
   cursor: pointer;
-  /* Change the cursor to a pointer when hovering */
 }
 
 .custom-icon-size:hover {
   color: #ff4500;
-  /* Change to the desired hover color (OrangeRed in this case) */
 }
 
 @media (max-width: 640px) {
   .custom-icon-size {
     font-size: 2rem;
-    /* Adjust for smaller screens */
   }
 }
-
-
 
 /* Adjustments for smaller screens */
 @media screen and (max-width: 600px) {
@@ -231,5 +216,17 @@
 
   .content-image {
     margin-bottom: 15px;
+  }
+
+  .header-title {
+    font-size: 24px;
+  }
+
+  .header-description {
+    font-size: 16px;
+  }
+
+  .gallery-grid img {
+    height: 30vh;
   }
 }
