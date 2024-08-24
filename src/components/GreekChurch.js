@@ -5,10 +5,10 @@ import { SiGooglemaps } from "react-icons/si";
 const GreekChurch = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const images = [
-"images/stjoseph.jpg",
-"images/stjoseph.jpg",
-"images/stjoseph.jpg",
-"images/stjoseph.jpg"
+"images/jesus.png",
+"images/img-4.jpg",
+"images/img-9.jpg",
+"images/img-8.jpg"
   ];
 
   const handleClickMap = () => {
