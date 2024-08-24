@@ -13,6 +13,20 @@
     margin-bottom: 20px;
   }
   
+  /* Intro Paragraph */
+  .intro-paragraph {
+    margin-bottom: 30px;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .intro-paragraph p {
+    margin: 15px 0;
+    text-align: left; /* Align text to the start (left) */
+  }
+  
   /* Gallery Item */
   .gallery-item {
     background-color: #fff;
@@ -32,5 +46,58 @@
     margin-top: 10px;
     font-size: 14px;
     color: #333;
+  }
+  
+  /* Carousel Styling */
+  .slick-dots {
+    bottom: -30px; /* Adjust the position of the dots if needed */
+  }
+  
+  .slick-prev, .slick-next {
+    color: #333;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 1024px) {
+    .intro-paragraph {
+      font-size: 14px; /* Slightly smaller font size for medium screens */
+    }
+  
+    .gallery-item {
+      padding: 8px; /* Reduced padding on medium screens */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .intro-paragraph {
+      font-size: 13px; /* Smaller font size for small screens */
+      padding: 0 15px; /* Adjust padding for small screens */
+    }
+  
+    .gallery-item {
+      padding: 6px; /* Further reduced padding */
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .intro-paragraph {
+      font-size: 12px; /* Even smaller font size for extra-small screens */
+      padding: 0 10px; /* Adjust padding for extra-small screens */
+    }
+  
+    .gallery-item {
+      padding: 5px; /* Minimum padding for very small screens */
+    }
+  }
+  
+  @media screen and (max-width: 390px) {
+    .intro-paragraph {
+      font-size: 11px; /* Smallest font size for very narrow screens */
+      padding: 0 5px; /* Minimal padding for very narrow screens */
+    }
+  
+    .gallery-item {
+      padding: 4px; /* Minimum padding */
+    }
   }
   
