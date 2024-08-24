@@ -52,7 +52,7 @@ function HeroSection() {
 
       />
 
-      <h1>JESUS 4CITY AWAITS</h1>
+      <h1>JESUS CITY AWAITS</h1>
       <p>GRACE IN EVERY CLICK</p>
       <button className='sound-control-btn' onClick={togglePlayPause}>
         <i className={isPlaying ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
