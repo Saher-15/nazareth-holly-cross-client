@@ -4,7 +4,7 @@ import '../styles/NazarethTour.css'; // Ensure this CSS file exists
 const NazarethTour = () => {
   return (
     <div className="container-tour">
-      <p className="prayer-message">
+      <p className="video-message">
         Let's take a tour in Nazareth, a city brimming with history and culture. Discover vibrant markets, historic churches, and unique landmarks for an unforgettable experience.
       </p>
       <video className='video-' controls poster="/images/jesus_city_tour.png">
