@@ -174,18 +174,6 @@
   }
 }
 
-/* Devices with a width of up to 430px (e.g., smaller phones) */
-/* @media screen and (max-width: 430px) {
-  .header-filter input[type="text"],
-  .sort {
-    font-size: 12px;
-  }
-
-  .products {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-}
-
 /* Devices with a width of up to 390px (e.g., very small phones) */
 @media screen and (max-width: 390px) {
   .header-filter input[type="text"],
