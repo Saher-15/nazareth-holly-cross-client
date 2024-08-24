@@ -1,59 +1,40 @@
-import React, { useEffect, useRef } from 'react';
-import io from 'socket.io-client';
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import '../styles/GallaryPage.css'; // Import the CSS file for styling
 
-const StreamReceiver = () => {
-  const videoRef = useRef(null);
-  const peerRef = useRef(null);
-  const socket = useRef(null);
+const LiveVideo = () => {
+  const galleryItems = [
+    { id: 1, src: 'https://via.placeholder.com/300', caption: 'Image 1 description' },
+    { id: 2, src: 'https://via.placeholder.com/300', caption: 'Image 2 description' },
+    { id: 3, src: 'https://via.placeholder.com/300', caption: 'Image 3 description' },
+    { id: 4, src: 'https://via.placeholder.com/300', caption: 'Image 4 description' },
+    { id: 5, src: 'https://via.placeholder.com/300', caption: 'Image 5 description' },
+    // Add more items here
+  ];
 
-  useEffect(() => {
-    // Initialize WebSocket connection
-    socket.current = io('http://localhost:5000'); // Adjust the URL as needed
-
-    // Initialize the WebRTC peer connection
-    peerRef.current = new RTCPeerConnection({
-      iceServers: [{ urls: 'stun:stun.l.google.com:19302' }],
-    });
-
-    peerRef.current.onicecandidate = (event) => {
-      if (event.candidate) {
-        socket.current.emit('ice-candidate', event.candidate);
-      }
-    };
-
-    peerRef.current.ontrack = (event) => {
-      videoRef.current.srcObject = event.streams[0];
-    };
-
-    // Handle incoming offer
-    socket.current.on('offer', (offer) => {
-      peerRef.current.setRemoteDescription(new RTCSessionDescription(offer))
-        .then(() => peerRef.current.createAnswer())
-        .then((answer) => peerRef.current.setLocalDescription(answer))
-        .then(() => socket.current.emit('answer', peerRef.current.localDescription));
-    });
-
-    // Handle incoming answer
-    socket.current.on('answer', (answer) => {
-      peerRef.current.setRemoteDescription(new RTCSessionDescription(answer));
-    });
-
-    // Handle incoming ICE candidates
-    socket.current.on('ice-candidate', (candidate) => {
-      peerRef.current.addIceCandidate(new RTCIceCandidate(candidate));
-    });
-
-    return () => {
-      socket.current.disconnect();
-    };
-  }, []);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   return (
-    <div>
-      <h1>Live Stream Receiver</h1>
-      <video ref={videoRef} autoPlay playsInline style={{ width: '100%' }}></video>
+    <div className="gallery-page">
+      <h1>Gallery</h1>
+      <Slider {...settings}>
+        {galleryItems.map(item => (
+          <div key={item.id} className="gallery-item">
+            <img src={item.src} alt={`Gallery item ${item.id}`} />
+            <p>{item.caption}</p>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };
 
-export default StreamReceiver;
+export default LiveVideo;
