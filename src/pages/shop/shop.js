@@ -6,43 +6,39 @@ import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo componen
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
-  const [currentPage] = useState(1);
-  const [setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  //const [totalPages, setTotalPages] = useState(1); // Ensure correct state initialization
   const [sortOrder, setSortOrder] = useState("");
-  const [cartCount, setCartCount] = useState(0); // State to track cart count
-  const [loading, setLoading] = useState(true); // Add loading state
-  const [searchQuery, setSearchQuery] = useState(""); // State for search query
-  const itemsPerPage = 60;
+  const [cartCount, setCartCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const itemsPerPage = 15;
 
   useEffect(() => {
     async function getAllProducts() {
-      setLoading(true); // Set loading to true before fetching data
+      setLoading(true);
       try {
         const response = await axios.get(
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
-        // if (currentPage === 1) {
-        //   setTotalPages(response.data.next);
-        // }
-        // Scroll to top when new products are loaded
+        //setTotalPages(response.data.next); // Ensure next page count is used
         window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
-        setLoading(false); // Set loading to false after fetching data
+        setLoading(false);
       }
     }
 
     getAllProducts();
-  }, [currentPage, setTotalPages]);
+  }, [currentPage]);
 
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
   };
 
   const handleAddToCart = () => {
-    // Increment cart count when an item is added to the cart
     setCartCount(cartCount + 1);
   };
 
@@ -64,6 +60,18 @@ const Shop = () => {
     }
   });
 
+  const nextPage = () => {
+    if (currentPage < 5) {
+      setCurrentPage(prevPage => prevPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(prevPage => prevPage - 1);
+    }
+  };
+
   return (
     <div className="shop-page">
       {loading ? (
@@ -78,7 +86,6 @@ const Shop = () => {
               onChange={handleSearchChange}
             />
             <div className="sort">
-              {/* <label htmlFor="sortOrder">Sort by:</label> */}
               <select
                 id="sortOrder"
                 value={sortOrder}
@@ -96,11 +103,25 @@ const Shop = () => {
               <p>No products found matching your criteria.</p>
             </div>
           ) : (
-            <div className="products">
-              {sortedProducts.map((item) => (
-                <Product key={item._id} item={item} onAddToCart={handleAddToCart} />
-              ))}
-            </div>
+            <>
+              <div className="products">
+                {sortedProducts.map((item) => (
+                  <Product key={item._id} item={item} onAddToCart={handleAddToCart} />
+                ))}
+              </div>
+
+              <div className="pagination">
+                <button onClick={prevPage} disabled={currentPage === 1}>
+                  Prev
+                </button>
+                <span>
+                  Page {currentPage} of {5}
+                </span>
+                <button onClick={nextPage} disabled={currentPage === 5}>
+                  Next
+                </button>
+              </div>
+            </>
           )}
         </>
       )}

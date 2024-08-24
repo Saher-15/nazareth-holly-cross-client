@@ -54,7 +54,6 @@
   font-size: 16px;
   cursor: pointer;
   margin-left: auto; /* Pushes the sort filter to the right */
-
 }
 
 .sort select option {
@@ -99,6 +98,33 @@
   margin: 0;
   padding: 80px;
   height: 100vh;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #444;
+  color: #e0e0e0;
+  border: 1px solid #666;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #333;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #555;
 }
 
 /* Responsive Styles */

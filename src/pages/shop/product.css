@@ -19,7 +19,7 @@
   width: 100%;
   height: 50vh;
   border-radius: 25px !important;
-  object-fit: cover;
+  object-fit:contain;
 }
 
 .product-info {
