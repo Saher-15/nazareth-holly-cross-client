@@ -48,6 +48,8 @@ function HeroSection() {
         loop
         muted
         playsInline
+        controls={false} // Try explicitly setting this
+
       />
 
       <h1>JESUS 4CITY AWAITS</h1>
