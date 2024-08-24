@@ -32,7 +32,6 @@ const Marys = () => {
           Mary's Well, also known as the Well of the Virgin, is a significant historical and religious site located in Nazareth, Israel. It is traditionally believed to be the place where the Angel Gabriel announced to the Virgin Mary that she would bear Jesus, an event known as the Annunciation.
         </p>
         <p>
-          <img src="/images/img-9.jpg" alt='Greek Orthodox Church of the Annunciation' className="content-image" />
           <strong>Historical and Religious Significance:</strong>
           <ul>
             <li><strong>Biblical Connection:</strong> According to Christian tradition, Mary's Well is where Mary was drawing water when the Angel Gabriel appeared to her and announced that she would conceive and give birth to Jesus Christ. This event is a central part of the Christian story of the Annunciation.</li>

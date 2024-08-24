@@ -31,17 +31,14 @@ const GreekChurch = () => {
         </p>
         <h2>Historical and Religious Significance</h2>
         <p>
-          <img src="/images/Historical.jpg" alt="Basilica of the Annunciation" className="content-image" />
           Nazareth is prominently mentioned in the New Testament. According to Christian tradition, it is the site where the Angel Gabriel announced to Mary that she would bear Jesus, an event commemorated by the Basilica of the Annunciation. Archaeological evidence indicates that Nazareth was a small Jewish village during the time of Jesus. It has been continuously inhabited since antiquity.
         </p>
         <h2>Modern Nazareth</h2>
         <p>
-          <img src="/images/city_view.jpg" alt="Modern Nazareth" className="content-image" />
           The city has a diverse population, predominantly Arab Muslims and Christians. As of recent estimates, Nazareth has around 77,000 residents. Nazareth is a vibrant cultural center with various religious, cultural, and educational institutions. It hosts festivals and events that reflect its rich heritage and diverse community. Tourism is a significant part of Nazareth's economy, driven by its religious sites and historical landmarks. Additionally, the city has a mix of small businesses, shops, and markets contributing to its local economy.
         </p>
         <h2>Accessibility and Tourism</h2>
         <p>
-          <img src="/images/tourism.jpg" alt="Tourism in Nazareth" className="content-image" />
           Nazareth is well-connected by road, with frequent bus services from major cities like Tel Aviv, Haifa, and Jerusalem. The city offers various accommodation options, from hotels to guesthouses, catering to the needs of tourists and pilgrims.
         </p>
       </div>
