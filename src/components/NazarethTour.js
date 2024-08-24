@@ -7,7 +7,7 @@ const NazarethTour = () => {
       <p className="prayer-message">
         Let's take a tour in Nazareth, a city brimming with history and culture. Discover vibrant markets, historic churches, and unique landmarks for an unforgettable experience.
       </p>
-      <video controls poster="/images/jesus_city_tour.png">
+      <video className='video-' controls poster="/images/jesus_city_tour.png">
         <source src="/videos/tour.mp4" type="video/mp4" />
       </video>
     </div>
