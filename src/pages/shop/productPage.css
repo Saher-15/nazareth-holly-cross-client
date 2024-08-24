@@ -80,7 +80,7 @@
   height: 450px;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  object-fit: fill;
+  object-fit: contain;
 }
 
 /* Additional product images styling */
@@ -195,7 +195,7 @@
   .product-image {
     height: 350px;
     width: 350px;
-    object-fit: fill;
+    object-fit: contain;
   }
 
   .description {
@@ -227,9 +227,9 @@
 /* Further adjustments for very small screens and portrait mode */
 @media (max-width: 480px) {
   .product-image {
-    height: 250px;
-    width: 250px;
-    object-fit: fill;
+    height: 200px;
+    width: 200px;
+    object-fit:contain;
   }
 
   .other-product-images img {
