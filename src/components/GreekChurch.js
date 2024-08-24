@@ -1,17 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Pages.css';
 import { SiGooglemaps } from "react-icons/si";
 
 const GreekChurch = () => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const images = [
+    "images/stjoseph.jpg",
+    "images/stjoseph.jpg",
+    "images/stjoseph.jpg",
+    "images/stjoseph.jpg",
+  ];
 
   const handleClickMap = () => {
     window.location.href = 'https://www.google.com/maps/place/The+Greek+Orthodox+Church+of+the+Annunciation/@32.7070723,35.3016619,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4c29d17b5477:0xc7296709e9a3ab85!8m2!3d32.7070723!4d35.3016619!16s%2Fm%2F03gtxsl?entry=ttu';
   };
 
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const handleNextImage = () => {
+    setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePrevImage = () => {
+    setSelectedImageIndex((prevIndex) => 
+      (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
   useEffect(() => {
-    // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this effect runs only once, on mount
+  }, []);
 
   return (
     <div className='mypage'>
@@ -28,7 +52,6 @@ const GreekChurch = () => {
       </div>
 
       <div className='content'>
-
         <p>
           The Greek Orthodox Church of the Annunciation sits above the spring where Orthodox Christians believe the Annunciation took place. As the Virgin Mary went to draw water from the spring, the Archangel Gabriel appeared and informed her that she would conceive and give birth to a son who she would name Jesus. The current church dates back to 1750, when Daher al-Omar, the Bedouin ruler of the Galilee, gave the Greek Orthodox community permission to build it.
         </p>
@@ -39,8 +62,41 @@ const GreekChurch = () => {
           About 140 meters from the church is Mary’s Well, which was once fed by the spring and served as a local source of water for several centuries. The fountain was repaired in 1967 and again in 2000 but does not function today.
         </p>
       </div>
-    </div>
 
+      <div className="gallery">
+        <h2>Gallery</h2>
+        <div className="gallery-grid">
+          {images.map((image, index) => (
+            <img 
+              key={index}
+              src={image} 
+              alt={`Greek Church Image ${index + 1}`} 
+              onClick={() => handleImageClick(index)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {selectedImageIndex !== null && (
+        <div className="modal" onClick={handleCloseModal}>
+          <span className="close">&times;</span>
+          <img 
+            className="modal-content" 
+            src={images[selectedImageIndex]} 
+            alt={`Enlarged view ${selectedImageIndex + 1}`} 
+          />
+          <div className="caption">{`Image ${selectedImageIndex + 1} of ${images.length}`}</div>
+          <a className="prev" onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from closing the modal
+              handlePrevImage();
+          }}>&#10094;</a>
+          <a className="next" onClick={(e) => {
+              e.stopPropagation(); // Prevents click event from closing the modal
+              handleNextImage();
+          }}>&#10095;</a>
+        </div>
+      )}
+    </div>
   );
 }
 
