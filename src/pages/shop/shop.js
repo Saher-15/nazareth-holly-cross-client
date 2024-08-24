@@ -12,7 +12,7 @@ const Shop = () => {
   const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-  const itemsPerPage = 15;
+  const itemsPerPage = 25;
 
   useEffect(() => {
     async function getAllProducts() {
@@ -61,7 +61,7 @@ const Shop = () => {
   });
 
   const nextPage = () => {
-    if (currentPage < 5) {
+    if (currentPage < 3) {
       setCurrentPage(prevPage => prevPage + 1);
     }
   };
@@ -115,9 +115,9 @@ const Shop = () => {
                   Prev
                 </button>
                 <span>
-                  Page {currentPage} of {5}
+                  Page {currentPage} of {3}
                 </span>
-                <button onClick={nextPage} disabled={currentPage === 5}>
+                <button onClick={nextPage} disabled={currentPage === 3}>
                   Next
                 </button>
               </div>
