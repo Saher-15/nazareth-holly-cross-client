@@ -5,10 +5,10 @@ import { SiGooglemaps } from "react-icons/si";
 const GreekChurch = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const images = [
-    "images/stjoseph.jpg",
-    "images/stjoseph.jpg",
-    "images/stjoseph.jpg",
-    "images/stjoseph.jpg",
+"images/stjoseph.jpg",
+"images/stjoseph.jpg",
+"images/stjoseph.jpg",
+"images/stjoseph.jpg"
   ];
 
   const handleClickMap = () => {
@@ -28,7 +28,7 @@ const GreekChurch = () => {
   };
 
   const handlePrevImage = () => {
-    setSelectedImageIndex((prevIndex) => 
+    setSelectedImageIndex((prevIndex) =>
       (prevIndex - 1 + images.length) % images.length
     );
   };
@@ -36,6 +36,26 @@ const GreekChurch = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (selectedImageIndex !== null) {
+        if (event.key === 'ArrowRight') {
+          handleNextImage();
+        } else if (event.key === 'ArrowLeft') {
+          handlePrevImage();
+        } else if (event.key === 'Escape') {
+          handleCloseModal();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedImageIndex]);
 
   return (
     <div className='mypage'>
@@ -67,10 +87,10 @@ const GreekChurch = () => {
         <h2>Gallery</h2>
         <div className="gallery-grid">
           {images.map((image, index) => (
-            <img 
+            <img
               key={index}
-              src={image} 
-              alt={`Greek Church Image ${index + 1}`} 
+              src={image}
+              alt={`Greek Church Image ${index + 1}`}
               onClick={() => handleImageClick(index)}
             />
           ))}
@@ -80,20 +100,30 @@ const GreekChurch = () => {
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>
           <span className="close">&times;</span>
-          <img 
-            className="modal-content" 
-            src={images[selectedImageIndex]} 
-            alt={`Enlarged view ${selectedImageIndex + 1}`} 
+          <img
+            className="modal-content"
+            src={images[selectedImageIndex]}
+            alt={`Enlarged view ${selectedImageIndex + 1}`}
           />
           <div className="caption">{`Image ${selectedImageIndex + 1} of ${images.length}`}</div>
-          <a className="prev" onClick={(e) => {
+          <a
+            className="prev"
+            onClick={(e) => {
               e.stopPropagation(); // Prevents click event from closing the modal
               handlePrevImage();
-          }}>&#10094;</a>
-          <a className="next" onClick={(e) => {
+            }}
+          >
+            &#10094;
+          </a>
+          <a
+            className="next"
+            onClick={(e) => {
               e.stopPropagation(); // Prevents click event from closing the modal
               handleNextImage();
-          }}>&#10095;</a>
+            }}
+          >
+            &#10095;
+          </a>
         </div>
       )}
     </div>
