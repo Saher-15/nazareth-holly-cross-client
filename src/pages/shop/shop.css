@@ -170,6 +170,17 @@
   }
 }
 
+@media screen and (max-width: 430px) {
+  .header-filter input[type="text"],
+  .sort {
+    font-size: 12px;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
 @media screen and (max-width: 390px) {
   .header-filter input[type="text"],
   .sort {
