@@ -12,9 +12,9 @@
   }
   
   .cartItem img {
-    width: 200px;
-    height: 200px;
-    object-fit: fill;
+    width: 25vh;
+    height: auto;
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 12px;
     display: block; /* Ensures the image is treated as a block-level element */
@@ -108,8 +108,9 @@
     }
   
     .cartItem img {
-      width: 100px; /* Adjusted width for smaller screens */
-      height: 100px; /* Adjusted height for smaller screens */
+      width: 15vh;
+      height: auto;
+      object-fit: cover;
       margin-bottom: 12px; /* Space between image and text */
     }
   

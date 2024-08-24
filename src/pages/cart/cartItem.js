@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
 import "./cartItem.css";
@@ -12,6 +12,11 @@ const CartItem = ({ data }) => {
   const handleImageClick = () => {
     navigate(`/product/${_id}`);
   };
+
+  // Scroll to top when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="cartItem">

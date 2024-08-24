@@ -61,9 +61,9 @@ const ProductPage = () => {
   return (
     <div className="product-container">
       <div className="button-container">
-        <button className="back-button" onClick={() => navigate("/shop")}>
-          <i className="fas fa-chevron-left"></i>
-        </button>
+        {/* <button className="back-button" onClick={() => navigate("/shop")}>
+          <i className="fas fa-chevron-left">shop</i>
+        </button> */}
 
         <Link to="/cart" className="cart-link-logo">
           <i className="fas fa-shopping-cart"></i>
