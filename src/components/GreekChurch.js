@@ -55,7 +55,7 @@ const GreekChurch = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedImageIndex]);
+  }, [selectedImageIndex, handleNextImage, handlePrevImage]);
 
   return (
     <div className='mypage'>
@@ -90,7 +90,7 @@ const GreekChurch = () => {
             <img
               key={index}
               src={image}
-              alt={`Greek Church Image ${index + 1}`}
+              alt={`Greek Church ${index + 1}`}
               onClick={() => handleImageClick(index)}
             />
           ))}

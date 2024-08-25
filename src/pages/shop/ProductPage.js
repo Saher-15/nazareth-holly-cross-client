@@ -11,6 +11,8 @@ const ProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [zoomStyle, setZoomStyle] = useState({});
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
   const navigate = useNavigate();
@@ -44,6 +46,32 @@ const ProductPage = () => {
     }, 2000);
   };
 
+  const handleImageClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setZoomStyle({}); // Reset zoom when closing
+    setIsModalOpen(false);
+  };
+
+  const handleMouseMove = (e) => {
+    const { offsetX, offsetY, target } = e.nativeEvent;
+    const { offsetWidth, offsetHeight } = target;
+
+    const xPercent = (offsetX / offsetWidth) * 100;
+    const yPercent = (offsetY / offsetHeight) * 100;
+
+    setZoomStyle({
+      transformOrigin: `${xPercent}% ${yPercent}%`,
+      transform: 'scale(2)', // Adjust the zoom scale as needed
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setZoomStyle({});
+  };
+
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
@@ -73,8 +101,12 @@ const ProductPage = () => {
 
       <div className="product-details">
         <div className="image-container">
-          <img className="product-image" src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]} alt={name} />
-          
+          <img
+            className="product-image"
+            src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
+            alt={name}
+            onClick={handleImageClick}
+          />
           <div className="centered-content">
             <button className="add-to-cart-button" onClick={handleClick}>
               Add To Cart
@@ -105,9 +137,30 @@ const ProductPage = () => {
           <p className="product-price">${price}</p>
           <p>Free shipping</p>
           <p className="product-description">{description}</p>
-          
         </div>
       </div>
+
+      {/* Image Modal */}
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <button className="close-button" onClick={closeModal}>
+              &times;
+            </button>
+            <div
+              className="modal-image-container"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <img
+                src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
+                alt="Product"
+                style={zoomStyle}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
