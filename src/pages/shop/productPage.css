@@ -81,8 +81,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: contain;
-  cursor: zoom-in;
-  transition: transform 0.5s ease; /* Smooth zoom transition */
+  cursor: pointer; /* Changed to pointer to indicate clickable */
 }
 
 /* Additional product images styling */
@@ -199,32 +198,88 @@
 .modal-content {
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 15px;
   max-width: 90%;
   max-height: 90%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Close button */
 .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: transparent;
+  background: #e74c3c;
   border: none;
+  border-radius: 50%;
+  color: #fff;
   font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #c0392b;
+}
+
+/* Navigation buttons */
+.prev-button,
+.next-button {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  color: #333;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1001;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.prev-button:focus,
+.next-button:focus {
+  outline: none;
 }
 
 .modal-image-container {
   overflow: hidden;
   text-align: center;
+  width: 100%;
 }
 
-.modal-image-container img {
+.modal-image {
   max-width: 100%;
   max-height: 80vh;
-  transition: transform 0.5s ease; /* Smooth zoom transition */
-  cursor: zoom-in;
+  border-radius: 10px;
 }
 
 /* Responsive design for smaller screens and portrait mode */

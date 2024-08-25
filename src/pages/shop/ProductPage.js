@@ -12,7 +12,6 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [zoomStyle, setZoomStyle] = useState({});
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
   const navigate = useNavigate();
@@ -51,25 +50,15 @@ const ProductPage = () => {
   };
 
   const closeModal = () => {
-    setZoomStyle({}); // Reset zoom when closing
     setIsModalOpen(false);
   };
 
-  const handleMouseMove = (e) => {
-    const { offsetX, offsetY, target } = e.nativeEvent;
-    const { offsetWidth, offsetHeight } = target;
-
-    const xPercent = (offsetX / offsetWidth) * 100;
-    const yPercent = (offsetY / offsetHeight) * 100;
-
-    setZoomStyle({
-      transformOrigin: `${xPercent}% ${yPercent}%`,
-      transform: 'scale(2)', // Adjust the zoom scale as needed
-    });
+  const nextImage = () => {
+    setCurrentImage((prevImage) => (prevImage + 1) % (additionalImageUrls.length + 1));
   };
 
-  const handleMouseLeave = () => {
-    setZoomStyle({});
+  const prevImage = () => {
+    setCurrentImage((prevImage) => (prevImage - 1 + (additionalImageUrls.length + 1)) % (additionalImageUrls.length + 1));
   };
 
   if (loading) {
@@ -142,24 +131,26 @@ const ProductPage = () => {
 
       {/* Image Modal */}
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="close-button" onClick={closeModal}>
-              &times;
-            </button>
-            <div
-              className="modal-image-container"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-            >
-              <img
-                src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
-                alt="Product"
-                style={zoomStyle}
-              />
-            </div>
-          </div>
-        </div>
+        <div className="modal-overlay" onClick={closeModal}>
+  <div
+    className="modal-content"
+    onClick={(e) => e.stopPropagation()} // Stop click events from propagating to the overlay
+  >
+    <button className="close-button" onClick={closeModal}>
+      &times;
+    </button>
+    <button className="prev-button" onClick={prevImage}>←</button>
+    <button className="next-button" onClick={nextImage}>→</button>
+    <div className="modal-image-container">
+      <img
+        src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
+        alt="Product"
+        className="modal-image"
+      />
+    </div>
+  </div>
+</div>
+
       )}
     </div>
   );
