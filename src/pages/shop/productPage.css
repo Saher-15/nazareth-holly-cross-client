@@ -81,6 +81,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: contain;
+  cursor: zoom-in;
 }
 
 /* Additional product images styling */
@@ -180,6 +181,7 @@
   padding: 20px;
 }
 
+/* Modal styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -268,12 +270,11 @@
   }
 }
 
-/* Further adjustments for very small screens and portrait mode */
 @media (max-width: 480px) {
   .product-image {
     height: 200px;
     width: 200px;
-    object-fit:contain;
+    object-fit: contain;
   }
 
   .other-product-images img {
@@ -294,5 +295,12 @@
 
   .product-description {
     font-size: 16px;
+  }
+}
+
+/* Further adjustments for very small screens and portrait mode */
+@media (orientation: portrait) {
+  .modal-image-container img {
+    max-height: 70vh;
   }
 }
