@@ -6,23 +6,30 @@ import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo componen
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  //const [totalPages, setTotalPages] = useState(1); // Ensure correct state initialization
-  const [sortOrder, setSortOrder] = useState("");
+  const [sortOrder, setSortOrder] = useState("rateDesc"); // Default to rate descending
   const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const itemsPerPage = 25;
 
   useEffect(() => {
-    async function getAllProducts() {
+    async function fetchData() {
       setLoading(true);
       try {
+        // Fetch paginated products for display
         const response = await axios.get(
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
         );
         setProducts(response.data.data);
-        //setTotalPages(response.data.next); // Ensure next page count is used
+
+        // Fetch all products for search and filtering
+        const allProductsResponse = await axios.get(
+          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts`
+        );
+        setAllProducts(allProductsResponse.data);
+        console.log(allProductsResponse.data);
         window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -31,11 +38,12 @@ const Shop = () => {
       }
     }
 
-    getAllProducts();
+    fetchData();
   }, [currentPage]);
 
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
+    setCurrentPage(1); // Reset to the first page on sort change
   };
 
   const handleAddToCart = () => {
@@ -44,9 +52,10 @@ const Shop = () => {
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value.toLowerCase());
+    setCurrentPage(1); // Reset to the first page on search
   };
 
-  const filteredProducts = products.filter((product) =>
+  const filteredProducts = allProducts.filter((product) =>
     product.name.toLowerCase().includes(searchQuery)
   );
 
@@ -55,13 +64,20 @@ const Shop = () => {
       return a.price - b.price;
     } else if (sortOrder === "highToLow") {
       return b.price - a.price;
+    } else if (sortOrder === "rateDesc") {
+      return b.rate - a.rate; // Sort by rate in descending order
     } else {
       return 0;
     }
   });
 
+  const paginatedProducts = sortedProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   const nextPage = () => {
-    if (currentPage < 3) {
+    if (currentPage * itemsPerPage < sortedProducts.length) {
       setCurrentPage(prevPage => prevPage + 1);
     }
   };
@@ -91,21 +107,21 @@ const Shop = () => {
                 value={sortOrder}
                 onChange={handleSortOrderChange}
               >
-                <option value="">Sort: None</option>
+                <option value="rateDesc">None</option>
                 <option value="lowToHigh">Price: Low to High</option>
                 <option value="highToLow">Price: High to Low</option>
               </select>
             </div>
           </div>
 
-          {sortedProducts.length === 0 ? (
+          {paginatedProducts.length === 0 ? (
             <div className="no-products-message">
               <p>No products found matching your criteria.</p>
             </div>
           ) : (
             <>
               <div className="products">
-                {sortedProducts.map((item) => (
+                {paginatedProducts.map((item) => (
                   <Product key={item._id} item={item} onAddToCart={handleAddToCart} />
                 ))}
               </div>
@@ -115,9 +131,9 @@ const Shop = () => {
                   Prev
                 </button>
                 <span>
-                  Page {currentPage} of {3}
+                  Page {currentPage} of {Math.ceil(sortedProducts.length / itemsPerPage)}
                 </span>
-                <button onClick={nextPage} disabled={currentPage === 3}>
+                <button onClick={nextPage} disabled={currentPage * itemsPerPage >= sortedProducts.length}>
                   Next
                 </button>
               </div>
