@@ -22,6 +22,8 @@ const ProductPage = () => {
   const cartItemCount = cartItem ? cartItem.quantity : 0;
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+
     const fetchProduct = async () => {
       try {
         const response = await fetch(`https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getProduct/${id}`);
@@ -110,10 +112,6 @@ const ProductPage = () => {
   return (
     <div className="product-container">
       <div className="button-container">
-        {/* <button className="back-button" onClick={() => navigate("/shop")}>
-          <i className="fas fa-chevron-left">shop</i>
-        </button> */}
-
         <Link to="/cart" className="cart-link-logo">
           <i className="fas fa-shopping-cart"></i>
           {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
