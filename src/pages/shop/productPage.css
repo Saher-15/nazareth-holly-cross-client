@@ -7,7 +7,8 @@
   color: #666;
   position: fixed;
   right: 20px;
-  z-index: 1;
+  top: 20px; /* Adjusted position for consistency */
+  z-index: 1001;
 }
 
 .cart-link-logo:hover {
@@ -27,7 +28,7 @@
   position: absolute;
   top: -10px;
   right: -10px;
-  z-index: 1001;
+  z-index: 1002;
 }
 
 /* Product page container */
@@ -54,6 +55,11 @@
   cursor: pointer;
   font-size: 20px;
   color: #333;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #000;
 }
 
 /* Product details section */
@@ -66,6 +72,7 @@
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px; /* Added gap for spacing between items */
 }
 
 /* Image container and styling */
@@ -81,7 +88,12 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: contain;
-  cursor: pointer; /* Changed to pointer to indicate clickable */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.05); /* Added hover effect for better interaction */
 }
 
 /* Additional product images styling */
@@ -136,30 +148,30 @@
 
 /* Enhanced Product name styling */
 .product-name {
-  font-size: 2.5rem; /* Increased size */
-  font-weight: 800; /* Bolder text */
-  color: #111; /* Darker color for emphasis */
-  margin-bottom: 20px; /* Increased spacing */
-  text-align: center; /* Center the text */
-  text-transform: uppercase; /* Uppercase for impact */
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Enhanced Product price styling */
 .product-price {
-  font-size: 2rem; /* Increased size */
-  color: #ff5252; /* Slightly darker color */
-  font-weight: 700; /* Bolder text */
-  margin-bottom: 30px; /* Increased spacing */
-  text-align: center; /* Center the text */
+  font-size: 2rem;
+  color: #ff5252;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 /* Enhanced Product description styling */
 .product-description {
-  font-size: 1.25rem; /* Larger font */
-  line-height: 2; /* Improved readability */
-  color: #333; /* Darker text for better contrast */
-  margin-top: 15px; /* Added top margin for spacing */
-  text-align: justify; /* Justify text for a neat look */
+  font-size: 1.25rem;
+  line-height: 2;
+  color: #333;
+  margin-top: 15px;
+  text-align: justify;
 }
 
 /* Message that appears when a product is added to the cart */
@@ -179,94 +191,6 @@
   font-size: 18px;
   color: #e74c3c;
   padding: 20px;
-}
-
-/* Modal styles */
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-image {
-  width: 90%;
-  max-width: 800px;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-background-color: #fff;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
-  font-size: 2.5rem; /* Responsive font size using rem units */
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Navigation buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 2rem; /* Responsive font size using rem units */
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-  
-}
-
-.next {
-  right: 10px;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev {
-  left: 10px;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Ensure smooth scrolling on all devices */
-.modal-image-container {
-  overflow: hidden;
-  text-align: center;
-  width: 100%;
-}
-
-.modal-image {
-  max-width: 100%;
-  max-height: 80vh;
-  border-radius: 10px;
 }
 
 /* Responsive design for smaller screens and portrait mode */
@@ -338,6 +262,12 @@ background-color: #fff;
 
   .product-description {
     font-size: 1rem;
+  }
+
+  .cart-link-logo {
+    top: 10px; /* Adjusted for very small screens */
+    right: 10px;
+    font-size: 20px; /* Reduced size for smaller screens */
   }
 }
 

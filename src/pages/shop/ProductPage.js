@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
 import { nanoid } from "nanoid";
-import LoadingLogo from './loading'; // Import your LoadingLogo component
+import LoadingLogo from './loading';
 
 const ProductPage = () => {
   const { addToCart, cartItems } = useShopContext();
@@ -12,11 +12,10 @@ const ProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
-  const [touchStartX, setTouchStartX] = useState(null);
-  const [touchEndX, setTouchEndX] = useState(null);
-  const [isPinch, setIsPinch] = useState(false);
+  const [zoomStyle, setZoomStyle] = useState({});
+  const [zoomed, setZoomed] = useState(false);
+
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
   const navigate = useNavigate();
@@ -39,30 +38,6 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
-  const handleImageClick = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-  }, []);
-
-  const nextImage = useCallback(() => {
-    if (product) {
-      const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) => (prevImage + 1) % totalImages);
-    }
-  }, [product]);
-
-  const prevImage = useCallback(() => {
-    if (product) {
-      const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) =>
-        (prevImage - 1 + totalImages) % totalImages
-      );
-    }
-  }, [product]);
-
   const handleClick = () => {
     if (product) {
       addToCart(product);
@@ -71,73 +46,43 @@ const ProductPage = () => {
     }
   };
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'ArrowRight') {
-        nextImage();
-      } else if (event.key === 'ArrowLeft') {
-        prevImage();
-      } else if (event.key === 'Escape') {
-        closeModal();
-      }
-    };
+  const handleMouseMove = (e) => {
+    if (zoomed) {
+      const { offsetX, offsetY, target } = e.nativeEvent;
+      const { width, height } = target;
+      const xPercent = (offsetX / width) * 100;
+      const yPercent = (offsetY / height) * 100;
 
-    if (isModalOpen) {
-      window.addEventListener('keydown', handleKeyDown);
+      setZoomStyle({
+        transformOrigin: `${xPercent}% ${yPercent}%`,
+        transform: 'scale(2)',
+      });
     }
+  };
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isModalOpen, nextImage, prevImage, closeModal]);
-
-  useEffect(() => {
-    const handleTouchStart = (event) => {
-      if (event.touches.length === 1) {
-        setTouchStartX(event.touches[0].clientX);
-        // setTouchEndX(null);
-        setIsPinch(false);
-      } else {
-        setIsPinch(true);
-      }
-    };
-
-    const handleTouchMove = (event) => {
-      if (event.touches.length === 1) {
-        setTouchEndX(event.touches[0].clientX);
-      }
-    };
-
-    const handleTouchEnd = () => {
-      if (touchStartX !== null && touchEndX !== null && !isPinch) {
-        const diffX = touchStartX - touchEndX;
-
-        if (Math.abs(diffX) > 50) {
-          if (diffX > 0) {
-            nextImage(); // Swipe left
-          } else {
-            prevImage(); // Swipe right
-          }
-        }
-      }
-
-      setTouchStartX(null);
-      setTouchEndX(null);
-      setIsPinch(false);
-    };
-
-    if (isModalOpen) {
-      window.addEventListener('touchstart', handleTouchStart);
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleTouchEnd);
+  const handleImageClick = () => {
+    setZoomed(!zoomed);
+    if (!zoomed) {
+      setZoomStyle({ transform: 'scale(2)' });
+    } else {
+      setZoomStyle({});
     }
+  };
 
-    return () => {
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [isModalOpen, touchStartX, touchEndX, isPinch, nextImage, prevImage]);
+  const handleTouchMove = (e) => {
+    if (zoomed) {
+      const touch = e.touches[0];
+      const { clientX, clientY } = touch;
+      const { top, left, width, height } = e.target.getBoundingClientRect();
+      const xPercent = ((clientX - left) / width) * 100;
+      const yPercent = ((clientY - top) / height) * 100;
+
+      setZoomStyle({
+        transformOrigin: `${xPercent}% ${yPercent}%`,
+        transform: 'scale(2)',
+      });
+    }
+  };
 
   if (loading) {
     return <LoadingLogo />;
@@ -172,7 +117,10 @@ const ProductPage = () => {
             className="product-image"
             src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
             alt={name}
+            onMouseMove={handleMouseMove}
             onClick={handleImageClick}
+            onTouchMove={handleTouchMove}
+            style={zoomStyle}
           />
           <div className="centered-content">
             <button className="add-to-cart-button" onClick={handleClick}>
@@ -206,37 +154,6 @@ const ProductPage = () => {
           <p className="product-description">{description}</p>
         </div>
       </div>
-
-      {/* Image Modal */}
-      {isModalOpen && (
-        <div className="modal" onClick={closeModal}>
-          <span className="close">&times;</span>
-
-          <img
-            className="modal-image"
-            src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
-            alt="Product"
-          />
-          <button
-            className="prev"
-            onClick={(e) => {
-              e.stopPropagation();
-              prevImage();
-            }}
-          >
-            &#10094;
-          </button>
-          <button
-            className="next"
-            onClick={(e) => {
-              e.stopPropagation();
-              nextImage();
-            }}
-          >
-            &#10095;
-          </button>
-        </div>
-      )}
     </div>
   );
 };
