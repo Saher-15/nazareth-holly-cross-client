@@ -92,33 +92,32 @@ const ProductPage = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isModalOpen, nextImage, prevImage]); // Dependencies now include memoized functions
+  }, [isModalOpen, nextImage, prevImage]);
 
   // Handle touch navigation
   useEffect(() => {
     const handleTouchStart = (event) => {
       setTouchStartX(event.touches[0].clientX);
       setTouchStartY(event.touches[0].clientY);
-      setIsPinch(false); // Reset pinch flag on touch start
+      setIsPinch(false);
     };
 
     const handleTouchMove = (event) => {
       if (event.touches.length > 1) {
-        setIsPinch(true); // Detected a pinch gesture
-        return; // Skip further handling
+        setIsPinch(true);
+        return;
       }
 
       const endX = event.touches[0].clientX;
-
       const deltaX = touchStartX - endX;
 
       if (Math.abs(deltaX) > 50 && !isPinch) {
         if (deltaX > 0) {
-          nextImage(); // Swipe left
+          nextImage();
         } else {
-          prevImage(); // Swipe right
+          prevImage();
         }
-        setTouchStartX(endX); // Reset startX
+        setTouchStartX(endX);
       }
     };
 
@@ -131,7 +130,7 @@ const ProductPage = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
     };
-  }, [isModalOpen, touchStartX, touchStartY, isPinch, nextImage, prevImage]); // Dependencies now include memoized functions
+  }, [isModalOpen, touchStartX, touchStartY, isPinch, nextImage, prevImage]);
 
   // Render loading or error
   if (loading) {
@@ -207,13 +206,13 @@ const ProductPage = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div
             className="modal-content"
-            onClick={(e) => e.stopPropagation()} // Stop click events from propagating to the overlay
+            onClick={(e) => e.stopPropagation()}
           >
             <button className="close-button" onClick={closeModal}>
               &times;
             </button>
-            <button className="prev-button" onClick={prevImage}>←</button>
-            <button className="next-button" onClick={nextImage}>→</button>
+            <button className="prev-button" onClick={prevImage}>&#10094;</button>
+            <button className="next-button" onClick={nextImage}>&#10095;</button>
             <div className="modal-image-container">
               <img
                 src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
