@@ -141,18 +141,17 @@ const GreekChurch = () => {
       </div>
 
       <div className="gallery">
-  <h2>Gallery</h2>
-  <div className="gallery-queue">
-    {images.map((image, index) => (
-      <img
-        key={index}
-        src={image}
-        alt={`Greek Church ${index + 1}`}
-        onClick={() => handleImageClick(index)}
-      />
-    ))}
-  </div>
-</div>
+        <div className="gallery-queue">
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Greek Church ${index + 1}`}
+              onClick={() => handleImageClick(index)}
+            />
+          ))}
+        </div>
+      </div>
 
 
       {selectedImageIndex !== null && (
