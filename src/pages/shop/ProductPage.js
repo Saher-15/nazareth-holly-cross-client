@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
@@ -13,10 +13,13 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchStartY, setTouchStartY] = useState(null);
+  const [isPinch, setIsPinch] = useState(false);
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
   const navigate = useNavigate();
-  const [showMessage, setShowMessage] = useState(false);
 
   // Fetch product data
   useEffect(() => {
@@ -37,6 +40,22 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
+  // Memoize nextImage function
+  const nextImage = useCallback(() => {
+    if (product) {
+      const totalImages = (product.additionalImageUrls.length || 0) + 1;
+      setCurrentImage((prevImage) => (prevImage + 1) % totalImages);
+    }
+  }, [product]);
+
+  // Memoize prevImage function
+  const prevImage = useCallback(() => {
+    if (product) {
+      const totalImages = (product.additionalImageUrls.length || 0) + 1;
+      setCurrentImage((prevImage) => (prevImage - 1 + totalImages) % totalImages);
+    }
+  }, [product]);
+
   // Handle add to cart
   const handleClick = () => {
     if (product) {
@@ -56,22 +75,6 @@ const ProductPage = () => {
     setIsModalOpen(false);
   };
 
-  // Navigate to next image
-  const nextImage = () => {
-    if (product) {
-      const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) => (prevImage + 1) % totalImages);
-    }
-  };
-
-  // Navigate to previous image
-  const prevImage = () => {
-    if (product) {
-      const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) => (prevImage - 1 + totalImages) % totalImages);
-    }
-  };
-
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -89,27 +92,33 @@ const ProductPage = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isModalOpen, currentImage]);
+  }, [isModalOpen, nextImage, prevImage]); // Dependencies now include memoized functions
 
   // Handle touch navigation
   useEffect(() => {
-    let startX;
-
     const handleTouchStart = (event) => {
-      startX = event.touches[0].clientX;
+      setTouchStartX(event.touches[0].clientX);
+      setTouchStartY(event.touches[0].clientY);
+      setIsPinch(false); // Reset pinch flag on touch start
     };
 
     const handleTouchMove = (event) => {
-      const endX = event.touches[0].clientX;
-      const deltaX = startX - endX;
+      if (event.touches.length > 1) {
+        setIsPinch(true); // Detected a pinch gesture
+        return; // Skip further handling
+      }
 
-      if (Math.abs(deltaX) > 50) {
+      const endX = event.touches[0].clientX;
+
+      const deltaX = touchStartX - endX;
+
+      if (Math.abs(deltaX) > 50 && !isPinch) {
         if (deltaX > 0) {
           nextImage(); // Swipe left
         } else {
           prevImage(); // Swipe right
         }
-        startX = endX; // Reset startX
+        setTouchStartX(endX); // Reset startX
       }
     };
 
@@ -122,7 +131,7 @@ const ProductPage = () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
     };
-  }, [isModalOpen, currentImage]);
+  }, [isModalOpen, touchStartX, touchStartY, isPinch, nextImage, prevImage]); // Dependencies now include memoized functions
 
   // Render loading or error
   if (loading) {

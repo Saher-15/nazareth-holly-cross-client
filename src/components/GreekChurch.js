@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Pages.css';
 import { SiGooglemaps } from "react-icons/si";
 
@@ -6,6 +6,7 @@ const GreekChurch = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
+  const [isPinch, setIsPinch] = useState(false);
   const images = [
     "images/jesus.png",
     "images/img-4.jpg",
@@ -17,23 +18,23 @@ const GreekChurch = () => {
     window.location.href = 'https://www.google.com/maps/place/The+Greek+Orthodox+Church+of+the+Annunciation/@32.7070723,35.3016619,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4c29d17b5477:0xc7296709e9a3ab85!8m2!3d32.7070723!4d35.3016619!16s%2Fm%2F03gtxsl?entry=ttu';
   };
 
-  const handleImageClick = (index) => {
+  const handleImageClick = useCallback((index) => {
     setSelectedImageIndex(index);
-  };
+  }, []);
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setSelectedImageIndex(null);
-  };
+  }, []);
 
-  const handleNextImage = () => {
+  const handleNextImage = useCallback(() => {
     setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const handlePrevImage = () => {
+  const handlePrevImage = useCallback(() => {
     setSelectedImageIndex((prevIndex) =>
       (prevIndex - 1 + images.length) % images.length
     );
-  };
+  }, [images.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,19 +58,26 @@ const GreekChurch = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedImageIndex]);
+  }, [selectedImageIndex, handleNextImage, handlePrevImage, handleCloseModal]);
 
   useEffect(() => {
     const handleTouchStart = (event) => {
-      setTouchStartX(event.touches[0].clientX);
+      if (event.touches.length === 1) {
+        setTouchStartX(event.touches[0].clientX);
+        setIsPinch(false);
+      } else {
+        setIsPinch(true); // Pinch detected
+      }
     };
 
     const handleTouchMove = (event) => {
-      setTouchEndX(event.touches[0].clientX);
+      if (event.touches.length === 1) {
+        setTouchEndX(event.touches[0].clientX);
+      }
     };
 
     const handleTouchEnd = () => {
-      if (touchStartX !== null && touchEndX !== null) {
+      if (touchStartX !== null && touchEndX !== null && !isPinch) {
         const diffX = touchStartX - touchEndX;
 
         if (Math.abs(diffX) > 50) {
@@ -84,6 +92,7 @@ const GreekChurch = () => {
       // Reset touch states
       setTouchStartX(null);
       setTouchEndX(null);
+      setIsPinch(false);
     };
 
     if (selectedImageIndex !== null) {
@@ -97,7 +106,7 @@ const GreekChurch = () => {
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [selectedImageIndex, touchStartX, touchEndX]);
+  }, [selectedImageIndex, touchStartX, touchEndX, isPinch, handleNextImage, handlePrevImage]);
 
   return (
     <div className='mypage'>
@@ -147,7 +156,7 @@ const GreekChurch = () => {
             src={images[selectedImageIndex]}
             alt={`Enlarged view ${selectedImageIndex + 1}`}
           />
-          <a
+          <button
             className="prev"
             onClick={(e) => {
               e.stopPropagation(); // Prevents click event from closing the modal
@@ -155,8 +164,8 @@ const GreekChurch = () => {
             }}
           >
             &#10094;
-          </a>
-          <a
+          </button>
+          <button
             className="next"
             onClick={(e) => {
               e.stopPropagation(); // Prevents click event from closing the modal
@@ -164,7 +173,7 @@ const GreekChurch = () => {
             }}
           >
             &#10095;
-          </a>
+          </button>
         </div>
       )}
     </div>
