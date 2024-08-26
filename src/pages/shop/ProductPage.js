@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
 import { nanoid } from "nanoid";
+import LoadingLogo from './loading'; // Import your LoadingLogo component
 
 const ProductPage = () => {
   const { addToCart, cartItems } = useShopContext();
@@ -61,96 +62,91 @@ const ProductPage = () => {
     setCurrentImage((prevImage) => (prevImage - 1 + (additionalImageUrls.length + 1)) % (additionalImageUrls.length + 1));
   };
 
-  if (loading) {
-    return <div className="loading">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="error-message">Error: {error}</div>;
-  }
-
-  if (!product) {
-    return <div className="error-message">Product not found</div>;
-  }
-
-  const { name, price, img, description, additionalImageUrls } = product;
+  const { name, price, img, description, additionalImageUrls } = product || {};
 
   return (
     <div className="product-container">
-      <div className="button-container">
-        <button className="back-button" onClick={() => navigate("/shop")}>
-          <i className="fas fa-chevron-left">shop</i>
-        </button>
+      {loading && <LoadingLogo />} {/* Display loading spinner when loading */}
 
-        <Link to="/cart" className="cart-link-logo">
-          <i className="fas fa-shopping-cart"></i>
-          {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
-        </Link>
-      </div>
-
-      <div className="product-details">
-        <div className="image-container">
-          <img
-            className="product-image"
-            src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
-            alt={name}
-            onClick={handleImageClick}
-          />
-          <div className="centered-content">
-            <button className="add-to-cart-button" onClick={handleClick}>
-              Add To Cart
+      {!loading && !product && <div className="error-message">Product not found</div>}
+      
+      {!loading && product && (
+        <>
+          <div className="button-container">
+            <button className="back-button" onClick={() => navigate("/shop")}>
+              <i className="fas fa-chevron-left">shop</i>
             </button>
-            {showMessage && <div className="message">Product added to cart!</div>}
+
+            <Link to="/cart" className="cart-link-logo">
+              <i className="fas fa-shopping-cart"></i>
+              {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
+            </Link>
           </div>
-        </div>
-        <div className="description">
-          <h1 className="product-name">{name}</h1>
-          <div className="other-product-images">
-            <img
-              src={img}
-              key={nanoid()}
-              onClick={() => setCurrentImage(0)}
-              alt={name}
-              className={`thumbnail ${currentImage === 0 ? 'active' : ''}`}
-            />
-            {additionalImageUrls.map((imageObj, index) => (
+
+          <div className="product-details">
+            <div className="image-container">
               <img
-                src={`${imageObj}`}
-                key={nanoid()}
-                onClick={() => setCurrentImage(index + 1)}
+                className="product-image"
+                src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
                 alt={name}
-                className={`thumbnail ${currentImage === index + 1 ? 'active' : ''}`}
+                onClick={handleImageClick}
               />
-            ))}
+              <div className="centered-content">
+                <button className="add-to-cart-button" onClick={handleClick}>
+                  Add To Cart
+                </button>
+                {showMessage && <div className="message">Product added to cart!</div>}
+              </div>
+            </div>
+            <div className="description">
+              <h1 className="product-name">{name}</h1>
+              <div className="other-product-images">
+                <img
+                  src={img}
+                  key={nanoid()}
+                  onClick={() => setCurrentImage(0)}
+                  alt={name}
+                  className={`thumbnail ${currentImage === 0 ? 'active' : ''}`}
+                />
+                {additionalImageUrls.map((imageObj, index) => (
+                  <img
+                    src={`${imageObj}`}
+                    key={nanoid()}
+                    onClick={() => setCurrentImage(index + 1)}
+                    alt={name}
+                    className={`thumbnail ${currentImage === index + 1 ? 'active' : ''}`}
+                  />
+                ))}
+              </div>
+              <p className="product-price">${price}</p>
+              <p>Free shipping</p>
+              <p className="product-description">{description}</p>
+            </div>
           </div>
-          <p className="product-price">${price}</p>
-          <p>Free shipping</p>
-          <p className="product-description">{description}</p>
-        </div>
-      </div>
 
-      {/* Image Modal */}
-      {isModalOpen && (
-        <div className="modal-overlay" onClick={closeModal}>
-  <div
-    className="modal-content"
-    onClick={(e) => e.stopPropagation()} // Stop click events from propagating to the overlay
-  >
-    <button className="close-button" onClick={closeModal}>
-      &times;
-    </button>
-    <button className="prev-button" onClick={prevImage}>←</button>
-    <button className="next-button" onClick={nextImage}>→</button>
-    <div className="modal-image-container">
-      <img
-        src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
-        alt="Product"
-        className="modal-image"
-      />
-    </div>
-  </div>
-</div>
-
+          {/* Image Modal */}
+          {isModalOpen && (
+            <div className="modal-overlay" onClick={closeModal}>
+              <div
+                className="modal-content"
+                onClick={(e) => e.stopPropagation()} // Stop click events from propagating to the overlay
+              >
+                <button className="close-button" onClick={closeModal}>
+                  &times;
+                </button>
+                <button className="prev-button" onClick={prevImage}>←</button>
+                <button className="next-button" onClick={nextImage}>→</button>
+                <div className="modal-image-container">
+                  <img
+                    src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
+                    alt="Product"
+                    className="modal-image"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
