@@ -7,8 +7,7 @@
   color: #666;
   position: fixed;
   right: 20px;
-  top: 20px; /* Adjusted position for consistency */
-  z-index: 1001;
+  z-index: 1;
 }
 
 .cart-link-logo:hover {
@@ -28,7 +27,7 @@
   position: absolute;
   top: -10px;
   right: -10px;
-  z-index: 1002;
+  z-index: 1001;
 }
 
 /* Product page container */
@@ -55,11 +54,6 @@
   cursor: pointer;
   font-size: 20px;
   color: #333;
-  transition: color 0.3s ease;
-}
-
-.back-button:hover {
-  color: #000;
 }
 
 /* Product details section */
@@ -72,7 +66,6 @@
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  gap: 20px; /* Added gap for spacing between items */
 }
 
 /* Image container and styling */
@@ -88,12 +81,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: contain;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.product-image:hover {
-  transform: scale(1.05); /* Added hover effect for better interaction */
+  cursor: pointer; /* Changed to pointer to indicate clickable */
 }
 
 /* Additional product images styling */
@@ -148,30 +136,30 @@
 
 /* Enhanced Product name styling */
 .product-name {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #111;
-  margin-bottom: 20px;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 2.5rem; /* Increased size */
+  font-weight: 800; /* Bolder text */
+  color: #111; /* Darker color for emphasis */
+  margin-bottom: 20px; /* Increased spacing */
+  text-align: center; /* Center the text */
+  text-transform: uppercase; /* Uppercase for impact */
 }
 
 /* Enhanced Product price styling */
 .product-price {
-  font-size: 2rem;
-  color: #ff5252;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
+  font-size: 2rem; /* Increased size */
+  color: #ff5252; /* Slightly darker color */
+  font-weight: 700; /* Bolder text */
+  margin-bottom: 30px; /* Increased spacing */
+  text-align: center; /* Center the text */
 }
 
 /* Enhanced Product description styling */
 .product-description {
-  font-size: 1.25rem;
-  line-height: 2;
-  color: #333;
-  margin-top: 15px;
-  text-align: justify;
+  font-size: 1.25rem; /* Larger font */
+  line-height: 2; /* Improved readability */
+  color: #333; /* Darker text for better contrast */
+  margin-top: 15px; /* Added top margin for spacing */
+  text-align: justify; /* Justify text for a neat look */
 }
 
 /* Message that appears when a product is added to the cart */
@@ -192,7 +180,6 @@
   color: #e74c3c;
   padding: 20px;
 }
-
 /* Responsive design for smaller screens and portrait mode */
 @media (max-width: 768px) {
   .product-details {
@@ -262,12 +249,6 @@
 
   .product-description {
     font-size: 1rem;
-  }
-
-  .cart-link-logo {
-    top: 10px; /* Adjusted for very small screens */
-    right: 10px;
-    font-size: 20px; /* Reduced size for smaller screens */
   }
 }
 
