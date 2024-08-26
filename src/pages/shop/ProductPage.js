@@ -50,14 +50,14 @@ const ProductPage = () => {
   const nextImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setIsModalOpen((prevImage) => (prevImage + 1) % totalImages);
+      setCurrentImage((prevImage) => (prevImage + 1) % totalImages);
     }
   }, [product]);
 
   const prevImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setIsModalOpen((prevImage) =>
+      setCurrentImage((prevImage) =>
         (prevImage - 1 + totalImages) % totalImages
       );
     }
