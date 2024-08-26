@@ -12,7 +12,7 @@ const ProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
@@ -39,12 +39,12 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
-  const handleImageClick = (index) => {
-    setIsModalOpen(index);
+  const handleImageClick = () => {
+    setIsModalOpen(true);
   };
 
   const closeModal = useCallback(() => {
-    setIsModalOpen(null);
+    setIsModalOpen(false);
   }, []);
 
   const nextImage = useCallback(() => {
@@ -208,18 +208,9 @@ const ProductPage = () => {
       </div>
 
       {/* Image Modal */}
-      {isModalOpen !== null && (
+      {isModalOpen && (
         <div className="modal" onClick={closeModal}>
-          {/* <div className="modal-content" onClick={(e) => e.stopPropagation()}> */}
-            {/* <button className="close-button" onClick={closeModal}>
-              &times;
-            </button> */}
-            <span className="close">&times;</span>
-            <img
-                src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
-                alt="Product"
-                className="modal-image"
-              />
+            <span className="close" onClick={closeModal}>&times;</span>
             <button className="prev" onClick={(e) => {
               e.stopPropagation();
               prevImage();
@@ -228,7 +219,11 @@ const ProductPage = () => {
               e.stopPropagation();
               nextImage();
             }}>&#10095;</button>
-              
+            <img
+              src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
+              alt="Product"
+              className="modal-image"
+            />
         </div>
       )}
     </div>

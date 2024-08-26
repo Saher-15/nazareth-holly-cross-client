@@ -182,7 +182,7 @@
 }
 
 /* Modal styles */
-.modal-overlay {
+.modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,8 +205,7 @@
 background-color: #fff;
 }
 
-/* Close button */
-.close-button {
+.close {
   position: absolute;
   top: 15px;
   right: 35px;
@@ -214,23 +213,18 @@ background-color: #fff;
   font-size: 2.5rem; /* Responsive font size using rem units */
   font-weight: bold;
   cursor: pointer;
-  background: transparent; /* Remove background */
-  border: none; /* Remove border */
-  padding: 0; /* Remove padding */
-  z-index: 1002; /* Ensure it's above other content */
 }
 
-.close-button:hover,
-.close-button:focus {
+.close:hover,
+.close:focus {
   color: #bbb;
   text-decoration: none;
-  outline: none; /* Remove default focus outline */
+  cursor: pointer;
 }
 
-
 /* Navigation buttons */
-.prev-button,
-.next-button {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -244,20 +238,21 @@ background-color: #fff;
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
+  
 }
 
-.prev-button {
-  left: 10px;
-  border-radius: 3px 0 0 3px;
-}
-
-.next-button {
+.next {
   right: 10px;
   border-radius: 3px 0 0 3px;
 }
 
-.prev-button:hover,
-.next-button:hover {
+.prev {
+  left: 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
