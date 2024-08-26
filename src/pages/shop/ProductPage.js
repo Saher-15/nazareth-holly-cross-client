@@ -21,7 +21,6 @@ const ProductPage = () => {
   const cartItemCount = cartItem ? cartItem.quantity : 0;
   const navigate = useNavigate();
 
-  // Fetch product data
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -40,7 +39,6 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
-  // Memoize nextImage function
   const nextImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
@@ -48,7 +46,6 @@ const ProductPage = () => {
     }
   }, [product]);
 
-  // Memoize prevImage function
   const prevImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
@@ -58,12 +55,10 @@ const ProductPage = () => {
     }
   }, [product]);
 
-  // Memoize closeModal function
   const closeModal = useCallback(() => {
     setIsModalOpen(false);
   }, []);
 
-  // Handle add to cart
   const handleClick = () => {
     if (product) {
       addToCart(product);
@@ -72,12 +67,10 @@ const ProductPage = () => {
     }
   };
 
-  // Handle image click to open modal
   const handleImageClick = () => {
     setIsModalOpen(true);
   };
 
-  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'ArrowRight') {
@@ -98,7 +91,6 @@ const ProductPage = () => {
     };
   }, [isModalOpen, nextImage, prevImage, closeModal]);
 
-  // Handle touch navigation
   useEffect(() => {
     const handleTouchStart = (event) => {
       if (event.touches.length === 1) {
@@ -129,7 +121,6 @@ const ProductPage = () => {
         }
       }
 
-      // Reset touch states
       setTouchStartX(null);
       setTouchEndX(null);
       setIsPinch(false);
@@ -148,7 +139,6 @@ const ProductPage = () => {
     };
   }, [isModalOpen, touchStartX, touchEndX, isPinch, nextImage, prevImage]);
 
-  // Render loading or error
   if (loading) {
     return <LoadingLogo />;
   }
@@ -220,15 +210,18 @@ const ProductPage = () => {
       {/* Image Modal */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          {/* <div className="modal-content" onClick={(e) => e.stopPropagation()}> */}
             <button className="close-button" onClick={closeModal}>
               &times;
             </button>
-            <button className="prev-button" onClick={prevImage}>&#10094;</button>
-            <button className="next-button" onClick={nextImage}>&#10095;</button>
+            <button className="prev-button" onClick={(e) => {
+              e.stopPropagation();
+              prevImage();
+            }}>&#10094;</button>
+            <button className="next-button" onClick={(e) => {
+              e.stopPropagation();
+              nextImage();
+            }}>&#10095;</button>
             <div className="modal-image-container">
               <img
                 src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
@@ -237,7 +230,6 @@ const ProductPage = () => {
               />
             </div>
           </div>
-        </div>
       )}
     </div>
   );
