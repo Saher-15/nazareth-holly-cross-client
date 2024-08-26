@@ -210,10 +210,12 @@ const ProductPage = () => {
       {/* Image Modal */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={closeModal}>
+          {/* <div className="modal-content" onClick={(e) => e.stopPropagation()}> */}
+            {/* <button className="close-button" onClick={closeModal}>
               &times;
-            </button>
+            </button> */}
+            <span className="close">&times;</span>
+
             <button className="prev-button" onClick={(e) => {
               e.stopPropagation();
               prevImage();
@@ -229,7 +231,6 @@ const ProductPage = () => {
                 className="modal-image"
               />
             </div>
-          </div>
         </div>
       )}
     </div>
