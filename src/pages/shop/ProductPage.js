@@ -40,6 +40,18 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
+  useEffect(() => {
+    if (isZoomModalOpen) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling
+    } else {
+      document.body.style.overflow = ''; // Enable scrolling
+    }
+
+    return () => {
+      document.body.style.overflow = ''; // Clean up on component unmount
+    };
+  }, [isZoomModalOpen]);
+
   const handleClick = () => {
     if (product) {
       addToCart(product);
