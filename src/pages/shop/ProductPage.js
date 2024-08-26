@@ -39,25 +39,29 @@ const ProductPage = () => {
     fetchProduct();
   }, [id]);
 
+  const handleImageClick = (index) => {
+    setIsModalOpen(index);
+  };
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(null);
+  }, []);
+
   const nextImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) => (prevImage + 1) % totalImages);
+      setIsModalOpen((prevImage) => (prevImage + 1) % totalImages);
     }
   }, [product]);
 
   const prevImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) =>
+      setIsModalOpen((prevImage) =>
         (prevImage - 1 + totalImages) % totalImages
       );
     }
   }, [product]);
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(null);
-  }, []);
 
   const handleClick = () => {
     if (product) {
@@ -65,10 +69,6 @@ const ProductPage = () => {
       setShowMessage(true);
       setTimeout(() => setShowMessage(false), 2000);
     }
-  };
-
-  const handleImageClick = () => {
-    setIsModalOpen(true);
   };
 
   useEffect(() => {
