@@ -4,11 +4,13 @@ import { SiGooglemaps } from "react-icons/si";
 
 const GreekChurch = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
   const images = [
-"images/jesus.png",
-"images/img-4.jpg",
-"images/img-9.jpg",
-"images/img-8.jpg"
+    "images/jesus.png",
+    "images/img-4.jpg",
+    "images/img-9.jpg",
+    "images/img-8.jpg"
   ];
 
   const handleClickMap = () => {
@@ -55,7 +57,47 @@ const GreekChurch = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [selectedImageIndex, handleNextImage, handlePrevImage]);
+  }, [selectedImageIndex]);
+
+  useEffect(() => {
+    const handleTouchStart = (event) => {
+      setTouchStartX(event.touches[0].clientX);
+    };
+
+    const handleTouchMove = (event) => {
+      setTouchEndX(event.touches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+      if (touchStartX !== null && touchEndX !== null) {
+        const diffX = touchStartX - touchEndX;
+
+        if (Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            handleNextImage(); // Swipe left
+          } else {
+            handlePrevImage(); // Swipe right
+          }
+        }
+      }
+
+      // Reset touch states
+      setTouchStartX(null);
+      setTouchEndX(null);
+    };
+
+    if (selectedImageIndex !== null) {
+      window.addEventListener('touchstart', handleTouchStart);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleTouchEnd);
+    }
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [selectedImageIndex, touchStartX, touchEndX]);
 
   return (
     <div className='mypage'>
