@@ -95,7 +95,7 @@ const ProductPage = () => {
     const handleTouchStart = (event) => {
       if (event.touches.length === 1) {
         setTouchStartX(event.touches[0].clientX);
-        setTouchEndX(null);
+        // setTouchEndX(null);
         setIsPinch(false);
       } else {
         setIsPinch(true);
