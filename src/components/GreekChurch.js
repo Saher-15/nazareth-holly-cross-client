@@ -8,10 +8,16 @@ const GreekChurch = () => {
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
   const images = [
-    "images/jesus.png",
-    "images/img-4.jpg",
-    "images/img-9.jpg",
-    "images/img-8.jpg"
+    "images/greek/greek1.jpg",
+    "images/greek/greek2.jpg",
+    "images/greek/greek3.jpg",
+    "images/greek/greek4.jpg",
+    "images/greek/greek6.png",
+    "images/greek/greek7.jpg",
+    "images/greek/greek8.jpg",
+    "images/greek/greek9.jpg",
+    "images/greek/greek10.jpg",
+    "images/greek/greek11.jpg",
   ];
 
   const handleClickMap = () => {
@@ -135,18 +141,19 @@ const GreekChurch = () => {
       </div>
 
       <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Greek Church ${index + 1}`}
-              onClick={() => handleImageClick(index)}
-            />
-          ))}
-        </div>
-      </div>
+  <h2>Gallery</h2>
+  <div className="gallery-queue">
+    {images.map((image, index) => (
+      <img
+        key={index}
+        src={image}
+        alt={`Greek Church ${index + 1}`}
+        onClick={() => handleImageClick(index)}
+      />
+    ))}
+  </div>
+</div>
+
 
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>
