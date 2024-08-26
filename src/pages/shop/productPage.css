@@ -180,6 +180,44 @@
   color: #e74c3c;
   padding: 20px;
 }
+
+/* Zoom Modal */
+.zoom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  padding: 0; /* No padding to fit the image exactly */
+  border-radius: 10px;
+  cursor: zoom-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Zoomed Image */
+.zoomed-image {
+  width: 400px; /* Same size as the main image */
+  height: 450px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Cover the div */
+  border-radius: 15px;
+  opacity: 1; /* Ensure it is visible initially */
+  transition: opacity 0.3s ease;
+}
+
+/* Show the zoomed image */
+.zoomed-image.visible {
+  opacity: 1;
+}
+
+
+
+
+
 /* Responsive design for smaller screens and portrait mode */
 @media (max-width: 768px) {
   .product-details {

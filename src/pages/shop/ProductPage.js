@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
 import { nanoid } from "nanoid";
-import LoadingLogo from './loading';
+import LoadingLogo from './loading'; // Import your LoadingLogo component
 
 const ProductPage = () => {
   const { addToCart, cartItems } = useShopContext();
@@ -13,8 +13,10 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showMessage, setShowMessage] = useState(false);
+  const [zoomedImage, setZoomedImage] = useState(null);
   const [zoomStyle, setZoomStyle] = useState({});
-  const [zoomed, setZoomed] = useState(false);
+  const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
+  const [isZoomVisible, setIsZoomVisible] = useState(false);
 
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
@@ -46,42 +48,38 @@ const ProductPage = () => {
     }
   };
 
+  const openZoomModal = (image) => {
+    setZoomedImage(image);
+    setZoomStyle({
+      backgroundImage: `url(${image})`,
+      backgroundSize: '200%',
+    });
+    setIsZoomModalOpen(true);
+  };
+
+  const closeZoomModal = () => {
+    setZoomedImage(null);
+    setIsZoomModalOpen(false);
+    setIsZoomVisible(false);
+  };
+
   const handleMouseMove = (e) => {
-    if (zoomed) {
-      const { offsetX, offsetY, target } = e.nativeEvent;
-      const { width, height } = target;
-      const xPercent = (offsetX / width) * 100;
-      const yPercent = (offsetY / height) * 100;
+    if (!zoomedImage) return;
 
-      setZoomStyle({
-        transformOrigin: `${xPercent}% ${yPercent}%`,
-        transform: 'scale(2)',
-      });
-    }
+    const rect = e.target.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    setZoomStyle((prevStyle) => ({
+      ...prevStyle,
+      backgroundPosition: `${x}% ${y}%`,
+    }));
+
+    setIsZoomVisible(true);
   };
 
-  const handleImageClick = () => {
-    setZoomed(!zoomed);
-    if (!zoomed) {
-      setZoomStyle({ transform: 'scale(2)' });
-    } else {
-      setZoomStyle({});
-    }
-  };
-
-  const handleTouchMove = (e) => {
-    if (zoomed) {
-      const touch = e.touches[0];
-      const { clientX, clientY } = touch;
-      const { top, left, width, height } = e.target.getBoundingClientRect();
-      const xPercent = ((clientX - left) / width) * 100;
-      const yPercent = ((clientY - top) / height) * 100;
-
-      setZoomStyle({
-        transformOrigin: `${xPercent}% ${yPercent}%`,
-        transform: 'scale(2)',
-      });
-    }
+  const handleMouseLeave = () => {
+    setIsZoomVisible(false);
   };
 
   if (loading) {
@@ -117,10 +115,7 @@ const ProductPage = () => {
             className="product-image"
             src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
             alt={name}
-            onMouseMove={handleMouseMove}
-            onClick={handleImageClick}
-            onTouchMove={handleTouchMove}
-            style={zoomStyle}
+            onClick={() => openZoomModal(currentImage === 0 ? img : additionalImageUrls[currentImage - 1])}
           />
           <div className="centered-content">
             <button className="add-to-cart-button" onClick={handleClick}>
@@ -154,6 +149,19 @@ const ProductPage = () => {
           <p className="product-description">{description}</p>
         </div>
       </div>
+
+      {/* Zoom Modal */}
+      {isZoomModalOpen && (
+        <div className="zoom-modal" onClick={closeZoomModal}>
+          <div
+            className={`zoomed-image ${isZoomVisible ? 'visible' : 'hidden'}`}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            onTouchMove={(e) => handleMouseMove(e.touches[0])}
+            style={zoomStyle}
+          />
+        </div>
+      )}
     </div>
   );
 };
