@@ -58,6 +58,11 @@ const ProductPage = () => {
     }
   }, [product]);
 
+  // Memoize closeModal function
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+
   // Handle add to cart
   const handleClick = () => {
     if (product) {
@@ -70,11 +75,6 @@ const ProductPage = () => {
   // Handle image click to open modal
   const handleImageClick = () => {
     setIsModalOpen(true);
-  };
-
-  // Close modal
-  const closeModal = () => {
-    setIsModalOpen(false);
   };
 
   // Handle keyboard navigation
@@ -221,7 +221,7 @@ const ProductPage = () => {
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div
-            className="modal-conten"
+            className="modal-content"
             onClick={(e) => e.stopPropagation()}
           >
             <button className="close-button" onClick={closeModal}>
