@@ -6,6 +6,10 @@
   min-height: 100vh;
 }
 
+.content p{
+  text-align: start;
+}
+
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -120,6 +124,7 @@
   border-radius: 0 3px 3px 0;
   user-select: none;
   -webkit-user-select: none;
+  
 }
 
 .next {

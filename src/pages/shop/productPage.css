@@ -136,7 +136,7 @@
 
 /* Enhanced Product name styling */
 .product-name {
-  font-size: 40px; /* Increased size */
+  font-size: 2.5rem; /* Increased size */
   font-weight: 800; /* Bolder text */
   color: #111; /* Darker color for emphasis */
   margin-bottom: 20px; /* Increased spacing */
@@ -146,7 +146,7 @@
 
 /* Enhanced Product price styling */
 .product-price {
-  font-size: 32px; /* Increased size */
+  font-size: 2rem; /* Increased size */
   color: #ff5252; /* Slightly darker color */
   font-weight: 700; /* Bolder text */
   margin-bottom: 30px; /* Increased spacing */
@@ -155,7 +155,7 @@
 
 /* Enhanced Product description styling */
 .product-description {
-  font-size: 20px; /* Larger font */
+  font-size: 1.25rem; /* Larger font */
   line-height: 2; /* Improved readability */
   color: #333; /* Darker text for better contrast */
   margin-top: 15px; /* Added top margin for spacing */
@@ -183,93 +183,84 @@
 
 /* Modal styles */
 .modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 90%;
-  max-height: 90%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.modal-image {
+  width: 90%;
+  max-width: 800px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
 }
 
 /* Close button */
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #e74c3c;
-  border: none;
-  border-radius: 50%;
+  top: 15px;
+  right: 35px;
   color: #fff;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 2.5rem; /* Responsive font size using rem units */
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  background: transparent; /* Remove background */
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  z-index: 1002; /* Ensure it's above other content */
 }
 
-.close-button:hover {
-  background-color: #c0392b;
+.close-button:hover,
+.close-button:focus {
+  color: #bbb;
+  text-decoration: none;
+  outline: none; /* Remove default focus outline */
 }
+
 
 /* Navigation buttons */
 .prev-button,
 .next-button {
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: 50%;
-  color: #333;
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  z-index: 1001;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem; /* Responsive font size using rem units */
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .prev-button {
   left: 10px;
+  border-radius: 3px 0 0 3px;
 }
 
 .next-button {
   right: 10px;
+  border-radius: 3px 0 0 3px;
 }
 
 .prev-button:hover,
 .next-button:hover {
-  background-color: #3498db;
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.prev-button:focus,
-.next-button:focus {
-  outline: none;
-}
-
+/* Ensure smooth scrolling on all devices */
 .modal-image-container {
   overflow: hidden;
   text-align: center;
@@ -305,15 +296,15 @@
   }
 
   .product-name {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
 
   .product-price {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .product-description {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .other-product-images img {
@@ -342,15 +333,15 @@
   }
 
   .product-name {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .product-price {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .product-description {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 

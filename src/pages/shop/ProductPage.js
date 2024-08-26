@@ -15,7 +15,7 @@ const ProductPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [touchStartX, setTouchStartX] = useState(null);
-  const [touchStartY, setTouchStartY] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
   const cartItem = cartItems.find((cartItem) => cartItem._id === id);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
@@ -52,7 +52,9 @@ const ProductPage = () => {
   const prevImage = useCallback(() => {
     if (product) {
       const totalImages = (product.additionalImageUrls.length || 0) + 1;
-      setCurrentImage((prevImage) => (prevImage - 1 + totalImages) % totalImages);
+      setCurrentImage((prevImage) =>
+        (prevImage - 1 + totalImages) % totalImages
+      );
     }
   }, [product]);
 
@@ -82,6 +84,8 @@ const ProductPage = () => {
         nextImage();
       } else if (event.key === 'ArrowLeft') {
         prevImage();
+      } else if (event.key === 'Escape') {
+        closeModal();
       }
     };
 
@@ -92,45 +96,57 @@ const ProductPage = () => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isModalOpen, nextImage, prevImage]);
+  }, [isModalOpen, nextImage, prevImage, closeModal]);
 
   // Handle touch navigation
   useEffect(() => {
     const handleTouchStart = (event) => {
-      setTouchStartX(event.touches[0].clientX);
-      setTouchStartY(event.touches[0].clientY);
-      setIsPinch(false);
+      if (event.touches.length === 1) {
+        setTouchStartX(event.touches[0].clientX);
+        setTouchEndX(null);
+        setIsPinch(false);
+      } else {
+        setIsPinch(true);
+      }
     };
 
     const handleTouchMove = (event) => {
-      if (event.touches.length > 1) {
-        setIsPinch(true);
-        return;
+      if (event.touches.length === 1) {
+        setTouchEndX(event.touches[0].clientX);
       }
+    };
 
-      const endX = event.touches[0].clientX;
-      const deltaX = touchStartX - endX;
+    const handleTouchEnd = () => {
+      if (touchStartX !== null && touchEndX !== null && !isPinch) {
+        const diffX = touchStartX - touchEndX;
 
-      if (Math.abs(deltaX) > 50 && !isPinch) {
-        if (deltaX > 0) {
-          nextImage();
-        } else {
-          prevImage();
+        if (Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            nextImage(); // Swipe left
+          } else {
+            prevImage(); // Swipe right
+          }
         }
-        setTouchStartX(endX);
       }
+
+      // Reset touch states
+      setTouchStartX(null);
+      setTouchEndX(null);
+      setIsPinch(false);
     };
 
     if (isModalOpen) {
       window.addEventListener('touchstart', handleTouchStart);
       window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleTouchEnd);
     }
 
     return () => {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [isModalOpen, touchStartX, touchStartY, isPinch, nextImage, prevImage]);
+  }, [isModalOpen, touchStartX, touchEndX, isPinch, nextImage, prevImage]);
 
   // Render loading or error
   if (loading) {
@@ -187,7 +203,7 @@ const ProductPage = () => {
             />
             {additionalImageUrls.map((imageObj, index) => (
               <img
-                src={`${imageObj}`}
+                src={imageObj}
                 key={nanoid()}
                 onClick={() => setCurrentImage(index + 1)}
                 alt={name}
@@ -205,7 +221,7 @@ const ProductPage = () => {
       {isModalOpen && (
         <div className="modal-overlay" onClick={closeModal}>
           <div
-            className="modal-content"
+            className="modal-conten"
             onClick={(e) => e.stopPropagation()}
           >
             <button className="close-button" onClick={closeModal}>
