@@ -15,7 +15,7 @@ const Marys = () => {
   ];
 
   const handleClickMap = () => {
-    window.location.href = 'https://www.google.com/maps/place/Mary%E2%80%99s+Well/@32.7035145,35.296555,14z/data=!4m6!3m5!1s0x151c4c29c6d1008d:0x23e218b489e18311!8m2!3d32.7060586!4d35.3013417!16zL20vMGY3XzJ2?entry=ttu';
+    window.open('https://www.google.com/maps/place/Mary%E2%80%99s+Well/@32.7035145,35.296555,14z/data=!4m6!3m5!1s0x151c4c29c6d1008d:0x23e218b489e18311!8m2!3d32.7060586!4d35.3013417!16zL20vMGY3XzJ2?entry=ttu', '_blank');
   };
 
   const handleImageClick = useCallback((index) => {
@@ -41,7 +41,7 @@ const Marys = () => {
     window.scrollTo(0, 0);
   }, []); // Empty dependency array ensures this effect runs only once, on mount
 
-  
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (selectedImageIndex !== null) {
@@ -113,15 +113,12 @@ const Marys = () => {
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Welcome to Nazareth
+        <h1>Explore the beauty of Mary's Well
           <SiGooglemaps
-            className="custom-icon-size text-blue-500 hover:text-red-500 absolute top-0 left-0 m-4"
+            className="map-btn"
             onClick={handleClickMap}
           />
         </h1>
-        <p>
-          Explore the beauty of Mary's Well
-        </p>
       </div>
       <div className='content'>
 
@@ -154,8 +151,7 @@ const Marys = () => {
         </p>
       </div>
       <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
+        <div className="gallery-queue">
           {images.map((image, index) => (
             <img
               key={index}
@@ -166,6 +162,7 @@ const Marys = () => {
           ))}
         </div>
       </div>
+
 
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>

@@ -8,6 +8,18 @@
   padding: 20px;
 }
 
+.map-btn {
+  color: blue;
+  cursor: pointer;
+
+}
+
+.map-btn :hover {
+  color: #ff0000;
+}
+
+
+
 /* Header section */
 .header {
   text-align: center;
@@ -43,6 +55,8 @@
 .content p {
   line-height: 1.6;
   margin-bottom: 20px;
+  text-align: start;
+
 }
 
 /* Gallery section */

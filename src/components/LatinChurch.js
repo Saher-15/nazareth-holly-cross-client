@@ -15,7 +15,7 @@ const LatinCurch = () => {
   ];
 
   const handleClickMap = () => {
-    window.location.href = 'https://www.google.com/maps/place/Nazareth+City+center/@32.7021997,35.2974033,17z/data=!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu';
+    window.open('https://www.google.com/maps/place/Nazareth+City+center/@32.7021997,35.2974033,17z/data=!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu', '_blank');
   };
 
   
@@ -114,15 +114,12 @@ const LatinCurch = () => {
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Welcome to Nazareth
+        <h1>Explore the beauty of the Latin Church
           <SiGooglemaps
-            className="custom-icon-size text-blue-500 hover:text-red-500 absolute top-0 left-0 m-4"
+            className="map-btn"
             onClick={handleClickMap}
           />
         </h1>
-        <p>
-          Explore the beauty of the Latin Church
-        </p>
       </div>
       <div className='content'>
         <p>
@@ -140,8 +137,7 @@ const LatinCurch = () => {
       </div>
 
       <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
+        <div className="gallery-queue">
           {images.map((image, index) => (
             <img
               key={index}
@@ -152,6 +148,8 @@ const LatinCurch = () => {
           ))}
         </div>
       </div>
+
+
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>
           <span className="close">&times;</span>

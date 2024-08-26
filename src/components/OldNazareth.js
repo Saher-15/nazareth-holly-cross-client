@@ -15,7 +15,7 @@ const OldNazareth = () => {
   ];
 
   const handleClickMap = () => {
-    window.location.href = 'https://www.google.com/maps/place/The+Old+City,+Nazareth/@32.7035145,35.296555,14z/data=!3m1!4b1!4m6!3m5!1s0x151c4c2c9a805123:0x994648ecbf8111f3!8m2!3d32.703515!4d35.296555!16s%2Fg%2F1v5wddhc?entry=ttu';
+    window.open('https://www.google.com/maps/place/The+Old+City,+Nazareth/@32.7035145,35.296555,14z/data=!3m1!4b1!4m6!3m5!1s0x151c4c2c9a805123:0x994648ecbf8111f3!8m2!3d32.703515!4d35.296555!16s%2Fg%2F1v5wddhc?entry=ttu', '_blank');
   };
 
   const handleImageClick = useCallback((index) => {
@@ -113,15 +113,12 @@ const OldNazareth = () => {
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Welcome to Nazareth
+        <h1>Explore the beauty of Nazareth's Old City
           <SiGooglemaps
-            className="custom-icon-size text-blue-500 hover:text-red-500 absolute top-0 left-0 m-4"
+            className="map-btn"
             onClick={handleClickMap}
           />
         </h1>
-        <p>
-          Explore the beauty of Nazareth's Old City
-        </p>
       </div>
       <div className='content'>
         <p>
@@ -138,8 +135,7 @@ const OldNazareth = () => {
         </p>
       </div>
       <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
+        <div className="gallery-queue">
           {images.map((image, index) => (
             <img
               key={index}
@@ -150,6 +146,7 @@ const OldNazareth = () => {
           ))}
         </div>
       </div>
+
 
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>

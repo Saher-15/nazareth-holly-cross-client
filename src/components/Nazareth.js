@@ -14,9 +14,11 @@ const GreekChurch = () => {
     "images/img-8.jpg"
   ];
 
+  
   const handleClickMap = () => {
-    window.location.href = 'https://www.google.com/maps/place/Nazareth+City+center/@32.7012442,35.2981717,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu';
+    window.open('https://www.google.com/maps/place/Nazareth+City+center/@32.7012442,35.2981717,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu', '_blank');
   };
+  
 
   const handleImageClick = useCallback((index) => {
     setSelectedImageIndex(index);
@@ -41,7 +43,7 @@ const GreekChurch = () => {
     window.scrollTo(0, 0);
   }, []); // Empty dependency array ensures this effect runs only once, on mount
 
-  
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (selectedImageIndex !== null) {
@@ -113,14 +115,12 @@ const GreekChurch = () => {
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Welcome to Nazareth
-        <SiGooglemaps
-            className="custom-icon-size text-blue-500 hover:text-red-500 absolute top-0 left-0 m-4"
+        <h1>Explore the beauty of Nazareth City
+          <SiGooglemaps
+            className="map-btn"
             onClick={handleClickMap}
-          /></h1>
-        <p>
-          Explore the beauty of Nazareth City
-        </p>
+          />
+        </h1>
       </div>
       <div className='content'>
         <p>
@@ -140,8 +140,7 @@ const GreekChurch = () => {
         </p>
       </div>
       <div className="gallery">
-        <h2>Gallery</h2>
-        <div className="gallery-grid">
+        <div className="gallery-queue">
           {images.map((image, index) => (
             <img
               key={index}
@@ -152,6 +151,7 @@ const GreekChurch = () => {
           ))}
         </div>
       </div>
+
 
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>

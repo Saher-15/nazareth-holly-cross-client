@@ -21,7 +21,7 @@ const GreekChurch = () => {
   ];
 
   const handleClickMap = () => {
-    window.location.href = 'https://www.google.com/maps/place/The+Greek+Orthodox+Church+of+the+Annunciation/@32.7070723,35.3016619,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4c29d17b5477:0xc7296709e9a3ab85!8m2!3d32.7070723!4d35.3016619!16s%2Fm%2F03gtxsl?entry=ttu';
+    window.open('https://www.google.com/maps/place/The+Greek+Orthodox+Church+of+the+Annunciation/@32.7070723,35.3016619,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4c29d17b5477:0xc7296709e9a3ab85!8m2!3d32.7070723!4d35.3016619!16s%2Fm%2F03gtxsl?entry=ttu', '_blank');
   };
 
   const handleImageClick = useCallback((index) => {
@@ -117,15 +117,13 @@ const GreekChurch = () => {
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Welcome to Nazareth
+        <h1>
+          Explore the beauty of Greek Church
           <SiGooglemaps
-            className="custom-icon-size text-blue-500 hover:text-red-500 absolute top-0 left-0 m-4"
+            className="map-btn"
             onClick={handleClickMap}
           />
         </h1>
-        <p>
-          Explore the beauty of Greek Church
-        </p>
       </div>
 
       <div className='content'>
