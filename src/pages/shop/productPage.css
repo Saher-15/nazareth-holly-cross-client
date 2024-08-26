@@ -199,9 +199,10 @@
 .modal-image {
   width: 90%;
   max-width: 800px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+background-color: #fff;
 }
 
 /* Close button */
