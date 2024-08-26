@@ -210,20 +210,31 @@ const ProductPage = () => {
       {/* Image Modal */}
       {isModalOpen && (
         <div className="modal" onClick={closeModal}>
-            <span className="close" onClick={closeModal}>&times;</span>
-            <button className="prev" onClick={(e) => {
+          <span className="close">&times;</span>
+
+          <img
+            className="modal-image"
+            src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
+            alt="Product"
+          />
+          <button
+            className="prev"
+            onClick={(e) => {
               e.stopPropagation();
               prevImage();
-            }}>&#10094;</button>
-            <button className="next" onClick={(e) => {
+            }}
+          >
+            &#10094;
+          </button>
+          <button
+            className="next"
+            onClick={(e) => {
               e.stopPropagation();
               nextImage();
-            }}>&#10095;</button>
-            <img
-              src={currentImage === 0 ? img : additionalImageUrls[currentImage - 1]}
-              alt="Product"
-              className="modal-image"
-            />
+            }}
+          >
+            &#10095;
+          </button>
         </div>
       )}
     </div>
