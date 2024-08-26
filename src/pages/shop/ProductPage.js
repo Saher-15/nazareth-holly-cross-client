@@ -56,7 +56,7 @@ const ProductPage = () => {
   }, [product]);
 
   const closeModal = useCallback(() => {
-    setIsModalOpen(false);
+    setIsModalOpen(null);
   }, []);
 
   const handleClick = () => {
@@ -208,7 +208,7 @@ const ProductPage = () => {
       </div>
 
       {/* Image Modal */}
-      {isModalOpen && (
+      {isModalOpen !== null && (
         <div className="modal" onClick={closeModal}>
           {/* <div className="modal-content" onClick={(e) => e.stopPropagation()}> */}
             {/* <button className="close-button" onClick={closeModal}>
