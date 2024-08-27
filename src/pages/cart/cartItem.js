@@ -32,7 +32,13 @@ const CartItem = ({ data }) => {
         </p>
         <p>Price: ${price}</p>
         {color && (
-          <p>Color: {color}</p> // Display the selected color
+          <div className="color-display">
+            <p>Color:</p>
+            <div
+              className="color-circle"
+              style={{ backgroundColor: color }}
+            />
+          </div>
         )}
         <div className="countHandler" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button

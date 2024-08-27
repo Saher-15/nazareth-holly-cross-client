@@ -5,13 +5,13 @@ import "../shop/product.css";
 
 const Product = ({ item }) => {
   const { _id, name, price, img } = item;
-  const { addToCart, cartItems } = useShopContext();
+  const { cartItems } = useShopContext();
   const cartItem = cartItems.find((cartItem) => cartItem._id === _id); // Find the cart item corresponding to the product
   const cartItemCount = cartItem ? cartItem.quantity : 0; // If cart item exists, get its quantity, else default to 0
 
-  const handleClick = () => {
-    addToCart(item);
-  };
+  // const handleClick = () => {
+  //   addToCart(item);
+  // };
 
   return (
     <div className="product">

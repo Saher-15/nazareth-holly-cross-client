@@ -62,7 +62,6 @@ const ProductPage = () => {
     if (!selectedColor && product.color && product.color.length > 0) {
       setcolorelectionMessage('Please select a color before adding to cart.');
       setTimeout(() => setcolorelectionMessage(false), 2000);
-
       return;
     }
 
@@ -127,6 +126,23 @@ const ProductPage = () => {
 
   const { name, price, img, description, additionalImageUrls, color } = product;
 
+  const handleImageClick = (index) => {
+    if (color && color.length > 0) {
+      if (index === 0) {
+        // Main image click: reset color and set first additional image
+        setSelectedColor('');
+        setCurrentImage(0);
+      } else {
+        // Additional image click: update color based on image index
+        setSelectedColor(color[index - 1]); // Set color based on image index
+        setCurrentImage(index);
+      }
+    } else {
+      // If no colors, simply change the current image
+      setCurrentImage(index);
+    }
+  };
+
   return (
     <div className="product-container">
       <div className="button-container">
@@ -162,7 +178,7 @@ const ProductPage = () => {
             <img
               src={img}
               key={nanoid()}
-              onClick={() => setCurrentImage(0)}
+              onClick={() => handleImageClick(0)} // Handle click for the main image
               alt={name}
               className={`thumbnail ${currentImage === 0 ? 'active' : ''}`}
             />
@@ -170,7 +186,7 @@ const ProductPage = () => {
               <img
                 src={imageObj}
                 key={nanoid()}
-                onClick={() => setCurrentImage(index + 1)}
+                onClick={() => handleImageClick(index + 1)} // Handle click for additional images
                 alt={name}
                 className={`thumbnail ${currentImage === index + 1 ? 'active' : ''}`}
               />
@@ -179,12 +195,15 @@ const ProductPage = () => {
           {color && color.length > 0 && (
             <div className="color-select">
               <div className="color-circles">
-                {color.map((color) => (
+                {color.map((color, index) => (
                   <div
                     key={color}
                     className={`color-circle ${selectedColor === color ? 'selected' : ''}`}
                     style={{ backgroundColor: color }}
-                    onClick={() => setSelectedColor(color)}
+                    onClick={() => {
+                      setSelectedColor(color);
+                      setCurrentImage(index + 1); // Change image to match color
+                    }}
                   />
                 ))}
               </div>
