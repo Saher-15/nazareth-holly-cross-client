@@ -146,7 +146,6 @@ const ProductPage = () => {
             <button
               className="add-to-cart-button"
               onClick={handleClick}
-              // disabled={color && color.length > 0 && !selectedColor}
             >
               Add To Cart
             </button>
@@ -158,18 +157,16 @@ const ProductPage = () => {
           <h1 className="product-name">{name}</h1>
           {color && color.length > 0 && (
             <div className="color-select">
-              <select
-                id="color"
-                value={selectedColor}
-                onChange={(e) => setSelectedColor(e.target.value)}
-              >
-                <option value="">Select a color</option>
+              <div className="color-circles">
                 {color.map((color) => (
-                  <option key={color} value={color}>
-                    {color}
-                  </option>
+                  <div
+                    key={color}
+                    className={`color-circle ${selectedColor === color ? 'selected' : ''}`}
+                    style={{ backgroundColor: color }}
+                    onClick={() => setSelectedColor(color)}
+                  />
                 ))}
-              </select>
+              </div>
             </div>
           )}
           <div className="other-product-images">
