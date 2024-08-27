@@ -68,6 +68,28 @@
   background-color: #444;
 }
 
+/* Reset Filters Button */
+.reset-filters {
+  background-color: #e74c3c; /* Red color */
+  color: #fff;
+  border: 1px solid #c0392b; /* Darker red border */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.reset-filters:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  border-color: #a93226; /* Even darker border */
+}
+
+.reset-filters:focus {
+  outline: none;
+}
+
 /* Products Container */
 .products {
   display: grid;
@@ -164,7 +186,8 @@
   }
 
   .header-filter input[type="text"],
-  .sort {
+  .sort,
+  .reset-filters {
     width: 100%;
     margin-bottom: 10px;
   }
@@ -181,7 +204,8 @@
 /* Devices with a width of up to 768px (e.g., large phones, small tablets) */
 @media screen and (max-width: 768px) {
   .header-filter input[type="text"],
-  .sort {
+  .sort,
+  .reset-filters {
     font-size: 14px;
   }
 
@@ -193,7 +217,8 @@
 /* Devices with a width of up to 576px (e.g., small phones) */
 @media screen and (max-width: 576px) {
   .header-filter input[type="text"],
-  .sort {
+  .sort,
+  .reset-filters {
     font-size: 12px;
   }
 
@@ -205,7 +230,8 @@
 /* Devices with a width of up to 390px (e.g., very small phones) */
 @media screen and (max-width: 390px) {
   .header-filter input[type="text"],
-  .sort {
+  .sort,
+  .reset-filters {
     font-size: 10px;
   }
 

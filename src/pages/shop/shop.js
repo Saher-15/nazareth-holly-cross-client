@@ -44,7 +44,7 @@ const Shop = () => {
     }
 
     fetchData();
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     // Save the current page, sort order, and search query to localStorage
@@ -65,6 +65,15 @@ const Shop = () => {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value.toLowerCase());
     setCurrentPage(1); // Reset to the first page on search
+  };
+
+  const handleResetFilters = () => {
+    setSearchQuery("");
+    setSortOrder("rateDesc");
+    setCurrentPage(1);
+    localStorage.removeItem('searchQuery');
+    localStorage.removeItem('sortOrder');
+    localStorage.setItem('currentPage', 1); // Ensure the page resets to 1
   };
 
   const filteredProducts = allProducts.filter((product) =>
@@ -92,7 +101,6 @@ const Shop = () => {
     if (currentPage * itemsPerPage < sortedProducts.length) {
       setCurrentPage(prevPage => prevPage + 1);
       window.scrollTo(0, 0); // Scroll to the top when going to the previous page
-
     }
   };
 
@@ -100,7 +108,6 @@ const Shop = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
       window.scrollTo(0, 0); // Scroll to the top when going to the previous page
-
     }
   };
 
@@ -127,7 +134,12 @@ const Shop = () => {
                 <option value="lowToHigh">Price: Low to High</option>
                 <option value="highToLow">Price: High to Low</option>
               </select>
+              <button onClick={handleResetFilters} className="reset-filters">
+                Reset Filters
+              </button>
             </div>
+
+
           </div>
 
           {paginatedProducts.length === 0 ? (
