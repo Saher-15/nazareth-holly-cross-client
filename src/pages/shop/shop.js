@@ -5,31 +5,29 @@ import "./shop.css";
 import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo component
 
 const Shop = () => {
-  // const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sortOrder, setSortOrder] = useState("rateDesc"); // Default to rate descending
+  const [currentPage, setCurrentPage] = useState(
+    () => Number(localStorage.getItem('currentPage')) || 1
+  );
+  const [sortOrder, setSortOrder] = useState(
+    localStorage.getItem('sortOrder') || "rateDesc"
+  );
   const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(
+    localStorage.getItem('searchQuery') || ""
+  );
   const itemsPerPage = 25;
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       try {
-        // Fetch paginated products for display
-        // const response = await axios.get(
-        //   `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
-        // );
-        // setProducts(response.data.data);
-
         // Fetch all products for search and filtering
         const allProductsResponse = await axios.get(
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts`
         );
         setAllProducts(allProductsResponse.data);
-        window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -38,7 +36,14 @@ const Shop = () => {
     }
 
     fetchData();
-  }, [currentPage]);
+  }, []);
+
+  useEffect(() => {
+    // Save the current page, sort order, and search query to localStorage
+    localStorage.setItem('currentPage', currentPage);
+    localStorage.setItem('sortOrder', sortOrder);
+    localStorage.setItem('searchQuery', searchQuery);
+  }, [currentPage, sortOrder, searchQuery]);
 
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
@@ -78,12 +83,14 @@ const Shop = () => {
   const nextPage = () => {
     if (currentPage * itemsPerPage < sortedProducts.length) {
       setCurrentPage(prevPage => prevPage + 1);
+      window.scrollTo(0, 0); // Scroll to the top when going to the next page
     }
   };
 
   const prevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
+      window.scrollTo(0, 0); // Scroll to the top when going to the previous page
     }
   };
 
