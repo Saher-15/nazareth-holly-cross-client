@@ -61,6 +61,8 @@ const ProductPage = () => {
   const handleClick = () => {
     if (!selectedColor && product.color && product.color.length > 0) {
       setcolorelectionMessage('Please select a color before adding to cart.');
+      setTimeout(() => setcolorelectionMessage(false), 2000);
+
       return;
     }
 
@@ -155,20 +157,7 @@ const ProductPage = () => {
         </div>
         <div className="description">
           <h1 className="product-name">{name}</h1>
-          {color && color.length > 0 && (
-            <div className="color-select">
-              <div className="color-circles">
-                {color.map((color) => (
-                  <div
-                    key={color}
-                    className={`color-circle ${selectedColor === color ? 'selected' : ''}`}
-                    style={{ backgroundColor: color }}
-                    onClick={() => setSelectedColor(color)}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          
           <div className="other-product-images">
             <img
               src={img}
@@ -187,6 +176,20 @@ const ProductPage = () => {
               />
             ))}
           </div>
+          {color && color.length > 0 && (
+            <div className="color-select">
+              <div className="color-circles">
+                {color.map((color) => (
+                  <div
+                    key={color}
+                    className={`color-circle ${selectedColor === color ? 'selected' : ''}`}
+                    style={{ backgroundColor: color }}
+                    onClick={() => setSelectedColor(color)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
           <p className="product-price">${price}</p>
           <p>Free shipping</p>
           <p className="product-description">{description}</p>
