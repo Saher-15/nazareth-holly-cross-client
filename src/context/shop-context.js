@@ -7,11 +7,13 @@ const ShopContextProvider = (props) => {
 
   // Function to add a product to the cart
   const addToCart = (product) => {
-    // Check if the product already exists in the cart
-    const existingProductIndex = cartItems.findIndex(item => item._id === product._id);
-  
+    const { _id, color } = product;
+    
+    // Check if the product already exists in the cart with the same color
+    const existingProductIndex = cartItems.findIndex(item => item._id === _id && item.color === color);
+    
     if (existingProductIndex !== -1) {
-      // If the product exists, create a new array with updated quantity
+      // If the product exists with the same color, update the quantity
       const updatedCartItems = [...cartItems];
       updatedCartItems[existingProductIndex] = {
         ...updatedCartItems[existingProductIndex],
@@ -25,9 +27,9 @@ const ShopContextProvider = (props) => {
   };
   
   // Function to remove a product from the cart
-  const decreaseFromCart = (productId) => {
+  const decreaseFromCart = (productId, color) => {
     const updatedCartItems = cartItems.map(item => {
-      if (item._id === productId) {
+      if (item._id === productId && item.color === color) {
         const updatedQuantity = item.quantity - 1;
         if (updatedQuantity <= 0) {
           // If the quantity becomes less than or equal to 0, remove the product from the cart
@@ -39,31 +41,31 @@ const ShopContextProvider = (props) => {
       return item;
     }).filter(Boolean); // Remove any null values from the array
     setCartItems(updatedCartItems);
-
-  
   };
 
-    // Function to remove a product from the cart
-    const removeFromCart = (productId) => {
-      const updatedCartItems = cartItems.filter(
-        (item) => item._id !== productId
-      );
-      setCartItems(updatedCartItems);
-    };
+  // Function to remove a product from the cart
+  const removeFromCart = (productId, color) => {
+    const updatedCartItems = cartItems.filter(
+      (item) => !(item._id === productId && item.color === color)
+    );
+    setCartItems(updatedCartItems);
+  };
 
   // Function to update the count of a product in the cart
-  const updateCartItemCount = (productId, newCount) => {
+  const updateCartItemCount = (productId, color, newCount) => {
     setCartItems((prevCartItems) =>
       prevCartItems.map((item) =>
-        item._id === productId ? { ...item, count: newCount } : item
+        item._id === productId && item.color === color
+          ? { ...item, quantity: newCount }
+          : item
       )
     );
   };
 
-    // Function to clear all items from the cart
-    const clearCart = () => {
-      setCartItems([]);
-    };
+  // Function to clear all items from the cart
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   const contextValue = {
     cartItems,

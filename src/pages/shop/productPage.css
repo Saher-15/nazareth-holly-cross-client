@@ -213,9 +213,39 @@
   opacity: 1;
 }
 
+/* Color Select Styling */
+.color-select {
+  margin-top: 20px;
+  text-align: center;
+}
 
+.color-select label {
+  font-size: 1rem;
+  color: #333;
+  margin-right: 10px;
+}
 
+.color-select select {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
 
+.color-select select:focus {
+  border-color: #3498db; /* Blue color for focus */
+}
+
+.color-selection-message {
+  color: #e74c3c;
+  font-size: 1rem;
+  margin-top: 10px;
+}
 
 /* Responsive design for smaller screens and portrait mode */
 @media (max-width: 768px) {
@@ -259,6 +289,24 @@
   .other-product-images {
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
+
+  .color-select {
+    margin-top: 15px;
+  }
+
+  .color-select label {
+    font-size: 0.9rem;
+    margin-right: 8px;
+  }
+
+  .color-select select {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+
+  .color-selection-message {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -286,6 +334,24 @@
 
   .product-description {
     font-size: 1rem;
+  }
+
+  .color-select {
+    margin-top: 10px;
+  }
+
+  .color-select label {
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+
+  .color-select select {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+
+  .color-selection-message {
+    font-size: 0.8rem;
   }
 }
 

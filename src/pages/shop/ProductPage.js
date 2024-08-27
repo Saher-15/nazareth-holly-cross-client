@@ -17,8 +17,10 @@ const ProductPage = () => {
   const [zoomStyle, setZoomStyle] = useState({});
   const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
   const [isZoomVisible, setIsZoomVisible] = useState(false);
+  const [selectedColor, setSelectedColor] = useState('');
+  const [colorelectionMessage, setcolorelectionMessage] = useState('');
 
-  const cartItem = cartItems.find((cartItem) => cartItem._id === id);
+  const cartItem = cartItems.find((cartItem) => cartItem._id === id && cartItem.color === selectedColor);
   const cartItemCount = cartItem ? cartItem.quantity : 0;
 
   useEffect(() => {
@@ -30,6 +32,9 @@ const ProductPage = () => {
         if (!response.ok) throw new Error('Failed to fetch product');
         const data = await response.json();
         setProduct(data);
+        // Reset color selection and message when product changes
+        setSelectedColor('');
+        setcolorelectionMessage('');
       } catch (error) {
         console.error('Error fetching product:', error);
         setError(error.message);
@@ -54,11 +59,22 @@ const ProductPage = () => {
   }, [isZoomModalOpen]);
 
   const handleClick = () => {
-    if (product) {
-      addToCart(product);
-      setShowMessage(true);
-      setTimeout(() => setShowMessage(false), 2000);
+    if (!selectedColor && product.color && product.color.length > 0) {
+      setcolorelectionMessage('Please select a color before adding to cart.');
+      return;
     }
+
+    const item = {
+      _id: product._id,
+      name: product.name,
+      price: product.price,
+      img: product.img,
+      color: selectedColor // Ensure this is a single color, not an array
+    };
+
+    addToCart(item);
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 2000);
   };
 
   const openZoomModal = (image) => {
@@ -107,7 +123,7 @@ const ProductPage = () => {
     return <div className="error-message">Product not found</div>;
   }
 
-  const { name, price, img, description, additionalImageUrls } = product;
+  const { name, price, img, description, additionalImageUrls, color } = product;
 
   return (
     <div className="product-container">
@@ -127,14 +143,35 @@ const ProductPage = () => {
             onClick={() => openZoomModal(currentImage === 0 ? img : additionalImageUrls[currentImage - 1])}
           />
           <div className="centered-content">
-            <button className="add-to-cart-button" onClick={handleClick}>
+            <button
+              className="add-to-cart-button"
+              onClick={handleClick}
+              // disabled={color && color.length > 0 && !selectedColor}
+            >
               Add To Cart
             </button>
             {showMessage && <div className="message">Product added to cart!</div>}
+            {colorelectionMessage && <div className="color-selection-message">{colorelectionMessage}</div>}
           </div>
         </div>
         <div className="description">
           <h1 className="product-name">{name}</h1>
+          {color && color.length > 0 && (
+            <div className="color-select">
+              <select
+                id="color"
+                value={selectedColor}
+                onChange={(e) => setSelectedColor(e.target.value)}
+              >
+                <option value="">Select a color</option>
+                {color.map((color) => (
+                  <option key={color} value={color}>
+                    {color}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <div className="other-product-images">
             <img
               src={img}

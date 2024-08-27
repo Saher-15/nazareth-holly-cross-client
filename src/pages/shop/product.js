@@ -20,11 +20,11 @@ const Product = ({ item }) => {
       </Link>
       <p className="nameCard">{name}</p>
       <p className="price">${price}</p> {/* Changed class to price */}
-      <div className="addToCartWrapper">
+      {/* <div className="addToCartWrapper">
         <button className="addToCartBttn-" onClick={handleClick}>
           Add To Cart
         </button>
-      </div>
+      </div> */}
       {/* Position the cart icon to bottom right corner */}
       <div className="cart-icon-wrapper">
         <Link to="/cart" className="cart-link">
