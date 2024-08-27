@@ -8,7 +8,7 @@ const PayPalComponent = ({ form }) => {
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
 
     const initialOptions = {
-        clientId: "AZXaYL8OS1Iv7LLmAO9aPD-sgLShLbEl9jzdYx2hHSAmKtWlekv2dEwzXgalzfySvEfDo7hXcIVJZsA-"
+        clientId: "AfhOc9ToAj72gf5KEowYfhpWShGRSpzSL-Ps2HYX4ky95KmVX8vNRb0o5FZ3AGw3muq8DIvDP0Ua2_ad"
     };
 
     const intent = 'capture'; // Set your intent variable here
