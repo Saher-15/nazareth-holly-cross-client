@@ -18,7 +18,7 @@ const Shop = () => {
   const [searchQuery, setSearchQuery] = useState(
     localStorage.getItem('searchQuery') || ""
   );
-  const itemsPerPage = 10;
+  const itemsPerPage = 15;
 
   useEffect(() => {
     async function fetchData() {
