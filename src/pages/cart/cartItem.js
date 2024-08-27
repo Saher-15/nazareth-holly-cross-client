@@ -31,7 +31,7 @@ const CartItem = ({ data }) => {
           <b>{name}</b>
         </p>
         <p>Price: ${price}</p>
-        {color && (
+        {/* {color && (
           <div className="color-display">
             <p>Color:</p>
             <div
@@ -39,7 +39,7 @@ const CartItem = ({ data }) => {
               style={{ backgroundColor: color }}
             />
           </div>
-        )}
+        )} */}
         <div className="countHandler" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button
             className="addToCartBttn"

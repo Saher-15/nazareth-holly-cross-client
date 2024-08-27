@@ -61,23 +61,33 @@ const ProductPage = () => {
   const handleClick = () => {
     if (!selectedColor && product.color && product.color.length > 0) {
       setcolorelectionMessage('Please select a color before adding to cart.');
-      setTimeout(() => setcolorelectionMessage(false), 2000);
+      setTimeout(() => setcolorelectionMessage(''), 2000);
       return;
     }
-
+  
+    // Determine the correct image based on the selected color
+    let selectedImage = product.img; // Default to main image
+  
+    if (product.color && product.color.length > 0 && selectedColor) {
+      const colorIndex = product.color.indexOf(selectedColor);
+      if (colorIndex !== -1 && product.additionalImageUrls && product.additionalImageUrls.length > colorIndex) {
+        selectedImage = product.additionalImageUrls[colorIndex]; // Set image to corresponding additional image
+      }
+    }
+  
     const item = {
       _id: product._id,
       name: product.name,
       price: product.price,
-      img: product.img,
+      img: selectedImage, // Use the determined image
       color: selectedColor // Ensure this is a single color, not an array
     };
-
+  
     addToCart(item);
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 2000);
   };
-
+  
   const openZoomModal = (image) => {
     setZoomedImage(image);
     setZoomStyle({
