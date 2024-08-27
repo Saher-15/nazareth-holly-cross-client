@@ -61,7 +61,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
     const onError = (err) => {
         // Handle error
-        console.log(err);
     };
 
     const createOrder = async () => {
@@ -108,7 +107,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             })
 
             .catch((error) => {
-                console.log(error);
             });
     };
 

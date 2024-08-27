@@ -34,12 +34,10 @@ function Contact() {
     }
 
     try {
-      console.log(formData);
       // Send form data to server
-      const response = await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/contact_us_request', formData);
+      await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/contact_us_request', formData);
 
       // Handle success
-      console.log('Form data sent successfully:', response.data);
 
       // Reset form fields
       setFormData({

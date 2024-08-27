@@ -5,7 +5,7 @@ import "./shop.css";
 import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo component
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(
     () => Number(localStorage.getItem('currentPage')) || 1
@@ -25,10 +25,10 @@ const Shop = () => {
       setLoading(true);
       try {
         // Fetch paginated products for display
-        const response = await axios.get(
-          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
-        );
-        setProducts(response.data.data);
+        // const response = await axios.get(
+        //   `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
+        // );
+        // setProducts(response.data.data);
         // Fetch all products for search and filtering
         const allProductsResponse = await axios.get(
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts`

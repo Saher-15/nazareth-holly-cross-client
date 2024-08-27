@@ -23,7 +23,6 @@ const PayPalComponent = ({ form }) => {
 
     const onError = (err) => {
         // Handle error
-        console.log(err);
     };
 
     const createOrder = async () => {
@@ -69,7 +68,6 @@ const PayPalComponent = ({ form }) => {
                 setShowConfirmation(true); // Show ConfirmationCandle component after payment is completed
             })
             .catch((error) => {
-                console.log(error);
             });
     };
 
