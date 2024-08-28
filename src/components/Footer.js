@@ -1,42 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { FaHeadphones } from "react-icons/fa6";
-import { FaRegEnvelope } from "react-icons/fa6";
+import { FaRegEnvelope, FaLinkedin } from "react-icons/fa";
 import '../styles/Footer.css';
 
 function Footer() {
   return (
     <div className='footer-container'>
-
       <div className="footer-links">
         <Link to='/about' className='about-us-link'>About Us</Link>
       </div>
 
-      <div className="topbar border-b border-gray-800">
+      <div className="topbar">
         <ul>
-          {/* <li>
-            <FaHeadphones className="text-white text-2xl max-sm:text-lg text-accent-content" />{" "}
-            <span className="text-white text-2xl max-sm:text-lg text-accent-content">
-              +972 504368748
-            </span>
-          </li> */}
           <li>
-            <FaRegEnvelope className="text-white text-2xl max-sm:text-lg text-accent-content" />{" "}
-            <span className="text-white text-2xl max-sm:text-lg text-accent-content">
-              nazarethholycross@gmail.com
-            </span>
+            <FaRegEnvelope className="icon" />
+            <span className="contact-info">nazarethholycross@gmail.com</span>
           </li>
         </ul>
       </div>
 
-
-      <aside>
-        <p className="text-white text-2xl max-sm:text-sm text-accent-content">
-          Copyright © 2024 - All right reserved by NazarethHolyCross<br />Created by Saher Saadi
+      <aside className="footer-credits">
+        <p className="copyright-text">
+          Copyright © 2024 - All rights reserved by NazarethHolyCross
         </p>
+        <div className="credits">
+          <div className="credit-item">
+            <a
+              href="https://www.linkedin.com/in/saher-saadi-a637b11b5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkedin-link"
+            >
+              <FaLinkedin className="linkedin-icon" />
+              Saher Saadi
+            </a>
+          </div>
+          <div className="credit-item">
+            <a
+              href="http://linkedin.com/in/haythamt95"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkedin-link"
+            >
+              <FaLinkedin className="linkedin-icon" />
+              Haytham Taweel
+            </a>
+          </div>
+        </div>
       </aside>
     </div>
-
   );
 }
 

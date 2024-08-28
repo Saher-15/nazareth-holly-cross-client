@@ -9,49 +9,8 @@
   text-align: center;
 }
 
-/* Footer links */
 .footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   margin-bottom: 1rem;
-}
-
-.footer-link-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.footer-link-items {
-  margin: 0.5rem;
-}
-
-.footer-link-items h2 {
-  margin-bottom: 0.5rem;
-  font-size: 16px;
-}
-
-.footer-link-items a {
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 0.25rem;
-}
-
-/* Website rights */
-.website-rights {
-  margin-bottom: 1rem;
-}
-
-/* Social media and contact info */
-.social-media-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact-item {
-  margin: 5px 0;
 }
 
 .about-us-link {
@@ -81,26 +40,77 @@
   margin: 0 10px;
 }
 
-.topbar li span {
-  margin-left: 5px;
+.icon {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+.contact-info {
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Footer credits */
+.footer-credits {
+  margin-top: 1rem;
+}
+
+.copyright-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.credit-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.linkedin-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.linkedin-link:hover {
+  color: #007bff;
+}
+
+.linkedin-icon {
+  font-size: 1.5rem;
+  margin-right: 8px;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer-link-items {
-    margin: 10px 0;
-  }
-
-  .topbar ul {
-    flex-direction: column;
+  .about-us-link {
+    font-size: 14px;
   }
 
   .topbar li {
-    margin-bottom: 10px;
+    margin: 5px 0;
+  }
+
+  .footer-credits .credit-item {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .linkedin-link {
+    font-size: 0.9rem;
+  }
+
+  .linkedin-icon {
+    font-size: 1.2rem;
   }
 }

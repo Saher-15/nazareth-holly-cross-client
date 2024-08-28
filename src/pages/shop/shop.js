@@ -131,12 +131,12 @@ const Shop = () => {
                 <i className="fas fa-redo"></i> Reset Filters
               </button>
             </div>
-            <div className="button-container">
-              <Link to="/cart" className="cart-link-logo">
-                <i className="fas fa-shopping-cart"></i>
-                {totalCartQuantity > 0 && <div className="cart-item-count">{totalCartQuantity}</div>}
-              </Link>
-            </div>
+          </div>
+          <div className="button-container">
+            <Link to="/cart" className="cart-link-logo">
+              <i className="fas fa-shopping-cart"></i>
+              {totalCartQuantity > 0 && <div className="cart-item-count">{totalCartQuantity}</div>}
+            </Link>
           </div>
 
           {paginatedProducts.length === 0 ? (
