@@ -22,7 +22,6 @@
   padding: 0 20px;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   position: relative; /* Ensure that absolutely positioned elements are relative to this container */
-  overflow: hidden; /* Prevent overflow issues */
 }
 
 /* Hero Heading */
@@ -33,8 +32,6 @@
   text-align: center;
   text-transform: uppercase; /* Makes text all uppercase */
   letter-spacing: 2px; /* Adds space between letters */
-  font-weight: bold; /* Makes the heading more prominent */
-  line-height: 1.2; /* Adjusts line height for better readability */
 }
 
 /* Hero Subtext */
@@ -44,7 +41,6 @@
   font-size: 2vw;
   text-align: center;
   font-style: italic; /* Adds a subtle italic style */
-  line-height: 1.4; /* Adjusts line height for better readability */
 }
 
 /* Button Container */
@@ -62,7 +58,6 @@
   padding: 12px 24px; /* Enhanced padding for better aesthetics */
   font-size: 1.2rem; /* Slightly larger text for better readability */
   transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effects */
-  text-align: center;
 }
 
 .hero-btns .btn:hover {
@@ -86,6 +81,7 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover Effects for Sound Control Button */
 .sound-control-btn:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Subtle background change on hover */
   transform: translateY(-50%) scale(1.1); /* Slightly enlarge on hover */
