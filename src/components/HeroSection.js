@@ -7,6 +7,7 @@ function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef(new Audio('/sounds/christians.mp3'));
   const navigate = useNavigate();
+
   const handleShopClick = () => {
     // Reset filters before navigating
     localStorage.removeItem('searchQuery');
@@ -16,6 +17,7 @@ function HeroSection() {
     // Navigate to the shop page
     navigate('/shop');
   };
+
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
@@ -23,6 +25,17 @@ function HeroSection() {
     // Initialize and start playing the audio
     const audio = audioRef.current;
     audio.loop = true;
+
+    // Attempt to play audio
+    const playAudio = async () => {
+      try {
+        await audio.play();
+      } catch (error) {
+        console.log('Audio playback prevented:', error);
+      }
+    };
+
+    playAudio();
 
     // Cleanup on unmount
     return () => {
@@ -34,16 +47,15 @@ function HeroSection() {
   const togglePlayPause = () => {
     const audio = audioRef.current;
     if (isPlaying) {
-      audio.play();
-    } else {
       audio.pause();
+    } else {
+      audio.play();
     }
     setIsPlaying(!isPlaying);
   };
 
   return (
     <div className='hero-container'>
-
       <video id="video-field" className='hero-v' src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} />
       <h1>JESUS CITY AWAITS</h1>
       <p>GRACE IN EVERY CLICK</p>
@@ -59,14 +71,6 @@ function HeroSection() {
         >
           LIGHT A CANDLE
         </Button>
-        {/* <Button
-          destination='/shop'
-          className='btns'
-          buttonStyle='btn--half'
-          buttonSize='btn--large'
-        >
-          SHOP <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-        </Button> */}
         <Link
           to="/shop"
           onClick={handleShopClick}
@@ -74,7 +78,7 @@ function HeroSection() {
           <Button className='btns'
             buttonStyle='btn--half'
             buttonSize='btn--large'>
-            Shop<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            Shop <i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </Button>
         </Link>
         <Button
