@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import LoadingLogo from './loading'; // Import your LoadingLogo component
 
 const ProductPage = () => {
-  const { addToCart, cartItems } = useShopContext();
+  const { addToCart, getTotalCartQuantity, cartItems } = useShopContext();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
@@ -20,8 +20,7 @@ const ProductPage = () => {
   const [selectedColor, setSelectedColor] = useState('');
   const [colorelectionMessage, setcolorelectionMessage] = useState('');
 
-  const cartItem = cartItems.find((cartItem) => cartItem._id === id && cartItem.color === selectedColor);
-  const cartItemCount = cartItem ? cartItem.quantity : 0;
+  const totalCartQuantity = getTotalCartQuantity(); // Get total quantity of items in the cart
 
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
@@ -158,7 +157,7 @@ const ProductPage = () => {
       <div className="button-container">
         <Link to="/cart" className="cart-link-logo">
           <i className="fas fa-shopping-cart"></i>
-          {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
+          {totalCartQuantity > 0 && <div className="cart-item-count">{totalCartQuantity}</div>}
         </Link>
       </div>
 

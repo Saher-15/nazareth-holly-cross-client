@@ -3,8 +3,11 @@ import axios from "axios";
 import Product from "./product";
 import "./shop.css";
 import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo component
+import { useShopContext } from "../../context/shop-context";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Shop = () => {
+  const { getTotalCartQuantity } = useShopContext(); // Get the total cart quantity from context
   const [allProducts, setAllProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(
     () => Number(localStorage.getItem('currentPage')) || 1
@@ -12,7 +15,6 @@ const Shop = () => {
   const [sortOrder, setSortOrder] = useState(
     localStorage.getItem('sortOrder') || "rateDesc"
   );
-  const [cartCount, setCartCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState(
     localStorage.getItem('searchQuery') || ""
@@ -48,10 +50,6 @@ const Shop = () => {
   const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
     setCurrentPage(1); // Reset to the first page on sort change
-  };
-
-  const handleAddToCart = () => {
-    setCartCount(cartCount + 1);
   };
 
   const handleSearchChange = (event) => {
@@ -103,6 +101,8 @@ const Shop = () => {
     }
   };
 
+  const totalCartQuantity = getTotalCartQuantity(); // Get the total quantity of items in the cart
+
   return (
     <div className="shop-page">
       {loading ? (
@@ -131,6 +131,12 @@ const Shop = () => {
                 <i className="fas fa-redo"></i> Reset Filters
               </button>
             </div>
+            <div className="button-container">
+              <Link to="/cart" className="cart-link-logo">
+                <i className="fas fa-shopping-cart"></i>
+                {totalCartQuantity > 0 && <div className="cart-item-count">{totalCartQuantity}</div>}
+              </Link>
+            </div>
           </div>
 
           {paginatedProducts.length === 0 ? (
@@ -141,7 +147,7 @@ const Shop = () => {
             <>
               <div className="products">
                 {paginatedProducts.map((item) => (
-                  <Product key={item._id} item={item} onAddToCart={handleAddToCart} />
+                  <Product key={item._id} item={item} />
                 ))}
               </div>
               <div className="pagination">

@@ -67,13 +67,19 @@ const ShopContextProvider = (props) => {
     setCartItems([]);
   };
 
+  // Function to calculate the total quantity of all items in the cart
+  const getTotalCartQuantity = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
   const contextValue = {
     cartItems,
     addToCart,
     removeFromCart,
     updateCartItemCount,
     decreaseFromCart,
-    clearCart
+    clearCart,
+    getTotalCartQuantity, // Expose this function to the context
   };
 
   return (

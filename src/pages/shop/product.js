@@ -5,13 +5,10 @@ import "../shop/product.css";
 
 const Product = ({ item }) => {
   const { _id, name, price, img } = item;
-  const { cartItems } = useShopContext();
-  const cartItem = cartItems.find((cartItem) => cartItem._id === _id); // Find the cart item corresponding to the product
-  const cartItemCount = cartItem ? cartItem.quantity : 0; // If cart item exists, get its quantity, else default to 0
+  const { getTotalCartQuantity } = useShopContext(); // Get the function to calculate total cart quantity
 
-  // const handleClick = () => {
-  //   addToCart(item);
-  // };
+  // Calculate the total quantity of all items in the cart
+  const totalCartQuantity = getTotalCartQuantity();
 
   return (
     <div className="product">
@@ -20,18 +17,15 @@ const Product = ({ item }) => {
       </Link>
       <p className="nameCard">{name}</p>
       <p className="price">${price}</p> {/* Changed class to price */}
-      {/* <div className="addToCartWrapper">
-        <button className="addToCartBttn-" onClick={handleClick}>
-          Add To Cart
-        </button>
-      </div> */}
       {/* Position the cart icon to bottom right corner */}
-      <div className="cart-icon-wrapper">
+      {/* <div className="cart-icon-wrapper">
         <Link to="/cart" className="cart-link">
           <i className="fas fa-shopping-cart"></i>
-          {cartItemCount > 0 && <div className="cart-item-count">{cartItemCount}</div>}
+          {totalCartQuantity > 0 && (
+            <div className="cart-item-count">{totalCartQuantity}</div>
+          )}
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
