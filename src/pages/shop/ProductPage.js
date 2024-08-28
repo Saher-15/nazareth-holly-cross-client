@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 import LoadingLogo from './loading'; // Import your LoadingLogo component
 
 const ProductPage = () => {
-  const { addToCart, getTotalCartQuantity, cartItems } = useShopContext();
+  const { addToCart, getTotalCartQuantity } = useShopContext();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
