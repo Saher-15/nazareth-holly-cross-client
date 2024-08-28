@@ -1,14 +1,14 @@
 import React from "react";
-import { useShopContext } from "../../context/shop-context";
+// import { useShopContext } from "../../context/shop-context";
 import { Link } from "react-router-dom";
 import "../shop/product.css";
 
 const Product = ({ item }) => {
   const { _id, name, price, img } = item;
-  const { getTotalCartQuantity } = useShopContext(); // Get the function to calculate total cart quantity
+  // const { getTotalCartQuantity } = useShopContext(); // Get the function to calculate total cart quantity
 
   // Calculate the total quantity of all items in the cart
-  const totalCartQuantity = getTotalCartQuantity();
+  // const totalCartQuantity = getTotalCartQuantity();
 
   return (
     <div className="product">
