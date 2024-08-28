@@ -6,24 +6,20 @@ import "./cart.css";
 
 const Cart = () => {
   const { cartItems, decreaseFromCart } = useShopContext(); 
-
   const navigate = useNavigate();
-
   const [totalAmount, setTotalAmount] = useState(0); 
 
-  // Scroll to the top only when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []); 
 
-  // Calculate the total amount when cartItems change
   useEffect(() => {
     let total = 0;
     cartItems.forEach(item => {
       total += item.price * item.quantity;
     });
     setTotalAmount(total);
-  }, [cartItems]); // Recalculate total amount whenever cartItems change
+  }, [cartItems]); 
 
   return (
     <div className="cart">
@@ -33,7 +29,7 @@ const Cart = () => {
       <div className="cart-items">
         {cartItems.map((product) => (
           <CartItem
-            key={product._id}
+            key={`${product._id}-${product.color}`} // Unique key using ID and color
             data={product}
             decreaseFromCart={() => decreaseFromCart(product._id)} 
           />
