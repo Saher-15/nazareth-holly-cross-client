@@ -5,7 +5,6 @@ import "./shop.css";
 import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo component
 
 const Shop = () => {
-  // const [products, setProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(
     () => Number(localStorage.getItem('currentPage')) || 1
@@ -24,17 +23,10 @@ const Shop = () => {
     async function fetchData() {
       setLoading(true);
       try {
-        // Fetch paginated products for display
-        // const response = await axios.get(
-        //   `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?page=${currentPage}&size=${itemsPerPage}`
-        // );
-        // setProducts(response.data.data);
-        // Fetch all products for search and filtering
         const allProductsResponse = await axios.get(
           `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts`
         );
         window.scrollTo(0, 0); // Scroll to the top when going to the previous page
-
         setAllProducts(allProductsResponse.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -86,7 +78,7 @@ const Shop = () => {
     } else if (sortOrder === "highToLow") {
       return b.price - a.price;
     } else if (sortOrder === "rateDesc") {
-      return b.rate - a.rate; // Sort by rate in descending order
+      return b.rate - a.rate;
     } else {
       return 0;
     }
@@ -123,6 +115,7 @@ const Shop = () => {
               placeholder="Search products..."
               value={searchQuery}
               onChange={handleSearchChange}
+              className="search-input"
             />
             <div className="sort">
               <select
@@ -135,11 +128,9 @@ const Shop = () => {
                 <option value="highToLow">Price: High to Low</option>
               </select>
               <button onClick={handleResetFilters} className="reset-filters">
-                Reset Filters
+                <i className="fas fa-redo"></i> Reset Filters
               </button>
             </div>
-
-
           </div>
 
           {paginatedProducts.length === 0 ? (
@@ -153,7 +144,6 @@ const Shop = () => {
                   <Product key={item._id} item={item} onAddToCart={handleAddToCart} />
                 ))}
               </div>
-
               <div className="pagination">
                 <button onClick={prevPage} disabled={currentPage === 1}>
                   Prev

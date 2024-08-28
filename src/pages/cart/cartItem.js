@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
 import "./cartItem.css";
@@ -14,9 +14,9 @@ const CartItem = ({ data }) => {
   };
 
   // Scroll to top when the component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
     <div className="cartItem">
@@ -31,15 +31,6 @@ const CartItem = ({ data }) => {
           <b>{name}</b>
         </p>
         <p>Price: ${price}</p>
-        {/* {color && (
-          <div className="color-display">
-            <p>Color:</p>
-            <div
-              className="color-circle"
-              style={{ backgroundColor: color }}
-            />
-          </div>
-        )} */}
         <div className="countHandler" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button
             className="addToCartBttn"

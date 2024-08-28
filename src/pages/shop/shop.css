@@ -20,29 +20,21 @@
 
 /* Text Input */
 .header-filter input[type="text"] {
-  flex: 1;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  border: 1px solid #666;
+  font-size: 16px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M10.5 2a8.5 8.5 0 1 0 8.5 8.5A8.51 8.51 0 0 0 10.5 2zm0 15.5a7 7 0 1 1 7-7 7.006 7.006 0 0 1-7 7zm11.03-1.97a1 1 0 0 0-1.42 0l-2.1 2.1a1 1 0 0 0 1.42 1.42l2.1-2.1a1 1 0 0 0 0-1.42z"/></svg>') no-repeat right 10px center;
+  cursor: pointer;
+
 }
+
+
 
 /* Sort */
 .sort {
-  flex: 1;
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 12px;
-  border-radius: 8px;
-  margin-left: auto; /* Pushes the sort filter to the right */
-}
-
-/* Sort Label */
-.sort label {
-  color: #000;
-  font-weight: bold;
-  font-size: 16px;
 }
 
 /* Sort Select */
@@ -51,29 +43,25 @@
   border-radius: 5px;
   border: 1px solid #666;
   background-color: #fff;
-  color: #e0e0e0;
+  color: #000;
   font-size: 16px;
   cursor: pointer;
-  margin-left: auto; /* Pushes the sort filter to the right */
-}
-
-.sort select option {
-  background-color: #1c1c1c;
-  color: #e0e0e0;
 }
 
 .sort select:focus {
   outline: none;
   border-color: #888;
-  background-color: #444;
+  background-color: #f0f0f0;
 }
 
 /* Reset Filters Button */
 .reset-filters {
-  background-color: #e74c3c; /* Red color */
+  background-color: #e74c3c;
+  /* Red color */
   color: #fff;
-  border: 1px solid #c0392b; /* Darker red border */
-  padding: 10px 20px;
+  border: 1px solid #c0392b;
+  /* Darker red border */
+  padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -82,8 +70,10 @@
 }
 
 .reset-filters:hover {
-  background-color: #c0392b; /* Darker red on hover */
-  border-color: #a93226; /* Even darker border */
+  background-color: #c0392b;
+  /* Darker red on hover */
+  border-color: #a93226;
+  /* Even darker border */
 }
 
 .reset-filters:focus {
@@ -129,7 +119,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  flex-wrap: wrap;
+  /* Allow items to wrap on smaller screens */
 }
 
 .pagination button {
@@ -151,60 +142,26 @@
   background-color: #555;
 }
 
-/* Page Number Buttons */
-.page-numbers {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-
-.page-numbers button {
-  background-color: #444;
-  color: #e0e0e0;
-  border: 1px solid #666;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.page-numbers button:hover {
-  background-color: #555;
-}
-
-.page-numbers button.active {
-  background-color: #999;
-  color: #fff;
-}
-
 /* Responsive Styles */
-
-/* Devices with a width of up to 1024px (e.g., smaller tablets) */
 @media screen and (max-width: 1024px) {
   .header-filter {
     flex-direction: column;
   }
 
-  .header-filter input[type="text"],
-  .sort,
-  .reset-filters {
-    width: 100%;
+  .header-filter input[type="text"] {
     margin-bottom: 10px;
   }
 
   .sort {
-    margin-left: 0; /* Reset margin for smaller screens */
-  }
-
-  .products {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 100%;
+    justify-content: space-between;
   }
 }
 
-/* Devices with a width of up to 768px (e.g., large phones, small tablets) */
 @media screen and (max-width: 768px) {
+
   .header-filter input[type="text"],
-  .sort,
+  .sort select,
   .reset-filters {
     font-size: 14px;
   }
@@ -214,10 +171,10 @@
   }
 }
 
-/* Devices with a width of up to 576px (e.g., small phones) */
 @media screen and (max-width: 576px) {
+
   .header-filter input[type="text"],
-  .sort,
+  .sort select,
   .reset-filters {
     font-size: 12px;
   }
@@ -227,10 +184,10 @@
   }
 }
 
-/* Devices with a width of up to 390px (e.g., very small phones) */
 @media screen and (max-width: 390px) {
+
   .header-filter input[type="text"],
-  .sort,
+  .sort select,
   .reset-filters {
     font-size: 10px;
   }

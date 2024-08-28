@@ -12,7 +12,7 @@ function Navbar() {
     localStorage.removeItem('searchQuery');
     localStorage.removeItem('sortOrder');
     localStorage.setItem('currentPage', 1);
-
+    closeMobileMenu();
     // Navigate to the shop page
     navigate('/shop');
   };
