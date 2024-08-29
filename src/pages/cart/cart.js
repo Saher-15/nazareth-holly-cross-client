@@ -5,7 +5,7 @@ import CartItem from "./cartItem";
 import "./cart.css";
 
 const Cart = () => {
-  const { cartItems, decreaseFromCart } = useShopContext(); 
+  const { cartItems } = useShopContext(); 
   const navigate = useNavigate();
   const [totalAmount, setTotalAmount] = useState(0); 
 
@@ -31,7 +31,7 @@ const Cart = () => {
           <CartItem
             key={`${product._id}-${product.color}`} // Unique key using ID and color
             data={product}
-            decreaseFromCart={() => decreaseFromCart(product._id)} 
+            //decreaseFromCart={() => decreaseFromCart(product._id)} 
           />
         ))}
       </div>

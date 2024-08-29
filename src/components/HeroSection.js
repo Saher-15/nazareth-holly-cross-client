@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import '../styles/HeroSection.css';
 
 function HeroSection() {
@@ -67,16 +67,14 @@ function HeroSection() {
         >
           SHOP <i className="fa fa-shopping-cart" aria-hidden="true"></i>
         </Button> */}
-        <Link
-          to="/shop"
-          onClick={handleShopClick}
-        >
+
           <Button className='btns'
+                    onClick={handleShopClick}
+            destination='shop'
             buttonStyle='btn--half'
             buttonSize='btn--large'>
             Shop<i className="fa fa-shopping-cart" aria-hidden="true"></i>
           </Button>
-        </Link>
         <Button
           destination='/tour'
           className='btns'
