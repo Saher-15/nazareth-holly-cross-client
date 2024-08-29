@@ -1,25 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/GallaryPage.css'; // Import the CSS file for styling
+import Calendar from 'react-calendar';
 
-const LiveVideo = () => {
-  // const galleryItems = [
-  //   { id: 1, src: 'https://via.placeholder.com/300', caption: 'Image 1 description' },
-  //   { id: 2, src: 'https://via.placeholder.com/300', caption: 'Image 2 description' },
-  //   { id: 3, src: 'https://via.placeholder.com/300', caption: 'Image 3 description' },
-  //   { id: 4, src: 'https://via.placeholder.com/300', caption: 'Image 4 description' },
-  //   { id: 5, src: 'https://via.placeholder.com/300', caption: 'Image 5 description' },
-  //   // Add more items here
-  // ];
+const WhatIsNew = () => {
+  const [date, setDate] = useState(new Date());
+  const [eventDescription, setEventDescription] = useState('');
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1
-  // };
+  // Corrected event dates and descriptions
+  const events = [
+    { date: new Date(2024, 7, 1), description: 'Feast of the Nativity of Mary' }, // August
+    { date: new Date(2024, 8, 14), description: 'Feast of the Exaltation of the Holy Cross' }, // September
+    { date: new Date(2024, 11, 25), description: 'Christmas Mass' }, // December
+    // Add more events as needed
+  ];
+
+  // Helper function to normalize a date to midnight (start of the day)
+  const normalizeDate = (date) => {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  };
+
+  const onDateChange = (selectedDate) => {
+    setDate(selectedDate);
+
+    // Normalize the selected date
+    const normalizedSelectedDate = normalizeDate(selectedDate);
+
+    // Find the index of the event with a matching date
+    const eventIndex = events.findIndex(event => {
+      const normalizedEventDate = normalizeDate(event.date);
+      return normalizedEventDate.getTime() === normalizedSelectedDate.getTime();
+    });
+
+    // Update the event description if a matching event is found
+    if (eventIndex !== -1) {
+      setEventDescription(events[eventIndex].description);
+    } else {
+      setEventDescription('No events on this date.');
+    }
+  };
+
+  // Function to apply class to event dates
+  const tileClassName = ({ date, view }) => {
+    // Check if the date is an event date
+    if (view === 'month') {
+      return events.some(event => normalizeDate(event.date).getTime() === normalizeDate(date).getTime()) ? 'event-date' : null;
+    }
+    return null;
+  };
 
   return (
     <div className="gallery-page">
@@ -41,8 +70,20 @@ const LiveVideo = () => {
           Nazareth awaits you, embracing you from afar, bringing its holiness to you. Keep the flame burning in your heart, until the day you return to us – to the city where faith beats.
         </p>
       </div>
+
+      <div className="calendar-section">
+        <h2>Live event Dates</h2>
+        <Calendar
+          onChange={onDateChange}
+          value={date}
+          tileClassName={tileClassName} // Add this prop to mark event dates
+        />
+        <br/>
+        <p>Selected date: {date.toDateString()}</p>
+        <p>Event: {eventDescription}</p>
+      </div>
     </div>
   );
 };
 
-export default LiveVideo;
+export default WhatIsNew;
