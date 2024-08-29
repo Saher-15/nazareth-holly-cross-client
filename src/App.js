@@ -41,10 +41,6 @@ function App() {
           <Route path="/checkoutcandle" element={<Layout><CheckOutCandle /></Layout>} />
           <Route path="/product/:id" element={<Layout><ProductPage /></Layout>} />
           <Route path="/Live" element={<Layout><Live /></Layout>} />
-
-
-
-
         </Routes>
       </Router>
     </ShopContextProvider>

@@ -35,6 +35,11 @@ function Navbar() {
                 Home
               </Link>
             </li>
+            <li className='nav-item' >
+              <Link to='/live' style={{ color: "rgba(255, 0, 0, 0.5)" }} className='nav-links' onClick={closeMobileMenu}>
+                Live
+              </Link>
+            </li>
             <li className='nav-item'>
               <Link to='/tour' className='nav-links' onClick={closeMobileMenu}>
                 Tour
