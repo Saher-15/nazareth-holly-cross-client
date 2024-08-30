@@ -4,10 +4,7 @@ import "../styles/LiveClient.css";
 
 // Update events with date and time
 const events = [
-  { dateTime: new Date(2024, 7, 1, 14, 0), description: 'Feast of the Nativity of Mary' }, // August 1, 2024, 2:00 PM
-  { dateTime: new Date(2024, 8, 14, 16, 0), description: 'Feast of the Exaltation of the Holy Cross' }, // September 14, 2024, 4:00 PM
-  { dateTime: new Date(2024, 11, 25, 20, 0), description: 'Christmas Mass' }, // December 25, 2024, 8:00 PM
-  // Add more events as needed
+  { dateTime: new Date(2024, 8, 8, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 1, 2024, 2:00 PM
 ];
 
 const LiveVideo = () => {
@@ -40,7 +37,7 @@ const LiveVideo = () => {
       const eventDateTime = new Date(mostUpcomingEvent.dateTime);
       const timeDiff = eventDateTime - now;
       const hoursUntilEvent = Math.floor(timeDiff / (1000 * 60 * 60));
-      
+
       // Show "Coming Soon" message if event is within 24 hours
       setEventComingSoon(hoursUntilEvent > 0 && hoursUntilEvent <= 24);
 
@@ -121,11 +118,12 @@ const LiveVideo = () => {
                 <h2>Upcoming Live Event</h2>
                 <p className="event-name"><strong>{event.description}</strong></p>
                 <p><strong>Date and Time:</strong> {new Date(event.dateTime).toLocaleString()}</p>
-                <p><strong>Time Remaining:</strong> {timeRemaining}</p>
+                <p><strong>Time Remaining:</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
                 {eventComingSoon && (
                   <p className="event-coming-soon">Stay tuned! The live stream will start in {Math.floor((new Date(event.dateTime) - new Date()) / (1000 * 60 * 60))} hour(s).</p>
                 )}
               </div>
+
             )}
           </div>
         )}

@@ -10,134 +10,151 @@
     padding: 20px;
     overflow: hidden; /* Prevent scrolling */
     transition: background-color 0.3s ease;
-  }
-  
-  /* Main content styling */
-  .live-client-content {
+}
+
+/* Main content styling */
+.live-client-content {
     width: 100%;
     max-width: 1200px;
     margin: auto;
     position: relative;
-    text-align: center;
-  }
-  
-  /* Styling for the live video element */
-  .live-client-video {
+}
+
+/* Styling for the live video element */
+.live-client-video {
     width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Placeholder for when the live stream is not active */
-  .live-client-placeholder {
+}
+
+/* Placeholder for when the live stream is not active */
+.live-client-placeholder {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     padding: 20px;
-    color: #fff;
-  }
-  
-  /* Placeholder message */
-  .live-client-message {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  /* Event information box */
-  .live-client-event-info {
-    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+}
+
+/* Event information box */
+.live-client-event-info {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    color: #333;
-  }
-  
-  /* Event title styling */
-  .live-client-event-info h2 {
-    font-size: 2em;
+    text-align: center;
+}
+
+/* Heading styling */
+.live-client-event-info h2 {
+    font-size: 36px;
     margin-bottom: 10px;
     color: #333;
-  }
-  
-  /* Event details styling */
-  .live-client-event-info p {
-    font-size: 1.2em;
+}
+
+/* Description styling */
+.live-client-event-info p {
+    font-size: 18px;
     color: #555;
-  }
-  
-  /* Event name */
-  .event-name {
-    font-size: 1.5em;
+}
+
+/* Event name styling */
+.event-name {
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  /* Coming soon message */
-  .event-coming-soon {
+}
+
+/* Time remaining styling */
+.time-remaining-frame {
+    display: inline-block;
+    padding: 15px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin-top: 10px;
-    font-size: 1.2em;
+    font-size: 24px;
+    color: #333;
     font-weight: bold;
-    color: #e53935; /* Highlight color */
-  }
-  
-  /* Live mode styles */
-  .live-mode {
+}
+
+/* Coming soon message */
+.event-coming-soon {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e53935;
+}
+
+/* Live mode styles */
+.live-mode {
     background-color: #000; /* Dark background for live mode */
-  }
-  
-  .live-mode .live-client-placeholder {
-    background: rgba(0, 0, 0, 0.8); /* Darker background for placeholder in live mode */
-  }
-  
-  .live-mode .live-client-event-info {
+}
+
+/* Live mode placeholder styles */
+.live-mode .live-client-placeholder {
+    background: rgba(0, 0, 0, 0.2); /* Darker background for placeholder */
+}
+
+/* Live mode event info styles */
+.live-mode .live-client-event-info {
     background: rgba(255, 255, 255, 0.8); /* Lighter background for event info */
     color: #fff; /* White text color */
-  }
-  
-  /* Responsive design adjustments */
-  
-  /* For tablets and smaller devices */
-  @media (max-width: 768px) {
+}
+
+/* Responsive design adjustments */
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
     .live-client-event-info h2 {
-      font-size: 1.5em;
+        font-size: 30px;
     }
-  
+
     .live-client-event-info p {
-      font-size: 1em;
+        font-size: 16px;
     }
-  
+
     .live-client-placeholder {
-      padding: 15px;
+        padding: 15px;
     }
-  
+
+    .time-remaining-frame {
+        font-size: 20px;
+        padding: 12px;
+    }
+
     .event-coming-soon {
-      font-size: 1em;
+        font-size: 16px;
     }
-  }
-  
-  /* For phones and very small devices */
-  @media (max-width: 480px) {
+}
+
+/* For phones and very small devices */
+@media (max-width: 480px) {
     .live-client-event-info h2 {
-      font-size: 1.2em;
+        font-size: 24px;
     }
-  
+
     .live-client-event-info p {
-      font-size: 0.9em;
+        font-size: 14px;
     }
-  
+
     .live-client-placeholder {
-      padding: 10px;
+        padding: 10px;
     }
-  
+
+    .time-remaining-frame {
+        font-size: 18px;
+        padding: 10px;
+    }
+
     .event-coming-soon {
-      font-size: 0.9em;
+        font-size: 14px;
     }
-  }
-  
+}
