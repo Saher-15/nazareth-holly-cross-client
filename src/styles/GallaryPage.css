@@ -61,82 +61,6 @@
 .slick-prev, .slick-next {
   color: #333;
 }
-
-/* Calendar Styling */
-.react-calendar {
-  max-width: 600px; /* Maximum width for the calendar */
-  margin: 0 auto; /* Center align the calendar */
-  padding: 20px;
-  background-color: #ffffff; /* Background color for the calendar */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
-}
-
-/* Calendar Header */
-.react-calendar__navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.react-calendar__navigation button {
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  color: #333;
-}
-
-.react-calendar__navigation button:hover {
-  color: #ff5722; /* Hover color */
-}
-
-/* Calendar Month View */
-.react-calendar__month-view {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Calendar Days of the Week */
-.react-calendar__month-view__days__day {
-  color: #333;
-  font-weight: bold;
-}
-
-/* Calendar Days */
-.react-calendar__tile {
-  padding: 10px;
-  text-align: center;
-  font-size: 14px;
-  border-radius: 4px; /* Rounded corners for tiles */
-}
-
-.react-calendar__tile:hover {
-  background-color: #f5f5f5; /* Light background color on hover */
-}
-
-.react-calendar__tile--active {
-  background-color: #ff5722; /* Background color for the selected date */
-  color: white; /* Text color for the selected date */
-}
-
-/* Calendar Event Dates */
-.event-date {
-  background-color: yellow; /* Background color for event dates */
-}
-
-/* Calendar Navigation Arrows */
-.react-calendar__navigation__prev-button,
-.react-calendar__navigation__next-button {
-  font-size: 18px;
-  color: #333;
-}
-
-.react-calendar__navigation__prev-button:hover,
-.react-calendar__navigation__next-button:hover {
-  color: #ff5722; /* Hover color for navigation arrows */
-}
-
 /* Responsive Styles */
 @media screen and (max-width: 1024px) {
   .intro-paragraph {
@@ -161,10 +85,6 @@
   .gallery-item {
     padding: 6px; /* Further reduced padding */
   }
-
-  .react-calendar {
-    max-width: 100%; /* Adjust max-width for small screens */
-  }
 }
 
 @media screen and (max-width: 576px) {
@@ -176,10 +96,6 @@
   .gallery-item {
     padding: 5px; /* Minimum padding for very small screens */
   }
-
-  .react-calendar {
-    max-width: 100%; /* Adjust max-width for extra-small screens */
-  }
 }
 
 @media screen and (max-width: 390px) {
@@ -190,9 +106,5 @@
 
   .gallery-item {
     padding: 4px; /* Minimum padding */
-  }
-
-  .react-calendar {
-    max-width: 100%; /* Adjust max-width for very narrow screens */
   }
 }
