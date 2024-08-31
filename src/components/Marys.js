@@ -128,25 +128,31 @@ const Marys = () => {
         <p>
           <strong>Historical and Religious Significance:</strong>
           <ul>
-            <li><strong>Biblical Connection:</strong> According to Christian tradition, Mary's Well is where Mary was drawing water when the Angel Gabriel appeared to her and announced that she would conceive and give birth to Jesus Christ. This event is a central part of the Christian story of the Annunciation.</li>
-            <li><strong>Cultural Importance:</strong> The well has been a vital source of water for the local community for centuries. It served as a gathering place for the people of Nazareth, making it an integral part of daily life in the town.</li>
-            <li><strong>Architectural Features:</strong> The well itself is part of a larger complex that includes the Greek Orthodox Church of the Annunciation. The current structure of the church dates back to the 18th century, but the well and the site have much older roots.</li>
+            <strong>Biblical Connection:</strong> According to Christian tradition, Mary's Well is where Mary was drawing water when the Angel Gabriel appeared to her and announced that she would conceive and give birth to Jesus Christ. This event is a central part of the Christian story of the Annunciation.
+            <br/>
+            <strong>Cultural Importance:</strong> The well has been a vital source of water for the local community for centuries. It served as a gathering place for the people of Nazareth, making it an integral part of daily life in the town.
+            <br/>
+            <strong>Architectural Features:</strong> The well itself is part of a larger complex that includes the Greek Orthodox Church of the Annunciation. The current structure of the church dates back to the 18th century, but the well and the site have much older roots.
           </ul>
         </p>
         <p>
           <strong>Modern-Day Site:</strong>
           <ul>
-            <li><strong>Restoration Efforts:</strong> The fountain at Mary's Well has undergone several restorations over the years, notably in 1967 and 2000. Despite these efforts, the well does not function today as it once did.</li>
-            <li><strong>Tourist Attraction:</strong> Mary's Well is a popular destination for pilgrims and tourists. Visitors come to see the historic site and to experience the place where, according to tradition, the Annunciation took place.</li>
-            <li><strong>Surrounding Area:</strong> The well is located in Nazareth's Old City, an area rich with historical and religious landmarks. Nearby attractions include the Basilica of the Annunciation, the Greek Orthodox Church of the Annunciation, and various other sites related to the life of Jesus and Mary.</li>
+            <strong>Restoration Efforts:</strong> The fountain at Mary's Well has undergone several restorations over the years, notably in 1967 and 2000. Despite these efforts, the well does not function today as it once did.
+            <br/>
+            <strong>Tourist Attraction:</strong> Mary's Well is a popular destination for pilgrims and tourists. Visitors come to see the historic site and to experience the place where, according to tradition, the Annunciation took place.
+            <br/>
+            <strong>Surrounding Area:</strong> The well is located in Nazareth's Old City, an area rich with historical and religious landmarks. Nearby attractions include the Basilica of the Annunciation, the Greek Orthodox Church of the Annunciation, and various other sites related to the life of Jesus and Mary.
           </ul>
         </p>
         <p>
           <strong>Visiting Mary's Well:</strong>
           <ul>
-            <li><strong>Location:</strong> Mary's Well is situated in the heart of Nazareth, making it easily accessible for visitors exploring the Old City.</li>
-            <li><strong>Accessibility:</strong> The site is open to the public and can be visited throughout the year. It is advisable to check local visitor information for any specific visiting hours or guidelines.</li>
-            <li><strong>Cultural Experience:</strong> Visiting Mary's Well offers a unique opportunity to connect with the rich religious and cultural heritage of Nazareth. The site provides insight into the daily lives of the people in ancient times and their spiritual practices.</li>
+            <strong>Location:</strong> Mary's Well is situated in the heart of Nazareth, making it easily accessible for visitors exploring the Old City.
+            <br/>
+            <strong>Accessibility:</strong> The site is open to the public and can be visited throughout the year. It is advisable to check local visitor information for any specific visiting hours or guidelines.
+            <br/>
+            <strong>Cultural Experience:</strong> Visiting Mary's Well offers a unique opportunity to connect with the rich religious and cultural heritage of Nazareth. The site provides insight into the daily lives of the people in ancient times and their spiritual practices.
           </ul>
         </p>
       </div>

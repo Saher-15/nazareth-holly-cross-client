@@ -1,70 +1,84 @@
 /* NazarethTour.css */
 
-/* Container styles */
 .container-tour {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh; /* Full viewport height */
-  background: linear-gradient(135deg, #c31432, #240b36);
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f0f5; /* Soft background color for a professional look */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Title styles */
 .video-message {
-  margin-top: 20px;
-  font-size: 2rem; /* Base font size */
-  font-family: 'Lato', sans-serif;
-  color: white;
-  text-align: center;
-  border-bottom: 1px solid #d1d5db;
-  padding-bottom: 1.5rem;
-  width: 100%;
-  max-width: 100%; /* Ensure title doesn’t overflow */
-}
-
-/* Video styles */
-.video- {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 100%; /* Ensure video doesn’t overflow */
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-  .video-message {
-    font-size: 1.5rem;
-  }
-
-  .video- {
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .video-message {
-    font-size: 1.2rem;
-  }
-
-  .video- {
-    margin-top: 5px;
-  }
-}
-
-/* Additional responsiveness for portrait mode */
-@media (orientation: portrait) {
-  .container-tour {
+    font-size: 1.2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 800px; /* Limits the text width for readability */
+    line-height: 1.6;
     padding: 10px;
-  }
-  
-  .video-message {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
+    background-color: #ffffff; /* White background for text */
+    border-radius: 8px; /* Rounded corners for the text box */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for text box */
+}
+
+.video- {
+    width: 100%;
+    max-width: 800px; /* Limits the width of the video */
+    border-radius: 8px; /* Rounded corners for the video */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for the video */
+    margin-top: 20px;
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+    .container-tour {
+        padding: 15px;
+    }
+
+    .video-message {
+        font-size: 1.1em;
+        padding: 8px;
+        max-width: 90%;
+    }
+
+    .video- {
+        max-width: 90%;
+    }
+}
+
+/* Small screens (smartphones) */
+@media screen and (max-width: 768px) {
+    .container-tour {
+        padding: 10px;
+    }
+
+    .video-message {
+        font-size: 1em;
+        padding: 5px;
+        max-width: 95%;
+    }
+
+    .video- {
+        max-width: 95%;
+    }
+}
+
+/* Extra small screens (portrait mode) */
+@media screen and (max-width: 480px) {
+    .container-tour {
+        padding: 5px;
+    }
+
+    .video-message {
+        font-size: 0.9em;
+        padding: 5px;
+        max-width: 100%;
+    }
+
+    .video- {
+        max-width: 100%;
+    }
 }

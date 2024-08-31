@@ -1,9 +1,25 @@
 import React from 'react';
 import '../styles/GallaryPage.css'; // Import the CSS file for styling
 
-const WhatIsNew = () => {   
+const WhatIsNew = () => {
     return (
         <div className="gallery-page">
+        <div className="scripture-section">
+                <h1>Biblical References to Nazareth</h1>
+                <div className="note">
+                    <strong>Matthew 2:23</strong>: "And he came and dwelt in a city called Nazareth, that it might be fulfilled which was spoken by the prophets, 'He shall be called a Nazarene.'"
+                </div>
+                <div className="note">
+                    <strong>Luke 1:26-27</strong>: "Now in the sixth month, the angel Gabriel was sent by God to a city of Galilee named Nazareth, to a virgin betrothed to a man whose name was Joseph, of the house of David. The virgin's name was Mary."
+                </div>
+                <div className="note">
+                    <strong>John 1:46</strong>: "And Nathanael said to him, 'Can anything good come out of Nazareth?' Philip said to him, 'Come and see.'"
+                </div>
+                <div className="note">
+                    <strong>Luke 4:16</strong>: "So He came to Nazareth, where He had been brought up. And as His custom was, He went into the synagogue on the Sabbath day, and stood up to read."
+                </div>
+            </div>
+            
             <h1>Touching the Sacred, Feeling the Heartbeat</h1>
             <div className="intro-paragraph">
                 <p>
@@ -22,6 +38,7 @@ const WhatIsNew = () => {
                     Nazareth awaits you, embracing you from afar, bringing its holiness to you. Keep the flame burning in your heart, until the day you return to us – to the city where faith beats.
                 </p>
             </div>
+            
         </div>
     );
 };
