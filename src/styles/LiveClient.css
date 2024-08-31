@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #c31432, #240b36);
     padding: 20px;
     overflow: hidden; /* Prevent scrolling */
@@ -105,6 +105,7 @@
 
 /* Live mode placeholder styles */
 .live-mode .live-client-placeholder {
+    margin-bottom: 10%;
     background: rgba(0, 0, 0, 0.2); /* Darker background for placeholder */
 }
 
