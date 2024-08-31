@@ -10,7 +10,7 @@
 }
 
 .personal-pray {
-  font: x-large;
+  font-size: x-large; /* Corrected font size property */
   text-align: center;
 }
 
@@ -40,14 +40,19 @@ h5 {
 }
 
 .candle {
+  position: relative; /* Needed for absolute positioning of the pseudo-element */
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensure nothing overflows the container */
 }
 
-.blur-background {
-  position: fixed;
+.candle::before {
+  content: "";
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,11 +60,12 @@ h5 {
   background-image: url("/images/candle.jpg"); /* Background image */
   background-size: cover; /* Ensure the background image covers the entire div */
   background-position: center; /* Center the background image */
-  z-index: -1; /* Move the background behind the content */
   filter: brightness(0.45); /* Reduce brightness to darken the background image */
+  z-index: -1; /* Place the pseudo-element behind the content */
 }
 
 .candle .leftSide, .candle .rightSide {
+  position: relative; /* Ensure these elements are above the pseudo-element */
   width: 100%;
   padding: 20px;
 }
@@ -105,15 +111,12 @@ textarea:focus {
   display: flex;
   justify-content: space-between;
   font-size: 24px;
-  font-family: 'Lato', sans-serif;  /* Changed the font family */
+  font-family: 'Lato', sans-serif; /* Changed the font family */
   color: white;
   text-align: center;
   border-bottom: 1px solid #d1d5db;
   padding-bottom: 0.5rem;
 }
-
-
-
 
 .name-container input[type="text"]:last-child {
   margin-left: 10px; /* Adjust the margin-left to create space between the inputs */

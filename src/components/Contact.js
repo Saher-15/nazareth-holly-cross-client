@@ -65,13 +65,13 @@ function Contact() {
   }, []); // Empty dependency array ensures this effect runs only once, on mount
 
   return (
-    <div className="candle">
-      <div className="background-img" style={{ backgroundImage: "url('/images/jesus.png')" }}></div>
+    <div className="contact">
+      {/* <div className="background-img" style={{ backgroundImage: "url('/images/jesus.png')" }}></div> */}
       <div className="leftSide">
         {showMessage && <p style={{ color: "#fff" }}>Message submitted successfully!</p>}
       </div>
       <div className="rightSide">
-        <form className="candle-form center-form" onSubmit={handleSubmit}>
+        <form className="contact-form center-form" onSubmit={handleSubmit}>
           <label
             htmlFor="first-name"
             className="block text-sm font-semibold leading-6 text-accent-content"

@@ -54,7 +54,7 @@ function Candle() {
 
   return (
     <div className="candle">
-      <div className="blur-background"></div> {/* Add a div for the blurred background */}
+      {/* <div className="blur-background"></div> Add a div for the blurred background */}
 
       <div className="leftSide">
         <p className="prayer-message">Light a candle in a Nazareth church <br /> send us your wish or prayer and we will light a candle for you, keeping the ancient tradition alive.<br /><br /></p>
