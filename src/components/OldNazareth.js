@@ -8,10 +8,20 @@ const OldNazareth = () => {
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
   const images = [
-    "images/jesus.png",
-    "images/img-4.jpg",
-    "images/img-9.jpg",
-    "images/img-8.jpg"
+    "images/old/old1.jpg",
+    "images/old/old2.jpg",
+    "images/old/old3.jpg",    
+    "images/old/old4.jpg",
+    "images/old/old5.webp",
+    "images/old/old6.jpg",
+    "images/old/old7.jpg",
+    "images/old/old8.jpg",
+    "images/old/old9.jpg",
+    "images/old/old10.jpg",
+    "images/old/old11.jpg",
+    "images/old/old12.jpg",
+
+
   ];
 
   const handleClickMap = () => {

@@ -8,12 +8,19 @@ const GreekChurch = () => {
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
   const images = [
-    "images/jesus.png",
-    "images/img-4.jpg",
-    "images/img-9.jpg",
-    "images/img-8.jpg"
+    "images/nazareth/nazareth1.webp",
+    "images/nazareth/nazareth2.jpg",
+    "images/nazareth/nazareth3.jpg",
+    "images/nazareth/nazareth4.jpg",
+    "images/nazareth/nazareth5.jpg",
+    "images/nazareth/nazareth6.jpg",
+    "images/nazareth/nazareth7.webp",
+    "images/nazareth/nazareth8.webp",
+    "images/nazareth/nazareth9.jpg",
+    "images/nazareth/nazareth10.jpg",
+    "images/nazareth/nazareth11.jpg",
+    "images/nazareth/nazareth12.jpg",
   ];
-
   
   const handleClickMap = () => {
     window.open('https://www.google.com/maps/place/Nazareth+City+center/@32.7012442,35.2981717,17z/data=!3m1!4b1!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu', '_blank');
@@ -145,7 +152,7 @@ const GreekChurch = () => {
             <img
               key={index}
               src={image}
-              alt={`Greek Church ${index + 1}`}
+              alt={`nazareth ${index + 1}`}
               onClick={() => handleImageClick(index)}
             />
           ))}
