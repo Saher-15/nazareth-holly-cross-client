@@ -105,7 +105,6 @@
 
 /* Live mode placeholder styles */
 .live-mode .live-client-placeholder {
-    margin-bottom: 10%;
     background: rgba(0, 0, 0, 0.2); /* Darker background for placeholder */
 }
 
