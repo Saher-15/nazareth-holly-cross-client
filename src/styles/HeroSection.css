@@ -40,6 +40,9 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
+  /* Ensure heading does not overflow */
+  max-width: 90%;
+  overflow-wrap: break-word;
 }
 
 /* Hero Subtext */
@@ -49,6 +52,9 @@
   font-size: 2vw;
   text-align: center;
   font-style: italic;
+  /* Ensure text does not overflow */
+  max-width: 90%;
+  overflow-wrap: break-word;
 }
 
 /* Button Container */
