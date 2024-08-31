@@ -13,8 +13,10 @@ function Footer() {
       <div className="topbar">
         <ul>
           <li>
-            <FaRegEnvelope className="icon" />
-            <span className="contact-info">nazarethholycross@gmail.com</span>
+            <a href="mailto:nazarethholycross@gmail.com" className="email-button">
+              <FaRegEnvelope className="icon" />
+              <span className="contact-info">nazarethholycross@gmail.com</span>
+            </a>
           </li>
         </ul>
       </div>
