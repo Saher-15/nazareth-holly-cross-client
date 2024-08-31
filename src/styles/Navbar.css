@@ -73,6 +73,11 @@
 
   .navbar-logo {
     font-size: 1.8rem; /* Slightly smaller logo */
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 
   .nav-links {
@@ -116,12 +121,12 @@
   }
 
   .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 15px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
   }
 
   .menu-icon {
@@ -160,8 +165,12 @@
 
 @media screen and (max-width: 600px) {
   .navbar-logo {
-    margin-top: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
     font-size: 0.95rem;
+    display: flex;
+    align-items: center;
   }
 
   .nav-links {
@@ -176,8 +185,12 @@
 
 @media screen and (max-width: 400px) {
   .navbar-logo {
-    margin-top: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
     font-size: 0.85rem;
+    display: flex;
+    align-items: center;
   }
 
   .nav-links {
@@ -188,8 +201,12 @@
 
 @media screen and (max-width: 350px) {
   .navbar-logo {
-    margin-top: 25px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
     font-size: 0.7rem;
+    display: flex;
+    align-items: center;
   }
 
   .menu-icon {

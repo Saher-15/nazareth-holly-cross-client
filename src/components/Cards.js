@@ -9,13 +9,13 @@ function Cards() {
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-3.jpg'
+              src='images/latin/latin1.jpg'
               text='Explore The Church Of The Annunciation'
               label='Latin Church'
               path='/Latin'
             />
             <CardItem
-              src='images/img-2.jpg'
+              src='images/greek/greek5.jpg'
               text='Explore The Greek Orthodox Church'
               label='Greek Orthodox Church'
               path='/Greek'
@@ -29,13 +29,13 @@ function Cards() {
               path='/MarysWell'
             />
             <CardItem
-              src='images/img-4.jpg'
+              src='images/old/old2.jpg'
               text='Explore The Old City Of'
               label='Old City'
               path='/OldCity'
             />
             <CardItem
-              src='images/img-8.jpg'
+              src='images/nazareth/nazareth1.webp'
               text='The City of Nazareth, Jesus City'
               label='City'
               path='/City'
