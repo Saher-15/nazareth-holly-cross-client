@@ -113,7 +113,9 @@ const LiveVideo = () => {
           ></video>
         ) : (
           <div className="live-client-placeholder">
-            {event && (
+            {events.length === 0 ? (
+              <p>No upcoming events available.</p>
+            ) : event ? (
               <div className="live-client-event-info">
                 <h2>Upcoming Live Event</h2>
                 <p className="event-name"><strong>{event.description}</strong></p>
@@ -123,7 +125,8 @@ const LiveVideo = () => {
                   <p className="event-coming-soon">Stay tuned! The live stream will start in {Math.floor((new Date(event.dateTime) - new Date()) / (1000 * 60 * 60))} hour(s).</p>
                 )}
               </div>
-
+            ) : (
+              <p>No upcoming events available.</p>
             )}
           </div>
         )}
