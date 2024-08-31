@@ -8,18 +8,19 @@ const LatinCurch = () => {
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
   const images = [
-    "images/nazareth/nazareth1.jpg",
-    "images/nazareth/nazareth2.jpg",
-    "images/nazareth/nazareth3.jpg",
-    "images/nazareth/nazareth4.jpg",
-    "images/nazareth/nazareth5.jpg",
-    "images/nazareth/nazareth6.jpg",
-    "images/nazareth/nazareth7.jpg",
-    "images/nazareth/nazareth8.jpg",
-    "images/nazareth/nazareth9.jpg",
-    "images/nazareth/nazareth10.jpg",
-    "images/nazareth/nazareth11.jpg",
-    "images/nazareth/nazareth12.jpg",
+    "images/latin/latin1.jpg",   
+    "images/latin/latin2.jpg",
+    "images/latin/latin3.jpg",
+    "images/latin/latin4.jpg",
+    "images/latin/latin5.jpg",
+    "images/latin/latin6.jpg",
+    "images/latin/latin7.jpg",
+    "images/latin/latin8.jpg",
+    "images/latin/latin9.jpg",
+    "images/latin/latin10.jpg",
+    "images/latin/latin11.jpg",
+    "images/latin/latin12.jpg",
+
 
   ];
 
