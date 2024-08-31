@@ -13,7 +13,7 @@ const ItemDetailsPage = () => {
         const response = await axios.get(`https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?_id=${_id}`);
         setItem(response.data); // Set the item data in state
       } catch (error) {
-        console.error('Error fetching item data:', error);
+        console.error('Error fetching item data:');
       }
     }
 

@@ -43,7 +43,7 @@ function Candle() {
     try {
       navigate("/checkoutcandle", { state: { form: form } });
     } catch (error) {
-      console.error("Error lighting a candle:", error);
+      console.error("Error lighting a candle:");
     }
   };
 

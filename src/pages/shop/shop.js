@@ -31,7 +31,7 @@ const Shop = () => {
         window.scrollTo(0, 0); // Scroll to the top when going to the previous page
         setAllProducts(allProductsResponse.data);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching products:");
       } finally {
         setLoading(false);
       }

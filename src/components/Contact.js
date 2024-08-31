@@ -54,7 +54,7 @@ function Contact() {
       }, 3000);
     } catch (error) {
       // Handle error
-      console.error('Error sending form data:', error);
+      console.error('Error sending form data:');
       alert('Failed to send form data');
     }
   };

@@ -39,7 +39,7 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                 }, 5000);
 
             } catch (error) {
-                console.error('Error sending order details:', error);
+                console.error('Error sending order details:');
             }
         };
 

@@ -81,7 +81,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
             return order.id;
         } catch (error) {
-            console.error('Error creating order:', error);
+            console.error('Error creating order:');
             // Handle error here
         }
     };
