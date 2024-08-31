@@ -9,6 +9,13 @@
   z-index: -1;
   filter: brightness(0.6);
   border-radius: 0;
+
+  transform: none;
+  overflow: auto; /* or visible, depending on your layout */
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+
 }
 
 /* Hero Section Container */
