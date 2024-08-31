@@ -10,73 +10,153 @@
   background-color: #f0f0f5; /* Soft background color for a professional look */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-min-height: 100vh;
+  min-height: 100vh;
+}
+
+/* Page Heading */
+.page-heading {
+  font-size: 2.5em; /* Increased size for better visibility */
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Styling for the introductory message above the video */
 .video-message {
-  font-size: 1.2em;
+  font-size: 1.3em; /* Slightly larger font size for better readability */
   color: #333;
   text-align: center;
   margin-bottom: 20px;
-  max-width: 800px; /* Limits the text width for readability */
+  max-width: 900px; /* Expanded width for more content */
   line-height: 1.6;
-  padding: 10px;
+  padding: 15px; /* Increased padding */
   background-color: #ffffff; /* White background for text */
   border-radius: 8px; /* Rounded corners for the text box */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for text box */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for text box */
+}
+
+/* Container for video and overlay */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* Increased max width */
+  margin-top: 20px;
+  border-radius: 8px; /* Rounded corners for the video container */
+  overflow: hidden; /* Ensures the overlay stays within the video container */
 }
 
 /* Styling for the video element */
 .video- {
   width: 100%;
-  max-width: 800px; /* Limits the width of the video */
   height: auto; /* Ensures the height adjusts proportionally */
   border-radius: 8px; /* Rounded corners for the video */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for the video */
-  margin-top: 20px;
   background-color: #000; /* Ensures a black background for the video if needed */
-  object-fit: cover; /* Ensures the video covers the container */
 }
 
-/* Medium screens (tablets) */
+/* Video Overlay */
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+  border-radius: 8px;
+}
+
+.play-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  font-size: 2.5em; /* Larger size for better visibility */
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: auto; /* Allow click events for the play button */
+}
+
+/* Description below the video */
+.video-description {
+  font-size: 1.1em; /* Increased font size for better readability */
+  color: #666;
+  text-align: center;
+  margin-top: 20px;
+  max-width: 900px; /* Expanded width for more content */
+  line-height: 1.6;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px; /* Increased padding for better clickability */
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em; /* Slightly larger font size */
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 1024px) {
   .container-tour {
       padding: 15px;
   }
 
+  .page-heading {
+      font-size: 2.2em; /* Adjusted for medium screens */
+  }
+
   .video-message {
       font-size: 1.1em;
-      padding: 8px;
+      padding: 10px;
       max-width: 90%;
   }
 
-  .video- {
+  .video-container {
       max-width: 90%;
   }
 }
 
-/* Small screens (smartphones) */
 @media screen and (max-width: 768px) {
-  .container-tour {
-      padding: 10px;
+  .page-heading {
+      font-size: 2em;
   }
 
   .video-message {
       font-size: 1em;
-      padding: 5px;
+      padding: 8px;
       max-width: 95%;
   }
 
-  .video- {
+  .video-container {
       max-width: 95%;
+  }
+
+  .video-description {
+      font-size: 1em;
+  }
+
+  .cta-button {
+      font-size: 1em;
+      padding: 10px 20px;
   }
 }
 
-/* Extra small screens (portrait mode) */
 @media screen and (max-width: 480px) {
-  .container-tour {
-      padding: 5px;
+  .page-heading {
+    font-size: 1.8em;
   }
 
   .video-message {
@@ -85,7 +165,12 @@ min-height: 100vh;
       max-width: 100%;
   }
 
-  .video- {
-      max-width: 100%;
+  .video-description {
+      font-size: 0.9em;
+  }
+
+  .cta-button {
+      font-size: 0.9em;
+      padding: 8px 16px;
   }
 }
