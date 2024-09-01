@@ -8,10 +8,14 @@ const Marys = () => {
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
   const images = [
-    "images/jesus.png",
-    "images/img-4.jpg",
-    "images/img-9.jpg",
-    "images/img-8.jpg"
+    "images/mary/mary1.jpg",
+    "images/mary/mary2.jpg",
+    "images/mary/mary3.jpg",
+    "images/mary/mary4.jpg",
+    "images/mary/mary5.jpg",
+    "images/mary/mary6.jpg",
+    "images/mary/mary7.jpg",
+
   ];
 
   const handleClickMap = () => {

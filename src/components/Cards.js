@@ -23,7 +23,7 @@ function Cards() {
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-9.jpg'
+              src='images/mary/mary4.jpg'
               text="Explore the Mary's well deep in Nazareth"
               label="Mary's Well"
               path='/MarysWell'
