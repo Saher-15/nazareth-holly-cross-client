@@ -9,6 +9,30 @@
   min-height: 100vh;
 }
 
+.cart-link-logo {
+  background: linear-gradient(135deg, #c31432, #240b36);
+  border: 2px solid #ddd;
+  /* Border to define the icon's area */
+  border-radius: 50%;
+  /* Rounded shape */
+  padding: 15px;
+  /* Add padding to make it bigger */
+  cursor: pointer;
+  font-size: 32px;
+  /* Increase font size for better visibility */
+  color: #f9f9f9;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center the icon inside the circle */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  /* Smooth transition */
+}
+
 /* Header Filter */
 .header-filter {
   display: flex;
@@ -196,7 +220,8 @@
   .sort select,
   .reset-filters {
     font-size: 10px;
-    width: 100%; /* Full width for small screens */
+    width: 100%;
+    /* Full width for small screens */
     margin-bottom: 10px;
   }
 
