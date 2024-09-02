@@ -44,7 +44,9 @@ function HeroSection() {
   return (
     <div className='hero-container'>
 
-      <video id="video-field" className='hero-v' src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} />
+      {/* <video id="video-field" className='hero-v' src='/videos/video-7.mp4' autoPlay loop muted playsInline controls={false} /> */}
+      <video id="video-field" className='hero-v' src='https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fvideo-7.mp4?alt=media&token=b0173721-21a1-46d0-b15b-f2001b912e72' autoPlay loop muted playsInline controls={false} />
+
       <h1>JESUS CITY AWAITS</h1>
       <p>GRACE IN EVERY CLICK</p>
       <button className='sound-control-btn' onClick={togglePlayPause}>
