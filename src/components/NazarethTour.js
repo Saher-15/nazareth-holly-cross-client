@@ -14,7 +14,7 @@ const NazarethTour = () => {
         Let's take a tour in Nazareth, a city brimming with history and culture. Discover vibrant markets, historic churches, and unique landmarks for an unforgettable experience.
       </p>
       <div className="video-container">
-        <video src="/videos/tour.mp4" type="video/mp4" className='video-' controls poster='images/jesus_city_tour.png'>
+        <video src="https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Ftour.mp4?alt=media&token=af5c1463-2e97-4ae3-b205-a7566f45f9be" type="video/mp4" className='video-' controls poster='images/jesus_city_tour.png'>
           Your browser does not support the video tag.
         </video>
       </div>
