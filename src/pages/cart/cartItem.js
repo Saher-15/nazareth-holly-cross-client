@@ -26,7 +26,7 @@ const CartItem = ({ data }) => {
         onClick={handleImageClick} 
         style={{ cursor: 'pointer' }} // Indicates that the image is clickable
       />
-      <div className="description">
+      <div className="description-cart">
         <p>
           <b>{name}</b>
         </p>

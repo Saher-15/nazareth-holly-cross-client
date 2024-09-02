@@ -72,7 +72,7 @@ const PayPalComponent = ({ form }) => {
     };
 
     return (
-        <div className="App">
+        <div className="App-paypal-candle">
             
 
             <div className="paypal-card1">

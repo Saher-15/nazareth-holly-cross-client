@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+// import '../App.css';
+import '../styles/Candle.css'
 function Candle() {
   const [form, setForm] = useState({
     firstname: "",

@@ -3,85 +3,162 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import ShopContextProvider from "./context/shop-context";
-// Regular imports for other pages
-import Home from "./pages/Home";
-import Services from "./pages/Services";
-import OldCity from "./pages/OldCity";
-import City from "./pages/City";
-import MarysWell from "./pages/MarysWell";
-import Latin from "./pages/Latin";
-import Greek from "./pages/Greek";
-import Cart from "./pages/cart/cart";
-import About from "./pages/About";
-import CheckOut from "./pages/CheckOut";
-import ContactUs from "./pages/ContactUs";
-import CheckOutCandle from "./pages/CheckOutCandle";
-import Live from "./pages/Live";
-// Lazy load specific components
-const Tour = lazy(() => import("./pages/Tour"));
+
+// Lazy load all pages
+const Home = lazy(() => import("./pages/Home"));
+const Candle = lazy(() => import("./components/Candle"));
+const OldCity = lazy(() => import("./components/OldNazareth"));
+const City = lazy(() => import("./components/Nazareth"));
+const MarysWell = lazy(() => import("./components/Marys"));
+const Latin = lazy(() => import("./components/LatinChurch"));
+const Greek = lazy(() => import("./components/GreekChurch"));
+const Cart = lazy(() => import("./pages/cart/cart"));
+const About = lazy(() => import("./pages/About"));
+const CheckOut = lazy(() => import("./pages/CheckOut"));
+const ContactUs = lazy(() => import("./components/Contact"));
+const CheckOutCandle = lazy(() => import("./pages/CheckOutCandle"));
+const Live = lazy(() => import("./pages/Live"));
+const Tour = lazy(() => import("./components/NazarethTour"));
 const Shop = lazy(() => import("./pages/shop/shop"));
 const ProductPage = lazy(() => import("./pages/shop/ProductPage"));
-
-
 
 function App() {
   return (
     <ShopContextProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Layout><Home /></Layout>} />
-          <Route path="/candle" element={<Layout><Services /></Layout>} />
-          
-          {/* Wrap only the lazy-loaded routes with Suspense */}
+          <Route 
+            path="/" 
+            element={
+              <Suspense fallback={<div>Loading Home...</div>}>
+                <Layout><Home /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/candle" 
+            element={
+              <Suspense fallback={<div>Loading Services...</div>}>
+                <Layout><Candle /></Layout>
+              </Suspense>
+            } 
+          />
           <Route 
             path="/tour" 
             element={
               <Suspense fallback={<div>Loading Tour...</div>}>
-                <Layout>
-                  <Tour />
-                </Layout>
+                <Layout><Tour /></Layout>
               </Suspense>
             } 
           />
-          
           <Route 
             path="/shop" 
             element={
               <Suspense fallback={<div>Loading Shop...</div>}>
-                <Layout>
-                  <Shop />
-                </Layout>
+                <Layout><Shop /></Layout>
               </Suspense>
             } 
           />
-          
           <Route 
             path="/product/:id" 
             element={
               <Suspense fallback={<div>Loading Product...</div>}>
-                <Layout>
-                  <ProductPage />
-                </Layout>
+                <Layout><ProductPage /></Layout>
               </Suspense>
             } 
           />
-          {/* End of lazy-loaded routes */}
-          
-          <Route path="/oldcity" element={<Layout><OldCity /></Layout>} />
-          <Route path="/city" element={<Layout><City /></Layout>} />
-          <Route path="/maryswell" element={<Layout><MarysWell /></Layout>} />
-          <Route path="/latin" element={<Layout><Latin /></Layout>} />
-          <Route path="/greek" element={<Layout><Greek /></Layout>} />
-          <Route path="/cart" element={<Layout><Cart /></Layout>} />
-          <Route path="/contact-us" element={<Layout><ContactUs /></Layout>} />
-          <Route path="/about" element={<Layout><About /></Layout>} />
-          <Route path="/checkout" element={<Layout><CheckOut /></Layout>} />
-          <Route path="/checkoutcandle" element={<Layout><CheckOutCandle /></Layout>} />
-          <Route path="/Live" element={<Layout><Live /></Layout>} />
+          <Route 
+            path="/oldcity" 
+            element={
+              <Suspense fallback={<div>Loading Old City...</div>}>
+                <Layout><OldCity /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/city" 
+            element={
+              <Suspense fallback={<div>Loading City...</div>}>
+                <Layout><City /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/maryswell" 
+            element={
+              <Suspense fallback={<div>Loading Mary's Well...</div>}>
+                <Layout><MarysWell /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/latin" 
+            element={
+              <Suspense fallback={<div>Loading Latin...</div>}>
+                <Layout><Latin /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/greek" 
+            element={
+              <Suspense fallback={<div>Loading Greek...</div>}>
+                <Layout><Greek /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/cart" 
+            element={
+              <Suspense fallback={<div>Loading Cart...</div>}>
+                <Layout><Cart /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/contact-us" 
+            element={
+              <Suspense fallback={<div>Loading Contact Us...</div>}>
+                <Layout><ContactUs /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/about" 
+            element={
+              <Suspense fallback={<div>Loading About...</div>}>
+                <Layout><About /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/checkout" 
+            element={
+              <Suspense fallback={<div>Loading CheckOut...</div>}>
+                <Layout><CheckOut /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/checkoutcandle" 
+            element={
+              <Suspense fallback={<div>Loading CheckOut Candle...</div>}>
+                <Layout><CheckOutCandle /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/Live" 
+            element={
+              <Suspense fallback={<div>Loading Live...</div>}>
+                <Layout><Live /></Layout>
+              </Suspense>
+            } 
+          />
         </Routes>
       </Router>
     </ShopContextProvider>
   );
 }
 
-export default App;
+export default App;

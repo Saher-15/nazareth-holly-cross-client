@@ -1,6 +1,6 @@
 /* Cart icon and item count */
 .cart-link-logo {
-    background: linear-gradient(135deg, #c31432, #240b36);
+  background: linear-gradient(135deg, #c31432, #240b36);
   border: 2px solid #ddd; /* Border to define the icon's area */
   border-radius: 50%; /* Rounded shape */
   padding: 15px; /* Add padding to make it bigger */
@@ -22,7 +22,6 @@
   border-color: #ccc; /* Change border color on hover */
   color: #333; /* Darker icon color on hover */
 }
-
 
 .cart-item-count {
   background-color: #e74c3c;
@@ -55,7 +54,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  
 }
 
 /* Product details section */
@@ -130,7 +128,6 @@
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  
 }
 
 .add-to-cart-button:hover {
@@ -139,30 +136,37 @@
 
 /* Enhanced Product name styling */
 .product-name {
-  font-size: 2.5rem; /* Increased size */
-  font-weight: 800; /* Bolder text */
+  font-size: 2.5rem; /* Size of the text */
+  font-weight: 800; /* Bold text */
   color: #111; /* Darker color for emphasis */
-  margin-bottom: 20px; /* Increased spacing */
+  margin: 0 auto 20px auto; /* Center horizontally with margin */
   text-align: center; /* Center the text */
   text-transform: uppercase; /* Uppercase for impact */
+  max-width: 600px; /* Set a maximum width to prevent it from taking the full width */
+  overflow-wrap: break-word; /* Prevent long words from overflowing */
 }
 
 /* Enhanced Product price styling */
 .product-price {
-  font-size: 2rem; /* Increased size */
-  color: #ff5252; /* Slightly darker color */
+  font-size: 2rem; /* Adjust size as needed */
+  color: #ff5252; /* Color for the price */
   font-weight: 700; /* Bolder text */
-  margin-bottom: 30px; /* Increased spacing */
+  margin-bottom: 10px; /* Space below the price */
   text-align: center; /* Center the text */
+  max-width: 600px; /* Ensure it doesn't take full width */
+  overflow-wrap: break-word; /* Prevent long words from overflowing */
 }
 
 /* Enhanced Product description styling */
 .product-description {
-  font-size: 1.25rem; /* Larger font */
-  line-height: 2; /* Improved readability */
-  color: #333; /* Darker text for better contrast */
-  margin-top: 15px; /* Added top margin for spacing */
-  text-align: justify; /* Justify text for a neat look */
+  font-size: 1.25rem; /* Adjust size for readability */
+  line-height: 1.6; /* Better line spacing */
+  color: #333; /* Darker text for contrast */
+  margin-top: 0; /* No top margin for better alignment */
+  margin-bottom: 20px; /* Space below the description */
+  text-align: center; /* Center the text */
+  max-width: 600px; /* Ensure it doesn't take full width */
+  overflow-wrap: break-word; /* Prevent long words from overflowing */
 }
 
 /* Message that appears when a product is added to the cart */
@@ -221,25 +225,37 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .color-circles {
-  
   display: flex;
-  flex-direction: row; /* This will align the colors in a row */
-  gap: 10px; /* Adjust the gap between the color circles */
+  flex-direction: row;
+  gap: 15px; /* Increased gap for a more spacious look */
 }
 
 .color-circle {
-  border-radius: 5px;
-  margin: 10px 5px;
+  width: 40px; /* Set a consistent size for the circles */
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 5px; /* Make the circles perfectly round */
   cursor: pointer;
   transition: transform 0.3s ease, border-color 0.3s ease;
-  border: 2px solid transparent;
+  border: 3px solid transparent; /* Thicker border for better emphasis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
 }
 
 .color-circle:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slightly enlarge on hover for interactivity */
+  border-color: #007bff; /* Highlight with a color on hover */
+}
+
+.color-circle.active {
+  border-color: #007bff; /* Set border color when a color is active/selected */
+  transform: scale(1.15); /* Slightly larger scale for active state */
 }
 
 .color-circle.selected {
@@ -255,98 +271,75 @@
 /* Responsive design for smaller screens and portrait mode */
 @media (max-width: 768px) {
   .product-details {
-    flex-direction: column;
-    align-items: center;
+      flex-direction: column;
+      align-items: center;
   }
 
   .image-container {
-    margin-right: 0;
-    margin-bottom: 20px;
+      margin-right: 0;
+      margin-bottom: 20px;
   }
 
   .product-image {
-    height: 350px;
-    width: 350px;
-    object-fit: contain;
+      height: 350px;
+      width: 350px;
+      object-fit: contain;
   }
 
   .description {
-    padding: 10px;
+      padding: 10px;
   }
 
   .product-name {
-    font-size: 2.25rem;
+      font-size: 2.25rem;
   }
 
   .product-price {
-    font-size: 1.75rem;
+      font-size: 1.75rem;
   }
 
   .product-description {
-    font-size: 1.125rem;
+      font-size: 1.125rem;
   }
 
   .other-product-images img {
-    height: 80px;
-    object-fit: cover;
+      height: 80px;
+      object-fit: cover;
   }
 
   .other-product-images {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  }
-
-  .color-options {
-    margin-top: 15px;
-  }
-
-  .color-selection-message {
-    font-size: 0.9rem;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-  .product-image {
-    height: 200px;
-    width: 200px;
-    object-fit: contain;
-  }
-
-  .other-product-images img {
-    height: 70px;
-  }
-
-  .other-product-images {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  }
-
   .product-name {
-    font-size: 2rem;
+      font-size: 2rem;
   }
 
   .product-price {
-    font-size: 1.5rem;
+      font-size: 1.5rem;
   }
 
   .product-description {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 
-  .color-options {
-    margin-top: 10px;
+  .other-product-images img {
+      height: 70px;
   }
 
-  .color-selection-message {
-    font-size: 0.8rem;
+  .other-product-images {
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
   }
 
-  .color-circle{
-    margin: 7px 1px;
+  .color-circle {
+      margin: 7px 1px;
   }
 }
 
-/* Further adjustments for very small screens and portrait mode */
 @media (orientation: portrait) {
   .modal-image-container img {
-    max-height: 70vh;
+      max-height: 70vh;
   }
 }

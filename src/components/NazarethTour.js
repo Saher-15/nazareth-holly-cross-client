@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/NazarethTour.css'; 
+import "../App.css";
 
 const NazarethTour = () => {
   useEffect(() => {

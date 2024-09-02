@@ -2,14 +2,14 @@ import React, { useState, useMemo } from 'react';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import ConfirmationOrder from '../components/ConfirmationOrder'; // Import ConfirmationOrder component
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
+import ConfirmationOrder from '../components/ConfirmationOrder';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 import "../styles/PaypalProduct.css";
 
 const PayPalComponent = ({ totalAmount, cartItems }) => {
-    const [showConfirmation, setShowConfirmation] = useState(false); // State to control visibility of ConfirmationOrder
-    const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const [form, setForm] = useState({
         firstname: "",
         lastname: "",
@@ -28,17 +28,17 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
     const options = useMemo(() => countryList().getData(), []);
 
     const changePhoneHandler = value => {
-        setphoneValue(value)
-        setForm(prev => ({ ...prev, phone: value }))
+        setphoneValue(value);
+        setForm(prev => ({ ...prev, phone: value }));
     }
 
     const changeHandler = value => {
-        setValue(value)
-        setForm(prev => ({ ...prev, country: value.label }))
+        setValue(value);
+        setForm(prev => ({ ...prev, country: value.label }));
     }
 
     const handleChangeForm = (e) => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         setForm((prevData) => ({
             ...prevData,
             [name]: value,
@@ -49,11 +49,10 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
         clientId: "AfhOc9ToAj72gf5KEowYfhpWShGRSpzSL-Ps2HYX4ky95KmVX8vNRb0o5FZ3AGw3muq8DIvDP0Ua2_ad"
     };
 
-    const intent = 'capture'; // Set your intent variable here
+    const intent = 'capture';
 
     const onCancel = (data) => {
         setShowAlert(true);
-        // Set a timer to hide the alert after 2 seconds
         setTimeout(() => {
             setShowAlert(false);
         }, 2000);
@@ -78,11 +77,9 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             }
 
             const order = await response.json();
-
             return order.id;
         } catch (error) {
             console.error('Error creating order:');
-            // Handle error here
         }
     };
 
@@ -102,56 +99,45 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
             body: JSON.stringify(requestBody)
         })
             .then((response) => {
-                setShowConfirmation(true); // Show ConfirmationOrder component after payment is completed
-                response.json()
+                setShowConfirmation(true);
+                response.json();
             })
-
             .catch((error) => {
             });
     };
 
-    // Check if any of the required fields are empty
     const isFormIncomplete = Object.values(form).some(value => value === "");
-
-    // Check if both email fields match
     const doEmailsMatch = form.email === form.confirmEmail;
 
     return (
-        <div className="App" >
+        <div className="App-paypal-product">
+
             <div className="container">
-                {/* <div className="left-side"> */}
-                <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
-                    <br />
+                {/* <label>
+                    Contact & Delivery Information
+                </label> */}
+                <form className="paypal-product-form center-form" onSubmit={(e) => e.preventDefault()}>
+                <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>Contact & Delivery Information</h2>
 
-                    <label
-                        htmlFor="first-name"
-                        className="block text-sm font-semibold leading-6 text-accent-content"
-                    >
-                        Contact & Delivery Information
-                    </label>
-                    <br />
-
-                    <div className="form-group">
-                        <div >
-                            <input
-                                type="text"
-                                name="firstname"
-                                placeholder="First Name"
-                                value={form.firstname}
-                                onChange={handleChangeForm}
-                                required
-                                className="form-control"
-                            />
-                            <input
-                                type="text"
-                                name="lastname"
-                                placeholder="Last Name"
-                                value={form.lastname}
-                                onChange={handleChangeForm}
-                                required
-                                className="form-control"
-                            />
-                        </div>
+                    <div className="form-group-paypal">
+                        <input
+                            type="text"
+                            name="firstname"
+                            placeholder="First Name"
+                            value={form.firstname}
+                            onChange={handleChangeForm}
+                            required
+                            className="form-control"
+                        />
+                        <input
+                            type="text"
+                            name="lastname"
+                            placeholder="Last Name"
+                            value={form.lastname}
+                            onChange={handleChangeForm}
+                            required
+                            className="form-control"
+                        />
                         <input
                             type="text"
                             name="email"
@@ -184,6 +170,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                             international
                             countryCallingCodeEditable={false}
                             defaultCountry='US'
+                            className="form-control PhoneInputInput"
                         />
                         <div className="form-group">
                             <Select
@@ -233,8 +220,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                     </div>
 
                 </form>
-                {/* </div> */}
-                {/* <div className="right-side"> */}
                 <div className="paypal-card">
                     <PayPalScriptProvider options={initialOptions} >
                         {isFormIncomplete && <p style={{ color: 'red', textAlign: 'center' }}>Please fill in all details to continue.</p>}
@@ -272,7 +257,6 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         </div>
                     )}
                 </div>
-                {/* </div> */}
             </div>
         </div>
     );

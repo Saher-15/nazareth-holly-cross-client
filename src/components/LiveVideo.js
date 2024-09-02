@@ -119,7 +119,7 @@ const LiveVideo = () => {
               <div className="live-client-event-info">
                 <h2>Upcoming Live Event</h2>
                 <p className="event-name"><strong>{event.description}</strong></p>
-                <p><strong>Date and Time:</strong> {new Date(event.dateTime).toLocaleString()}</p>
+                <p><strong>Nazareth Date and Time:</strong> {new Date(event.dateTime).toLocaleString()}</p>
                 <p><strong>Time Remaining:</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
                 {eventComingSoon && (
                   <p className="event-coming-soon">Stay tuned! The live stream will start in {Math.floor((new Date(event.dateTime) - new Date()) / (1000 * 60 * 60))} hour(s).</p>

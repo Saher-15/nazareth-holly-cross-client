@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Contact.css'; // Import CSS file for styling
 import "../styles/Candle.css";
+import "../App.css";
 
 function Contact() {
   // State to store form data

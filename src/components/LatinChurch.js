@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Pages.css';
 import { SiGooglemaps } from "react-icons/si";
+import "../App.css";
 
 const LatinCurch = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);

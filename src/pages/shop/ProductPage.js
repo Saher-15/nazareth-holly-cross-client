@@ -63,17 +63,17 @@ const ProductPage = () => {
       setTimeout(() => setcolorelectionMessage(''), 2000);
       return;
     }
-  
+
     // Determine the correct image based on the selected color
     let selectedImage = product.img; // Default to main image
-  
+
     if (product.color && product.color.length > 0 && selectedColor) {
       const colorIndex = product.color.indexOf(selectedColor);
       if (colorIndex !== -1 && product.additionalImageUrls && product.additionalImageUrls.length > colorIndex) {
         selectedImage = product.additionalImageUrls[colorIndex]; // Set image to corresponding additional image
       }
     }
-  
+
     const item = {
       _id: product._id,
       name: product.name,
@@ -81,12 +81,12 @@ const ProductPage = () => {
       img: selectedImage, // Use the determined image
       color: selectedColor // Ensure this is a single color, not an array
     };
-  
+
     addToCart(item);
     setShowMessage(true);
     setTimeout(() => setShowMessage(false), 2000);
   };
-  
+
   const openZoomModal = (image) => {
     setZoomedImage(image);
     setZoomStyle({
@@ -182,7 +182,7 @@ const ProductPage = () => {
         </div>
         <div className="description">
           <h1 className="product-name">{name}</h1>
-          
+
           <div className="other-product-images">
             <img
               src={img}
@@ -218,8 +218,7 @@ const ProductPage = () => {
               </div>
             </div>
           )}
-          <p className="product-price">${price}</p>
-          <p>Free shipping</p>
+          <p className="product-price">{price}$<br />Free shipping</p>
           <p className="product-description">{description}</p>
         </div>
       </div>
