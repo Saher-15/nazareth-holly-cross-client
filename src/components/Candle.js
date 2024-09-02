@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import '../App.css';
-import '../styles/Candle.css'
+import '../styles/Candle.css';
+
 function Candle() {
   const [form, setForm] = useState({
     firstname: "",
@@ -26,6 +26,7 @@ function Candle() {
   const handleLightButton = async () => {
     // Check if any input fields are empty
     if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray) {
+      setInputWarning("Please fill in all fields");
       setTimeout(() => {
         setInputWarning(""); // Clear the warning message after 2 seconds
       }, 2000);
@@ -42,23 +43,25 @@ function Candle() {
     }
 
     try {
+      // Navigate to PayPal component with form data
       navigate("/checkoutcandle", { state: { form: form } });
     } catch (error) {
-      console.error("Error lighting a candle:");
+      console.error("Error lighting a candle:", error);
     }
   };
 
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this effect runs only once, on mount
+  }, []);
 
   return (
     <div className="candle">
-      {/* <div className="blur-background"></div> Add a div for the blurred background */}
-
       <div className="leftSide">
-        <p className="prayer-message">Light a candle in a Nazareth church and share your wish or prayer with us.<br/> We'll keep the tradition alive by lighting a candle for you and send a video confirmation to your email.</p>
+        <p className="prayer-message">
+          Light a candle in a Nazareth church and share your wish or prayer with us.<br />
+          We'll keep the tradition alive by lighting a candle for you and send a video confirmation to your email.
+        </p>
       </div>
 
       <div className="rightSide">
@@ -143,16 +146,15 @@ function Candle() {
           <label
             className="block text-sm font-semibold leading-6 text-accent-content text-center"
           >
-            To light a candle, pay 2$
+            To light a candle, pay $2
           </label>
 
           <div className='hero-btns-candle'>
             <button onClick={handleLightButton}>LIGHT</button>
           </div>
         </form>
-
       </div>
-    </div >
+    </div>
   );
 }
 

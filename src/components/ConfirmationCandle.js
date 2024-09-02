@@ -2,13 +2,11 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
 
-function ThankYou({ firstName, lastName, email, prayer }) {
+const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
     const navigate = useNavigate(); // Get the navigate function
 
     useEffect(() => {
-
         const sendOrderDetails = async () => {
-
             try {
                 const requestBody = {
                     firstName,
@@ -17,16 +15,16 @@ function ThankYou({ firstName, lastName, email, prayer }) {
                     prayer
                 };
 
+                // Send order details to the server
                 await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle", requestBody);
 
+                // Redirect to homepage after 5 seconds
                 setTimeout(() => {
                     navigate("/");
                 }, 5000);
             } catch (error) {
-                console.error('Error sending order details:');
+                console.error('Error sending order details:', error);
             }
-
-            
         };
 
         sendOrderDetails();
@@ -40,7 +38,7 @@ function ThankYou({ firstName, lastName, email, prayer }) {
             <p>Thank you for your order!</p>
         </div>
     );
-}
+};
 
 const styles = {
     container: {
@@ -52,4 +50,4 @@ const styles = {
     },
 };
 
-export default ThankYou;
+export default ConfirmationCandle;

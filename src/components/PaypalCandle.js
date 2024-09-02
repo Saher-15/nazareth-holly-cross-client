@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import ConfirmationCandle from '../components/ConfirmationCandle'; // Import ConfirmationCandle component
 import "../styles/PaypalCandle.css";
 
 const PayPalComponent = ({ form }) => {
-    const [showConfirmation, setShowConfirmation] = useState(false); // State to control visibility of ConfirmationCandle
+    const [paymentConfirmed, setPaymentConfirmed] = useState(false); // State to control payment initiation
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
 
     const initialOptions = {
@@ -43,7 +42,7 @@ const PayPalComponent = ({ form }) => {
 
             return order.id;
         } catch (error) {
-            console.error('Error creating order:');
+            console.error('Error creating order:', error);
             // Handle error here
         }
     };
@@ -65,20 +64,35 @@ const PayPalComponent = ({ form }) => {
         })
             .then((response) => response.json())
             .then((order_details) => {
-                setShowConfirmation(true); // Show ConfirmationCandle component after payment is completed
+                // Show ConfirmationCandle component after payment is completed
             })
             .catch((error) => {
+                console.error('Error completing order:', error);
             });
+    };
+
+    const handleConfirmPayment = () => {
+        setPaymentConfirmed(true);
     };
 
     return (
         <div className="App-paypal-candle">
-            
+            {/* Display form summary */}
+            <div className="form-summary">
+                <h2>Order Summary</h2>
+                <p><strong>First Name:</strong> {form.firstname}</p>
+                <p><strong>Last Name:</strong> {form.lastname}</p>
+                <p><strong>Email:</strong> {form.email}</p>
+                <p><strong>Prayer:</strong> {form.pray}</p>
+                <button onClick={handleConfirmPayment}>
+                    {paymentConfirmed ? "Confirmed" : "Confirm Details & Pay"}
+                </button>
+            </div>
 
+            {/* Render PayPalButtons right below the form */}
             <div className="paypal-card1">
-
-                <PayPalScriptProvider options={initialOptions} >
-                    {!showConfirmation && ( // Render PayPalButtons if showConfirmation is false
+                <PayPalScriptProvider options={initialOptions}>
+                    {paymentConfirmed && (
                         <div className="paypal-buttons-container">
                             <PayPalButtons
                                 createOrder={createOrder}
@@ -90,26 +104,15 @@ const PayPalComponent = ({ form }) => {
                     )}
                 </PayPalScriptProvider>
             </div>
-            {/* Pass order details and cartItems to ConfirmationCandle if showConfirmation is true */}
-            {showConfirmation && (
-                <ConfirmationCandle
-                    firstName={form.firstname}
-                    lastName={form.lastname}
-                    email={form.email}
-                    prayer={form.pray}
-                />
-            )}
-            {/* Display alert message if showAlert is true */}
+
             {showAlert && (
                 <div className="ms-alert ms-action2 ms-small">
                     <span className="ms-close"></span>
                     <p>Order cancelled!</p>
                 </div>
             )}
-            
         </div>
-        
     );
-}
+};
 
 export default PayPalComponent;
