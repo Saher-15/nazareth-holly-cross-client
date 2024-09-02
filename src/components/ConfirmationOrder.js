@@ -9,6 +9,7 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
 
     useEffect(() => {
         const sendOrderDetails = async () => {
+            
             try {
                 const requestBody = {
                     firstName,
@@ -24,7 +25,8 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                     products: cartItems.map(item => ({
                         productID: item._id,
                         productName: item.name,
-                        quantity: item.quantity
+                        quantity: item.quantity,
+                        color: item.color
                     }))
                 };
 
