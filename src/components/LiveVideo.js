@@ -1,31 +1,30 @@
-import React, { useRef, useEffect, useState } from 'react';
-import io from 'socket.io-client';
+import React, { useEffect, useState } from 'react';
 import "../styles/LiveClient.css";
 
 // Update events with date and time
 const events = [
-  { dateTime: new Date(2024, 8, 8, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 1, 2024, 2:00 PM
+  { dateTime: new Date(2024, 8, 8, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 8, 2024, 9:00 AM
 ];
 
 const LiveVideo = () => {
-  const videoRef = useRef(null);
-  const [socket, setSocket] = useState(null);
-  const [isLive, setIsLive] = useState(false); // State to track if the live stream is active
-  const [event, setEvent] = useState(null); // State to hold event data
+  const [event, setEvent] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState('');
   const [eventComingSoon, setEventComingSoon] = useState(false);
-  const [inLiveMode, setInLiveMode] = useState(false); // State to determine if we are in live mode
+  const [inLiveMode, setInLiveMode] = useState(false);
+  const [isEventDay, setIsEventDay] = useState(false);
 
   useEffect(() => {
-    // Scroll to the top of the page
     window.scrollTo(0, 0);
   }, [inLiveMode]);
 
   useEffect(() => {
-    // Find the most upcoming event
     const getMostUpcomingEvent = () => {
       const now = new Date();
-      const upcomingEvents = events.filter(event => event.dateTime > now);
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const upcomingEvents = events.filter(event => {
+        const eventDate = new Date(event.dateTime.getFullYear(), event.dateTime.getMonth(), event.dateTime.getDate());
+        return eventDate >= today;
+      });
       return upcomingEvents.sort((a, b) => a.dateTime - b.dateTime)[0] || null;
     };
 
@@ -38,40 +37,16 @@ const LiveVideo = () => {
       const timeDiff = eventDateTime - now;
       const hoursUntilEvent = Math.floor(timeDiff / (1000 * 60 * 60));
 
-      // Show "Coming Soon" message if event is within 24 hours
       setEventComingSoon(hoursUntilEvent > 0 && hoursUntilEvent <= 24);
-
-      // Set page to live mode if there is an active stream
       setInLiveMode(true);
+
+      // Check if today is the event day (ignoring time)
+      const today = new Date();
+      const eventDate = new Date(eventDateTime.getFullYear(), eventDateTime.getMonth(), eventDateTime.getDate());
+      setIsEventDay(today.toDateString() === eventDate.toDateString());
     } else {
       setInLiveMode(false);
     }
-
-    // Initialize socket connection
-    const socketIo = io('https://your-server-url.com');
-    setSocket(socketIo);
-
-    // Listen for the stream from the server
-    socketIo.on('stream', (stream) => {
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play();
-        setIsLive(true); // Set live status to true when a stream is received
-        setInLiveMode(true); // Set page to live mode
-      }
-    });
-
-    // If no stream, set isLive to false
-    socketIo.on('stream-off', () => {
-      setIsLive(false);
-      setInLiveMode(false); // Reset live mode
-    });
-
-    return () => {
-      if (socketIo) {
-        socketIo.disconnect();
-      }
-    };
   }, []);
 
   useEffect(() => {
@@ -99,37 +74,35 @@ const LiveVideo = () => {
     }
   }, [event]);
 
+  const handleJoinLive = () => {
+    window.open('https://nazarethholycross-live.netlify.app', '_blank');
+  };
+
   return (
     <div className={`live-client-container ${inLiveMode ? 'live-mode' : ''}`}>
       <div className="live-client-content">
-
-        {isLive ? (
-          <video
-            ref={videoRef}
-            className="live-client-video"
-            autoPlay
-            playsInline
-            controls
-          ></video>
-        ) : (
-          <div className="live-client-placeholder">
-            {events.length === 0 ? (
-              <p>No upcoming events available.</p>
-            ) : event ? (
-              <div className="live-client-event-info">
-                <h2>Upcoming Live Event</h2>
-                <p className="event-name"><strong>{event.description}</strong></p>
-                <p><strong>Nazareth Date and Time:</strong> {new Date(event.dateTime).toLocaleString()}</p>
-                <p><strong>Time Remaining:</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
-                {eventComingSoon && (
-                  <p className="event-coming-soon">Stay tuned! The live stream will start in {Math.floor((new Date(event.dateTime) - new Date()) / (1000 * 60 * 60))} hour(s).</p>
-                )}
-              </div>
-            ) : (
-              <p>No upcoming events available.</p>
-            )}
-          </div>
-        )}
+        <div className="live-client-placeholder">
+          {events.length === 0 ? (
+            <p>No upcoming events available.</p>
+          ) : event ? (
+            <div className="live-client-event-info">
+              <h2>Upcoming Live Event</h2>
+              <p className="event-name"><strong>{event.description}</strong></p>
+              <p><strong>Nazareth Date and Time:</strong> {new Date(event.dateTime).toLocaleString()}</p>
+              <p><strong>Time Remaining:</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
+              {eventComingSoon && (
+                <p className="event-coming-soon">Stay tuned! The live stream will start in {Math.floor((new Date(event.dateTime) - new Date()) / (1000 * 60 * 60))} hour(s).</p>
+              )}
+              {isEventDay && (
+                <button className="join-live-button" onClick={handleJoinLive}>
+                  Join Live
+                </button>
+              )}
+            </div>
+          ) : (
+            <p>No upcoming events available.</p>
+          )}
+        </div>
       </div>
     </div>
   );
