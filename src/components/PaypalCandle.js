@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import "../styles/PaypalCandle.css";
+import ConfirmationCandle from '../components/ConfirmationCandle';
 
 const PayPalComponent = ({ form }) => {
     const [paymentConfirmed, setPaymentConfirmed] = useState(false); // State to control payment initiation
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     const initialOptions = {
         clientId: "AfhOc9ToAj72gf5KEowYfhpWShGRSpzSL-Ps2HYX4ky95KmVX8vNRb0o5FZ3AGw3muq8DIvDP0Ua2_ad"
@@ -62,12 +64,12 @@ const PayPalComponent = ({ form }) => {
             },
             body: JSON.stringify(requestBody)
         })
-            .then((response) => response.json())
-            .then((order_details) => {
-                // Show ConfirmationCandle component after payment is completed
+            .then((response) => {
+                setShowConfirmation(true);
+                response.json();
             })
             .catch((error) => {
-                console.error('Error completing order:', error);
+                console.error('Error completing order:');
             });
     };
 
@@ -92,7 +94,7 @@ const PayPalComponent = ({ form }) => {
             {/* Render PayPalButtons right below the form */}
             <div className="paypal-card1">
                 <PayPalScriptProvider options={initialOptions}>
-                    {paymentConfirmed && (
+                    {!showConfirmation && paymentConfirmed && (
                         <div className="paypal-buttons-container">
                             <PayPalButtons
                                 createOrder={createOrder}
@@ -103,6 +105,14 @@ const PayPalComponent = ({ form }) => {
                         </div>
                     )}
                 </PayPalScriptProvider>
+                {showConfirmation && (
+                        <ConfirmationCandle
+                            firstName={form.firstname}
+                            lastName={form.lastname}
+                            email={form.email}
+                            prayer={form.pray}
+                        />
+                    )}
             </div>
 
             {showAlert && (
