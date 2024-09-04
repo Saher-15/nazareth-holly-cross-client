@@ -146,7 +146,7 @@ function Candle() {
           <label
             className="block text-sm font-semibold leading-6 text-accent-content text-center"
           >
-            To light a candle, pay $2
+            To light a candle, pay 5$
           </label>
 
           <div className='hero-btns-candle'>
