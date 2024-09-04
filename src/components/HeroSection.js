@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import { useNavigate } from "react-router-dom";
+import ReactGA from 'react-ga';
 import '../styles/HeroSection.css';
 
 function HeroSection() {
@@ -57,8 +58,15 @@ function HeroSection() {
       setTimeout(() => setFormError(''), 3000);
       return;
     }
-    navigate("/checkoutdonation", { state: { name: name, amount: amount } });
 
+    // Google Analytics event tracking
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked Button',
+      label: 'Submit'
+    });
+
+    navigate("/checkoutdonation", { state: { name: name, amount: amount } });
   };
 
   return (
@@ -107,8 +115,7 @@ function HeroSection() {
             <button className='close-btn' onClick={closeModal}>×</button>
             {formError && <p className='form-error'>{formError}</p>}
             <form onSubmit={handleSubmit}>
-            <h3 style={{ textAlign: 'center', marginBottom: '1%'}}>Donation Form</h3>
-
+              <h3 style={{ textAlign: 'center', marginBottom: '1%' }}>Donation Form</h3>
               <div className='form-group'>
                 <input
                   type='text'
@@ -118,7 +125,6 @@ function HeroSection() {
                   onChange={(e) => setName(e.target.value)}
                   required
                   placeholder="Name"
-
                 />
               </div>
               <div className='form-group'>
@@ -130,7 +136,6 @@ function HeroSection() {
                   onChange={(e) => setAmount(e.target.value)}
                   required
                   placeholder="Donation amount"
-
                 />
               </div>
               <button
