@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import "../styles/PaypalCandle.css";
-import ConfirmationCandle from '../components/ConfirmationCandle';
 
-const PayPalComponent = ({ form }) => {
+const PayPalComponent = ({ name, amount }) => {
     const [paymentConfirmed, setPaymentConfirmed] = useState(false); // State to control payment initiation
     const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
     const [showConfirmation, setShowConfirmation] = useState(false);
+    const [thankYouMessage, setThankYouMessage] = useState(false); // State for thank you message
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const initialOptions = {
         clientId: "AfhOc9ToAj72gf5KEowYfhpWShGRSpzSL-Ps2HYX4ky95KmVX8vNRb0o5FZ3AGw3muq8DIvDP0Ua2_ad"
@@ -33,7 +35,7 @@ const PayPalComponent = ({ form }) => {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 },
-                body: JSON.stringify({ "intent": intent, "amount": "5" })
+                body: JSON.stringify({ "intent": intent, "amount": amount })
             });
 
             if (!response.ok) {
@@ -65,7 +67,12 @@ const PayPalComponent = ({ form }) => {
             body: JSON.stringify(requestBody)
         })
             .then((response) => {
+                setPaymentConfirmed(true);
                 setShowConfirmation(true);
+                setThankYouMessage(true); // Show thank you message
+                setTimeout(() => {
+                    navigate('/'); // Navigate to the homepage after 5 seconds
+                }, 5000);
                 response.json();
             })
             .catch((error) => {
@@ -82,10 +89,8 @@ const PayPalComponent = ({ form }) => {
             {/* Display form summary */}
             <div className="form-summary">
                 <h2>Order Summary</h2>
-                <p><strong>First Name:</strong> {form.firstname}</p>
-                <p><strong>Last Name:</strong> {form.lastname}</p>
-                <p><strong>Email:</strong> {form.email}</p>
-                <p><strong>Prayer:</strong> {form.pray}</p>
+                <p><strong>First Name:</strong> {name}</p>
+                <p><strong>Donation:</strong> {amount}$</p>
                 <button onClick={handleConfirmPayment}>
                     {paymentConfirmed ? "Confirmed" : "Confirm Details & Pay"}
                 </button>
@@ -105,24 +110,30 @@ const PayPalComponent = ({ form }) => {
                         </div>
                     )}
                 </PayPalScriptProvider>
-                {showConfirmation && (
-                        <ConfirmationCandle
-                            firstName={form.firstname}
-                            lastName={form.lastname}
-                            email={form.email}
-                            prayer={form.pray}
-                        />
-                    )}
             </div>
 
             {showAlert && (
                 <div className="ms-alert ms-action2 ms-small">
                     <span className="ms-close"></span>
-                    <p>Order cancelled!</p>
+                    <p>Cancelled!</p>
+                </div>
+            )}
+
+            {thankYouMessage && (
+                <div style={styles.container}>
+                    <p>Thank you for your donation!</p>
                 </div>
             )}
         </div>
     );
 };
-
+const styles = {
+    container: {
+        fontFamily: 'Arial, sans-serif',
+        textAlign: 'center',
+        padding: '20px',
+        backgroundColor: '#f4f4f4',
+        margin: 0,
+    },
+};
 export default PayPalComponent;

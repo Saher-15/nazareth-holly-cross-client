@@ -23,7 +23,7 @@ const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
                     navigate("/");
                 }, 5000);
             } catch (error) {
-                console.error('Error sending order details:', error);
+                console.error('Error sending order details:');
             }
         };
 

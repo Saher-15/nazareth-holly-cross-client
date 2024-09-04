@@ -17,6 +17,8 @@ const About = lazy(() => import("./pages/About"));
 const CheckOut = lazy(() => import("./pages/CheckOut"));
 const ContactUs = lazy(() => import("./components/Contact"));
 const CheckOutCandle = lazy(() => import("./pages/CheckOutCandle"));
+const CheckOutDonation = lazy(() => import("./pages/CheckOutDonation"));
+
 const Live = lazy(() => import("./pages/Live"));
 const Tour = lazy(() => import("./components/NazarethTour"));
 const Shop = lazy(() => import("./pages/shop/shop"));
@@ -144,6 +146,14 @@ function App() {
             element={
               <Suspense fallback={<div>Loading CheckOut Candle...</div>}>
                 <Layout><CheckOutCandle /></Layout>
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/checkoutdonation" 
+            element={
+              <Suspense fallback={<div>Loading CheckOut Donation...</div>}>
+                <Layout><CheckOutDonation /></Layout>
               </Suspense>
             } 
           />

@@ -46,7 +46,7 @@ function Candle() {
       // Navigate to PayPal component with form data
       navigate("/checkoutcandle", { state: { form: form } });
     } catch (error) {
-      console.error("Error lighting a candle:", error);
+      console.error("Error lighting a candle:");
     }
   };
 
