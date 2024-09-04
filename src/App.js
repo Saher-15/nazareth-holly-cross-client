@@ -1,10 +1,14 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import ShopContextProvider from "./context/shop-context";
+import ReactGA from 'react-ga'; // Import ReactGA for Google Analytics
 
-// Lazy load all pages
+// Initialize Google Analytics
+const trackingId = "G-VE42K6WP4H"; // Replace with your Google Analytics tracking ID
+ReactGA.initialize(trackingId);
+
 const Home = lazy(() => import("./pages/Home"));
 const Candle = lazy(() => import("./components/Candle"));
 const OldCity = lazy(() => import("./components/OldNazareth"));
@@ -18,13 +22,30 @@ const CheckOut = lazy(() => import("./pages/CheckOut"));
 const ContactUs = lazy(() => import("./components/Contact"));
 const CheckOutCandle = lazy(() => import("./pages/CheckOutCandle"));
 const CheckOutDonation = lazy(() => import("./pages/CheckOutDonation"));
-
 const Live = lazy(() => import("./pages/Live"));
 const Tour = lazy(() => import("./components/NazarethTour"));
 const Shop = lazy(() => import("./pages/shop/shop"));
 const ProductPage = lazy(() => import("./pages/shop/ProductPage"));
 
 function App() {
+  useEffect(() => {
+    // Track page views with Google Analytics
+    const handleRouteChange = (path) => {
+      ReactGA.set({ page: path });
+      ReactGA.pageview(path);
+    };
+
+    // Listen to route changes
+    const unlisten = Router.history.listen((location) => {
+      handleRouteChange(location.pathname);
+    });
+
+    // Clean up listener on unmount
+    return () => {
+      unlisten();
+    };
+  }, []);
+
   return (
     <ShopContextProvider>
       <Router>
