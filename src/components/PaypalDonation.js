@@ -89,7 +89,7 @@ const PayPalComponent = ({ name, amount }) => {
             {/* Display form summary */}
             <div className="form-summary">
                 <h2>Order Summary</h2>
-                <p><strong>First Name:</strong> {name}</p>
+                <p><strong>Name:</strong> {name}</p>
                 <p><strong>Donation:</strong> {amount}$</p>
                 <button onClick={handleConfirmPayment}>
                     {paymentConfirmed ? "Confirmed" : "Confirm Details & Pay"}

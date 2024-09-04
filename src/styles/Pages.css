@@ -100,9 +100,10 @@
 }
 
 .modal-content {
-  max-width: 90%;
-  max-height: 80%;
+  width: 50%;
+  height: auto;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .close {
