@@ -1,3 +1,15 @@
+/* Shipping Note */
+.shipping-note {
+  font-size: 16px; /* Font size for shipping note */
+  color: #dc3545; /* Slightly muted color */
+  margin-top: 20px; /* Space above the shipping note */
+  text-align: center; /* Center text */
+  padding: 10px; /* Padding around the note */
+  background-color: #f8f9fa; /* Light background color for emphasis */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+}
+
 /* Checkout Container */
 .checkout {
   display: flex;

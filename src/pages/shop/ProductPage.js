@@ -220,6 +220,9 @@ const ProductPage = () => {
           )}
           <p className="product-price">{price}$</p>
           <p className="product-description">{description}</p>
+          <p className="shipping-note-product-page">
+            An additional 5$ shipping fee will be applied to the total at checkout.
+          </p>
         </div>
       </div>
 

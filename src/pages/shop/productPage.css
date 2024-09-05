@@ -23,6 +23,17 @@
   color: #333; /* Darker icon color on hover */
 }
 
+.shipping-note-product-page {
+  font-size: 16px; /* Font size for shipping note */
+  color: #dc3545; /* Slightly muted color */
+  margin-top: 20px; /* Space above the shipping note */
+  text-align: center; /* Center text */
+  padding: 10px; /* Padding around the note */
+  background-color: #f8f9fa; /* Light background color for emphasis */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+}
+
 .cart-item-count {
   background-color: #e74c3c;
   color: #fff;
@@ -148,10 +159,10 @@
 
 /* Enhanced Product price styling */
 .product-price {
+  margin-top: 1%;
   font-size: 2rem; /* Adjust size as needed */
   color: #ff5252; /* Color for the price */
   font-weight: 700; /* Bolder text */
-  margin-bottom: 10px; /* Space below the price */
   text-align: center; /* Center the text */
   max-width: 600px; /* Ensure it doesn't take full width */
   overflow-wrap: break-word; /* Prevent long words from overflowing */
