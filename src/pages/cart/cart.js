@@ -38,7 +38,7 @@ const Cart = () => {
 
         <div className="checkout">
           <div className="shipping-note">
-            <p>Shipping: 4$</p>
+            <p>Shipping: 5$</p>
             <p>Subtotal: {totalAmount.toFixed(2)}$</p>
           </div>
 
@@ -47,8 +47,8 @@ const Cart = () => {
         </div>
       ) : (
         <div className="checkout">
-          <h1>Your Shopping Cart is Empty</h1>
-          <button onClick={() => navigate("/shop")}>Back To Shopping</button>
+          <h1>Your Cart is Empty</h1>
+          <button conClick={() => navigate("/shop")}>Back To Shopping</button>
         </div>
       )}
     </div>

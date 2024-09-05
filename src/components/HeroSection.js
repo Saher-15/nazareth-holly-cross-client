@@ -104,18 +104,17 @@ function HeroSection() {
         >
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>
-        <button className='donate-btn' onClick={openModal}>
-          <i className='fas fa-donate'></i>
-        </button>
       </div>
-
+      <button className='donate-btn' onClick={openModal}>
+        <i className='fas fa-donate'></i>
+      </button>
       {isModalOpen && (
         <div className='donation-modal show'>
           <div className='donation-content'>
             <button className='close-btn' onClick={closeModal}>×</button>
             {formError && <p className='form-error'>{formError}</p>}
             <form onSubmit={handleSubmit}>
-              <h3 style={{ textAlign: 'center', marginBottom: '1%' }}>Donation Form</h3>
+              <h3 style={{ textAlign: 'center', marginBottom: '2%' }}>Support nazareth - Every donation counts</h3>
               <div className='form-group'>
                 <input
                   type='text'

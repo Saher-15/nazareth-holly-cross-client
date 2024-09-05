@@ -88,7 +88,7 @@ const PayPalComponent = ({ name, amount }) => {
         <div className="App-paypal-candle">
             {/* Display form summary */}
             <div className="form-summary">
-                <h2>Order Summary</h2>
+                <h2>Donation Summary</h2>
                 <p><strong>Name:</strong> {name}</p>
                 <p><strong>Donation:</strong> {amount}$</p>
                 <button onClick={handleConfirmPayment}>

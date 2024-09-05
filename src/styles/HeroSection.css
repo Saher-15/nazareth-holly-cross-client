@@ -1,27 +1,34 @@
 /* Container for positioning */
 .hero-container-wrapper {
   position: relative;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh;
+  /* Full height of the viewport */
   width: 100%;
-  overflow: hidden; /* Hide anything that overflows */
+  overflow: hidden;
+  /* Hide anything that overflows */
 }
 
 /* Video Background */
 .hero-v {
-  position: absolute; /* Position the video absolutely within the wrapper */
+  position: absolute;
+  /* Position the video absolutely within the wrapper */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cover the area without stretching */
-  z-index: -1; /* Place the video behind the content */
-  filter: brightness(0.8); /* Adjust brightness if needed */
+  object-fit: cover;
+  /* Cover the area without stretching */
+  z-index: -1;
+  /* Place the video behind the content */
+  filter: brightness(0.65);
+  /* Adjust brightness if needed */
 }
 
 /* Hero Section Container */
 .hero-container {
   min-height: 100vh;
-  position: relative; /* Ensure this is relative to the wrapper */
+  position: relative;
+  /* Ensure this is relative to the wrapper */
   height: 100%;
   width: 100%;
   display: flex;
@@ -29,11 +36,12 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  z-index: 1; /* Ensure it is above the video */
+  z-index: 1;
+  /* Ensure it is above the video */
 }
 
 /* Hero Heading */
-.hero-container > h1 {
+.hero-container>h1 {
   color: #fff;
   font-size: 4vw;
   margin-top: -8vh;
@@ -46,7 +54,7 @@
 }
 
 /* Hero Subtext */
-.hero-container > p {
+.hero-container>p {
   margin-top: 2vh;
   color: #fff;
   font-size: 2vw;
@@ -85,7 +93,8 @@
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
-  z-index: 2; /* Ensure it is above the video */
+  z-index: 2;
+  /* Ensure it is above the video */
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -108,17 +117,22 @@
 /* Donate Button */
 .donate-btn {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  top: 17%;
+  right: 20px;
   background-color: #4CAF50;
   color: white;
   border: none;
+  transform: translateY(-50%);
   border-radius: 50%;
-  padding: 15px;
-  font-size: 1.5rem;
+  padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 2; /* Ensure it is above other elements */
+  z-index: 2;
+  /* Ensure it is above other elements */
+}
+
+.donate-btn i {
+  font-size: 1.5rem;
 }
 
 .donate-btn:hover {
@@ -137,10 +151,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3; /* Ensure it's above other elements */
-  visibility: hidden; /* Hidden by default */
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+  z-index: 3;
+  /* Ensure it's above other elements */
+  visibility: hidden;
+  /* Hidden by default */
+  opacity: 0;
+  /* Hidden by default */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  /* Smooth transition */
 }
 
 .donation-modal.show {
@@ -210,12 +228,12 @@ button[type='submit']:disabled {
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
-  .hero-container > h1 {
+  .hero-container>h1 {
     font-size: 8vw;
     margin-top: -10vh;
   }
 
-  .hero-container > p {
+  .hero-container>p {
     font-size: 3vw;
   }
 
@@ -230,7 +248,7 @@ button[type='submit']:disabled {
   .sound-control-btn i {
     font-size: 1.2rem;
   }
-  
+
   .donate-btn {
     padding: 12px;
     font-size: 1.2rem;
@@ -238,19 +256,19 @@ button[type='submit']:disabled {
 }
 
 @media screen and (max-width: 480px) {
-  .hero-container > h1 {
+  .hero-container>h1 {
     font-size: 10vw;
     margin-top: -12vh;
   }
 
-  .hero-container > p {
+  .hero-container>p {
     font-size: 4vw;
   }
 
   .hero-btns {
     margin-top: 1vh;
   }
-  
+
   .donate-btn {
     padding: 10px;
     font-size: 1rem;

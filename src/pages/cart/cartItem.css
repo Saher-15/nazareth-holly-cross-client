@@ -13,9 +13,9 @@
 }
 
 .cartItem img {
-  width: 25vh;
-  height: auto;
-  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
   border-radius: 8px;
   margin-bottom: 12px;
   display: block;
@@ -160,9 +160,9 @@
   }
 
   .cartItem img {
-    width: 15vh;
-    height: auto;
-    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
     margin-bottom: 12px;
     /* Space between image and text */
   }
