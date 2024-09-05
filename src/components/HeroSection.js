@@ -138,6 +138,7 @@ function HeroSection() {
                 />
               </div>
               <button
+              className='donation-submit'
                 type='submit'
                 disabled={!name || !amount}
               >

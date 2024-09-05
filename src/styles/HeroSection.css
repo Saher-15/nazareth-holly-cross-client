@@ -1,34 +1,27 @@
 /* Container for positioning */
 .hero-container-wrapper {
   position: relative;
-  height: 100vh;
-  /* Full height of the viewport */
+  height: 100vh; /* Full height of the viewport */
   width: 100%;
-  overflow: hidden;
-  /* Hide anything that overflows */
+  overflow: hidden; /* Hide anything that overflows */
 }
 
 /* Video Background */
 .hero-v {
-  position: absolute;
-  /* Position the video absolutely within the wrapper */
+  position: absolute; /* Position the video absolutely within the wrapper */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  /* Cover the area without stretching */
-  z-index: -1;
-  /* Place the video behind the content */
-  filter: brightness(0.65);
-  /* Adjust brightness if needed */
+  object-fit: cover; /* Cover the area without stretching */
+  z-index: -1; /* Place the video behind the content */
+  filter: brightness(0.8); 
 }
 
 /* Hero Section Container */
 .hero-container {
   min-height: 100vh;
-  position: relative;
-  /* Ensure this is relative to the wrapper */
+  position: relative; /* Ensure this is relative to the wrapper */
   height: 100%;
   width: 100%;
   display: flex;
@@ -36,8 +29,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  z-index: 1;
-  /* Ensure it is above the video */
+  z-index: 1; /* Ensure it is above the video */
 }
 
 /* Hero Heading */
@@ -47,8 +39,7 @@
   margin-top: -8vh;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  /* Ensure heading does not overflow */
+  letter-spacing: 2px; /* Ensure heading does not overflow */
   max-width: 90%;
   overflow-wrap: break-word;
 }
@@ -59,8 +50,7 @@
   color: #fff;
   font-size: 2vw;
   text-align: center;
-  font-style: italic;
-  /* Ensure text does not overflow */
+  font-style: italic; /* Ensure text does not overflow */
   max-width: 90%;
   overflow-wrap: break-word;
 }
@@ -93,8 +83,7 @@
   top: 50%;
   left: 20px;
   transform: translateY(-50%);
-  z-index: 2;
-  /* Ensure it is above the video */
+  z-index: 2; /* Ensure it is above the video */
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -117,18 +106,16 @@
 /* Donate Button */
 .donate-btn {
   position: fixed;
-  top: 17%;
+  top: 15%;
   right: 20px;
   background-color: #4CAF50;
   color: white;
   border: none;
-  transform: translateY(-50%);
   border-radius: 50%;
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  z-index: 2;
-  /* Ensure it is above other elements */
+  z-index: 2; /* Ensure it is above other elements */
 }
 
 .donate-btn i {
@@ -142,23 +129,20 @@
 
 /* Modal Styles */
 .donation-modal {
+  color: white;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
-  /* Ensure it's above other elements */
-  visibility: hidden;
-  /* Hidden by default */
-  opacity: 0;
-  /* Hidden by default */
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  /* Smooth transition */
+  z-index: 3; /* Ensure it's above other elements */
+  visibility: hidden; /* Hidden by default */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
 }
 
 .donation-modal.show {
@@ -166,12 +150,28 @@
   opacity: 1;
 }
 
+.donation-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Darken background */
+  filter: blur(10px); /* Apply blur effect */
+  z-index: -1; /* Ensure it's behind the modal content */
+}
+
 .donation-content {
-  background: white;
+  background-image: url('/images/nazareth/nazareth10.jpg');
+  background-size: cover; /* Ensure the image covers the content area */
+  background-repeat: no-repeat; /* Ensure the image does not repeat */
+  background-position: center; /* Center the image within the container */
   padding: 20px;
   border-radius: 8px;
   width: 90%;
   max-width: 400px;
+  height: 300px;
   position: relative;
 }
 
@@ -222,7 +222,7 @@ button[type='submit']:disabled {
   background: transparent;
   border: none;
   font-size: 1.5rem;
-  color: #000;
+  color: #fff;
   cursor: pointer;
 }
 
