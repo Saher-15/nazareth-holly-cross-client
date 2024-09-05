@@ -25,7 +25,7 @@ function Footer() {
               <FaRegEnvelope className="icon" />
               <span>nazarethholycross@gmail.com</span>
             </a>
-            <a href="https://www.instagram.com/your_instagram_handle/" target="_blank" rel="noopener noreferrer" className="instagram-button">
+            <a href="https://www.instagram.com/nazareth_holy_cross/" target="_blank" rel="noopener noreferrer" className="instagram-button">
               <FaInstagram className="icon" />
               <span>Follow us on Instagram</span>
             </a>
