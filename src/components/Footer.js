@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaRegEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
 import '../styles/Footer.css';
+// import logo from '../images/logo.webp'; // Ensure the correct path to your logo
 
 function Footer() {
   return (
@@ -24,7 +25,7 @@ function Footer() {
               <FaRegEnvelope className="icon" />
               <span>nazarethholycross@gmail.com</span>
             </a>
-            <a href="https://www.instagram.com/nazareth_holy_cross/" target="_blank" rel="noopener noreferrer" className="instagram-button">
+            <a href="https://www.instagram.com/your_instagram_handle/" target="_blank" rel="noopener noreferrer" className="instagram-button">
               <FaInstagram className="icon" />
               <span>Follow us on Instagram</span>
             </a>
@@ -47,7 +48,9 @@ function Footer() {
           </div>
         </div>
       </div>
-
+      <div className="footer-logo">
+        <img src='/images/logo.webp' alt="Nazareth Holy Cross Logo" />
+      </div>
       <div className="footer-bottom">
         <p className="copyright-text">
           Copyright © 2024 - All rights reserved by NazarethHolyCross
