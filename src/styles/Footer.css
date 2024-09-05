@@ -1,147 +1,154 @@
-/* Footer.css */
-
 /* General styles */
 .footer-container {
-  background-color: #242424;
-  padding: 2rem 0;
+  background-color: #1b1b1b;
+  padding: 3rem 1rem;
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
 }
 
-.footer-links {
-  margin-bottom: 1rem;
-}
-
-.about-us-link {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.about-us-link:hover {
-  color: #0056b3;
-}
-
-/* Topbar styling */
-.topbar ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.topbar li {
-  display: flex;
-  align-items: center;
-  margin: 0 10px;
-}
-
-/* Email button styling */
-.email-button {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
-}
-
-.email-button .icon {
-  margin-right: 8px;
-}
-
-.email-button:hover {
-  background-color: #0056b3;
-}
-
-/* Icon styling */
-.icon {
-  color: #fff;
-  font-size: 1.5rem;
-  margin-right: 8px;
-}
-
-.contact-info {
-  color: #fff;
-  font-size: 1rem;
-}
-
-/* Footer credits */
-.footer-credits {
-  margin-top: 1rem;
-}
-
-.copyright-text {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.credits {
+.footer-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
 }
 
-.credit-item {
+.footer-section {
+  margin-bottom: 2rem;
+  text-align: left;
+  max-width: 400px;
+}
+
+.footer-section h2 {
+  font-size: 1.8rem;
+  color: #ffcc00;
+  margin-bottom: 1rem;
+}
+
+.about-us {
+  border-left: 4px solid #ffcc00;
+  padding-left: 1rem;
+}
+
+.about-us p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-us-link {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #ffcc00;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-us-link:hover {
+  background-color: #ffcc00;
+  color: #1b1b1b;
+}
+
+/* Contact Us styling */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.email-button, .instagram-button {
   display: flex;
   align-items: center;
-  margin: 5px 0;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  background-color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.email-button:hover, .instagram-button:hover {
+  background-color: #ffcc00;
+  color: #1b1b1b;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+/* Footer credits */
+.credits .credit-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .linkedin-link {
-  color: #fff;
+  color: #ffcc00;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .linkedin-link:hover {
-  color: #007bff;
+  color: #fff;
 }
 
 .linkedin-icon {
   font-size: 1.5rem;
-  margin-right: 8px;
+  margin-right: 10px;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  margin-top: 2rem;
+}
+
+.copyright-text {
+  font-size: 1rem;
+  color: #aaa;
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-  .about-us-link {
-    font-size: 14px;
-  }
-
-  .topbar li {
-    margin: 5px 0;
-  }
-
-  .footer-credits .credit-item {
+  .footer-content {
     flex-direction: column;
-    align-items: center;
-    margin: 10px 0;
+    text-align: center;
   }
 
-  .linkedin-link {
-    font-size: 0.9rem;
+  .footer-section {
+    max-width: 100%;
   }
 
-  .linkedin-icon {
-    font-size: 1.2rem;
+  .footer-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-us-link {
+    font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .email-button {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-
   .icon {
     font-size: 1.3rem;
+  }
+
+  .footer-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-us-link {
+    font-size: 0.9rem;
+  }
+
+  .email-button, .instagram-button {
+    padding: 0.6rem 1rem;
   }
 }
