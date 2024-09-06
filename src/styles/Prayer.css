@@ -29,6 +29,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     max-width: 500px;
     margin-right: 20px;
+    position: sticky; /* Keep form static on scroll */
+    top: 20px; /* Adjust the distance from the top */
 }
 
 /* Form Title */
@@ -216,4 +218,70 @@
 .no-messages {
     text-align: center;
     color: #666;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .pray-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-section {
+        margin-right: 0;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .form-title-text {
+        font-size: 20px;
+    }
+
+    .form-description {
+        font-size: 14px;
+    }
+
+    .form-textarea {
+        height: 100px;
+    }
+
+    .messages-title {
+        font-size: 18px;
+    }
+
+    .messages-description {
+        font-size: 14px;
+    }
+
+    .message-item {
+        font-size: 1em;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form-title-text {
+        font-size: 18px;
+    }
+
+    .form-description {
+        font-size: 12px;
+    }
+
+    .messages-title {
+        font-size: 16px;
+    }
+
+    .messages-description {
+        font-size: 12px;
+    }
+
+    .message-item {
+        font-size: 0.9em;
+    }
+
+    .form-textarea {
+        height: 80px;
+    }
 }
