@@ -3,7 +3,7 @@ import "../styles/LiveClient.css";
 import axios from 'axios';
 // Update events with date and time
 const events = [
-  { dateTime: new Date(2024, 8, 6, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 8, 2024, 9:00 AM
+  { dateTime: new Date(2024, 8, 8, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 8, 2024, 9:00 AM
 ];
 
 const LiveVideo = () => {
@@ -12,18 +12,6 @@ const LiveVideo = () => {
   const [eventComingSoon, setEventComingSoon] = useState(false);
   const [inLiveMode, setInLiveMode] = useState(false);
   const [isEventDay, setIsEventDay] = useState(false);
-
-  useEffect(() => {
-
-    async function getRoomId() {
-      const response = await axios.get('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/live/room_id');
-      console.log(response.data.roomID);
-    }
-
-    getRoomId();
-
-  }, []);
-
 
   useEffect(() => {
     window.scrollTo(0, 0);

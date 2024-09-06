@@ -92,15 +92,12 @@ function Pray() {
 
     return (
         <div className="pray-container">
-            <div className="success-message-container">
-                {showMessage && <p className="success-message">Message submitted successfully!</p>}
-            </div>
             <div className="form-section">
                 <form onSubmit={handleSubmit} className="message-form">
                     <label htmlFor="first-name" className="form-title">
                         <h2 className='form-title-text'>Corner for peace</h2>
                     </label>
-                    <div className="form-group">
+                    <div className="form-group-pray">
                         <div className="form-input-group">
                             <input
                                 type="text"
@@ -120,7 +117,7 @@ function Pray() {
                                 type="text" // Use text for country
                                 name="email"
                                 id="country"
-                                placeholder="Your Country" // Placeholder updated to reflect 'country'
+                                placeholder="Where are you from?" // Placeholder updated to reflect 'country'
                                 value={formData.email} // Still using 'email' as field name
                                 onChange={handleChange}
                                 required
@@ -130,7 +127,7 @@ function Pray() {
                         </div>
 
                         <textarea
-                            placeholder="Message"
+                            placeholder="Your pray"
                             id="msg"
                             name="msg"
                             value={formData.msg}
@@ -143,6 +140,9 @@ function Pray() {
                     <div className="form-submit-container">
                         <button type="submit" className="form-submit-button">Submit</button>
                     </div>
+                    <div className="success-message-container">
+                {showMessage && <p className="success-message">Message submitted successfully!</p>}
+            </div>
                 </form>
             </div>
 

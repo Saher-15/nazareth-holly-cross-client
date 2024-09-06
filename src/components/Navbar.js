@@ -63,15 +63,15 @@ function Navbar() {
                 Shop
               </Link>
             </li>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <Link
                 to='/prayer'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Contact
+                Prayers wall
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav >
