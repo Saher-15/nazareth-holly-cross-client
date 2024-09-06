@@ -1,0 +1,195 @@
+/* Pray.css */
+
+/* Container styling */
+.messages-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px;
+    padding: 30px;
+    background: url('https://source.unsplash.com/random/1600x900') no-repeat center center;
+    background-size: cover;
+    border-radius: 12px;
+    min-height: 80vh; /* Ensures the section takes most of the viewport height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    color: #fff; /* Light text color for contrast against background */
+}
+
+/* Peace Symbol Styling */
+.messages-section::before {
+    content: '✌️'; /* Peace symbol */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.1);
+    transform: rotate(20deg);
+    opacity: 0.7;
+    z-index: 0;
+}
+
+/* Messages Grid Styling */
+.messages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 30px;
+    padding: 20px;
+    justify-items: center;
+    align-items: start;
+    flex: 1; /* Allow grid to take remaining space */
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Title for the messages */
+.messages-section h3 {
+    text-align: center;
+    font-size: 36px;
+    color: #fffae6;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+/* Style individual messages as random notes */
+.message-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-family: 'Caveat', cursive; /* Handwritten-style font */
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 300px;
+    transform: rotate(calc(var(--random-angle) * 1deg));
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #ffeb3b; /* Bright border */
+    overflow: hidden;
+    z-index: 1;
+    background: linear-gradient(135deg, #ffeb3b, #fff); /* Gradient background */
+}
+
+/* Add interaction effects on hover */
+.message-item:hover {
+    transform: scale(1.1) rotate(calc(var(--random-angle) * 1deg));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Use a paper-like border */
+.message-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px dashed #bbb;
+    pointer-events: none;
+}
+
+/* Add a subtle gradient border effect */
+.message-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+/* Styling for paragraphs within message items */
+.message-item p {
+    margin: 12px 0;
+    color: #333; /* Dark text for better readability */
+}
+
+.message-item strong {
+    color: #222;
+}
+
+/* Randomize angles for each note to appear scattered */
+.message-item:nth-child(odd) {
+    --random-angle: -8;
+}
+
+.message-item:nth-child(even) {
+    --random-angle: 8;
+}
+
+.message-item:nth-child(3n) {
+    --random-angle: -4;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #ffeb3b; /* Bright yellow color */
+    margin: 20px 0;
+}
+
+/* Form Container Styling */
+.form-container {
+    flex-basis: 400px; /* Set width for the form container */
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ffeb3b; /* Bright border */
+    z-index: 1;
+}
+
+/* Form group styling */
+form .form-group {
+    margin-bottom: 25px;
+}
+
+/* Input and textarea styling */
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+/* Focus state for inputs and textareas */
+form input:focus, form textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit button styling */
+form button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+form button:active {
+    background-color: #004085;
+    transform: translateY(0);
+}

@@ -15,7 +15,7 @@ const Greek = lazy(() => import("./components/GreekChurch"));
 const Cart = lazy(() => import("./pages/cart/cart"));
 const About = lazy(() => import("./pages/About"));
 const CheckOut = lazy(() => import("./pages/CheckOut"));
-const ContactUs = lazy(() => import("./components/Contact"));
+const Prayer = lazy(() => import("./components/Prayer"));
 const CheckOutCandle = lazy(() => import("./pages/CheckOutCandle"));
 const CheckOutDonation = lazy(() => import("./pages/CheckOutDonation"));
 
@@ -118,10 +118,10 @@ function App() {
             } 
           />
           <Route 
-            path="/contact-us" 
+            path="/prayer" 
             element={
-              <Suspense fallback={<div>Loading Contact Us...</div>}>
-                <Layout><ContactUs /></Layout>
+              <Suspense fallback={<div>Loading Prayer...</div>}>
+                <Layout><Prayer /></Layout>
               </Suspense>
             } 
           />
