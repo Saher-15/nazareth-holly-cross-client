@@ -1,85 +1,182 @@
-/* Pray.css */
-
-/* Container Styling */
-.messages-section {
+/* Main Container */
+.pray-container {
+    position: relative; /* Ensure proper positioning for pseudo-elements */
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 40px;
-    padding: 30px;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/random/1600x900') no-repeat center center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #fff; /* Set text color to white for better contrast */
+    overflow: hidden; /* Hide any overflow from the blur effect */
+}
+
+/* Blur Effect Overlay */
+.blur-overlay {
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/images/vitrage-bg.jpg') no-repeat center center; /* Background image */
     background-size: cover;
-    border-radius: 16px;
-    min-height: 80vh;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    position: relative;
-    color: #fff;
-    overflow: hidden;
+    backdrop-filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Place behind the content */
 }
 
-/* Peace Symbol Styling */
-.messages-section::before {
-    content: '✌️';
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 100px;
-    color: rgba(255, 255, 255, 0.15);
-    transform: rotate(15deg);
-    opacity: 0.75;
-    z-index: 0;
+/* Form Section */
+.form-section {
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(
+        rgba(255, 0, 0, 0.5), /* Red color with 50% opacity */
+        rgba(255, 0, 0, 0.7)  /* Lighter red color with 70% opacity */
+    ); /* Gradient background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for form */
+    max-width: 600px; /* Max width for form */
+    width: 90%; /* Responsive width */
+    margin: 0 auto; /* Center the form */
 }
 
-/* Messages Grid Styling */
+/* Form Title */
+.form-title-text {
+    color: #ffdf00; /* Yellow color */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px; /* Increase font size for better visibility */
+    font-weight: bold; /* Make title bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+}
+
+/* Form Description */
+.form-description {
+    color: #ffdf00; /* Yellow color for better contrast */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold; /* Make description bold */
+    background-color: rgba(0, 0, 0, 0.5); /* Background color for text readability */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Form Inputs */
+.form-input-group {
+    margin-bottom: 15px;
+}
+
+/* Form Inputs and Textarea */
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light border color */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Placeholder Colors */
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: rgba(197, 197, 197, 0.7); /* Light placeholder color */
+}
+
+/* Form Textarea */
+.form-textarea {
+    height: 120px;
+}
+
+/* Submit Button */
+.form-submit-container {
+    text-align: center;
+}
+
+.form-submit-button {
+    padding: 10px 20px;
+    background-color: #ffdf00; /* Yellow background color */
+    color: #000; /* Dark text color for contrast */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 5px;
+}
+
+.form-submit-button:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.form-submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Success and Confirmation Message */
+.success-message-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: #ffdf00; /* Yellow color */
+    font-weight: bold;
+}
+
+/* Messages Section */
+.messages-section {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Messages Title */
+.messages-title {
+    font-size: 22px; /* Slightly larger font size */
+    color: #ffdf00; /* Yellow color */
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold; /* Make title bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+}
+
+/* Messages Description */
+.messages-description {
+    color: #ffdf00; /* Yellow color for better contrast */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold; /* Make description bold */
+    background-color: rgba(0, 0, 0, 0.5); /* Background color for text readability */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Messages Grid */
 .messages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
     padding: 20px;
     justify-items: center;
     align-items: start;
-    flex: 1;
-    margin-right: 30px;
-    position: relative;
-    z-index: 1;
 }
 
-/* Title for the messages */
-.messages-section h3 {
-    text-align: center;
-    font-size: 38px;
-    color: #f0e6d2;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 40px;
-    font-weight: bold;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-    position: relative;
-    z-index: 1;
-}
-
-/* Style individual messages as random notes */
+/* Message Item */
 .message-item {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    background-color: #ffdf00; /* Light paper color */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
     position: relative;
-    font-family: 'Caveat', cursive;
-    font-size: 22px;
-    line-height: 1.7;
-    max-width: 280px;
+    font-family: 'Caveat', cursive; /* Handwritten-style font */
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 220px;
     transform: rotate(calc(var(--random-angle) * 1deg));
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 2px solid #ffdd57;
-    background: linear-gradient(145deg, #fff7a5, #ffeb3b);
-    overflow: hidden;
-    z-index: 1;
+    transition: transform 0.2s;
 }
 
 /* Add interaction effects on hover */
 .message-item:hover {
-    transform: scale(1.1) rotate(calc(var(--random-angle) * 1deg));
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    transform: scale(1.05) rotate(calc(var(--random-angle) * 1deg));
 }
 
 /* Use a paper-like border */
@@ -90,28 +187,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1px dashed #bbb;
+    border: 1px dashed #888;
     pointer-events: none;
 }
 
-/* Add a subtle gradient border effect */
-.message-item::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 14px;
-    pointer-events: none;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.07) 100%);
-}
-
-/* Styling for paragraphs within message items */
 .message-item p {
-    margin: 12px 0;
-    color: #444;
+    margin: 8px 0;
 }
 
 .message-item strong {
@@ -120,78 +201,18 @@
 
 /* Randomize angles for each note to appear scattered */
 .message-item:nth-child(odd) {
-    --random-angle: -6;
+    --random-angle: -4;
 }
 
 .message-item:nth-child(even) {
-    --random-angle: 6;
+    --random-angle: 4;
 }
 
 .message-item:nth-child(3n) {
-    --random-angle: -3;
+    --random-angle: -2;
 }
 
-/* Separator styling */
-hr {
-    border: none;
-    height: 2px;
-    background-color: #ffdd57;
-    margin: 20px 0;
-}
-
-/* Form Container Styling */
-.form-container {
-    flex-basis: 400px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    border: 2px solid #ffdd57;
-    z-index: 1;
-}
-
-/* Form group styling */
-form .form-group {
-    margin-bottom: 25px;
-}
-
-/* Input and textarea styling */
-form input, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-/* Focus state for inputs and textareas */
-form input:focus, form textarea:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-/* Submit button styling */
-form button {
-    padding: 12px 24px;
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-form button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-form button:active {
-    background-color: #004085;
-    transform: translateY(0);
+.no-messages {
+    text-align: center;
+    color: #666; /* Grey color for no messages text */
 }

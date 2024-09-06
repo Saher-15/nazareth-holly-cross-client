@@ -15,8 +15,11 @@ function Pray() {
     // State to store fetched messages
     const [messages, setMessages] = useState([]);
 
-    // State to manage the visibility of the message
+    // State to manage the visibility of the success message
     const [showMessage, setShowMessage] = useState(false);
+
+    // State to manage the visibility of the confirmation message
+    const [showConfirmationMessage, setShowConfirmationMessage] = useState(false);
 
     // Handler function to update form data
     const handleChange = (e) => {
@@ -27,14 +30,14 @@ function Pray() {
         }));
     };
 
-    // Function to fetch all submitted messages
+    // Function to fetch all reviewed messages
     const fetchMessages = async () => {
         try {
             const response = await axios.get('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/get_all_contact_us');
             
             // Filter messages that are marked as done and reverse order
-            const doneMessages = response.data.filter(message => message.done);
-            const reversedMessages = doneMessages.reverse();
+            const reviewedMessages = response.data.filter(message => message.done);
+            const reversedMessages = reviewedMessages.reverse();
             setMessages(reversedMessages); // Store reversed messages in state
         } catch (error) {
             console.error('Error fetching messages:', error);
@@ -68,10 +71,12 @@ function Pray() {
                 msg: ''
             });
 
-            // Show success message for 3 seconds
+            // Show success message and confirmation message
             setShowMessage(true);
+            setShowConfirmationMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
+                setShowConfirmationMessage(false);
             }, 3000);
 
             // Fetch messages after form submission
@@ -92,11 +97,13 @@ function Pray() {
 
     return (
         <div className="pray-container">
+        <div className="blur-overlay"></div>
             <div className="form-section">
                 <form onSubmit={handleSubmit} className="message-form">
                     <label htmlFor="first-name" className="form-title">
-                        <h2 className='form-title-text'>Corner for peace</h2>
+                        <h2 className='form-title-text'>Share Your Prayer or Wish for Peace</h2>
                     </label>
+                    <p className='form-description'>This page is for clients who wish to share their prayers or wishes for peace with the world. Please fill out the form below, and your message will be reviewed and displayed once confirmed by the Nazareth Holy Cross team.</p>
                     <div className="form-group-pray">
                         <div className="form-input-group">
                             <input
@@ -127,7 +134,7 @@ function Pray() {
                         </div>
 
                         <textarea
-                            placeholder="Your pray"
+                            placeholder="Your prayer or wish"
                             id="msg"
                             name="msg"
                             value={formData.msg}
@@ -141,14 +148,16 @@ function Pray() {
                         <button type="submit" className="form-submit-button">Submit</button>
                     </div>
                     <div className="success-message-container">
-                {showMessage && <p className="success-message">Message submitted successfully!</p>}
-            </div>
+                        {showMessage && <p className="success-message">Message submitted successfully!</p>}
+                        {showConfirmationMessage && <p className="confirmation-message">Your message will appear on the wall once it is confirmed by the Nazareth Holy Cross team.</p>}
+                    </div>
                 </form>
             </div>
 
             {/* Display messages */}
             <div className="messages-section">
-                <h3 className="messages-title">Submitted Messages</h3>
+                <h3 className="messages-title">Reviewed Prayers and Wishes</h3>
+                <p className='messages-description'>Here are the prayers and wishes that have been reviewed and confirmed by the Nazareth Holy Cross team. Thank you for sharing your heartfelt messages with us.</p>
                 {messages.length > 0 ? (
                     <div className="messages-grid">
                         {messages.map((message, index) => (
