@@ -25,7 +25,6 @@
 .form-group-paypal {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .form-control {

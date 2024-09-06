@@ -1,59 +1,54 @@
 /* Main Container */
 .pray-container {
-    position: relative; /* Ensure proper positioning for pseudo-elements */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     padding: 20px;
-    color: #fff; /* Set text color to white for better contrast */
-    overflow: hidden; /* Hide any overflow from the blur effect */
+    color: #fff;
+    overflow: hidden;
 }
 
 /* Blur Effect Overlay */
 .blur-overlay {
-    position: fixed; /* Cover the entire viewport */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/images/vitrage-bg.jpg') no-repeat center center; /* Background image */
+    background: url('/images/vitrage-bg.jpg') no-repeat center center;
     background-size: cover;
-    backdrop-filter: blur(8px); /* Apply blur effect */
-    z-index: -1; /* Place behind the content */
+    backdrop-filter: blur(8px);
+    z-index: -1;
 }
 
 /* Form Section */
 .form-section {
+    flex: 1;
     padding: 20px;
     border-radius: 8px;
-    background: linear-gradient(
-        rgba(255, 0, 0, 0.5), /* Red color with 50% opacity */
-        rgba(255, 0, 0, 0.7)  /* Lighter red color with 70% opacity */
-    ); /* Gradient background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow for form */
-    max-width: 600px; /* Max width for form */
-    width: 90%; /* Responsive width */
-    margin: 0 auto; /* Center the form */
+    background: #fffbc1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    margin-right: 20px;
 }
 
 /* Form Title */
 .form-title-text {
-    color: #ffdf00; /* Yellow color */
+    color: #ffdf00;
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px; /* Increase font size for better visibility */
-    font-weight: bold; /* Make title bold */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Form Description */
 .form-description {
-    color: #ffdf00; /* Yellow color for better contrast */
+    color: #ffdf00;
     text-align: center;
     margin-bottom: 20px;
     font-size: 16px;
-    font-weight: bold; /* Make description bold */
-    background-color: rgba(0, 0, 0, 0.5); /* Background color for text readability */
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
 }
@@ -67,7 +62,7 @@
 .form-input, .form-textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc; /* Light border color */
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -75,7 +70,7 @@
 /* Placeholder Colors */
 .form-input::placeholder,
 .form-textarea::placeholder {
-    color: rgba(197, 197, 197, 0.7); /* Light placeholder color */
+    color: rgba(197, 197, 197, 0.7);
 }
 
 /* Form Textarea */
@@ -90,8 +85,8 @@
 
 .form-submit-button {
     padding: 10px 20px;
-    background-color: #ffdf00; /* Yellow background color */
-    color: #000; /* Dark text color for contrast */
+    background-color: #ffdf00;
+    color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -102,7 +97,7 @@
 }
 
 .form-submit-button:hover {
-    transform: scale(1.05); /* Slight scale effect on hover */
+    transform: scale(1.05);
 }
 
 .form-submit-button:disabled {
@@ -117,34 +112,40 @@
 }
 
 .success-message {
-    color: #ffdf00; /* Yellow color */
+    color: #ffdf00;
+    font-weight: bold;
+}
+
+.confirmation-message {
+    color: #ffdf00;
     font-weight: bold;
 }
 
 /* Messages Section */
 .messages-section {
-    margin-top: 20px;
+    flex: 2;
+    margin-top: 0;
     width: 100%;
 }
 
 /* Messages Title */
 .messages-title {
-    font-size: 22px; /* Slightly larger font size */
-    color: #ffdf00; /* Yellow color */
+    font-size: 22px;
+    color: #ffdf00;
     text-align: center;
     margin-bottom: 15px;
-    font-weight: bold; /* Make title bold */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for better readability */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Messages Description */
 .messages-description {
-    color: #ffdf00; /* Yellow color for better contrast */
+    color: #ffdf00;
     text-align: center;
     margin-bottom: 20px;
     font-size: 16px;
-    font-weight: bold; /* Make description bold */
-    background-color: rgba(0, 0, 0, 0.5); /* Background color for text readability */
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
 }
@@ -153,21 +154,21 @@
 .messages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
+    gap: 20px;
     padding: 20px;
-    justify-items: center;
-    align-items: start;
 }
 
 /* Message Item */
 .message-item {
-    background-color: #ffdf00; /* Light paper color */
+    background: #fffbc1;
+    border-left: 5px solid #ffcc00;
+    color: #4c15ef;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    font-family: 'Caveat', cursive; /* Handwritten-style font */
-    font-size: 18px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.1em;
     line-height: 1.5;
     max-width: 220px;
     transform: rotate(calc(var(--random-angle) * 1deg));
@@ -214,5 +215,5 @@
 
 .no-messages {
     text-align: center;
-    color: #666; /* Grey color for no messages text */
+    color: #666;
 }

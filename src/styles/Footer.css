@@ -5,6 +5,8 @@
   color: #fff;
   font-family: 'Arial', sans-serif;
   text-align: center;
+  position: relative; /* Ensure z-index is effective */
+  z-index: 999; /* Ensure footer is above other content */
 }
 
 .footer-logo {

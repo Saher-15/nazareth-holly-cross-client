@@ -97,7 +97,7 @@ function Pray() {
 
     return (
         <div className="pray-container">
-        <div className="blur-overlay"></div>
+            <div className="blur-overlay"></div>
             <div className="form-section">
                 <form onSubmit={handleSubmit} className="message-form">
                     <label htmlFor="first-name" className="form-title">
