@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // Update events with date and time
 const events = [
-  { dateTime: new Date(2024, 8, 8, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 8, 2024, 9:00 AM
+  { dateTime: new Date(2024, 8, 15, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 8, 2024, 9:00 AM
 ];
 
 const LiveVideo = () => {

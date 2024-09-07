@@ -244,29 +244,29 @@
 
 .color-circles {
   display: flex;
-  flex-direction: row;
-  gap: 15px; /* Increased gap for a more spacious look */
+  flex-wrap: wrap; /* Allow wrapping for better responsiveness */
+  justify-content: center;
+  gap: 15px;
 }
 
 .color-circle {
-  width: 40px; /* Set a consistent size for the circles */
+  width: 40px;
   height: 40px;
-  margin-top: 10px;
-  border-radius: 5px; /* Make the circles perfectly round */
+  border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease, border-color 0.3s ease;
-  border: 3px solid transparent; /* Thicker border for better emphasis */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+  border: 3px solid transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .color-circle:hover {
-  transform: scale(1.1); /* Slightly enlarge on hover for interactivity */
-  border-color: #007bff; /* Highlight with a color on hover */
+  transform: scale(1.1);
+  border-color: #007bff;
 }
 
 .color-circle.active {
-  border-color: #007bff; /* Set border color when a color is active/selected */
-  transform: scale(1.15); /* Slightly larger scale for active state */
+  border-color: #007bff;
+  transform: scale(1.15);
 }
 
 .color-circle.selected {
@@ -277,6 +277,7 @@
   color: #e74c3c;
   font-size: 1rem;
   margin-top: 10px;
+  text-align: center;
 }
 
 /* Responsive design for smaller screens and portrait mode */
@@ -293,64 +294,51 @@
 
   .product-image {
       height: 350px;
-      width: 350px;
-      object-fit: contain;
+      width: 100%;
   }
 
-  .description {
-      padding: 10px;
+  .color-circle {
+    width: 35px;
+    height: 35px;
   }
 
-  .product-name {
-      font-size: 2.25rem;
+  .color-circles {
+    gap: 10px;
   }
 
-  .product-price {
-      font-size: 1.75rem;
+  .button-container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .product-description {
-      font-size: 1.125rem;
-  }
-
-  .other-product-images img {
-      height: 80px;
-      object-fit: cover;
-  }
-
-  .other-product-images {
-      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  .add-to-cart-button {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .product-name {
-      font-size: 2rem;
-  }
-
-  .product-price {
-      font-size: 1.5rem;
-  }
-
-  .product-description {
-      font-size: 1rem;
-  }
-
-  .other-product-images img {
-      height: 70px;
-  }
-
-  .other-product-images {
-      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  }
-
   .color-circle {
-      margin: 7px 1px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .color-circles {
+    gap: 8px;
+  }
+
+  .product-image {
+      height: 250px;
+  }
+
+  .add-to-cart-button {
+    font-size: 12px;
+    padding: 8px 16px;
   }
 }
 
 @media (orientation: portrait) {
-  .modal-image-container img {
-      max-height: 70vh;
+  .color-circle {
+    width: 35px;
+    height: 35px;
   }
 }

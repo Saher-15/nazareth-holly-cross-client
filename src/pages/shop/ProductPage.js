@@ -35,7 +35,7 @@ const ProductPage = () => {
         setSelectedColor('');
         setcolorelectionMessage('');
       } catch (error) {
-        console.error('Error fetching product:');
+        console.error('Error fetching product:', error);
         setError(error.message);
       } finally {
         setLoading(false);
