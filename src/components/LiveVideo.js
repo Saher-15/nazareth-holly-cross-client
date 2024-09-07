@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/LiveClient.css";
 import axios from 'axios';
+
 // Update events with date and time
 const events = [
   { dateTime: new Date(2024, 8, 8, 9, 0), description: 'Sunday Prayer from the Greek Church' }, // August 8, 2024, 9:00 AM
@@ -11,7 +12,7 @@ const LiveVideo = () => {
   const [timeRemaining, setTimeRemaining] = useState('');
   const [eventComingSoon, setEventComingSoon] = useState(false);
   const [inLiveMode, setInLiveMode] = useState(false);
-  const [isEventDay, setIsEventDay] = useState(false);
+  const [isEventTime, setIsEventTime] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,10 +41,9 @@ const LiveVideo = () => {
       setEventComingSoon(hoursUntilEvent > 0 && hoursUntilEvent <= 24);
       setInLiveMode(true);
 
-      // Check if today is the event day (ignoring time)
-      const today = new Date();
-      const eventDate = new Date(eventDateTime.getFullYear(), eventDateTime.getMonth(), eventDateTime.getDate());
-      setIsEventDay(today.toDateString() === eventDate.toDateString());
+      // Check if the current time matches the event start time
+      const isEventTimeNow = now.getTime() >= eventDateTime.getTime() && now.getTime() < eventDateTime.getTime() + 60 * 60 * 2000;
+      setIsEventTime(isEventTimeNow);
     } else {
       setInLiveMode(false);
     }
@@ -93,7 +93,7 @@ const LiveVideo = () => {
               {eventComingSoon && (
                 <p className="event-coming-soon">Stay tuned! The live stream will start in {Math.floor((new Date(event.dateTime) - new Date()) / (1000 * 60 * 60))} hour(s).</p>
               )}
-              {isEventDay && (
+              {isEventTime && (
                 <button className="join-live-button" onClick={handleJoinLive}>
                   Join Live
                 </button>
@@ -109,28 +109,3 @@ const LiveVideo = () => {
 };
 
 export default LiveVideo;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
