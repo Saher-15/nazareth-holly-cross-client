@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/LiveClient.css";
-import axios from 'axios';
 
 // Update events with date and time
 const events = [

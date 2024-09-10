@@ -15,7 +15,7 @@
   height: 100%;
   object-fit: cover; /* Cover the area without stretching */
   z-index: -1; /* Place the video behind the content */
-  filter: brightness(0.8); 
+  filter: brightness(0.5); 
 }
 
 /* Hero Section Container */
@@ -30,29 +30,30 @@
   align-items: center;
   padding: 0 20px;
   z-index: 1; /* Ensure it is above the video */
+  text-align: center;
 }
 
 /* Hero Heading */
-.hero-container>h1 {
+.hero-container > h1 {
   color: #fff;
   font-size: 4vw;
   margin-top: -8vh;
-  text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px; /* Ensure heading does not overflow */
   max-width: 90%;
   overflow-wrap: break-word;
+  font-family: Arial, sans-serif;
 }
 
 /* Hero Subtext */
-.hero-container>p {
+.hero-container > p {
   margin-top: 2vh;
   color: #fff;
   font-size: 2vw;
-  text-align: center;
   font-style: italic; /* Ensure text does not overflow */
   max-width: 90%;
   overflow-wrap: break-word;
+  font-family: Arial, sans-serif;
 }
 
 /* Button Container */
@@ -70,6 +71,7 @@
   padding: 12px 24px;
   font-size: 1.2rem;
   transition: transform 0.3s ease, background-color 0.3s ease;
+  font-family: Arial, sans-serif;
 }
 
 .hero-btns .btn:hover {
@@ -135,7 +137,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.6); /* Darken background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,18 +152,6 @@
   opacity: 1;
 }
 
-.donation-modal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* Darken background */
-  filter: blur(10px); /* Apply blur effect */
-  z-index: -1; /* Ensure it's behind the modal content */
-}
-
 .donation-content {
   background-image: url('/images/nazareth/nazareth10.jpg');
   background-size: cover; /* Ensure the image covers the content area */
@@ -173,12 +163,12 @@
   max-width: 400px;
   height: 300px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.donation-content h2 {
-  margin-top: 0;
-}
-
+/* Form styles inside modal */
 .form-group {
   margin-bottom: 15px;
 }
@@ -204,6 +194,7 @@ button[type='submit'] {
   border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 button[type='submit']:hover {
@@ -226,14 +217,45 @@ button[type='submit']:disabled {
   cursor: pointer;
 }
 
+/* Hero Mission Text */
+.hero-mission-text {
+  margin-top: 2vh;
+  color: #ffcc00;
+  font-size: 1.5vw; /* Adjust font size as needed */
+  text-align: center;
+  font-style: italic; /* Optional */
+  max-width: 90%;
+  overflow-wrap: break-word;
+  font-family: Arial, sans-serif;
+}
+
+/* Adjust spacing if needed */
+.hero-container {
+  /* Existing styles... */
+  padding: 0 20px;
+}
+
+/* Adjust responsiveness if needed */
+@media screen and (max-width: 768px) {
+  .hero-mission-text {
+    font-size: 2.5vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-mission-text {
+    font-size: 3.5vw;
+  }
+}
+
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
-  .hero-container>h1 {
+  .hero-container > h1 {
     font-size: 8vw;
     margin-top: -10vh;
   }
 
-  .hero-container>p {
+  .hero-container > p {
     font-size: 3vw;
   }
 
@@ -256,12 +278,12 @@ button[type='submit']:disabled {
 }
 
 @media screen and (max-width: 480px) {
-  .hero-container>h1 {
+  .hero-container > h1 {
     font-size: 10vw;
     margin-top: -12vh;
   }
 
-  .hero-container>p {
+  .hero-container > p {
     font-size: 4vw;
   }
 
