@@ -154,6 +154,49 @@ textarea[name="pray"],
   flex-direction: column;
 }
 
+.video-container {
+  position: relative;
+  width: 70%;
+  height: 350px;
+  margin: 20px auto; /* Center the video with margin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure the rounded corners work with the video */
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Make the video cover the entire container */
+  border-radius: 10px; /* Match the container's rounded corners */
+}
+
+
+
+.video-container::before {
+  width: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.6); /* White border with transparency */
+  border-radius: 15px; /* Smooth rounded corners */
+  z-index: -1; /* Position behind the video */
+}
+
+.video-container:hover::before {
+  border-color: rgba(255, 255, 255, 0.9); /* Brighter border on hover */
+}
+
+@media (min-width: 768px) {
+  .video-container {
+    max-width: 800px; /* Wider video for larger screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .video-container {
+    max-width: 1000px; /* Even wider for larger screens */
+  }
+}
+
+
 @media (min-width: 600px) {
   .candle {
     flex-direction: row;

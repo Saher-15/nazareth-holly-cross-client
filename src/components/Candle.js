@@ -62,6 +62,16 @@ function Candle() {
           Light a candle in a Nazareth church and share your wish or prayer with us.<br />
           We'll keep the tradition alive by lighting a candle for you and send a video confirmation to your email.
         </p>
+        <div className="video-container">
+          <video controls poster="/images/logo.webp">
+            <source
+              src="https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2FWhatsApp%20Video%202024-09-12%20at%2011.57.40_4a6da68a.mp4?alt=media&token=ab7e16da-d452-41ec-a5b9-fafd2ca97495"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
       </div>
 
       <div className="rightSide">

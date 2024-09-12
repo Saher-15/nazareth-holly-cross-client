@@ -105,7 +105,7 @@ function HeroSection() {
           NAZARETH TOUR <i className='far fa-play-circle' />
         </Button>
       </div>
-      <p className='duty-in-naz'>COMPLETE YOUR HOLY DUTY IN NAZARETH</p>
+      {/* <p className='duty-in-naz'>COMPLETE YOUR HOLY DUTY IN NAZARETH</p> */}
 
       <button className='donate-btn' onClick={openModal}>
         <i className='fas fa-donate'></i>

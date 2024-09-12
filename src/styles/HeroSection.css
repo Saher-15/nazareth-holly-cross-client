@@ -48,7 +48,7 @@
 /* Hero Subtext */
 .hero-container > p {
   margin-top: 2vh;
-  color: #ffcc00;
+  color: #fff;
   font-size: 2vw;
   font-style: italic; /* Ensure text does not overflow */
   max-width: 90%;
