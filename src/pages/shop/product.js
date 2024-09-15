@@ -17,15 +17,6 @@ const Product = ({ item }) => {
       </Link>
       <p className="nameCard">{name}</p>
       <p className="price">${price}</p> {/* Changed class to price */}
-      {/* Position the cart icon to bottom right corner */}
-      {/* <div className="cart-icon-wrapper">
-        <Link to="/cart" className="cart-link">
-          <i className="fas fa-shopping-cart"></i>
-          {totalCartQuantity > 0 && (
-            <div className="cart-item-count">{totalCartQuantity}</div>
-          )}
-        </Link>
-      </div> */}
     </div>
   );
 };
