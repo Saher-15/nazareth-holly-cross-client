@@ -25,6 +25,10 @@ function Navbar() {
           <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px" }}></i>
           <span>NAZARETH HOLY CROSS</span>
         </Link>
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu} >
+          <span style={{ color: '#ffcc00', marginRight: "35px" }}>FEEL THE BLESSING</span>
+
+        </Link>
         <div className='navbar-container'>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
