@@ -161,7 +161,7 @@ function Candle() {
             </div>
 
             <div className="form-group church-selection">
-              <label className="church-label">Select Church:</label>
+              <label className="church-label">Select church to light the candle in:</label>
               <div className="church-options">
                 <label className="church-option">
                   <input
