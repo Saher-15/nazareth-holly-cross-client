@@ -183,6 +183,102 @@ video {
   border-color: rgba(255, 255, 255, 0.9); /* Brighter border on hover */
 }
 
+/* Church selection section */
+.church-selection {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f7f7f7; /* Light background */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+/* Church label */
+.church-label {
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Church options container */
+.church-options {
+  display: flex;
+  gap: 20px; /* Space between options */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Individual church option */
+.church-option {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between radio button and label */
+}
+
+/* Radio button styling */
+.radio-input {
+  appearance: none; /* Remove default styling */
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 50%;
+  position: relative;
+  margin-right: 8px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.radio-input:checked::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #007bff; /* Blue fill when checked */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hover and focus states */
+.radio-input:hover {
+  border-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .church-option {
+    font-size: 13px; /* Smaller font size on medium devices */
+  }
+
+  .radio-input {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .church-option {
+    font-size: 12px; /* Smaller font size on small devices */
+  }
+
+  .radio-input {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (orientation: portrait) {
+  .church-options {
+    flex-direction: column; /* Stack options vertically in portrait */
+  }
+}
+
+
 @media (min-width: 768px) {
   .video-container {
     max-width: 800px; /* Wider video for larger screens */

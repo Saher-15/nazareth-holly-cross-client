@@ -11,6 +11,7 @@ function Candle() {
     pray: ""
   });
 
+  const [selectedChurch, setSelectedChurch] = useState(""); // State for selected church
   const navigate = useNavigate();
   const [emailMatchError, setEmailMatchError] = useState("");
   const [inputWarning, setInputWarning] = useState("");
@@ -23,10 +24,14 @@ function Candle() {
     }));
   };
 
+  const handleChurchSelection = (e) => {
+    setSelectedChurch(e.target.value); // Update selected church state
+  };
+
   const handleLightButton = async () => {
     // Check if any input fields are empty
-    if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray) {
-      setInputWarning("Please fill in all fields");
+    if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray || !selectedChurch) {
+      setInputWarning("Please  select a church.");
       setTimeout(() => {
         setInputWarning(""); // Clear the warning message after 2 seconds
       }, 2000);
@@ -43,8 +48,12 @@ function Candle() {
     }
 
     try {
+      // Append selected church to the prayer
+      const updatedPray = `${selectedChurch}, ${form.pray}`;
+      setForm((prevForm) => ({ ...prevForm, pray: updatedPray }));
+
       // Navigate to PayPal component with form data
-      navigate("/checkoutcandle", { state: { form: form } });
+      navigate("/checkoutcandle", { state: { form: { ...form, pray: updatedPray } } });
     } catch (error) {
       console.error("Error lighting a candle:");
     }
@@ -71,7 +80,6 @@ function Candle() {
             Your browser does not support the video tag.
           </video>
         </div>
-
       </div>
 
       <div className="rightSide">
@@ -151,6 +159,35 @@ function Candle() {
               ></textarea>
               {inputWarning && <p className="error-message">{inputWarning}</p>}
             </div>
+
+            <div className="form-group church-selection">
+              <label className="church-label">Select Church:</label>
+              <div className="church-options">
+                <label className="church-option">
+                  <input
+                    type="radio"
+                    value="Latin church"
+                    checked={selectedChurch === "Latin church"}
+                    onChange={handleChurchSelection}
+                    required
+                    className="radio-input"
+                  />
+                  Latin church
+                </label>
+                <label className="church-option">
+                  <input
+                    type="radio"
+                    value="Greek church"
+                    checked={selectedChurch === "Greek church"}
+                    onChange={handleChurchSelection}
+                    required
+                    className="radio-input"
+                  />
+                  Greek church
+                </label>
+              </div>
+            </div>
+
           </div>
 
           <label
