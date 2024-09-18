@@ -37,7 +37,7 @@ const LiveVideo = () => {
 
   useEffect(() => {
     const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    // const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
     // Separate upcoming and past events
     const upcomingEvents = events.filter(event => new Date(event.dateTime) >= now);
@@ -62,7 +62,7 @@ const LiveVideo = () => {
     } else {
       setInLiveMode(false);
     }
-  }, []);
+  }, [pastEvents]);
 
   useEffect(() => {
     if (upcomingEvent) {

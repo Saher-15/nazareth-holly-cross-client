@@ -21,8 +21,10 @@ const OldNazareth = () => {
     "images/old/old10.jpg",
     "images/old/old11.jpg",
     "images/old/old12.jpg",
-
-
+    "images/old/old13.jpg",
+    "images/old/old14.jpg",
+    "images/old/old15.jpg",
+    "images/old/old16.jpg",
   ];
 
   const handleClickMap = () => {

@@ -21,8 +21,21 @@ const LatinCurch = () => {
     "images/latin/latin10.jpg",
     "images/latin/latin11.jpg",
     "images/latin/latin12.jpg",
-
-
+    "images/latin/latin13.jpg",
+    "images/latin/latin14.jpg",
+    "images/latin/latin15.jpg",
+    "images/latin/latin16.jpg",
+    "images/latin/latin17.jpg",
+    "images/latin/latin18.jpg",
+    "images/latin/latin19.jpg",
+    "images/latin/latin20.jpg",
+    "images/latin/latin21.jpg",
+    "images/latin/latin22.jpg",
+    "images/latin/latin23.jpg",
+    "images/latin/latin24.jpg",
+    "images/latin/latin25.jpg",
+    "images/latin/latin26.jpg",
+    "images/latin/latin27.jpg",
   ];
 
   const handleClickMap = () => {

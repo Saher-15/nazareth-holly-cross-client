@@ -29,6 +29,10 @@ function Footer() {
               <FaInstagram className="icon" />
               <span>Follow us on Instagram</span>
             </a>
+            {/* <a href="https://www.instagram.com/nazareth_holy_cross/" target="_blank" rel="noopener noreferrer" className="instagram-button">
+              <FaFacebook className="icon" />
+              <span>Follow us on Facebook</span>
+            </a> */}
           </div>
         </div>
 
