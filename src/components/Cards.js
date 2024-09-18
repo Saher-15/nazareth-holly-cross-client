@@ -15,7 +15,7 @@ function Cards() {
               path='/Latin'
             />
             <CardItem
-              src='images/greek/greek5.jpg'
+              src='images/greek/greek1.jpg'
               text='Explore The Greek Orthodox Church'
               label='Greek Orthodox Church'
               path='/Greek'
