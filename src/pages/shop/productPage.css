@@ -243,6 +243,7 @@
 }
 
 .color-circles {
+  padding-top: 10px;
   display: flex;
   flex-wrap: wrap; /* Allow wrapping for better responsiveness */
   justify-content: center;
@@ -252,7 +253,7 @@
 .color-circle {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease, border-color 0.3s ease;
   border: 3px solid transparent;

@@ -59,7 +59,7 @@ const ProductPage = () => {
 
   const handleClick = () => {
     if (!selectedColor && product.color && product.color.length > 0) {
-      setcolorelectionMessage('Please select a color before adding to cart.');
+      setcolorelectionMessage('Please select a specific item before adding to cart.');
       setTimeout(() => setcolorelectionMessage(''), 2000);
       return;
     }
@@ -201,7 +201,7 @@ const ProductPage = () => {
               />
             ))}
           </div>
-          {color && color.length > 0 && (
+          {color && color.length > 0 && name!=='Nazareth city buzzle' && (
             <div className="color-select">
               <div className="color-circles">
                 {color.map((color, index) => (
