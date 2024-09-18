@@ -119,7 +119,7 @@ const LiveVideo = () => {
 
         {/* Past Lives Video Gallery */}
         <div className="past-lives-container">
-          <h2>Past Live Events</h2>
+          <h2 style={{color: '#ffcc00'}}>Past Live Events</h2>
           <div className="past-videos-gallery">
             {pastVideos.map((video, index) => (
               <div key={index} className="past-live-item">
