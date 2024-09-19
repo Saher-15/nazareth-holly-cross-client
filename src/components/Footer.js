@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaRegEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaRegEnvelope, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 import '../styles/Footer.css';
 // import logo from '../images/logo.webp'; // Ensure the correct path to your logo
 
@@ -29,10 +29,10 @@ function Footer() {
               <FaInstagram className="icon" />
               <span>Follow us on Instagram</span>
             </a>
-            {/* <a href="https://www.instagram.com/nazareth_holy_cross/" target="_blank" rel="noopener noreferrer" className="instagram-button">
+            <a href="https://www.facebook.com/profile.php?id=61566447860803" target="_blank" rel="noopener noreferrer" className="instagram-button">
               <FaFacebook className="icon" />
               <span>Follow us on Facebook</span>
-            </a> */}
+            </a>
           </div>
         </div>
 
