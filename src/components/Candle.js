@@ -172,7 +172,7 @@ function Candle() {
                     required
                     className="radio-input"
                   />
-                  Latin church
+                  Annunciation church
                 </label>
                 <label className="church-option">
                   <input
@@ -183,7 +183,7 @@ function Candle() {
                     required
                     className="radio-input"
                   />
-                  Greek church
+                  Greek orthodox church
                 </label>
               </div>
             </div>
