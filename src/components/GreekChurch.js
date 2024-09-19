@@ -27,6 +27,13 @@ const GreekChurch = () => {
     "images/greek/greek16.jpg",
     "images/greek/greek17.jpg",
     "images/greek/greek18.jpg",
+    "images/greek/greek19.jpg",
+    "images/greek/greek20.jpg",
+    "images/greek/greek21.jpg",
+    "images/greek/greek22.jpg",
+    "images/greek/greek23.jpg",
+    "images/greek/greek24.jpg",
+
   ];
 
   const handleClickMap = () => {

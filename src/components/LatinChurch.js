@@ -36,6 +36,13 @@ const LatinCurch = () => {
     "images/latin/latin25.jpg",
     "images/latin/latin26.jpg",
     "images/latin/latin27.jpg",
+    "images/latin/latin28.jpg",
+    "images/latin/latin29.jpg",
+    "images/latin/latin30.jpg",
+    "images/latin/latin31.jpg",
+    "images/latin/latin32.jpg",
+    "images/latin/latin33.jpg",
+    "images/latin/latin34.jpg",
   ];
 
   const handleClickMap = () => {
