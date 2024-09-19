@@ -15,7 +15,7 @@
 .cartItem img {
   width: 150px;
   height: 150px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 12px;
   display: block;
@@ -162,7 +162,7 @@
   .cartItem img {
     width: 150px;
     height: 150px;
-    object-fit: contain;
+    object-fit: cover;
     margin-bottom: 12px;
     /* Space between image and text */
   }
