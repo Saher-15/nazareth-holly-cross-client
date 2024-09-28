@@ -167,7 +167,7 @@ function Candle() {
                   <input
                     type="radio"
                     value="Annunciation church"
-                    checked={selectedChurch === "Latin church"}
+                    checked={selectedChurch === "Annunciation church"}
                     onChange={handleChurchSelection}
                     required
                     className="radio-input"
@@ -178,7 +178,7 @@ function Candle() {
                   <input
                     type="radio"
                     value="Greek orthodox church"
-                    checked={selectedChurch === "Greek church"}
+                    checked={selectedChurch === "Greek orthodox church"}
                     onChange={handleChurchSelection}
                     required
                     className="radio-input"

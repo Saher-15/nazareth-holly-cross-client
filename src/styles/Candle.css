@@ -1,27 +1,32 @@
 /* Hero Buttons */
 .hero-btns {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Confirmation Message */
 .confirmation-msg {
   color: #fff;
   text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .personal-pray {
-  font-size: x-large; /* Corrected font size property */
+  font-size: 1.5rem; /* Consistent font sizing */
   text-align: center;
+  margin: 10px 0;
 }
 
 .hero-btns-candle button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: rgba(255,255,255,0.5);
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+  transition: background-color 0.3s ease;
   margin-top: 10px;
 }
 
@@ -35,19 +40,20 @@
 }
 
 h5 {
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
+  margin: 20px 0;
 }
 
 .candle {
-  position: relative; /* Needed for absolute positioning of the pseudo-element */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Ensure nothing overflows the container */
+  overflow: hidden;
 }
 
 .candle::before {
@@ -57,15 +63,15 @@ h5 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/candle.jpg"); /* Background image */
-  background-size: cover; /* Ensure the background image covers the entire div */
-  background-position: center; /* Center the background image */
-  filter: brightness(0.45); /* Reduce brightness to darken the background image */
-  z-index: -1; /* Place the pseudo-element behind the content */
+  background-image: url("/images/candle.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45);
+  z-index: -1;
 }
 
 .candle .leftSide, .candle .rightSide {
-  position: relative; /* Ensure these elements are above the pseudo-element */
+  position: relative;
   width: 100%;
   padding: 20px;
 }
@@ -82,6 +88,8 @@ form input, form textarea {
   border: none;
   border-bottom: 1px solid #121619;
   color: black;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 form textarea {
@@ -91,27 +99,27 @@ form textarea {
 
 input::placeholder,
 textarea::placeholder {
-  font-weight: normal; /* Change font weight to normal */
-  color: rgba(197, 197, 197, 0.7); /* Reduce opacity for a lighter color */
+  font-weight: normal;
+  color: rgba(197, 197, 197, 0.7);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Adjust placeholder styles for email inputs */
 input[type="email"]::placeholder,
 input[name="confirmEmail"]::placeholder {
-  color: rgba(197, 197, 197, 0.9); /* Increase opacity for a slightly darker color */
+  color: rgba(197, 197, 197, 0.9);
 }
 
 form input:focus,
 textarea:focus {
   outline: none;
+  border-bottom: 1px solid #007bff;
 }
 
 .prayer-message {
   display: flex;
   justify-content: space-between;
   font-size: 24px;
-  font-family: 'Lato', sans-serif; /* Changed the font family */
+  font-family: 'Lato', sans-serif;
   color: white;
   text-align: center;
   border-bottom: 1px solid #d1d5db;
@@ -119,7 +127,7 @@ textarea:focus {
 }
 
 .name-container input[type="text"]:last-child {
-  margin-left: 10px; /* Adjust the margin-left to create space between the inputs */
+  margin-left: 10px;
 }
 
 /* Name inputs */
@@ -136,61 +144,53 @@ textarea[name="pray"],
 }
 
 .candle-form {
-  height: auto; /* Adjust the height if necessary */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .form-group {
   width: 100%;
-  max-width: 300px; /* Adjust the max-width as needed */
+  max-width: 350px; /* Adjusted for larger form size */
   margin-bottom: 20px;
 }
 
 .name-container {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .video-container {
   position: relative;
-  width: 70%;
+  width: 80%;
   height: 350px;
-  margin: 20px auto; /* Center the video with margin */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-  border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* Ensure the rounded corners work with the video */
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 video {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Make the video cover the entire container */
-}
-
-
-
-.video-container::before {
-  width: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.6); /* White border with transparency */
-  border-radius: 15px; /* Smooth rounded corners */
-  z-index: -1; /* Position behind the video */
+  object-fit: contain;
 }
 
 .video-container:hover::before {
-  border-color: rgba(255, 255, 255, 0.9); /* Brighter border on hover */
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Church selection section */
 .church-selection {
   margin-top: 20px;
   padding: 10px;
-  background-color: #f7f7f7; /* Light background */
-  border: 2px solid #007bff; /* Blue border */
+  background-color: #f7f7f7;
+  border: 2px solid #007bff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Church label */
@@ -205,8 +205,8 @@ video {
 /* Church options container */
 .church-options {
   display: flex;
-  gap: 20px; /* Space between options */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 /* Individual church option */
@@ -215,20 +215,18 @@ video {
   color: #333;
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between radio button and label */
+  gap: 8px;
 }
 
 /* Radio button styling */
 .radio-input {
-  appearance: none; /* Remove default styling */
   width: 20px;
   height: 20px;
-  border: 2px solid #007bff; /* Blue border */
+  border: 2px solid #007bff;
   border-radius: 50%;
   position: relative;
   margin-right: 8px;
   cursor: pointer;
-  outline: none;
   transition: border-color 0.2s ease;
 }
 
@@ -237,22 +235,21 @@ video {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #007bff; /* Blue fill when checked */
+  background-color: #007bff;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* Hover and focus states */
 .radio-input:hover {
-  border-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .church-option {
-    font-size: 13px; /* Smaller font size on medium devices */
+    font-size: 13px;
   }
 
   .radio-input {
@@ -263,46 +260,23 @@ video {
 
 @media (max-width: 480px) {
   .church-option {
-    font-size: 12px; /* Smaller font size on small devices */
+    font-size: 12px;
   }
 
   .radio-input {
     width: 16px;
     height: 16px;
   }
+
+  .video-container {
+    width: 100%; /* Full width on small devices */
+    height: auto;
+  }
 }
 
 @media (orientation: portrait) {
   .church-options {
-    flex-direction: column; /* Stack options vertically in portrait */
-  }
-}
-
-
-@media (min-width: 768px) {
-  .video-container {
-    max-width: 800px; /* Wider video for larger screens */
-  }
-}
-
-@media (min-width: 992px) {
-  .video-container {
-    max-width: 1000px; /* Even wider for larger screens */
-  }
-}
-
-
-@media (min-width: 600px) {
-  .candle {
-    flex-direction: row;
-  }
-
-  .candle .leftSide, .candle .rightSide {
-    width: 50%;
-  }
-
-  .name-container {
-    flex-direction: row;
+    flex-direction: column;
   }
 }
 
@@ -317,7 +291,27 @@ video {
 }
 
 @media (min-width: 992px) {
+  .video-container {
+    max-width: 1000px;
+    height: 500px; /* Adjusted height for larger screens */
+  }
+
   .candle-form {
-    height: 70vh; /* Adjust the height if necessary */
+    height: 70vh;
+  }
+}
+
+@media (min-width: 600px) {
+  .candle {
+    flex-direction: row;
+  }
+
+  .candle .leftSide, .candle .rightSide {
+    width: 50%;
+  }
+
+  .name-container {
+    flex-direction: row;
+    gap: 20px; /* Add space between name inputs */
   }
 }
