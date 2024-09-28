@@ -132,6 +132,7 @@ const Shop = () => {
               </button>
             </div>
           </div>
+          
           <div className="button-container">
             <Link to="/cart" className="cart-link-logo">
               <i className="fas fa-shopping-cart"></i>

@@ -1,17 +1,26 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    // Load cart items from local storage if available
+    const storedCartItems = localStorage.getItem("cartItems");
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
+
+  useEffect(() => {
+    // Save cart items to local storage whenever they change
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   // Function to add a product to the cart
   const addToCart = (product) => {
     const { _id, color } = product;
-    
+
     // Check if the product already exists in the cart with the same color
     const existingProductIndex = cartItems.findIndex(item => item._id === _id && item.color === color);
-    
+
     if (existingProductIndex !== -1) {
       // If the product exists with the same color, update the quantity
       const updatedCartItems = [...cartItems];
@@ -25,7 +34,7 @@ const ShopContextProvider = (props) => {
       setCartItems(prevCartItems => [...prevCartItems, { ...product, quantity: 1 }]);
     }
   };
-  
+
   // Function to remove a product from the cart
   const decreaseFromCart = (productId, color) => {
     const updatedCartItems = cartItems.map(item => {
@@ -65,6 +74,7 @@ const ShopContextProvider = (props) => {
   // Function to clear all items from the cart
   const clearCart = () => {
     setCartItems([]);
+    localStorage.removeItem("cartItems"); // Clear local storage when cart is cleared
   };
 
   // Function to calculate the total quantity of all items in the cart
