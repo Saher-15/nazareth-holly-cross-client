@@ -41,7 +41,7 @@ const LiveVideo = () => {
     console.log("Ended Events: ", endedEvents); // Debugging
 
     setPastEvents(endedEvents.sort((a, b) => b.dateTime - a.dateTime));
-    
+
     const mostUpcomingEvent = upcomingEvents.sort((a, b) => a.dateTime - b.dateTime)[0] || null;
     if (!mostUpcomingEvent) {
       // Check for live events (ongoing)
@@ -108,10 +108,22 @@ const LiveVideo = () => {
               <p className="event-name"><strong>{upcomingEvent.description}</strong></p>
               <p><strong>Nazareth Date and Time:</strong> {new Date(upcomingEvent.dateTime).toLocaleString()}</p>
               <p><strong>Time Remaining:</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
+
+              {/* Note about the join button availability */}
+              {inLiveMode && (
+                <p className="live-note" style={{ color: 'red' }}>
+                  Note: The "Join Live" button is available only after the live event starts.
+                </p>
+              )}
+              <p className="refresh-note" style={{ color: 'red' }}>
+                Note: Please refresh the page before pressing the "Join Live" button.
+              </p>
+
               <button className="join-live-button" onClick={handleJoinLive} disabled={!canJoinLive}>
                 Join Live
               </button>
             </div>
+
           ) : (
             <p>No upcoming events available.</p>
           )}

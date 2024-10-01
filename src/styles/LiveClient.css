@@ -178,6 +178,11 @@
     color: #555;
 }
 
+.live-note, .refresh-note {
+    margin-top: 10px;
+    font-size: 0.9em; /* Slightly smaller font size */
+  }
+  
 /* For tablets and smaller devices */
 @media (max-width: 768px) {
     .live-client-event-info h2 {
