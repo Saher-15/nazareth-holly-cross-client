@@ -95,7 +95,7 @@ const LiveVideo = () => {
   }, [upcomingEvent]);
 
   const handleJoinLive = () => {
-    window.open('https://nazarethholycross-live.netlify.app', '_blank');
+    window.open('https://www.instagram.com/nazareth_holy_cross/', '_blank');
   };
 
   return (
