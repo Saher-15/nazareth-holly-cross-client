@@ -69,11 +69,11 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/prayer'
+                to='/reviews'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Pray for peace
+                Reviews
               </Link>
             </li>
           </ul>

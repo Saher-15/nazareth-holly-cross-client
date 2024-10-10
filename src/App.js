@@ -118,7 +118,7 @@ function App() {
             } 
           />
           <Route 
-            path="/prayer" 
+            path="/reviews" 
             element={
               <Suspense fallback={<div>Loading Prayer...</div>}>
                 <Layout><Prayer /></Layout>
