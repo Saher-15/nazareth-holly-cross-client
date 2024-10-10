@@ -164,7 +164,7 @@ function Pray() {
                             <div key={index} className="message-item">
                                 <p><strong>Name:</strong> {message.fullName}</p>
                                 <p><strong>Country:</strong> {message.email}</p> {/* Displaying country as email */}
-                                <p><strong>Message:</strong> {message.msg}</p>
+                                <p><strong>Review:</strong> {message.msg}</p>
                                 <hr className="message-divider" />
                             </div>
                         ))}
