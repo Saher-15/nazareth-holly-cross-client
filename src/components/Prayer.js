@@ -34,7 +34,7 @@ function Pray() {
     const fetchMessages = async () => {
         try {
             const response = await axios.get('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/get_all_contact_us');
-            
+
             // Filter messages that are marked as done and reverse order
             const reviewedMessages = response.data.filter(message => message.done);
             const reversedMessages = reviewedMessages.reverse();
@@ -101,9 +101,9 @@ function Pray() {
             <div className="form-section">
                 <form onSubmit={handleSubmit} className="message-form">
                     <label htmlFor="first-name" className="form-title">
-                        <h2 className='form-title-text'>Share Your Prayer or Wish for Peace</h2>
+                        <h2 className='form-title-text'>Share Your Review </h2>
                     </label>
-                    <p className='form-description'>This page is for clients who wish to share their prayers or wishes for peace with the world. Please fill out the form below, and your message will be reviewed and displayed once confirmed by the Nazareth Holy Cross team.</p>
+                    <p className='form-description'>Please share your experience with our website. Your feedback helps us improve and provide a better service. Fill out the form below, and your review will be posted once approved by our team.</p>
                     <div className="form-group-pray">
                         <div className="form-input-group">
                             <input
@@ -134,7 +134,7 @@ function Pray() {
                         </div>
 
                         <textarea
-                            placeholder="Your prayer or wish"
+                            placeholder="Tell us about your experience with our website"
                             id="msg"
                             name="msg"
                             value={formData.msg}
@@ -156,8 +156,8 @@ function Pray() {
 
             {/* Display messages */}
             <div className="messages-section">
-                <h3 className="messages-title">Reviewed Prayers and Wishes</h3>
-                <p className='messages-description'>Here are the prayers and wishes that have been reviewed and confirmed by the Nazareth Holy Cross team. Thank you for sharing your heartfelt messages with us.</p>
+                <h3 className="messages-title">Reviewed Costumers</h3>
+                <p className='messages-description'>Here are the reviews that have been approved by our team. Thank you for sharing your feedback with us.</p>
                 {messages.length > 0 ? (
                     <div className="messages-grid">
                         {messages.map((message, index) => (
