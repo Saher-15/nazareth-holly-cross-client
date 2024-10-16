@@ -21,7 +21,7 @@ const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
                 // Redirect to homepage after 5 seconds
                 setTimeout(() => {
                     navigate("/");
-                }, 5000);
+                }, 30000);
             } catch (error) {
                 console.error('Error sending order details:');
             }
