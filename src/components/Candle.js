@@ -76,13 +76,14 @@ function Candle() {
 
         {/* Script Section */}
         <div>
-          <h2 style={{ color: "white", textAlign: "center" }}>How to light a candle?</h2>
-          <p style={{ color: "white", textAlign: "center" }}>It's simple:</p>
-          <ol style={{ color: "white" }}>
-            <li>Choose a church where you'd like the candle to be lit.</li>
-            <li >Write a prayer or a personal request you'd like to accompany the candle lighting.</li>
-            <li>We will go to the church, light the candle for you, record a video with your name, and send the video directly to you.</li>
-          </ol>
+          <h2 style={{ color: "white", textAlign: "center", fontSize: "2em" }}>How to light a candle?</h2>
+<p style={{ color: "white", textAlign: "center", fontSize: "1.5em" }}>It's simple:</p>
+<ol style={{ color: "white", fontSize: "1.2em" }}>
+  <li>Choose a church where you'd like the candle to be lit.</li>
+  <li>Write a prayer or a personal request you'd like to accompany the candle lighting.</li>
+  <li>We will go to the church, light the candle for you, record a video with your name, and send the video directly to you.</li>
+</ol>
+
         </div>
         <br/>
         <p style={{ color: "white" }}>Note: This video is for illustrative purposes only, showcasing the process of lighting a candle at the Greek orthodox church. </p>
