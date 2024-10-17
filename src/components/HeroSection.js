@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import { useNavigate } from "react-router-dom";
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 import '../styles/HeroSection.css';
 
 function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [amount, setAmount] = useState('');
-  const [formError, setFormError] = useState('');
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [name, setName] = useState('');
+  // const [amount, setAmount] = useState('');
+  // const [formError, setFormError] = useState('');
   const audioRef = useRef(new Audio('/sounds/christians.mp3'));
   const navigate = useNavigate();
 
@@ -48,26 +48,26 @@ function HeroSection() {
     setIsPlaying(!isPlaying);
   };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  // const openModal = () => setIsModalOpen(true);
+  // const closeModal = () => setIsModalOpen(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name || !amount) {
-      setFormError('Please fill out all required fields.');
-      setTimeout(() => setFormError(''), 3000);
-      return;
-    }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!name || !amount) {
+  //     setFormError('Please fill out all required fields.');
+  //     setTimeout(() => setFormError(''), 3000);
+  //     return;
+  //   }
 
-    // Google Analytics event tracking
-    ReactGA.event({
-      category: 'User',
-      action: 'Clicked Button',
-      label: 'Submit'
-    });
+  //   // Google Analytics event tracking
+  //   ReactGA.event({
+  //     category: 'User',
+  //     action: 'Clicked Button',
+  //     label: 'Submit'
+  //   });
 
-    navigate("/checkoutdonation", { state: { name: name, amount: amount } });
-  };
+  //   navigate("/checkoutdonation", { state: { name: name, amount: amount } });
+  // };
 
   return (
     <div className='hero-container'>
@@ -107,10 +107,10 @@ function HeroSection() {
       </div>
       {/* <p className='duty-in-naz'>COMPLETE YOUR HOLY DUTY IN NAZARETH</p> */}
 
-      <button className='donate-btn' onClick={openModal}>
+      {/* <button className='donate-btn' onClick={openModal}>
         <i className='fas fa-donate'></i>
-      </button>
-      {isModalOpen && (
+      </button> */}
+      {/* {isModalOpen && (
         <div className='donation-modal show'>
           <div className='donation-content'>
             <button className='close-btn' onClick={closeModal}>×</button>
@@ -149,7 +149,7 @@ function HeroSection() {
             </form>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

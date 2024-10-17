@@ -67,12 +67,29 @@ function Candle() {
   return (
     <div className="candle">
       <div className="leftSide">
-        <p className="prayer-message">
+        {/* <p className="prayer-message">
           Light a candle in a Nazareth church and share your wish or prayer with us.<br />
           We'll keep the tradition alive by lighting a candle for you and send a video confirmation to your email.
-        </p>
+
+        </p> */}
+
+
+        {/* Script Section */}
+        <div>
+          <h2 style={{ color: "white", textAlign: "center" }}>How to light a candle?</h2>
+          <p style={{ color: "white", textAlign: "center" }}>It's simple:</p>
+          <ol style={{ color: "white" }}>
+            <li>Choose a church where you'd like the candle to be lit.</li>
+            <li >Write a prayer or a personal request you'd like to accompany the candle lighting.</li>
+            <li>We will go to the church, light the candle for you, record a video with your name, and send the video directly to you.</li>
+          </ol>
+        </div>
+        <br/>
+        <p style={{ color: "white" }}>Note: This video is for illustrative purposes only, showcasing the process of lighting a candle at the Greek orthodox church. </p>
+
         <div className="video-container">
-          <video controls poster="/images/logo.webp">
+
+          <video controls poster="/images/lightAcandle.jpg">
             <source
               src="https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2FWhatsApp%20Video%202024-09-12%20at%2011.57.40_4a6da68a.mp4?alt=media&token=ab7e16da-d452-41ec-a5b9-fafd2ca97495"
               type="video/mp4"
@@ -81,6 +98,7 @@ function Candle() {
           </video>
         </div>
       </div>
+
 
       <div className="rightSide">
         <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
@@ -91,6 +109,35 @@ function Candle() {
             LIGHT A PRAY CANDLE
           </label>
           <br />
+          <div className="form-group church-selection">
+            <label className="church-label">Select church to light the candle in:</label>
+            <div className="church-options">
+              <label className="church-option">
+                <input
+                  type="radio"
+                  value="Annunciation church"
+                  checked={selectedChurch === "Annunciation church"}
+                  onChange={handleChurchSelection}
+                  required
+                  className="radio-input"
+                />
+                <span className="custom-radio"></span>
+                Annunciation church
+              </label>
+              <label className="church-option">
+                <input
+                  type="radio"
+                  value="Greek orthodox church"
+                  checked={selectedChurch === "Greek orthodox church"}
+                  onChange={handleChurchSelection}
+                  required
+                  className="radio-input"
+                />
+                <span className="custom-radio"></span>
+                Greek orthodox church
+              </label>
+            </div>
+          </div>
           <div className="form-group">
             <div className="mt-2.5">
               <input
@@ -160,33 +207,8 @@ function Candle() {
               {inputWarning && <p className="error-message">{inputWarning}</p>}
             </div>
 
-            <div className="form-group church-selection">
-              <label className="church-label">Select church to light the candle in:</label>
-              <div className="church-options">
-                <label className="church-option">
-                  <input
-                    type="radio"
-                    value="Annunciation church"
-                    checked={selectedChurch === "Annunciation church"}
-                    onChange={handleChurchSelection}
-                    required
-                    className="radio-input"
-                  />
-                  Annunciation church
-                </label>
-                <label className="church-option">
-                  <input
-                    type="radio"
-                    value="Greek orthodox church"
-                    checked={selectedChurch === "Greek orthodox church"}
-                    onChange={handleChurchSelection}
-                    required
-                    className="radio-input"
-                  />
-                  Greek orthodox church
-                </label>
-              </div>
-            </div>
+
+
 
           </div>
 

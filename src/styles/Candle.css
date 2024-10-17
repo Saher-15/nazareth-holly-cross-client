@@ -182,68 +182,65 @@ video {
 .video-container:hover::before {
   border-color: rgba(255, 255, 255, 0.9);
 }
-
-/* Church selection section */
 .church-selection {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f7f7f7;
-  border: 2px solid #007bff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem; /* Increased margin for better spacing */
+  text-align: left; /* Center the text */
 }
 
-/* Church label */
 .church-label {
-  display: block;
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.5rem; /* Increased font size for emphasis */
+  color: white; /* Label color */
+  margin-bottom: 1rem; /* More space below the label */
 }
 
-/* Church options container */
 .church-options {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column; /* Stack options vertically */
+  align-items: left; /* Center options */
 }
 
-/* Individual church option */
 .church-option {
-  font-size: 14px;
-  color: #333;
   display: flex;
   align-items: center;
-  gap: 8px;
+  margin: 0.5rem 0; /* Space between options */
+  cursor: pointer; /* Change cursor on hover */
+  position: relative; /* To position custom radio */
+  padding-left: 30px; /* Add space for custom radio */
+  transition: transform 0.2s; /* Smooth scaling on hover */
 }
 
-/* Radio button styling */
-.radio-input {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #007bff;
-  border-radius: 50%;
-  position: relative;
-  margin-right: 8px;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
+.church-option:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+  border-radius: 10px; /* Rounded corners for better aesthetics */
 }
 
-.radio-input:checked::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #007bff;
+.custom-radio {
   position: absolute;
+  left: 0;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
+  width: 25px; /* Size of custom radio */
+  height: 25px; /* Size of custom radio */
+  border: 2px solid white; /* Border color */
+  border-radius: 50%; /* Make it round */
+  background-color: transparent; /* Background color */
+  transition: background-color 0.3s, border-color 0.3s; /* Transition effects */
 }
 
-.radio-input:hover {
-  border-color: #0056b3;
+.radio-input:checked + .custom-radio {
+  background-color: white; /* Change color when checked */
+  border-color: #4A90E2; /* Change border color when checked */
+}
+
+.radio-input {
+  display: none; /* Hide the default radio input */
+}
+
+.error-message {
+  color: white; /* Error message color */
+  font-size: 0.875rem; /* Smaller font size for error messages */
+  margin-top: 0.5rem; /* Space above the error message */
 }
 
 /* Responsive design */
