@@ -10,8 +10,9 @@
 }
 
 .language-button {
-    background: none;
-    color: #ffdf00;
+    background-color: #ffdf00;
+    /* Button background color */
+    color: #242424;
     /* Button text color */
     border: none;
     /* No border */
@@ -28,7 +29,7 @@
 }
 
 .language-button:hover {
-    background-color: none;
+    background-color: #e0c200;
     /* Darker shade on hover */
 }
 
@@ -55,7 +56,7 @@
     /* Vertical layout */
     gap: 10px;
     /* Space between cards */
-    padding: 5px;
+    padding: 10px;
     /* Padding around cards */
 }
 

@@ -8,7 +8,7 @@ function Navbar({ currentLanguage, onLanguageChange }) {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
   const navigate = useNavigate();
-  
+
   const handleShopClick = () => {
     // Reset filters before navigating
     localStorage.removeItem('searchQuery');
@@ -26,14 +26,18 @@ function Navbar({ currentLanguage, onLanguageChange }) {
           <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px" }}></i>
           <span>NAZARETH HOLY CROSS</span>
         </Link>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+        {/* <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <span style={{ color: '#ffcc00', marginRight: "35px" }}>FEEL THE BLESSING</span>
-        </Link>
+        </Link> */}
+        <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} onClick={closeMobileMenu} /> {/* Include the LanguageSwitcher */}
+
         <div className='navbar-container'>
+
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
             </li>
@@ -52,9 +56,7 @@ function Navbar({ currentLanguage, onLanguageChange }) {
             <li className='nav-item'>
               <Link to='/reviews' className='nav-links' onClick={closeMobileMenu}>Reviews</Link>
             </li>
-            <li className='nav-item language-switcher'>
-              <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} /> {/* Include the LanguageSwitcher */}
-            </li>
+
           </ul>
         </div>
       </nav>
