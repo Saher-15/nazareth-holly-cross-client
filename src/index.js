@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
-import { createRoot } from 'react-dom/client'; // Import createRoot from react-dom/client
+import './i18n'; // Make sure to import the i18n configuration
 
-const root = createRoot(document.getElementById("root")); // Use createRoot from react-dom/client
-root.render(
+ReactDOM.render(
+  <React.StrictMode>
     <App />
+  </React.StrictMode>,
+  document.getElementById('root')
 );

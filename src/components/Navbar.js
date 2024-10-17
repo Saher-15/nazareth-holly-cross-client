@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/Navbar.css';
+import LanguageSwitcher from './LanguageSwitcher'; // Make sure to import the LanguageSwitcher component
 
-function Navbar() {
+function Navbar({ currentLanguage, onLanguageChange }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
   const navigate = useNavigate();
+  
   const handleShopClick = () => {
     // Reset filters before navigating
     localStorage.removeItem('searchQuery');
@@ -19,15 +21,13 @@ function Navbar() {
 
   return (
     <>
-
       <nav className='navbar'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu} >
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px" }}></i>
           <span>NAZARETH HOLY CROSS</span>
         </Link>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu} >
+        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <span style={{ color: '#ffcc00', marginRight: "35px" }}>FEEL THE BLESSING</span>
-
         </Link>
         <div className='navbar-container'>
           <div className='menu-icon' onClick={handleClick}>
@@ -35,50 +35,29 @@ function Navbar() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item' >
-              <Link to='/live' style={{ color: "rgba(255, 0, 0, 0.5)" }} className='nav-links' onClick={closeMobileMenu}>
-                Live
-              </Link>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
             </li>
             <li className='nav-item'>
-              <Link to='/tour' className='nav-links' onClick={closeMobileMenu}>
-                Tour
-              </Link>
+              <Link to='/live' style={{ color: "rgba(255, 0, 0, 0.5)" }} className='nav-links' onClick={closeMobileMenu}>Live</Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/candle'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Candle
-              </Link>
+              <Link to='/tour' className='nav-links' onClick={closeMobileMenu}>Tour</Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to="/shop"
-                className="nav-links"
-                onClick={handleShopClick}
-              >
-                Shop
-              </Link>
+              <Link to='/candle' className='nav-links' onClick={closeMobileMenu}>Candle</Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/reviews'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Reviews
-              </Link>
+              <Link to="/shop" className="nav-links" onClick={handleShopClick}>Shop</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/reviews' className='nav-links' onClick={closeMobileMenu}>Reviews</Link>
+            </li>
+            <li className='nav-item language-switcher'>
+              <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} /> {/* Include the LanguageSwitcher */}
             </li>
           </ul>
         </div>
-      </nav >
+      </nav>
     </>
   );
 }

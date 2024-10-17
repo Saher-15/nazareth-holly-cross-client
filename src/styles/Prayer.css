@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/images/vitrage-bg.jpg') no-repeat center center;
+    background: url('/public//images/vitrage-bg.jpg') no-repeat center center;
     background-size: cover;
     backdrop-filter: blur(8px);
     z-index: -1;

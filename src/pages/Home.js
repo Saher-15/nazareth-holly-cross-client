@@ -9,6 +9,7 @@ const trackingId = "G-VE42K6WP4H"; // Replace with your Google Analytics trackin
 ReactGA.initialize(trackingId);
 
 function Home() {
+
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);

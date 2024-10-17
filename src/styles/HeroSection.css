@@ -153,7 +153,7 @@
 }
 
 .donation-content {
-  background-image: url('/images/nazareth/nazareth10.jpg');
+  background-image: url('/public/images/nazareth/nazareth10.jpg');
   background-size: cover; /* Ensure the image covers the content area */
   background-repeat: no-repeat; /* Ensure the image does not repeat */
   background-position: center; /* Center the image within the container */

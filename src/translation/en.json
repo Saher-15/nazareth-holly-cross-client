@@ -1,0 +1,59 @@
+{
+    "about": {
+        "title": "Welcome to the official portal of Nazareth",
+        "description1": "The heart of Christian faith. We understand that not everyone can physically visit Nazareth, a city where Jesus grew and where spiritual experiences await every visitor. Therefore, we are pleased to offer you the opportunity to bring Nazareth to you.",
+        "description2": "Through our website, you can take a virtual tour of the main churches and holy sites of Nazareth, connect to the rich history and religious tradition that characterizes the place. In addition, we offer you a unique opportunity to purchase local souvenirs and even light a candle in memory or honor of your loved ones, as if you were here with us.",
+        "description3": "In our online store, you can find a wide range of products: crosses made from local olive wood, jewelry inspired by Christian symbols, paintings, and mosaics that reflect the rich religious art, and more. Now, you can also buy water from the legendary Nazareth spring, sand from the sands of Nazareth, and local olives – all to feel the greatness of the city of Nazareth and Jesus. You can also choose to light a virtual candle, an act that conveys prayer and remembrance across distances.",
+        "description4": "We invite you to open your hearts and feel the warmth of our community through every product you choose to buy. Every purchase supports the local community and helps preserve the rich heritage of Nazareth for future generations. Visit our website and find your way to connect with Nazareth, anytime and anywhere."
+    },
+    "whatIsNew": {
+        "title": "Biblical References to Nazareth",
+        "scriptureNotes": {
+            "matthew": "Matthew 2:23: \"And he came and dwelt in a city called Nazareth, that it might be fulfilled which was spoken by the prophets, 'He shall be called a Nazarene.'\"",
+            "luke1": "Luke 1:26-27: \"Now in the sixth month, the angel Gabriel was sent by God to a city of Galilee named Nazareth, to a virgin betrothed to a man whose name was Joseph, of the house of David. The virgin's name was Mary.\"",
+            "john": "John 1:46: \"And Nathanael said to him, 'Can anything good come out of Nazareth?' Philip said to him, 'Come and see.'\"",
+            "luke4": "Luke 4:16: \"So He came to Nazareth, where He had been brought up. And as His custom was, He went into the synagogue on the Sabbath day, and stood up to read.\""
+        },
+        "touchingTheSacred": "Touching the Sacred, Feeling the Heartbeat",
+        "introParagraphs": {
+            "part1": "Nazareth, the city where the miraculous unfolded, is the place where Jesus took His first steps, where the Virgin Mary embraced her Son and prayed for His safety. Here, within the ancient churches, at the sacred spring where Mary nourished Jesus, and in the vibrant market of the old city – you will find your faith coming to life once more.",
+            "part2": "Imagine yourself walking through the narrow streets, following in Jesus' footsteps to the churches, sharing moments of reflection at Mary's Spring, where the holy mother's eyes met the ancient waters. Every stone, every alley, tells a story of unwavering faith, of a spiritual journey that transcends time.",
+            "part3": "When you light a candle in the Basilica of the Annunciation, you reconnect with the place where Jesus first heard His divine calling. As your heart longs for Nazareth, our souvenirs carry the holy spirit of the city, reminding you of your deep connection to the place where it all began.",
+            "part4": "Allow us to bring Nazareth to you, straight into your home. With every memento, you preserve a deep bond with Nazareth – the city where Jesus and Mary walked, the city where faith was born. Remember the moments that happened here, the hearts that opened in prayer, and the tears that quietly fell upon the ancient stones.",
+            "part5": "Nazareth awaits you, embracing you from afar, bringing its holiness to you. Keep the flame burning in your heart, until the day you return to us – to the city where faith beats."
+        }
+    },
+    "live": {
+      "event_ongoing": "Live Event Ongoing",
+      "upcoming_event": "Upcoming Live Event",
+      "nazareth_date_time": "Nazareth Date and Time:",
+      "time_remaining": "Time Remaining:",
+      "join_live": "Join Live",
+      "no_upcoming_events": "No upcoming events available.",
+      "past_live_events": "Past Live Events",
+      "refresh_note": "Note: Please refresh the page before pressing the 'Join Live' button.",
+      "live_note": "Note: The 'Join Live' button is available only after the live event starts."
+    },
+    "common": {
+      "home": "Home",
+      "live": "Live",
+      "tour": "Tour",
+      "candle": "Candle",
+      "shop": "Shop",
+      "reviews": "Reviews"
+    },
+    "candle":{
+        "howToLightACandle": "How to light a candle?",
+        "itsSimple": "It's simple:",
+        "step1": "Choose a church where you'd like the candle to be lit.",
+        "step2": "Write a prayer or a personal request you'd like to accompany the candle lighting.",
+        "step3": "We will go to the church, light the candle for you, record a video with your name, and send the video directly to you.",
+        "note": "Note: This video is for illustrative purposes only, showcasing the process of lighting a candle at the Greek orthodox church.",
+        "lightAPrayCandle": "LIGHT A PRAY CANDLE",
+        "selectChurch": "Select church to light the candle in:",
+        "toLightACandlePay": "To light a candle, pay 5$",
+        "light": "LIGHT",
+        "emailMatchError": "Emails don't match",
+        "inputWarning": "Please select a church."
+      }
+}

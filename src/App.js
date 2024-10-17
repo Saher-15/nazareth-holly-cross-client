@@ -18,7 +18,6 @@ const CheckOut = lazy(() => import("./pages/CheckOut"));
 const Prayer = lazy(() => import("./components/Prayer"));
 const CheckOutCandle = lazy(() => import("./pages/CheckOutCandle"));
 const CheckOutDonation = lazy(() => import("./pages/CheckOutDonation"));
-
 const Live = lazy(() => import("./pages/Live"));
 const Tour = lazy(() => import("./components/NazarethTour"));
 const Shop = lazy(() => import("./pages/shop/shop"));
@@ -33,7 +32,9 @@ function App() {
             path="/" 
             element={
               <Suspense fallback={<div>Loading Home...</div>}>
-                <Layout><Home /></Layout>
+                <Layout>
+                  <Home />
+                </Layout>
               </Suspense>
             } 
           />
@@ -41,7 +42,9 @@ function App() {
             path="/candle" 
             element={
               <Suspense fallback={<div>Loading Services...</div>}>
-                <Layout><Candle /></Layout>
+                <Layout>
+                  <Candle />
+                </Layout>
               </Suspense>
             } 
           />
@@ -49,7 +52,9 @@ function App() {
             path="/tour" 
             element={
               <Suspense fallback={<div>Loading Tour...</div>}>
-                <Layout><Tour /></Layout>
+                <Layout>
+                  <Tour />
+                </Layout>
               </Suspense>
             } 
           />
@@ -57,7 +62,9 @@ function App() {
             path="/shop" 
             element={
               <Suspense fallback={<div>Loading Shop...</div>}>
-                <Layout><Shop /></Layout>
+                <Layout>
+                  <Shop />
+                </Layout>
               </Suspense>
             } 
           />
@@ -65,7 +72,9 @@ function App() {
             path="/product/:id" 
             element={
               <Suspense fallback={<div>Loading Product...</div>}>
-                <Layout><ProductPage /></Layout>
+                <Layout>
+                  <ProductPage />
+                </Layout>
               </Suspense>
             } 
           />
@@ -73,7 +82,9 @@ function App() {
             path="/oldcity" 
             element={
               <Suspense fallback={<div>Loading Old City...</div>}>
-                <Layout><OldCity /></Layout>
+                <Layout>
+                  <OldCity />
+                </Layout>
               </Suspense>
             } 
           />
@@ -81,7 +92,9 @@ function App() {
             path="/city" 
             element={
               <Suspense fallback={<div>Loading City...</div>}>
-                <Layout><City /></Layout>
+                <Layout>
+                  <City />
+                </Layout>
               </Suspense>
             } 
           />
@@ -89,7 +102,9 @@ function App() {
             path="/maryswell" 
             element={
               <Suspense fallback={<div>Loading Mary's Well...</div>}>
-                <Layout><MarysWell /></Layout>
+                <Layout>
+                  <MarysWell />
+                </Layout>
               </Suspense>
             } 
           />
@@ -97,7 +112,9 @@ function App() {
             path="/latin" 
             element={
               <Suspense fallback={<div>Loading Latin...</div>}>
-                <Layout><Latin /></Layout>
+                <Layout>
+                  <Latin />
+                </Layout>
               </Suspense>
             } 
           />
@@ -105,7 +122,9 @@ function App() {
             path="/greek" 
             element={
               <Suspense fallback={<div>Loading Greek...</div>}>
-                <Layout><Greek /></Layout>
+                <Layout>
+                  <Greek />
+                </Layout>
               </Suspense>
             } 
           />
@@ -113,7 +132,9 @@ function App() {
             path="/cart" 
             element={
               <Suspense fallback={<div>Loading Cart...</div>}>
-                <Layout><Cart /></Layout>
+                <Layout>
+                  <Cart />
+                </Layout>
               </Suspense>
             } 
           />
@@ -121,7 +142,9 @@ function App() {
             path="/reviews" 
             element={
               <Suspense fallback={<div>Loading Prayer...</div>}>
-                <Layout><Prayer /></Layout>
+                <Layout>
+                  <Prayer />
+                </Layout>
               </Suspense>
             } 
           />
@@ -129,7 +152,9 @@ function App() {
             path="/about" 
             element={
               <Suspense fallback={<div>Loading About...</div>}>
-                <Layout><About /></Layout>
+                <Layout>
+                  <About />
+                </Layout>
               </Suspense>
             } 
           />
@@ -137,7 +162,9 @@ function App() {
             path="/checkout" 
             element={
               <Suspense fallback={<div>Loading CheckOut...</div>}>
-                <Layout><CheckOut /></Layout>
+                <Layout>
+                  <CheckOut />
+                </Layout>
               </Suspense>
             } 
           />
@@ -145,7 +172,9 @@ function App() {
             path="/checkoutcandle" 
             element={
               <Suspense fallback={<div>Loading CheckOut Candle...</div>}>
-                <Layout><CheckOutCandle /></Layout>
+                <Layout>
+                  <CheckOutCandle />
+                </Layout>
               </Suspense>
             } 
           />
@@ -153,7 +182,9 @@ function App() {
             path="/checkoutdonation" 
             element={
               <Suspense fallback={<div>Loading CheckOut Donation...</div>}>
-                <Layout><CheckOutDonation /></Layout>
+                <Layout>
+                  <CheckOutDonation />
+                </Layout>
               </Suspense>
             } 
           />
@@ -161,7 +192,9 @@ function App() {
             path="/Live" 
             element={
               <Suspense fallback={<div>Loading Live...</div>}>
-                <Layout><Live /></Layout>
+                <Layout>
+                  <Live />
+                </Layout>
               </Suspense>
             } 
           />

@@ -1,0 +1,60 @@
+{
+    "about": {
+      "title": "Bienvenue sur le portail officiel de Nazareth",
+      "description1": "Le cœur de la foi chrétienne. Nous comprenons que tout le monde ne peut pas visiter physiquement Nazareth, une ville où Jésus a grandi et où des expériences spirituelles attendent chaque visiteur. Par conséquent, nous sommes heureux de vous offrir l'opportunité d'apporter Nazareth à vous.",
+      "description2": "À travers notre site Web, vous pouvez faire une visite virtuelle des principales églises et des sites saints de Nazareth, vous connecter à la riche histoire et à la tradition religieuse qui caractérisent cet endroit. De plus, nous vous offrons une opportunité unique d'acheter des souvenirs locaux et même d'allumer une bougie en mémoire ou en honneur de vos proches, comme si vous étiez ici avec nous.",
+      "description3": "Dans notre boutique en ligne, vous pouvez trouver une large gamme de produits : des croix en bois d'olivier local, des bijoux inspirés des symboles chrétiens, des peintures et des mosaïques qui reflètent la riche art religieux, et plus encore. Maintenant, vous pouvez également acheter de l'eau de la légendaire source de Nazareth, du sable des sables de Nazareth et des olives locales - tout pour ressentir la grandeur de la ville de Nazareth et de Jésus. Vous pouvez également choisir d'allumer une bougie virtuelle, un acte qui transmet prière et mémoire à distance.",
+      "description4": "Nous vous invitons à ouvrir votre cœur et à ressentir la chaleur de notre communauté à travers chaque produit que vous choisissez d'acheter. Chaque achat soutient la communauté locale et aide à préserver le riche patrimoine de Nazareth pour les générations futures. Visitez notre site Web et trouvez votre moyen de vous connecter avec Nazareth, à tout moment et en tout lieu."
+    },
+    "whatIsNew": {
+    "title": "Références bibliques à Nazareth",
+    "scriptureNotes": {
+      "matthew": "Matthieu 2:23 : \"Et il vint habiter dans une ville appelée Nazareth, afin que soit accompli ce qui avait été dit par les prophètes : 'Il sera appelé Nazaréen.'\"",
+      "luke1": "Luc 1:26-27 : \"Au sixième mois, l'ange Gabriel fut envoyé par Dieu dans une ville de Galilée, appelée Nazareth, à une vierge fiancée à un homme du nom de Joseph, de la maison de David. Le nom de la vierge était Marie.\"",
+      "john": "Jean 1:46 : \"Et Nathanaël lui dit : 'Peut-il venir quelque chose de bon de Nazareth ?' Philippe lui dit : 'Viens et vois.'\"",
+      "luke4": "Luc 4:16 : \"Il se rendit à Nazareth, où il avait été élevé. Et selon sa coutume, il entra dans la synagogue le jour du sabbat et se leva pour lire.\""
+    },
+    "touchingTheSacred": "Toucher le sacré, sentir le pouls",
+    "introParagraphs": {
+      "part1": "Nazareth, la ville où le miraculeux s'est déroulé, est l'endroit où Jésus a fait ses premiers pas, où la Vierge Marie a embrassé son Fils et a prié pour sa sécurité. Ici, au sein des anciennes églises, à la source sacrée où Marie a nourri Jésus, et dans le marché animé de la vieille ville – vous verrez votre foi renaître.",
+      "part2": "Imaginez-vous marchant à travers les rues étroites, suivant les pas de Jésus vers les églises, partageant des moments de réflexion à la source de Marie, où les yeux de la mère sainte ont rencontré les eaux anciennes. Chaque pierre, chaque ruelle, raconte une histoire de foi indéfectible, d'un voyage spirituel qui transcende le temps.",
+      "part3": "Lorsque vous allumez une bougie dans la basilique de l'Annonciation, vous vous reconnectez avec l'endroit où Jésus a entendu pour la première fois son appel divin. Alors que votre cœur aspire à Nazareth, nos souvenirs portent l'esprit sacré de la ville, vous rappelant votre profonde connexion avec l'endroit où tout a commencé.",
+      "part4": "Permettez-nous de vous apporter Nazareth, directement chez vous. Avec chaque souvenir, vous préservez un lien profond avec Nazareth – la ville où Jésus et Marie ont marché, la ville où la foi est née. Souvenez-vous des moments qui se sont déroulés ici, des cœurs qui se sont ouverts en prière, et des larmes qui sont tombées silencieusement sur les pierres anciennes.",
+      "part5": "Nazareth vous attend, vous étreignant de loin, vous apportant sa sainteté. Gardez la flamme allumée dans votre cœur, jusqu'au jour où vous reviendrez vers nous – à la ville où la foi bat."
+    }
+  },
+  "live": {
+      "event_ongoing": "Événement en Direct en Cours",
+      "upcoming_event": "Événement en Direct À Venir",
+      "nazareth_date_time": "Date et Heure de Nazareth:",
+      "time_remaining": "Temps Restant:",
+      "join_live": "Rejoindre en Direct",
+      "no_upcoming_events": "Aucun événement à venir disponible.",
+      "past_live_events": "Événements Passés en Direct",
+      "refresh_note": "Remarque : Veuillez actualiser la page avant d'appuyer sur le bouton 'Rejoindre en Direct'.",
+      "live_note": "Remarque : Le bouton 'Rejoindre en Direct' est disponible uniquement après le début de l'événement en direct."
+    },
+    "common": {
+      "home": "Accueil",
+      "live": "En Direct",
+      "tour": "Visite",
+      "candle": "Bougie",
+      "shop": "Magasin",
+      "reviews": "Avis"
+    },
+    "candle": {
+      "howToLightACandle": "Comment allumer une bougie?",
+      "itsSimple": "C'est simple :",
+      "step1": "Choisissez une église où vous aimeriez que la bougie soit allumée.",
+      "step2": "Écrivez une prière ou une demande personnelle que vous aimeriez accompagner l'allumage de la bougie.",
+      "step3": "Nous irons à l'église, allumerons la bougie pour vous, enregistrerons une vidéo avec votre nom et vous enverrons la vidéo directement.",
+      "note": "Remarque : Cette vidéo est à des fins illustratives seulement, montrant le processus d'allumage d'une bougie à l'église orthodoxe grecque.",
+      "lightAPrayCandle": "ALLUMER UNE BOUGIE DE PRIÈRE",
+      "selectChurch": "Sélectionnez l'église pour allumer la bougie :",
+      "toLightACandlePay": "Pour allumer une bougie, payez 5$",
+      "light": "ALLUMER",
+      "emailMatchError": "Les emails ne correspondent pas",
+      "inputWarning": "Veuillez sélectionner une église."
+    }
+  }
+  

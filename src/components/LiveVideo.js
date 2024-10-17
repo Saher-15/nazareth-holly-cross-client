@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/LiveClient.css";
+import { useTranslation } from 'react-i18next';
 
 // Define events with a specific start time in local timezone (Israel Time)
 const events = [
-  { dateTime: new Date('2024-10-06T09:00:00+03:00'), description: 'Sunday Prayer from the Annunciation church' }, // Example event
+  { dateTime: new Date('2024-10-06T09:00:00+03:00'), description: 'Sunday Prayer from the Annunciation church' },
 ];
 
 const pastVideos = [
@@ -22,6 +23,7 @@ const pastVideos = [
 ];
 
 const LiveVideo = () => {
+  const { t } = useTranslation(); // Initialize translation hook
   const [upcomingEvent, setUpcomingEvent] = useState(null);
   const [pastEvents, setPastEvents] = useState([]);
   const [timeRemaining, setTimeRemaining] = useState('');
@@ -31,27 +33,21 @@ const LiveVideo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const now = new Date();
-    console.log("Current Time: ", now); // Debugging
-
-    // Separate upcoming and past events
+    
     const upcomingEvents = events.filter(event => new Date(event.dateTime) >= now);
     const endedEvents = events.filter(event => new Date(event.dateTime) < now);
-
-    console.log("Upcoming Events: ", upcomingEvents); // Debugging
-    console.log("Ended Events: ", endedEvents); // Debugging
-
+    
     setPastEvents(endedEvents.sort((a, b) => b.dateTime - a.dateTime));
-
+    
     const mostUpcomingEvent = upcomingEvents.sort((a, b) => a.dateTime - b.dateTime)[0] || null;
+    
     if (!mostUpcomingEvent) {
-      // Check for live events (ongoing)
       const liveEvents = events.filter(event => {
         const eventDateTime = new Date(event.dateTime);
-        const eventEndTime = new Date(eventDateTime.getTime() + 2 * 60 * 60 * 1000); // Assuming 2 hours duration
+        const eventEndTime = new Date(eventDateTime.getTime() + 2 * 60 * 60 * 1000);
         return now >= eventDateTime && now <= eventEndTime;
       });
-
-      // If there are ongoing live events, set the first one as the upcoming event
+      
       if (liveEvents.length > 0) {
         setUpcomingEvent(liveEvents[0]);
         setInLiveMode(true);
@@ -60,14 +56,13 @@ const LiveVideo = () => {
     } else {
       setUpcomingEvent(mostUpcomingEvent);
     }
-
-    // If no upcoming event is found, reset live mode
+    
     if (!upcomingEvent) {
       setInLiveMode(false);
       setCanJoinLive(false);
     }
 
-  }, [upcomingEvent]); // Add upcomingEvent as a dependency
+  }, [upcomingEvent]);
 
   useEffect(() => {
     if (upcomingEvent) {
@@ -77,7 +72,7 @@ const LiveVideo = () => {
         const timeDiff = eventDateTime - now;
 
         if (timeDiff <= 0) {
-          setTimeRemaining('Event has started or is past.');
+          setTimeRemaining(t('live.event_has_started'));
           return;
         }
 
@@ -104,34 +99,31 @@ const LiveVideo = () => {
         <div className="live-client-placeholder">
           {upcomingEvent ? (
             <div className="live-client-event-info">
-              <h2>{inLiveMode ? 'Live Event Ongoing' : 'Upcoming Live Event'}</h2>
+              <h2>{inLiveMode ? t('live.event_ongoing') : t('live.upcoming_event')}</h2>
               <p className="event-name"><strong>{upcomingEvent.description}</strong></p>
-              <p><strong>Nazareth Date and Time:</strong> {new Date(upcomingEvent.dateTime).toLocaleString()}</p>
-              <p><strong>Time Remaining:</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
+              <p><strong>{t('live.nazareth_date_time')}</strong> {new Date(upcomingEvent.dateTime).toLocaleString()}</p>
+              <p><strong>{t('live.time_remaining')}</strong> <span className="time-remaining-frame">{timeRemaining}</span></p>
 
-              {/* Note about the join button availability */}
               {inLiveMode && (
                 <p className="live-note" style={{ color: 'red' }}>
-                  Note: The "Join Live" button is available only after the live event starts.
+                  {t('live.live_note')}
                 </p>
               )}
               <p className="refresh-note" style={{ color: 'red' }}>
-                Note: Please refresh the page before pressing the "Join Live" button.
+                {t('live.refresh_note')}
               </p>
 
               <button className="join-live-button" onClick={handleJoinLive} disabled={!canJoinLive}>
-                Join Live
+                {t('live.join_live')}
               </button>
             </div>
-
           ) : (
-            <p>No upcoming events available.</p>
+            <p>{t('live.no_upcoming_events')}</p>
           )}
         </div>
 
-        {/* Past Live Video Gallery */}
         <div className="past-lives-container">
-          <h2 style={{ color: '#ffcc00' }}>Past Live Events</h2>
+          <h2 style={{ color: '#ffcc00' }}>{t('live.past_live_events')}</h2>
           <div className="past-videos-gallery">
             {pastVideos.map((video, index) => (
               <div key={index} className="past-live-item">
@@ -139,7 +131,7 @@ const LiveVideo = () => {
                   controls
                   width="100%"
                   height="auto"
-                  poster={video.thumbnail} // Thumbnail image
+                  poster={video.thumbnail}
                   className="past-live-video"
                 >
                   <source src={video.src} type="video/mp4" />
@@ -151,7 +143,6 @@ const LiveVideo = () => {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );

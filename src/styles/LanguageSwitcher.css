@@ -1,0 +1,95 @@
+.language-switcher {
+    position: relative;
+    /* Position relative for absolute dropdown */
+    margin: 20px;
+    /* Optional margin for spacing */
+    font-family: 'Montserrat', sans-serif;
+    /* Stylish font */
+    color: #242424;
+    /* Text color */
+}
+
+.language-button {
+    background: none;
+    color: #ffdf00;
+    /* Button text color */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 10px 10px;
+    /* Padding for the button */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-size: 1.2rem;
+    /* Button text size */
+    transition: background-color 0.3s ease;
+    /* Smooth transition */
+}
+
+.language-button:hover {
+    background-color: none;
+    /* Darker shade on hover */
+}
+
+.language-options {
+    position: absolute;
+    /* Position dropdown absolutely */
+    top: 100%;
+    /* Align below the button */
+    left: 0;
+    /* Align to the left */
+    background-color: #fff;
+    /* Dropdown background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Shadow for dropdown */
+    border-radius: 8px;
+    /* Rounded corners for dropdown */
+    margin-top: 5px;
+    /* Small margin above dropdown */
+    z-index: 1;
+    /* Ensure dropdown is above other elements */
+    display: flex;
+    /* Flex container for language cards */
+    flex-direction: column;
+    /* Vertical layout */
+    gap: 10px;
+    /* Space between cards */
+    padding: 5px;
+    /* Padding around cards */
+}
+
+.language-card {
+    background-color: #ffdf00;
+    /* Card background color */
+    color: #242424;
+    /* Text color */
+    border: 2px solid transparent;
+    /* Border for hover effect */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 15px;
+    /* Padding for the card */
+    text-align: center;
+    /* Center text in card */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+.language-card:hover {
+    background-color: #e0c200;
+    /* Darker shade on hover */
+    transform: translateY(-2px);
+    /* Slight lift on hover */
+    border-color: #ff9900;
+    /* Border color on hover */
+}
+
+.language-card h3 {
+    margin: 0;
+    /* Remove default margin */
+    font-size: 1.2rem;
+    /* Card text size */
+}

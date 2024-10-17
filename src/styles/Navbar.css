@@ -84,6 +84,20 @@
   color: #ffdf00; /* Golden text color on hover */
 }
 
+/* Add this to your existing Navbar.css */
+
+/* Style adjustments for the Language Switcher in the Navbar */
+.language-switcher {
+  margin-left: 20px; /* Add some spacing from the other items */
+}
+
+/* Ensure it looks good on mobile as well */
+.nav-menu {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+
 /* Responsive Styles */
 @media screen and (max-width: 1200px) {
   .navbar {

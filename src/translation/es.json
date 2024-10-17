@@ -1,0 +1,59 @@
+{
+    "about": {
+      "title": "Bienvenido al portal oficial de Nazaret",
+      "description1": "El corazón de la fe cristiana. Entendemos que no todos pueden visitar físicamente Nazaret, una ciudad donde Jesús creció y donde las experiencias espirituales esperan a cada visitante.",
+      "description2": "A través de nuestro sitio web, puedes realizar un recorrido virtual por las principales iglesias y sitios sagrados de Nazaret, conectándote con la rica historia y tradición religiosa que caracteriza el lugar.",
+      "description3": "Además, te ofrecemos una oportunidad única de comprar recuerdos locales e incluso encender una vela en memoria u honor de tus seres queridos, como si estuvieras aquí con nosotros.",
+      "description4": "En nuestra tienda en línea, puedes encontrar una amplia gama de productos: cruces hechas de madera de olivo local, joyería inspirada en símbolos cristianos, pinturas y mosaicos que reflejan la rica arte religiosa, y más. Ahora, también puedes comprar agua de la legendaria fuente de Nazaret, arena de las arenas de Nazaret y aceitunas locales, todo para sentir la grandeza de la ciudad de Nazaret y de Jesús. También puedes elegir encender una vela virtual, un acto que transmite oración y recuerdo a través de distancias."
+    },
+    "whatIsNew": {
+        "title": "Referencias bíblicas a Nazaret",
+        "scriptureNotes": {
+          "matthew": "Mateo 2:23: \"Y vino y habitó en una ciudad llamada Nazaret, para que se cumpliese lo que fue dicho por los profetas: 'Sería llamado Nazareno.'\"",
+          "luke1": "Lucas 1:26-27: \"En el sexto mes, el ángel Gabriel fue enviado por Dios a una ciudad de Galilea llamada Nazaret, a una virgen desposada con un hombre que se llamaba José, de la casa de David. El nombre de la virgen era María.\"",
+          "john": "Juan 1:46: \"Y Nathanael le dijo: '¿De Nazaret puede salir algo bueno?' Felipe le dijo: 'Ven y ve.'\"",
+          "luke4": "Lucas 4:16: \"Y vino a Nazaret, donde había sido criado; y, según su costumbre, entró en la sinagoga el día de reposo y se levantó a leer.\""
+        },
+        "touchingTheSacred": "Tocando lo sagrado, sintiendo el latido",
+        "introParagraphs": {
+          "part1": "Nazaret, la ciudad donde se desarrolló lo milagroso, es el lugar donde Jesús dio sus primeros pasos, donde la Virgen María abrazó a su Hijo y oró por su seguridad. Aquí, dentro de las antiguas iglesias, en la fuente sagrada donde María alimentó a Jesús, y en el vibrante mercado de la ciudad antigua, encontrarás tu fe cobrando vida una vez más.",
+          "part2": "Imagínate caminando por las estrechas calles, siguiendo los pasos de Jesús hacia las iglesias, compartiendo momentos de reflexión en la fuente de María, donde los ojos de la madre santa encontraron las antiguas aguas. Cada piedra, cada callejón, cuenta una historia de fe inquebrantable, de un viaje espiritual que trasciende el tiempo.",
+          "part3": "Cuando enciendes una vela en la Basílica de la Anunciación, te reconectas con el lugar donde Jesús escuchó por primera vez su llamado divino. A medida que tu corazón anhela Nazaret, nuestros recuerdos llevan el espíritu sagrado de la ciudad, recordándote tu profunda conexión con el lugar donde todo comenzó.",
+          "part4": "Permítenos traerte Nazaret, directamente a tu hogar. Con cada recuerdo, preservas un vínculo profundo con Nazaret, la ciudad donde caminaron Jesús y María, la ciudad donde nació la fe. Recuerda los momentos que ocurrieron aquí, los corazones que se abrieron en oración y las lágrimas que calladamente cayeron sobre las piedras antiguas.",
+          "part5": "Nazaret te espera, abrazándote desde lejos, trayendo su santidad a ti. Mantén la llama ardiendo en tu corazón, hasta el día en que regreses a nosotros – a la ciudad donde late la fe."
+        }
+      },
+      "live": {
+      "event_ongoing": "Evento en Vivo en Curso",
+      "upcoming_event": "Evento en Vivo Próximo",
+      "nazareth_date_time": "Fecha y Hora de Nazaret:",
+      "time_remaining": "Tiempo Restante:",
+      "join_live": "Unirse en Vivo",
+      "no_upcoming_events": "No hay eventos próximos disponibles.",
+      "past_live_events": "Eventos Pasados en Vivo",
+      "refresh_note": "Nota: Por favor, actualiza la página antes de presionar el botón 'Unirse en Vivo'.",
+      "live_note": "Nota: El botón 'Unirse en Vivo' está disponible solo después de que comience el evento en vivo."
+    },
+    "common": {
+      "home": "Inicio",
+      "live": "En Vivo",
+      "tour": "Tour",
+      "candle": "Vela",
+      "shop": "Tienda",
+      "reviews": "Reseñas"
+    },
+    "candle": {
+      "howToLightACandle": "¿Cómo encender una vela?",
+      "itsSimple": "Es simple:",
+      "step1": "Elige una iglesia donde te gustaría que se encendiera la vela.",
+      "step2": "Escribe una oración o una solicitud personal que te gustaría acompañar a la iluminación de la vela.",
+      "step3": "Iremos a la iglesia, encenderemos la vela por ti, grabaremos un video con tu nombre y te enviaremos el video directamente.",
+      "note": "Nota: Este video es solo para fines ilustrativos, mostrando el proceso de encender una vela en la iglesia ortodoxa griega.",
+      "lightAPrayCandle": "ENCENDER UNA VELA DE ORACIÓN",
+      "selectChurch": "Selecciona la iglesia para encender la vela:",
+      "toLightACandlePay": "Para encender una vela, paga 5$",
+      "light": "ENCENDER",
+      "emailMatchError": "Los correos electrónicos no coinciden",
+      "inputWarning": "Por favor selecciona una iglesia."
+  }
+}

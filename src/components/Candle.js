@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/Candle.css';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 function Candle() {
+  const { t } = useTranslation(); // Initialize translation hook
+
   const [form, setForm] = useState({
     firstname: "",
     lastname: "",
@@ -31,7 +34,7 @@ function Candle() {
   const handleLightButton = async () => {
     // Check if any input fields are empty
     if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray || !selectedChurch) {
-      setInputWarning("Please  select a church.");
+      setInputWarning(t("candle.pleaseSelectChurch")); // Use translation
       setTimeout(() => {
         setInputWarning(""); // Clear the warning message after 2 seconds
       }, 2000);
@@ -40,7 +43,7 @@ function Candle() {
 
     // Check if both email inputs match
     if (form.email !== form.confirmEmail) {
-      setEmailMatchError("Emails don't match");
+      setEmailMatchError(t("candle.emailsDontMatch")); // Use translation
       setTimeout(() => {
         setEmailMatchError(""); // Clear the error message after 2 seconds
       }, 2000);
@@ -67,29 +70,19 @@ function Candle() {
   return (
     <div className="candle">
       <div className="leftSide">
-        {/* <p className="prayer-message">
-          Light a candle in a Nazareth church and share your wish or prayer with us.<br />
-          We'll keep the tradition alive by lighting a candle for you and send a video confirmation to your email.
-
-        </p> */}
-
-
-        {/* Script Section */}
         <div>
-          <h2 style={{ color: "white", textAlign: "center", fontSize: "2em" }}>How to light a candle?</h2>
-<p style={{ color: "white", textAlign: "center", fontSize: "1.5em" }}>It's simple:</p>
-<ol style={{ color: "white", fontSize: "1.2em" }}>
-  <li>Choose a church where you'd like the candle to be lit.</li>
-  <li>Write a prayer or a personal request you'd like to accompany the candle lighting.</li>
-  <li>We will go to the church, light the candle for you, record a video with your name, and send the video directly to you.</li>
-</ol>
-
+          <h2 style={{ color: "white", textAlign: "center", fontSize: "2em" }}>{t("candle.howToLightACandle")}</h2>
+          <p style={{ color: "white", textAlign: "center", fontSize: "1.5em" }}>{t("candle.itsSimple")}</p>
+          <ol style={{ color: "white", fontSize: "1.2em" }}>
+            <li>{t("candle.step1")}</li>
+            <li>{t("candle.step2")}</li>
+            <li>{t("candle.step3")}</li>
+          </ol>
         </div>
-        <br/>
-        <p style={{ color: "white" }}>Note: This video is for illustrative purposes only, showcasing the process of lighting a candle at the Greek orthodox church. </p>
+        <br />
+        <p style={{ color: "white" }}>{t("candle.note")}</p>
 
         <div className="video-container">
-
           <video controls poster="/images/lightAcandle.jpg">
             <source
               src="https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2FWhatsApp%20Video%202024-09-12%20at%2011.57.40_4a6da68a.mp4?alt=media&token=ab7e16da-d452-41ec-a5b9-fafd2ca97495"
@@ -100,20 +93,19 @@ function Candle() {
         </div>
       </div>
 
-
       <div className="rightSide">
         <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
           <label
             htmlFor="first-name"
             className="block text-sm font-semibold leading-6 text-accent-content"
           >
-            LIGHT A PRAY CANDLE
+            {t("candle.lightAPrayCandle")}
           </label>
           <br />
           <div className="form-group church-selection">
-            <label className="church-label">Select church to light the candle in:</label>
+            <label className="church-label">{t("candle.selectChurch")}</label>
             <div className="church-options">
-              <label className="church-option">
+            <label className="church-option">
                 <input
                   type="radio"
                   value="Annunciation church"
@@ -145,7 +137,7 @@ function Candle() {
                 type="text"
                 name="firstname"
                 id="firstname"
-                placeholder="First Name"
+                placeholder={t("candle.firstName")}
                 value={form.firstname}
                 onChange={handleChangeForm}
                 required
@@ -159,7 +151,7 @@ function Candle() {
                 type="text"
                 name="lastname"
                 id="lastname"
-                placeholder="Last Name"
+                placeholder={t("candle.lastName")}
                 value={form.lastname}
                 onChange={handleChangeForm}
                 required
@@ -173,7 +165,7 @@ function Candle() {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Your Email"
+                placeholder={t("candle.yourEmail")}
                 value={form.email}
                 onChange={handleChangeForm}
                 required
@@ -187,7 +179,7 @@ function Candle() {
                 type="email"
                 name="confirmEmail"
                 id="confirmEmail"
-                placeholder="Confirm Email"
+                placeholder={t("candle.confirmEmail")}
                 value={form.confirmEmail}
                 onChange={handleChangeForm}
                 required
@@ -199,7 +191,7 @@ function Candle() {
             <div className="form-group">
               <textarea
                 name="pray"
-                placeholder="Your Prayer"
+                placeholder={t("candle.yourPrayer")}
                 value={form.pray}
                 onChange={handleChangeForm}
                 required
@@ -207,20 +199,16 @@ function Candle() {
               ></textarea>
               {inputWarning && <p className="error-message">{inputWarning}</p>}
             </div>
-
-
-
-
           </div>
 
           <label
             className="block text-sm font-semibold leading-6 text-accent-content text-center"
           >
-            To light a candle, pay 5$
+            {t("candle.toLightACandlePay")}
           </label>
 
           <div className='hero-btns-candle'>
-            <button onClick={handleLightButton}>LIGHT</button>
+            <button onClick={handleLightButton}>{t("candle.light")}</button>
           </div>
         </form>
       </div>
