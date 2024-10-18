@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
 import CartItem from "./cartItem";
 import "./cart.css";
+import { useTranslation } from "react-i18next"; // Import useTranslation
 
 const Cart = () => {
+  const { t } = useTranslation(); // Initialize translation
   const { cartItems } = useShopContext();
   const navigate = useNavigate();
   const [totalAmount, setTotalAmount] = useState(0);
@@ -23,8 +25,6 @@ const Cart = () => {
 
   return (
     <div className="cart">
-
-
       <div className="cart-items">
         {cartItems.map((product) => (
           <CartItem
@@ -35,20 +35,21 @@ const Cart = () => {
       </div>
 
       {totalAmount > 5 ? (
-
         <div className="checkout">
           <div className="shipping-note">
-            <p>Shipping: 5$</p>
-            <p>Subtotal: {totalAmount.toFixed(2)}$</p>
+            <p>{t("cart.shipping")}</p>
+            <p>{t("cart.subtotal", { amount: totalAmount.toFixed(2) })}</p>
           </div>
 
-          <button onClick={() => navigate("/shop")}>Continue Shopping</button>
-          <button onClick={() => navigate("/checkout", { state: { totalAmount, cartItems } })}>Checkout</button>
+          <button onClick={() => navigate("/shop")}>{t("cart.continueShopping")}</button>
+          <button onClick={() => navigate("/checkout", { state: { totalAmount, cartItems } })}>
+            {t("cart.checkout")} {/* Use translation for Checkout button */}
+          </button>
         </div>
       ) : (
         <div className="checkout">
-          <h1>Your Cart is Empty</h1>
-          <button onClick={() => navigate("/shop")}>Back To Shopping</button>
+          <h1>{t("cart.emptyCart")}</h1>
+          <button onClick={() => navigate("/shop")}>{t("cart.backToShopping")}</button>
         </div>
       )}
     </div>

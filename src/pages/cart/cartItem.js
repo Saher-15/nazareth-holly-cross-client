@@ -1,46 +1,43 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useShopContext } from "../../context/shop-context";
+import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 import "./cartItem.css";
 
 const CartItem = ({ data }) => {
   const navigate = useNavigate();
-  const { _id, name, price, img, quantity, color } = data; // color should be a single value
+  const { _id, name, price, img, quantity, color } = data;
   const { addToCart, updateCartItemCount, decreaseFromCart, removeFromCart } = useShopContext();
+  const { t } = useTranslation(); // Use the useTranslation hook
 
   // Function to handle click on the image
   const handleImageClick = () => {
     navigate(`/product/${_id}`);
   };
 
-  // Scroll to top when the component mounts
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
-
   return (
     <div className="cartItem">
-      <img 
-        src={img} 
-        alt={name} 
-        onClick={handleImageClick} 
-        style={{ cursor: 'pointer' }} // Indicates that the image is clickable
+      <img
+        src={img}
+        alt={name}
+        onClick={handleImageClick}
+        style={{ cursor: 'pointer' }}
       />
       <div className="description-cart">
         <p>
           <b>{name}</b>
         </p>
-        <p>Price: ${price}</p>
+        <p>{t("cart.price", { price: price.toFixed(2) })}</p> {/* Use translation for price */}
         <div className="countHandler" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <button
             className="addToCartBttn"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from bubbling up
+              e.stopPropagation();
               if (quantity > 1) {
-                decreaseFromCart(_id, color); // Adjust based on color
+                decreaseFromCart(_id, color);
               }
             }}
-            disabled={quantity <= 1} // Disable the button if quantity is less than or equal to 1
+            disabled={quantity <= 1}
           >
             -
           </button>
@@ -52,8 +49,8 @@ const CartItem = ({ data }) => {
           <button
             className="addToCartBttn"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from bubbling up
-              addToCart({ ...data, color }); // Add with color
+              e.stopPropagation();
+              addToCart({ ...data, color });
             }}
           >
             +
@@ -61,13 +58,13 @@ const CartItem = ({ data }) => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button
-            className="removeFromCartBtn" // Style this button as needed
+            className="removeFromCartBtn"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from bubbling up
-              removeFromCart(_id, color); // Remove with color
+              e.stopPropagation();
+              removeFromCart(_id, color);
             }}
           >
-            Remove
+            {t("cart.remove")} {/* Use translation for remove button */}
           </button>
         </div>
       </div>

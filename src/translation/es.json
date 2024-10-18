@@ -248,5 +248,36 @@
     "candle": "Vela",
     "shop": "Tienda",
     "reviews": "Reseñas"
+  },
+  "product": {
+    "button": {
+      "addToCart": "Agregar al carrito"
+    },
+    "message": {
+      "productAdded": "¡Producto agregado al carrito!",
+      "error": {
+        "fetchProduct": "Error al obtener el producto.",
+        "selectColor": "Por favor, selecciona un color."
+      }
+    },
+    "note": {
+      "shippingFee": "Nota: Hay un costo adicional de $5 por envío."
+    },
+    "error": {
+      "productNotFound": "Producto no encontrado."
+    }
+  },
+  "cart": {
+    "shipping": "Envío: $5",
+    "subtotal": "Subtotal: ${{amount}}",
+    "emptyCart": "Tu carrito está vacío",
+    "continueShopping": "Continuar comprando",
+    "backToShopping": "Volver a comprar",
+    "remove": "Eliminar",
+    "price": "Precio: ${{price}}",
+    "quantity": "Cantidad",
+
+    "checkout": "Pagar"
+
   }
 }

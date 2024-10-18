@@ -248,5 +248,35 @@
         "candle": "Bougie",
         "shop": "Boutique",
         "reviews": "Avis"
+    },
+    "product": {
+        "button": {
+            "addToCart": "Ajouter au panier"
+        },
+        "message": {
+            "productAdded": "Produit ajouté au panier !",
+            "error": {
+                "fetchProduct": "Échec de la récupération du produit.",
+                "selectColor": "Veuillez sélectionner une couleur."
+            }
+        },
+        "note": {
+            "shippingFee": "Remarque : des frais d'expédition supplémentaires de 5 $ seront appliqués."
+        },
+        "error": {
+            "productNotFound": "Produit non trouvé."
+        }
+    },
+    "cart": {
+        "shipping": "Expédition : 5 $",
+        "subtotal": "Sous-total : ${{amount}}",
+        "emptyCart": "Votre panier est vide",
+        "continueShopping": "Continuer vos achats",
+        "backToShopping": "Retour au shopping",
+        "remove": "Retirer",
+        "price": "Prix: ${{price}}",
+        "quantity": "Quantité",
+
+        "checkout": "Payer"
     }
 }

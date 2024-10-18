@@ -4,8 +4,10 @@ import "../shop/productPage.css";
 import { useShopContext } from "../../context/shop-context";
 import { nanoid } from "nanoid";
 import LoadingLogo from './loading'; // Import your LoadingLogo component
+import { useTranslation } from 'react-i18next'; // Import the translation hook
 
 const ProductPage = () => {
+  const { t } = useTranslation(); // Initialize translation
   const { addToCart, getTotalCartQuantity } = useShopContext();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -18,7 +20,7 @@ const ProductPage = () => {
   const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
   const [isZoomVisible, setIsZoomVisible] = useState(false);
   const [selectedColor, setSelectedColor] = useState('');
-  const [colorelectionMessage, setcolorelectionMessage] = useState('');
+  const [colorSelectionMessage, setColorSelectionMessage] = useState('');
 
   const totalCartQuantity = getTotalCartQuantity(); // Get total quantity of items in the cart
 
@@ -28,12 +30,12 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(`https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getProduct/${id}`);
-        if (!response.ok) throw new Error('Failed to fetch product');
+        if (!response.ok) throw new Error(t('product.product.error.fetchProduct')); // Use translation for error message
         const data = await response.json();
         setProduct(data);
         // Reset color selection and message when product changes
         setSelectedColor('');
-        setcolorelectionMessage('');
+        setColorSelectionMessage('');
       } catch (error) {
         console.error('Error fetching product:', error);
         setError(error.message);
@@ -43,24 +45,17 @@ const ProductPage = () => {
     };
 
     fetchProduct();
-  }, [id]);
+  }, [id, t]);
 
   useEffect(() => {
-    if (isZoomModalOpen) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
-    } else {
-      document.body.style.overflow = ''; // Enable scrolling
-    }
-
-    return () => {
-      document.body.style.overflow = ''; // Clean up on component unmount
-    };
+    document.body.style.overflow = isZoomModalOpen ? 'hidden' : ''; // Toggle body scroll
+    return () => { document.body.style.overflow = ''; }; // Clean up on component unmount
   }, [isZoomModalOpen]);
 
-  const handleClick = () => {
+  const handleAddToCart = () => {
     if (!selectedColor && product.color && product.color.length > 0) {
-      setcolorelectionMessage('Please select a specific item before adding to cart.');
-      setTimeout(() => setcolorelectionMessage(''), 2000);
+      setColorSelectionMessage(t('product.error.selectColor')); // Use translation for color selection message
+      setTimeout(() => setColorSelectionMessage(''), 2000);
       return;
     }
 
@@ -126,11 +121,11 @@ const ProductPage = () => {
   }
 
   if (error) {
-    return <div className="error-message">Error: {error}</div>;
+    return <div className="error-message">{t('product.error.message', { error })}</div>; // Use translation for error message
   }
 
   if (!product) {
-    return <div className="error-message">Product not found</div>;
+    return <div className="error-message">{t('product.error.productNotFound')}</div>; // Use translation for product not found message
   }
 
   const { name, price, img, description, additionalImageUrls, color } = product;
@@ -172,12 +167,12 @@ const ProductPage = () => {
           <div className="centered-content">
             <button
               className="add-to-cart-button"
-              onClick={handleClick}
+              onClick={handleAddToCart}
             >
-              Add To Cart
+              {t('product.button.addToCart')} {/* Use translation for button text */}
             </button>
-            {showMessage && <div className="message">Product added to cart!</div>}
-            {colorelectionMessage && <div className="color-selection-message">{colorelectionMessage}</div>}
+            {showMessage && <div className="message">{t('product.message.productAdded')}</div>} {/* Use translation for added message */}
+            {colorSelectionMessage && <div className="color-selection-message">{colorSelectionMessage}</div>}
           </div>
         </div>
         <div className="description">
@@ -201,16 +196,16 @@ const ProductPage = () => {
               />
             ))}
           </div>
-          {color && color.length > 0 && name!=='Nazareth city buzzle' && (
+          {color && color.length > 0 && name !== 'Nazareth city buzzle' && (
             <div className="color-select">
               <div className="color-circles">
-                {color.map((color, index) => (
+                {color.map((colorValue, index) => (
                   <div
-                    key={color}
-                    className={`color-circle ${selectedColor === color ? 'selected' : ''}`}
-                    style={{ backgroundColor: color }}
+                    key={colorValue}
+                    className={`color-circle ${selectedColor === colorValue ? 'selected' : ''}`}
+                    style={{ backgroundColor: colorValue }}
                     onClick={() => {
-                      setSelectedColor(color);
+                      setSelectedColor(colorValue);
                       setCurrentImage(index + 1); // Change image to match color
                     }}
                   />
@@ -221,7 +216,7 @@ const ProductPage = () => {
           <p className="product-price">{price}$</p>
           <p className="product-description">{description}</p>
           <p className="shipping-note-product-page">
-            An additional 5$ shipping fee will be applied to the total at checkout.
+            {t('product.note.shippingFee')} {/* Use translation for shipping note */}
           </p>
         </div>
       </div>
@@ -233,7 +228,8 @@ const ProductPage = () => {
             className={`zoomed-image ${isZoomVisible ? 'visible' : 'hidden'}`}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            onTouchMove={(e) => handleMouseMove(e.touches[0])}
+            onTouchMove={(e) => handleMouseMove(e.touches[0])} // Support touch devices
+            onTouchEnd={handleMouseLeave} // Support touch devices
             style={zoomStyle}
           />
         </div>

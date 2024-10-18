@@ -248,5 +248,36 @@
     "candle": "Candle",
     "shop": "Shop",
     "reviews": "Reviews"
+  },
+  "product": {
+    "button": {
+      "addToCart": "Add to Cart"
+    },
+    "message": {
+      "productAdded": "Product added to cart!",
+      "error": {
+        "fetchProduct": "Failed to fetch product.",
+        "selectColor": "Please select a color."
+      }
+    },
+    "note": {
+      "shippingFee": "Note: There is an additional $5 for shipping."
+    },
+    "error": {
+      "productNotFound": "Product not found."
+    }
+  },
+  "cart": {
+    "shipping": "Shipping: $5",
+    "subtotal": "Subtotal: ${{amount}}",
+    "emptyCart": "Your Cart is Empty",
+    "continueShopping": "Continue Shopping",
+    "backToShopping": "Back To Shopping",
+    "remove": "Remove",
+    "price": "Price: ${{price}}",
+    "quantity": "Quantity",
+
+    "checkout": "Checkout"
+
   }
 }
