@@ -240,6 +240,13 @@
     "summary": "Resumen del pedido",
     "cost": "Costo: $",
     "country": "Selecciona tu país"
-
+  },
+  "navbar": {
+    "home": "Inicio",
+    "live": "En Vivo",
+    "tour": "Tour",
+    "candle": "Vela",
+    "shop": "Tienda",
+    "reviews": "Reseñas"
   }
 }

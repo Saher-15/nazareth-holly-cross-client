@@ -240,6 +240,13 @@
     "summary": "Order Summary",
     "cost": "Cost: $",
     "country": "Select your country"
-
+  },
+  "navbar": {
+    "home": "Home",
+    "live": "Live",
+    "tour": "Tour",
+    "candle": "Candle",
+    "shop": "Shop",
+    "reviews": "Reviews"
   }
 }

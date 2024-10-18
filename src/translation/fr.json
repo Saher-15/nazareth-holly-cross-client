@@ -133,113 +133,120 @@
         "copyright": "Droits d'auteur © 2024 - Tous droits réservés par NazarethHolyCross"
     },
     "headerGreek": {
-    "title": "Explorez la beauté de l'Église Grecque",
-    "mapButton": "Voir sur Google Maps"
-  },
-  "contentGreek": {
-    "paragraph1": "L'Église Orthodoxe Grecque de l'Annonciation est située au-dessus de la source où les chrétiens orthodoxes croient que l'Annonciation a eu lieu. Alors que la Vierge Marie allait puiser de l'eau à la source, l'archange Gabriel est apparu et lui a annoncé qu'elle concevrait et donnerait naissance à un fils qu'elle appellerait Jésus. L'église actuelle date de 1750, lorsque Daher al-Omar, le dirigeant bédouin de la Galilée, a donné la permission à la communauté orthodoxe grecque de la construire.",
-    "paragraph2": "L'église a une nef centrale avec deux allées et contient un magnifique iconostase en bois donné par un commerçant grec en 1767. L'église a été redécorée par des artistes roumains de 1977 à 1978. Un passage en arc mène à une petite chapelle, qui est décorée avec des carreaux arméniens et possède sept marches menant à la source, que l'on croit avoir été construite par les croisés au XIIe siècle.",
-    "paragraph3": "À environ 140 mètres de l'église se trouve le Puits de Marie, qui était autrefois alimenté par la source et servait de source d'eau locale pendant plusieurs siècles. La fontaine a été réparée en 1967 et à nouveau en 2000, mais ne fonctionne pas aujourd'hui."
-  },
-  "headerLatin": {
-    "title": "Découvrez la beauté de l'Église Latine"
-  },
-  "contentLatin": {
-    "paragraph1": "L'Église Latine, également connue sous le nom de Basilique de l'Annonciation, est un site religieux important situé à Nazareth, en Israël. C'est l'une des plus grandes églises du Moyen-Orient et revêt une profonde signification religieuse pour les chrétiens du monde entier.",
-    "history": {
-      "title": "Contexte Historique",
-      "text": "On croit traditionnellement que le site est l'endroit où l'ange Gabriel a annoncé à la Vierge Marie qu'elle concevrait et donnerait naissance à Jésus, un événement connu sous le nom d'Annonciation. La basilique a une longue histoire qui remonte aux premiers siècles du christianisme, avec des églises successives construites sur le site au fil du temps."
+        "title": "Explorez la beauté de l'Église Grecque",
+        "mapButton": "Voir sur Google Maps"
     },
-    "architecture": {
-      "title": "Caractéristiques Architecturales",
-      "text": "La basilique actuelle, construite entre 1955 et 1969, présente une structure distinctive à deux étages. L'église supérieure est utilisée pour les services de culte, tandis que l'église inférieure abrite la Grotte de l'Annonciation, qui est considérée comme le site réel de l'Annonciation. L'architecture de la basilique allie des styles modernes à des éléments traditionnels, et son intérieur est orné de mosaïques, de fresques et d'œuvres d'art représentant des scènes de la vie du Christ."
+    "contentGreek": {
+        "paragraph1": "L'Église Orthodoxe Grecque de l'Annonciation est située au-dessus de la source où les chrétiens orthodoxes croient que l'Annonciation a eu lieu. Alors que la Vierge Marie allait puiser de l'eau à la source, l'archange Gabriel est apparu et lui a annoncé qu'elle concevrait et donnerait naissance à un fils qu'elle appellerait Jésus. L'église actuelle date de 1750, lorsque Daher al-Omar, le dirigeant bédouin de la Galilée, a donné la permission à la communauté orthodoxe grecque de la construire.",
+        "paragraph2": "L'église a une nef centrale avec deux allées et contient un magnifique iconostase en bois donné par un commerçant grec en 1767. L'église a été redécorée par des artistes roumains de 1977 à 1978. Un passage en arc mène à une petite chapelle, qui est décorée avec des carreaux arméniens et possède sept marches menant à la source, que l'on croit avoir été construite par les croisés au XIIe siècle.",
+        "paragraph3": "À environ 140 mètres de l'église se trouve le Puits de Marie, qui était autrefois alimenté par la source et servait de source d'eau locale pendant plusieurs siècles. La fontaine a été réparée en 1967 et à nouveau en 2000, mais ne fonctionne pas aujourd'hui."
     },
-    "visiting": {
-      "title": "Visiter la Basilique",
-      "text": "La Basilique de l'Annonciation est une destination populaire pour les pèlerins et les touristes visitant Nazareth. Les visiteurs peuvent explorer à la fois les églises supérieure et inférieure, admirer les caractéristiques artistiques et architecturales, et participer à des cérémonies religieuses et des événements qui se déroulent à la basilique. Le site offre une expérience spirituelle profonde et sert de symbole de foi et d'héritage."
-    }
-  },
-  "headerMary": {
-    "title": "Découvrez la beauté de la source de Marie"
-  },
-  "contentMary": {
-    "intro": "La source de Marie, également connue sous le nom de source de la Vierge, est un site historique et religieux significatif situé à Nazareth, en Israël. On croit traditionnellement qu'elle est l'endroit où l'Ange Gabriel a annoncé à la Vierge Marie qu'elle porterait Jésus, un événement connu sous le nom d'Annonciation.",
-    "significance": {
-      "title": "Signification historique et religieuse",
-      "biblical": "Lien biblique",
-      "biblicalText": "Selon la tradition chrétienne, la source de Marie est l'endroit où Marie tirait de l'eau lorsque l'Ange Gabriel lui est apparu et lui a annoncé qu'elle concevrait et donnerait naissance à Jésus-Christ. Cet événement est une partie centrale de l'histoire chrétienne de l'Annonciation.",
-      "cultural": "Importance culturelle",
-      "culturalText": "La source a été une source vitale d'eau pour la communauté locale pendant des siècles. Elle a servi de lieu de rassemblement pour les habitants de Nazareth, ce qui en fait une partie intégrante de la vie quotidienne de la ville.",
-      "architecture": "Caractéristiques architecturales",
-      "architectureText": "La source elle-même fait partie d'un ensemble plus large qui comprend l'église grecque orthodoxe de l'Annonciation. La structure actuelle de l'église date du XVIIIe siècle, mais la source et le site ont des racines beaucoup plus anciennes."
+    "headerLatin": {
+        "title": "Découvrez la beauté de l'Église Latine"
     },
-    "modern": {
-      "title": "Site moderne",
-      "restoration": "Efforts de restauration",
-      "restorationText": "La fontaine de la source de Marie a subi plusieurs restaurations au fil des ans, notamment en 1967 et en 2000. Malgré ces efforts, la source ne fonctionne plus aujourd'hui comme elle le faisait autrefois.",
-      "attraction": "Attraction touristique",
-      "attractionText": "La source de Marie est une destination populaire pour les pèlerins et les touristes. Les visiteurs viennent voir le site historique et vivre l'endroit où, selon la tradition, l'Annonciation a eu lieu.",
-      "surroundings": "Zone environnante",
-      "surroundingsText": "La source est située dans la vieille ville de Nazareth, un endroit riche en monuments historiques et religieux. Les attractions à proximité comprennent la basilique de l'Annonciation, l'église grecque orthodoxe de l'Annonciation, et divers autres sites liés à la vie de Jésus et de Marie."
+    "contentLatin": {
+        "paragraph1": "L'Église Latine, également connue sous le nom de Basilique de l'Annonciation, est un site religieux important situé à Nazareth, en Israël. C'est l'une des plus grandes églises du Moyen-Orient et revêt une profonde signification religieuse pour les chrétiens du monde entier.",
+        "history": {
+            "title": "Contexte Historique",
+            "text": "On croit traditionnellement que le site est l'endroit où l'ange Gabriel a annoncé à la Vierge Marie qu'elle concevrait et donnerait naissance à Jésus, un événement connu sous le nom d'Annonciation. La basilique a une longue histoire qui remonte aux premiers siècles du christianisme, avec des églises successives construites sur le site au fil du temps."
+        },
+        "architecture": {
+            "title": "Caractéristiques Architecturales",
+            "text": "La basilique actuelle, construite entre 1955 et 1969, présente une structure distinctive à deux étages. L'église supérieure est utilisée pour les services de culte, tandis que l'église inférieure abrite la Grotte de l'Annonciation, qui est considérée comme le site réel de l'Annonciation. L'architecture de la basilique allie des styles modernes à des éléments traditionnels, et son intérieur est orné de mosaïques, de fresques et d'œuvres d'art représentant des scènes de la vie du Christ."
+        },
+        "visiting": {
+            "title": "Visiter la Basilique",
+            "text": "La Basilique de l'Annonciation est une destination populaire pour les pèlerins et les touristes visitant Nazareth. Les visiteurs peuvent explorer à la fois les églises supérieure et inférieure, admirer les caractéristiques artistiques et architecturales, et participer à des cérémonies religieuses et des événements qui se déroulent à la basilique. Le site offre une expérience spirituelle profonde et sert de symbole de foi et d'héritage."
+        }
     },
-    "visiting": {
-      "title": "Visiter la source de Marie",
-      "location": "Emplacement",
-      "locationText": "La source de Marie est située au cœur de Nazareth, ce qui la rend facilement accessible aux visiteurs explorant la vieille ville.",
-      "accessibility": "Accessibilité",
-      "accessibilityText": "Le site est ouvert au public et peut être visité tout au long de l'année. Il est conseillé de vérifier les informations locales sur les visiteurs pour connaître les heures d'ouverture spécifiques ou les directives.",
-      "culturalExperience": "Expérience culturelle",
-      "culturalExperienceText": "Visiter la source de Marie offre une occasion unique de se connecter avec le riche patrimoine religieux et culturel de Nazareth. Le site fournit un aperçu de la vie quotidienne des gens dans les temps anciens et de leurs pratiques spirituelles."
-    }
-  },
-  "headerTitleNaz": "Explorez la beauté de la ville de Nazareth",
-  "mapButton": "Ouvrir la carte",
-  "contentNaz": {
-    "introduction": "La vieille ville de Nazareth est surtout célèbre pour son shuk (marché en plein air) qui attire des Israéliens de tout le pays à la recherche de produits arabes traditionnels. C'est une expérience en soi, et un grand contraste avec les centres commerciaux climatisés dispersés à travers le pays. Pour ceux qui s'intéressent au christianisme, la vieille ville et ses environs sont remplis de sites chrétiens importants, y compris l'Église de l'Annonciation.",
-    "historicalSignificance": {
-      "title": "Importance historique et religieuse",
-      "text": "Nazareth est mentionnée de manière proéminente dans le Nouveau Testament. Selon la tradition chrétienne, c'est le site où l'ange Gabriel a annoncé à Marie qu'elle allait avoir Jésus, un événement commémoré par la basilique de l'Annonciation. Les preuves archéologiques indiquent que Nazareth était un petit village juif à l'époque de Jésus. Il est continuellement habité depuis l'antiquité."
+    "headerMary": {
+        "title": "Découvrez la beauté de la source de Marie"
     },
-    "modernNazareth": {
-      "title": "Nazareth moderne",
-      "text": "La ville a une population diverse, principalement composée de musulmans et de chrétiens arabes. Selon des estimations récentes, Nazareth compte environ 77 000 habitants. Nazareth est un centre culturel dynamique avec diverses institutions religieuses, culturelles et éducatives. Elle accueille des festivals et des événements qui reflètent son riche patrimoine et sa communauté diversifiée. Le tourisme est une partie importante de l'économie de Nazareth, alimentée par ses sites religieux et ses monuments historiques. De plus, la ville a un mélange de petites entreprises, de magasins et de marchés contribuant à son économie locale."
+    "contentMary": {
+        "intro": "La source de Marie, également connue sous le nom de source de la Vierge, est un site historique et religieux significatif situé à Nazareth, en Israël. On croit traditionnellement qu'elle est l'endroit où l'Ange Gabriel a annoncé à la Vierge Marie qu'elle porterait Jésus, un événement connu sous le nom d'Annonciation.",
+        "significance": {
+            "title": "Signification historique et religieuse",
+            "biblical": "Lien biblique",
+            "biblicalText": "Selon la tradition chrétienne, la source de Marie est l'endroit où Marie tirait de l'eau lorsque l'Ange Gabriel lui est apparu et lui a annoncé qu'elle concevrait et donnerait naissance à Jésus-Christ. Cet événement est une partie centrale de l'histoire chrétienne de l'Annonciation.",
+            "cultural": "Importance culturelle",
+            "culturalText": "La source a été une source vitale d'eau pour la communauté locale pendant des siècles. Elle a servi de lieu de rassemblement pour les habitants de Nazareth, ce qui en fait une partie intégrante de la vie quotidienne de la ville.",
+            "architecture": "Caractéristiques architecturales",
+            "architectureText": "La source elle-même fait partie d'un ensemble plus large qui comprend l'église grecque orthodoxe de l'Annonciation. La structure actuelle de l'église date du XVIIIe siècle, mais la source et le site ont des racines beaucoup plus anciennes."
+        },
+        "modern": {
+            "title": "Site moderne",
+            "restoration": "Efforts de restauration",
+            "restorationText": "La fontaine de la source de Marie a subi plusieurs restaurations au fil des ans, notamment en 1967 et en 2000. Malgré ces efforts, la source ne fonctionne plus aujourd'hui comme elle le faisait autrefois.",
+            "attraction": "Attraction touristique",
+            "attractionText": "La source de Marie est une destination populaire pour les pèlerins et les touristes. Les visiteurs viennent voir le site historique et vivre l'endroit où, selon la tradition, l'Annonciation a eu lieu.",
+            "surroundings": "Zone environnante",
+            "surroundingsText": "La source est située dans la vieille ville de Nazareth, un endroit riche en monuments historiques et religieux. Les attractions à proximité comprennent la basilique de l'Annonciation, l'église grecque orthodoxe de l'Annonciation, et divers autres sites liés à la vie de Jésus et de Marie."
+        },
+        "visiting": {
+            "title": "Visiter la source de Marie",
+            "location": "Emplacement",
+            "locationText": "La source de Marie est située au cœur de Nazareth, ce qui la rend facilement accessible aux visiteurs explorant la vieille ville.",
+            "accessibility": "Accessibilité",
+            "accessibilityText": "Le site est ouvert au public et peut être visité tout au long de l'année. Il est conseillé de vérifier les informations locales sur les visiteurs pour connaître les heures d'ouverture spécifiques ou les directives.",
+            "culturalExperience": "Expérience culturelle",
+            "culturalExperienceText": "Visiter la source de Marie offre une occasion unique de se connecter avec le riche patrimoine religieux et culturel de Nazareth. Le site fournit un aperçu de la vie quotidienne des gens dans les temps anciens et de leurs pratiques spirituelles."
+        }
     },
-    "accessibility": {
-      "title": "Accessibilité et tourisme",
-      "text": "Nazareth est bien reliée par la route, avec des services de bus fréquents depuis les grandes villes comme Tel Aviv, Haïfa et Jérusalem. La ville offre diverses options d'hébergement, des hôtels aux maisons d'hôtes, répondant aux besoins des touristes et des pèlerins."
-    }
-  },
-  "headerTitleOld": "Découvrez la beauté de la Vieille Ville de Nazareth",
-  "mapDescriptionOld": "La Vieille Ville de Nazareth est surtout connue pour son shuk (marché en plein air) qui attire des Israéliens de tout le pays à la recherche de produits arabes traditionnels. C'est une expérience en soi et un grand contraste avec les centres commerciaux climatisés qui parsèment le pays. Pour ceux qui s'intéressent au christianisme, la Vieille Ville et ses environs sont remplis de sites chrétiens importants, y compris l'Église de l'Annonciation.",
-  "churchDescriptionOld": "L'Église Orthodoxe Grecque de l'Annonciation se trouve au-dessus de la source où les chrétiens orthodoxes croient que l'Annonciation a eu lieu. Alors que la Vierge Marie allait puiser de l'eau à la source, l'archange Gabriel est apparu et lui a informé qu'elle concevrait et donnerait naissance à un fils qu'elle nommerait Jésus. L'église actuelle date de 1750, lorsque Daher al-Omar, le chef bédouin de Galilée, a donné à la communauté orthodoxe grecque la permission de la construire.",
-  "waterSourceOld": "À environ 140 mètres de l'église se trouve le Puits de Marie, qui était autrefois alimenté par la source et servait de source d'eau locale pendant plusieurs siècles. La fontaine a été réparée en 1967 et à nouveau en 2000, mais ne fonctionne pas aujourd'hui.",
-  "orderSummary": "Résumé de la Commande",
-  "firstName": "Prénom :",
-  "lastName": "Nom de famille :",
-  "email": "E-mail :",
-  "prayerAt": "Prière à :",
-  "cost": "Coût :",
-  "confirmDetails": "Confirmer les Détails et Payer",
-  "confirmed": "Confirmé",
-  "orderCancelled": "Commande annulée !",
-  "paypalComponent": {
-    "contactInfo": "Informations de contact et de livraison",
-    "firstName": "Prénom",
-    "lastName": "Nom",
-    "email": "Email",
-    "confirmEmail": "Email de confirmation",
-    "emailsDontMatch": "Les emails ne correspondent pas",
-    "city": "Ville",
-    "street": "Adresse",
-    "postal": "Code postal",
-    "state": "État / Province",
-    "paymentMethod": "Méthode de paiement",
-    "pleaseFillAllDetails": "Veuillez remplir tous les détails pour continuer.",
+    "headerTitleNaz": "Explorez la beauté de la ville de Nazareth",
+    "mapButton": "Ouvrir la carte",
+    "contentNaz": {
+        "introduction": "La vieille ville de Nazareth est surtout célèbre pour son shuk (marché en plein air) qui attire des Israéliens de tout le pays à la recherche de produits arabes traditionnels. C'est une expérience en soi, et un grand contraste avec les centres commerciaux climatisés dispersés à travers le pays. Pour ceux qui s'intéressent au christianisme, la vieille ville et ses environs sont remplis de sites chrétiens importants, y compris l'Église de l'Annonciation.",
+        "historicalSignificance": {
+            "title": "Importance historique et religieuse",
+            "text": "Nazareth est mentionnée de manière proéminente dans le Nouveau Testament. Selon la tradition chrétienne, c'est le site où l'ange Gabriel a annoncé à Marie qu'elle allait avoir Jésus, un événement commémoré par la basilique de l'Annonciation. Les preuves archéologiques indiquent que Nazareth était un petit village juif à l'époque de Jésus. Il est continuellement habité depuis l'antiquité."
+        },
+        "modernNazareth": {
+            "title": "Nazareth moderne",
+            "text": "La ville a une population diverse, principalement composée de musulmans et de chrétiens arabes. Selon des estimations récentes, Nazareth compte environ 77 000 habitants. Nazareth est un centre culturel dynamique avec diverses institutions religieuses, culturelles et éducatives. Elle accueille des festivals et des événements qui reflètent son riche patrimoine et sa communauté diversifiée. Le tourisme est une partie importante de l'économie de Nazareth, alimentée par ses sites religieux et ses monuments historiques. De plus, la ville a un mélange de petites entreprises, de magasins et de marchés contribuant à son économie locale."
+        },
+        "accessibility": {
+            "title": "Accessibilité et tourisme",
+            "text": "Nazareth est bien reliée par la route, avec des services de bus fréquents depuis les grandes villes comme Tel Aviv, Haïfa et Jérusalem. La ville offre diverses options d'hébergement, des hôtels aux maisons d'hôtes, répondant aux besoins des touristes et des pèlerins."
+        }
+    },
+    "headerTitleOld": "Découvrez la beauté de la Vieille Ville de Nazareth",
+    "mapDescriptionOld": "La Vieille Ville de Nazareth est surtout connue pour son shuk (marché en plein air) qui attire des Israéliens de tout le pays à la recherche de produits arabes traditionnels. C'est une expérience en soi et un grand contraste avec les centres commerciaux climatisés qui parsèment le pays. Pour ceux qui s'intéressent au christianisme, la Vieille Ville et ses environs sont remplis de sites chrétiens importants, y compris l'Église de l'Annonciation.",
+    "churchDescriptionOld": "L'Église Orthodoxe Grecque de l'Annonciation se trouve au-dessus de la source où les chrétiens orthodoxes croient que l'Annonciation a eu lieu. Alors que la Vierge Marie allait puiser de l'eau à la source, l'archange Gabriel est apparu et lui a informé qu'elle concevrait et donnerait naissance à un fils qu'elle nommerait Jésus. L'église actuelle date de 1750, lorsque Daher al-Omar, le chef bédouin de Galilée, a donné à la communauté orthodoxe grecque la permission de la construire.",
+    "waterSourceOld": "À environ 140 mètres de l'église se trouve le Puits de Marie, qui était autrefois alimenté par la source et servait de source d'eau locale pendant plusieurs siècles. La fontaine a été réparée en 1967 et à nouveau en 2000, mais ne fonctionne pas aujourd'hui.",
+    "orderSummary": "Résumé de la Commande",
+    "firstName": "Prénom :",
+    "lastName": "Nom de famille :",
+    "email": "E-mail :",
+    "prayerAt": "Prière à :",
+    "cost": "Coût :",
+    "confirmDetails": "Confirmer les Détails et Payer",
+    "confirmed": "Confirmé",
     "orderCancelled": "Commande annulée !",
-    "thankYou": "Merci pour votre commande !",
-    "summary": "Résumé de la commande",
-    "cost": "Coût : $",
-    "country": "Sélectionnez votre pays"
-
-}
+    "paypalComponent": {
+        "contactInfo": "Informations de contact et de livraison",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "Email",
+        "confirmEmail": "Email de confirmation",
+        "emailsDontMatch": "Les emails ne correspondent pas",
+        "city": "Ville",
+        "street": "Adresse",
+        "postal": "Code postal",
+        "state": "État / Province",
+        "paymentMethod": "Méthode de paiement",
+        "pleaseFillAllDetails": "Veuillez remplir tous les détails pour continuer.",
+        "orderCancelled": "Commande annulée !",
+        "thankYou": "Merci pour votre commande !",
+        "summary": "Résumé de la commande",
+        "cost": "Coût : $",
+        "country": "Sélectionnez votre pays"
+    },
+    "navbar": {
+        "home": "Accueil",
+        "live": "En Direct",
+        "tour": "Visite",
+        "candle": "Bougie",
+        "shop": "Boutique",
+        "reviews": "Avis"
+    }
 }

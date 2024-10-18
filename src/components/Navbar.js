@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import '../styles/Navbar.css';
 import LanguageSwitcher from './LanguageSwitcher'; // Make sure to import the LanguageSwitcher component
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 function Navbar({ currentLanguage, onLanguageChange }) {
+  const { t } = useTranslation(); // Initialize useTranslation
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -28,10 +30,6 @@ function Navbar({ currentLanguage, onLanguageChange }) {
         </Link>
         <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} onClick={closeMobileMenu} /> {/* Include the LanguageSwitcher */}
 
-        {/* <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          <span style={{ color: '#ffcc00', marginRight: "35px" }}>FEEL THE BLESSING</span>
-        </Link> */}
-
         <div className='navbar-container'>
 
           <div className='menu-icon' onClick={handleClick}>
@@ -40,22 +38,22 @@ function Navbar({ currentLanguage, onLanguageChange }) {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>Home</Link>
+              <Link to='/' className='nav-links' onClick={closeMobileMenu}>{t('navbar.home')}</Link> {/* Use translation for Home */}
             </li>
             <li className='nav-item'>
-              <Link to='/live' style={{ color: "rgba(255, 0, 0, 0.5)" }} className='nav-links' onClick={closeMobileMenu}>Live</Link>
+              <Link to='/live' style={{ color: "rgba(255, 0, 0, 0.5)" }} className='nav-links' onClick={closeMobileMenu}>{t('navbar.live')}</Link> {/* Use translation for Live */}
             </li>
             <li className='nav-item'>
-              <Link to='/tour' className='nav-links' onClick={closeMobileMenu}>Tour</Link>
+              <Link to='/tour' className='nav-links' onClick={closeMobileMenu}>{t('navbar.tour')}</Link> {/* Use translation for Tour */}
             </li>
             <li className='nav-item'>
-              <Link to='/candle' className='nav-links' onClick={closeMobileMenu}>Candle</Link>
+              <Link to='/candle' className='nav-links' onClick={closeMobileMenu}>{t('navbar.candle')}</Link> {/* Use translation for Candle */}
             </li>
             <li className='nav-item'>
-              <Link to="/shop" className="nav-links" onClick={handleShopClick}>Shop</Link>
+              <Link to="/shop" className="nav-links" onClick={handleShopClick}>{t('navbar.shop')}</Link> {/* Use translation for Shop */}
             </li>
             <li className='nav-item'>
-              <Link to='/reviews' className='nav-links' onClick={closeMobileMenu}>Reviews</Link>
+              <Link to='/reviews' className='nav-links' onClick={closeMobileMenu}>{t('navbar.reviews')}</Link> {/* Use translation for Reviews */}
             </li>
 
           </ul>
