@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import i18n from '../i18n'; // Adjust the path based on your file structure
 import '../styles/LanguageSwitcher.css'; // Import the stylesheet
-import { FaLanguage } from "react-icons/fa";
 const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false); // State to manage dropdown visibility
 

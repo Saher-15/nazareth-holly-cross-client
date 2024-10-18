@@ -88,7 +88,7 @@ const LiveVideo = () => {
       const interval = setInterval(calculateTimeRemaining, 1000);
       return () => clearInterval(interval);
     }
-  }, [upcomingEvent]);
+  }, [t, upcomingEvent]);
 
   const handleJoinLive = () => {
     window.open('https://www.instagram.com/nazareth_holy_cross/', '_blank');
