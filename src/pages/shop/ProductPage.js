@@ -196,7 +196,7 @@ const ProductPage = () => {
               />
             ))}
           </div>
-          {color && color.length > 0 && name !== 'Nazareth city buzzle' && (
+          {color && color.length > 0 && name !== 'Nazareth city puzzle' && (
             <div className="color-select">
               <div className="color-circles">
                 {color.map((colorValue, index) => (
