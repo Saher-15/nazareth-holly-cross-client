@@ -276,8 +276,19 @@
     "remove": "Remove",
     "price": "Price: ${{price}}",
     "quantity": "Quantity",
-
     "checkout": "Checkout"
-
+  },
+  "shop": {
+    "searchPlaceholder": "Search products...",
+    "noProducts": "No products found matching your criteria.",
+    "sortNone": "None",
+    "sortLowToHigh": "Price: Low to High",
+    "sortHighToLow": "Price: High to Low",
+    "resetFilters": "Reset Filters",
+    "pagination": "Page {{currentPage}} of {{totalPages}}"
+  },
+  "pagination": {
+    "prev": "Prev",
+    "next": "Next"
   }
 }

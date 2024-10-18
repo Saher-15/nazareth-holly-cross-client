@@ -5,8 +5,10 @@ import "./shop.css";
 import LoadingLogo from "./loading"; // Assuming you have a LoadingLogo component
 import { useShopContext } from "../../context/shop-context";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { useTranslation } from 'react-i18next'; // Import useTranslation from i18next
 
 const Shop = () => {
+  const { t } = useTranslation(); // Initialize the translation function
   const { getTotalCartQuantity } = useShopContext(); // Get the total cart quantity from context
   const [allProducts, setAllProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(
@@ -31,7 +33,7 @@ const Shop = () => {
         window.scrollTo(0, 0); // Scroll to the top when going to the previous page
         setAllProducts(allProductsResponse.data);
       } catch (error) {
-        console.error("Error fetching products:");
+        console.error("Error fetching products:", error);
       } finally {
         setLoading(false);
       }
@@ -112,7 +114,7 @@ const Shop = () => {
           <div className="header-filter">
             <input
               type="text"
-              placeholder="Search products..."
+              placeholder={t("shop.searchPlaceholder")} // Use translation for the placeholder
               value={searchQuery}
               onChange={handleSearchChange}
               className="search-input"
@@ -123,16 +125,16 @@ const Shop = () => {
                 value={sortOrder}
                 onChange={handleSortOrderChange}
               >
-                <option value="rateDesc">None</option>
-                <option value="lowToHigh">Price: Low to High</option>
-                <option value="highToLow">Price: High to Low</option>
+                <option value="rateDesc">{t("shop.sortNone")}</option>
+                <option value="lowToHigh">{t("shop.sortLowToHigh")}</option>
+                <option value="highToLow">{t("shop.sortHighToLow")}</option>
               </select>
               <button onClick={handleResetFilters} className="reset-filters">
-                <i className="fas fa-redo"></i> Reset Filters
+                <i className="fas fa-redo"></i> {t("shop.resetFilters")}
               </button>
             </div>
           </div>
-          
+
           <div className="button-container">
             <Link to="/cart" className="cart-link-logo">
               <i className="fas fa-shopping-cart"></i>
@@ -142,7 +144,7 @@ const Shop = () => {
 
           {paginatedProducts.length === 0 ? (
             <div className="no-products-message">
-              <p>No products found matching your criteria.</p>
+              <p>{t("shop.noProducts")}</p> {/* Use translation for the message */}
             </div>
           ) : (
             <>
@@ -153,15 +155,16 @@ const Shop = () => {
               </div>
               <div className="pagination">
                 <button onClick={prevPage} disabled={currentPage === 1}>
-                  Prev
+                  {t("pagination.prev")} {/* Use translation for the Prev button */}
                 </button>
                 <span>
-                  Page {currentPage} of {Math.ceil(sortedProducts.length / itemsPerPage)}
+                  {t("shop.pagination", { currentPage, totalPages: Math.ceil(sortedProducts.length / itemsPerPage)})}
                 </span>
                 <button onClick={nextPage} disabled={currentPage * itemsPerPage >= sortedProducts.length}>
-                  Next
+                  {t("pagination.next")} {/* Use translation for the Next button */}
                 </button>
               </div>
+
             </>
           )}
         </>

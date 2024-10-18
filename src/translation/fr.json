@@ -276,7 +276,19 @@
         "remove": "Retirer",
         "price": "Prix: ${{price}}",
         "quantity": "Quantité",
-
         "checkout": "Payer"
+    },
+    "shop": {
+        "searchPlaceholder": "Rechercher des produits...",
+        "noProducts": "Aucun produit trouvé correspondant à vos critères.",
+        "sortNone": "Aucun",
+        "sortLowToHigh": "Prix: Du moins cher au plus cher",
+        "sortHighToLow": "Prix: Du plus cher au moins cher",
+        "resetFilters": "Réinitialiser les filtres",
+        "pagination": "Page {{currentPage}} sur {{totalPages}}"
+    },
+    "pagination": {
+        "prev": "Précédent",
+        "next": "Suivant"
     }
 }
