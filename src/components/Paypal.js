@@ -6,8 +6,11 @@ import ConfirmationOrder from '../components/ConfirmationOrder';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import "../styles/PaypalProduct.css";
+import { useTranslation } from 'react-i18next';
 
 const PayPalComponent = ({ totalAmount, cartItems }) => {
+    const { t } = useTranslation(); // Hook to use translations
+
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [form, setForm] = useState({
@@ -111,19 +114,15 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
 
     return (
         <div className="App-paypal-product">
-
             <div className="container">
-                {/* <label>
-                    Contact & Delivery Information
-                </label> */}
                 <form className="paypal-product-form center-form" onSubmit={(e) => e.preventDefault()}>
-                <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>Contact & Delivery Information</h2>
+                    <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>{t('paypalComponent.contactInfo')}</h2>
 
                     <div className="form-group-paypal">
                         <input
                             type="text"
                             name="firstname"
-                            placeholder="First Name"
+                            placeholder={t('paypalComponent.firstName')}
                             value={form.firstname}
                             onChange={handleChangeForm}
                             required
@@ -132,7 +131,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <input
                             type="text"
                             name="lastname"
-                            placeholder="Last Name"
+                            placeholder={t('paypalComponent.lastName')}
                             value={form.lastname}
                             onChange={handleChangeForm}
                             required
@@ -141,11 +140,11 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <input
                             type="text"
                             name="email"
-                            placeholder="Email"
+                            placeholder={t('paypalComponent.email')}
                             value={form.email}
                             onChange={(e) => {
                                 handleChangeForm(e);
-                                setEmailMatchError(e.target.value === form.confirmEmail ? "" : "Emails don't match");
+                                setEmailMatchError(e.target.value === form.confirmEmail ? "" : t('paypalComponent.emailsDontMatch'));
                             }}
                             required
                             className="form-control"
@@ -153,11 +152,11 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <input
                             type="text"
                             name="confirmEmail"
-                            placeholder="Confirmation Email"
+                            placeholder={t('paypalComponent.confirmEmail')}
                             value={form.confirmEmail}
                             onChange={(e) => {
                                 handleChangeForm(e);
-                                setEmailMatchError(e.target.value === form.email ? "" : "Emails don't match");
+                                setEmailMatchError(e.target.value === form.email ? "" : t('paypalComponent.emailsDontMatch'));
                             }}
                             required
                             className="form-control"
@@ -177,14 +176,14 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                                 options={options}
                                 onChange={changeHandler}
                                 value={value}
-                                placeholder="Select Country"
+                                placeholder={t('paypalComponent.country')}
                                 className="country-select"
                             />
                         </div>
                         <input
                             type="text"
                             name="city"
-                            placeholder="City"
+                            placeholder={t('paypalComponent.city')}
                             value={form.city}
                             onChange={handleChangeForm}
                             required
@@ -193,7 +192,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <input
                             type="text"
                             name="street"
-                            placeholder="Street Address"
+                            placeholder={t('paypalComponent.street')}
                             value={form.street}
                             onChange={handleChangeForm}
                             required
@@ -202,7 +201,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <input
                             type="text"
                             name="postal"
-                            placeholder="Postal/ Zip Code"
+                            placeholder={t('paypalComponent.postal')}
                             value={form.postal}
                             onChange={handleChangeForm}
                             required
@@ -211,7 +210,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         <input
                             type="text"
                             name="state"
-                            placeholder="State/ Province"
+                            placeholder={t('paypalComponent.state')}
                             value={form.state}
                             onChange={handleChangeForm}
                             required
@@ -219,47 +218,21 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                         />
                     </div>
 
-                </form>
-                <div className="paypal-card">
-                    <PayPalScriptProvider options={initialOptions} >
-                        {isFormIncomplete && <p style={{ color: 'red', textAlign: 'center' }}>Please fill in all details to continue.</p>}
-                        <h2 style={{ textAlign: 'center', marginBottom: '12px' }}>Payment Method</h2>
-                        {!showConfirmation && !isFormIncomplete && doEmailsMatch && (
-                            <div className="paypal-buttons-container">
-                                <PayPalButtons
-                                    createOrder={createOrder}
-                                    onApprove={onApprove}
-                                    onCancel={onCancel}
-                                    onError={onError}
-                                />
-                            </div>
-                        )}
-                    </PayPalScriptProvider>
-                    {showConfirmation && (
-                        <ConfirmationOrder
-                            cartItems={cartItems}
-                            firstName={form.firstname}
-                            lastName={form.lastname}
-                            phone={form.phone}
-                            email={form.email}
-                            street={form.street}
-                            city={form.city}
-                            state={form.state}
-                            postal={form.postal}
-                            country={form.country}
-                            totalPrice={totalAmount}
+                    <PayPalScriptProvider options={initialOptions}>
+                        <PayPalButtons
+                            createOrder={createOrder}
+                            onApprove={onApprove}
+                            onCancel={onCancel}
+                            onError={onError}
                         />
-                    )}
-                    {showAlert && (
-                        <div className="ms-alert ms-action2 ms-small">
-                            <span className="ms-close"></span>
-                            <p>Order cancelled!</p>
-                        </div>
-                    )}
-                </div>
+                    </PayPalScriptProvider>
+
+                    {showConfirmation && <ConfirmationOrder message={t('paypalComponent.thankYou')} />}
+                    {showAlert && <p>{t('paypalComponent.orderCancelled')}</p>}
+                </form>
             </div>
         </div>
     );
-}
+};
 
 export default PayPalComponent;

@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../App.css";
 import "../styles/Prayer.css";
+import { useTranslation } from 'react-i18next'; // Import the translation hook
 
 function Pray() {
+    const { t } = useTranslation(); // Initialize the translation hook
+
     // State to store form data
     const [formData, setFormData] = useState({
         fullName: '',
@@ -34,7 +37,6 @@ function Pray() {
     const fetchMessages = async () => {
         try {
             const response = await axios.get('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/get_all_contact_us');
-
             // Filter messages that are marked as done and reverse order
             const reviewedMessages = response.data.filter(message => message.done);
             const reversedMessages = reviewedMessages.reverse();
@@ -101,16 +103,16 @@ function Pray() {
             <div className="form-section">
                 <form onSubmit={handleSubmit} className="message-form">
                     <label htmlFor="first-name" className="form-title">
-                        <h2 className='form-title-text'>Share Your Review </h2>
+                        <h2 className='form-title-text'>{t('pray.formTitle')}</h2>
                     </label>
-                    <p className='form-description'>Please share your experience with our website. Your feedback helps us improve and provide a better service. Fill out the form below, and your review will be posted once approved by our team.</p>
+                    <p className='form-description'>{t('pray.formDescription')}</p>
                     <div className="form-group-pray">
                         <div className="form-input-group">
                             <input
                                 type="text"
                                 name="fullName"
                                 id="fullName"
-                                placeholder="Full Name"
+                                placeholder={t('pray.placeholderFullName')}
                                 value={formData.fullName}
                                 onChange={handleChange}
                                 required
@@ -124,7 +126,7 @@ function Pray() {
                                 type="text" // Use text for country
                                 name="email"
                                 id="country"
-                                placeholder="Where are you from?" // Placeholder updated to reflect 'country'
+                                placeholder={t('pray.placeholderCountry')}
                                 value={formData.email} // Still using 'email' as field name
                                 onChange={handleChange}
                                 required
@@ -134,7 +136,7 @@ function Pray() {
                         </div>
 
                         <textarea
-                            placeholder="Tell us about your experience with our website"
+                            placeholder={t('pray.placeholderMessage')}
                             id="msg"
                             name="msg"
                             value={formData.msg}
@@ -145,19 +147,19 @@ function Pray() {
                     </div>
 
                     <div className="form-submit-container">
-                        <button type="submit" className="form-submit-button">Submit</button>
+                        <button type="submit" className="form-submit-button">{t('pray.submitButton')}</button>
                     </div>
                     <div className="success-message-container">
-                        {showMessage && <p className="success-message">Message submitted successfully!</p>}
-                        {showConfirmationMessage && <p className="confirmation-message">Your message will appear on the wall once it is confirmed by the Nazareth Holy Cross team.</p>}
+                        {showMessage && <p className="success-message">{t('pray.successMessage')}</p>}
+                        {showConfirmationMessage && <p className="confirmation-message">{t('pray.confirmationMessage')}</p>}
                     </div>
                 </form>
             </div>
 
             {/* Display messages */}
             <div className="messages-section">
-                <h3 className="messages-title">Reviewed Costumers</h3>
-                <p className='messages-description'>Here are the reviews that have been approved by our team. Thank you for sharing your feedback with us.</p>
+                <h3 className="messages-title">{t('pray.messagesTitle')}</h3>
+                <p className='messages-description'>{t('pray.messagesDescription')}</p>
                 {messages.length > 0 ? (
                     <div className="messages-grid">
                         {messages.map((message, index) => (
@@ -170,7 +172,7 @@ function Pray() {
                         ))}
                     </div>
                 ) : (
-                    <p className="no-messages">No messages submitted yet.</p>
+                    <p className="no-messages">{t('pray.noMessages')}</p>
                 )}
             </div>
         </div>

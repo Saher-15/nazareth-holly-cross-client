@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import axios from 'axios';
+import { useTranslation } from 'react-i18next'; // Import the translation hook
 
 const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
     const navigate = useNavigate(); // Get the navigate function
+    const { t } = useTranslation(); // Initialize the translation hook
 
     useEffect(() => {
         const sendOrderDetails = async () => {
@@ -23,7 +25,7 @@ const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
                     navigate("/");
                 }, 5000);
             } catch (error) {
-                console.error('Error sending order details:');
+                console.error('Error sending order details:', error);
             }
         };
 
@@ -32,10 +34,10 @@ const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
 
     return (
         <div style={styles.container}>
-            <h1>Thank You!</h1>
-            <p>Your payment has been successfully processed.</p>
-            <p>A receipt has been sent to your email address.</p>
-            <p>Thank you for your order!</p>
+            <h1>{t('confirmationCandle.thankYou')}</h1>
+            <p>{t('confirmationCandle.paymentSuccess')}</p>
+            <p>{t('confirmationCandle.receipt')}</p>
+            <p>{t('confirmationCandle.gratitude')}</p>
         </div>
     );
 };

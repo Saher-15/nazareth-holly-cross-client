@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import { useNavigate } from "react-router-dom";
 // import ReactGA from 'react-ga';
+import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 import '../styles/HeroSection.css';
 
 function HeroSection() {
+  const { t } = useTranslation(); // Initialize translation hook
   const [isPlaying, setIsPlaying] = useState(true);
   // const [isModalOpen, setIsModalOpen] = useState(false);
   // const [name, setName] = useState('');
@@ -48,36 +50,26 @@ function HeroSection() {
     setIsPlaying(!isPlaying);
   };
 
-  // const openModal = () => setIsModalOpen(true);
-  // const closeModal = () => setIsModalOpen(false);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (!name || !amount) {
-  //     setFormError('Please fill out all required fields.');
-  //     setTimeout(() => setFormError(''), 3000);
-  //     return;
-  //   }
-
-  //   // Google Analytics event tracking
-  //   ReactGA.event({
-  //     category: 'User',
-  //     action: 'Clicked Button',
-  //     label: 'Submit'
-  //   });
-
-  //   navigate("/checkoutdonation", { state: { name: name, amount: amount } });
-  // };
-
   return (
     <div className='hero-container'>
-      <video id="video-field" className='hero-v' src='https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fvideo-7.mp4?alt=media&token=b0173721-21a1-46d0-b15b-f2001b912e72' autoPlay loop muted playsInline controls={false} />
+      <video
+        id="video-field"
+        className='hero-v'
+        src='https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fvideo-7.mp4?alt=media&token=b0173721-21a1-46d0-b15b-f2001b912e72'
+        autoPlay
+        loop
+        muted
+        playsInline
+        controls={false}
+      />
 
-      <h1>JESUS CITY AWAITS</h1>
-      <p>GRACE IN EVERY CLICK</p>
+      <h1>{t('heroSection.heading')}</h1>  {/* Translated Heading */}
+      <p>{t('heroSection.subHeading')}</p>  {/* Translated Subheading */}
+      
       <button className='sound-control-btn' onClick={togglePlayPause}>
         <i className={isPlaying ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
       </button>
+      
       <div className='hero-btns'>
         <Button
           destination='/candle'
@@ -85,8 +77,9 @@ function HeroSection() {
           buttonStyle='btn--primary'
           buttonSize='btn--large'
         >
-          LIGHT A CANDLE
+          {t('heroSection.lightCandle')}  {/* Translated Button Text */}
         </Button>
+
         <Button
           className='btns'
           onClick={handleShopClick}
@@ -94,29 +87,32 @@ function HeroSection() {
           buttonStyle='btn--half'
           buttonSize='btn--large'
         >
-          Shop<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          {t('heroSection.shopButton')}<i className={t('heroSection.shopIcon')} aria-hidden="true"></i> {/* Translated Shop Button with Icon */}
         </Button>
+
         <Button
           destination='/tour'
           className='btns'
           buttonStyle='btn--outline'
           buttonSize='btn--large'
         >
-          NAZARETH TOUR <i className='far fa-play-circle' />
+          {t('heroSection.tourButton')} <i className={t('heroSection.tourIcon')} /> {/* Translated Tour Button with Icon */}
         </Button>
       </div>
-      {/* <p className='duty-in-naz'>COMPLETE YOUR HOLY DUTY IN NAZARETH</p> */}
 
-      {/* <button className='donate-btn' onClick={openModal}>
+      {/* The donation modal code is commented out for now */}
+      {/* 
+      <p className='duty-in-naz'>{t('heroSection.dutyInNaz')}</p>
+      <button className='donate-btn' onClick={openModal}>
         <i className='fas fa-donate'></i>
-      </button> */}
-      {/* {isModalOpen && (
+      </button>
+      {isModalOpen && (
         <div className='donation-modal show'>
           <div className='donation-content'>
             <button className='close-btn' onClick={closeModal}>×</button>
             {formError && <p className='form-error'>{formError}</p>}
             <form onSubmit={handleSubmit}>
-              <h3 style={{ textAlign: 'center', marginBottom: '2%' }}>Support nazareth - Every donation counts</h3>
+              <h3>{t('heroSection.supportNazareth')}</h3>
               <div className='form-group'>
                 <input
                   type='text'
@@ -125,7 +121,7 @@ function HeroSection() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  placeholder="Name"
+                  placeholder={t('heroSection.namePlaceholder')}
                 />
               </div>
               <div className='form-group'>
@@ -136,7 +132,7 @@ function HeroSection() {
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   required
-                  placeholder="Donation amount"
+                  placeholder={t('heroSection.amountPlaceholder')}
                 />
               </div>
               <button
@@ -144,7 +140,7 @@ function HeroSection() {
                 type='submit'
                 disabled={!name || !amount}
               >
-                Donate
+                {t('heroSection.donateButton')}
               </button>
             </form>
           </div>

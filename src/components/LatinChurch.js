@@ -2,12 +2,15 @@ import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Pages.css';
 import { SiGooglemaps } from "react-icons/si";
 import "../App.css";
+import { useTranslation } from 'react-i18next';
 
 const LatinCurch = () => {
+  const { t } = useTranslation(); // Hook to access translation function
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
+  
   const images = [
     "images/latin/latin1.jpg",   
     "images/latin/latin2.jpg",
@@ -42,7 +45,6 @@ const LatinCurch = () => {
     window.open('https://www.google.com/maps/place/Nazareth+City+center/@32.7021997,35.2974033,17z/data=!4m6!3m5!1s0x151c4dd4b3386aef:0x652378b0cec4d358!8m2!3d32.7012442!4d35.2981717!16s%2Fg%2F11c5s6wx03?entry=ttu', '_blank');
   };
 
-  
   const handleImageClick = useCallback((index) => {
     setSelectedImageIndex(index);
   }, []);
@@ -64,7 +66,7 @@ const LatinCurch = () => {
   useEffect(() => {
     // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this effect runs only once, on mount
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -92,7 +94,7 @@ const LatinCurch = () => {
         setTouchStartX(event.touches[0].clientX);
         setIsPinch(false);
       } else {
-        setIsPinch(true); // Pinch detected
+        setIsPinch(true);
       }
     };
 
@@ -134,11 +136,10 @@ const LatinCurch = () => {
     };
   }, [selectedImageIndex, touchStartX, touchEndX, isPinch, handleNextImage, handlePrevImage]);
 
-
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Explore the beauty of the Latin Church
+        <h1>{t('headerLatin.title')}
           <SiGooglemaps
             className="map-btn"
             onClick={handleClickMap}
@@ -146,17 +147,15 @@ const LatinCurch = () => {
         </h1>
       </div>
       <div className='content'>
+        <p>{t('contentLatin.paragraph1')}</p>
         <p>
-          The Latin Church, also known as the Basilica of the Annunciation, is a significant religious site located in Nazareth, Israel. It stands as one of the largest churches in the Middle East and holds deep religious significance for Christians worldwide.
+          <strong>{t('contentLatin.history.title')}:</strong> {t('contentLatin.history.text')}
         </p>
         <p>
-          <strong>Historical Background:</strong> The site is traditionally believed to be the place where the Angel Gabriel announced to the Virgin Mary that she would conceive and give birth to Jesus, an event known as the Annunciation. The basilica has a long history dating back to the early centuries of Christianity, with successive churches built on the site over time.
+          <strong>{t('contentLatin.architecture.title')}:</strong> {t('contentLatin.architecture.text')}
         </p>
         <p>
-          <strong>Architectural Features:</strong> The current basilica, constructed between 1955 and 1969, features a distinctive two-story structure. The upper church is used for worship services, while the lower church encloses the Grotto of the Annunciation, believed to be the actual site of the Annunciation. The basilica's architecture blends modern styles with traditional elements, and its interior is adorned with mosaics, frescoes, and artworks depicting scenes from the life of Christ.
-        </p>
-        <p>
-          <strong>Visiting the Basilica:</strong> The Basilica of the Annunciation is a popular destination for pilgrims and tourists visiting Nazareth. Visitors can explore both the upper and lower churches, admire the artistic and architectural features, and participate in religious ceremonies and events held at the basilica. The site offers a profound spiritual experience and serves as a symbol of faith and heritage.
+          <strong>{t('contentLatin.visiting.title')}:</strong> {t('contentLatin.visiting.text')}
         </p>
       </div>
 
@@ -166,13 +165,12 @@ const LatinCurch = () => {
             <img
               key={index}
               src={image}
-              alt={`Greek Church ${index + 1}`}
+              alt={`Latin Church ${index + 1}`}
               onClick={() => handleImageClick(index)}
             />
           ))}
         </div>
       </div>
-
 
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>
@@ -185,7 +183,7 @@ const LatinCurch = () => {
           <button
             className="prev"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from closing the modal
+              e.stopPropagation();
               handlePrevImage();
             }}
           >
@@ -194,7 +192,7 @@ const LatinCurch = () => {
           <button
             className="next"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from closing the modal
+              e.stopPropagation();
               handleNextImage();
             }}
           >
@@ -204,7 +202,6 @@ const LatinCurch = () => {
       )}
     </div>
   );
-
 }
 
 export default LatinCurch;

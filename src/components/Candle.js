@@ -73,11 +73,11 @@ function Candle() {
         <div>
           <h2 style={{ color: "white", textAlign: "center", fontSize: "2em" }}>{t("candle.howToLightACandle")}</h2>
           <p style={{ color: "white", textAlign: "center", fontSize: "1.5em" }}>{t("candle.itsSimple")}</p>
-          <ol style={{ color: "white", fontSize: "1.2em" }}>
+          <ul style={{ color: "white", fontSize: "1.2em" }}>
             <li>{t("candle.step1")}</li>
             <li>{t("candle.step2")}</li>
             <li>{t("candle.step3")}</li>
-          </ol>
+          </ul>
         </div>
         <br />
         <p style={{ color: "white" }}>{t("candle.note")}</p>

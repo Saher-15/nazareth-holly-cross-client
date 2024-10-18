@@ -2,8 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Pages.css';
 import { SiGooglemaps } from "react-icons/si";
 import "../App.css";
+import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 
 const OldNazareth = () => {
+  const { t } = useTranslation(); // Initialize the translation function
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
@@ -50,11 +52,9 @@ const OldNazareth = () => {
   }, [images.length]);
 
   useEffect(() => {
-    // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this effect runs only once, on mount
+  }, []);
 
-  
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (selectedImageIndex !== null) {
@@ -81,7 +81,7 @@ const OldNazareth = () => {
         setTouchStartX(event.touches[0].clientX);
         setIsPinch(false);
       } else {
-        setIsPinch(true); // Pinch detected
+        setIsPinch(true);
       }
     };
 
@@ -104,7 +104,6 @@ const OldNazareth = () => {
         }
       }
 
-      // Reset touch states
       setTouchStartX(null);
       setTouchEndX(null);
       setIsPinch(false);
@@ -126,7 +125,7 @@ const OldNazareth = () => {
   return (
     <div className='mypage'>
       <div className='header'>
-        <h1>Explore the beauty of Nazareth's Old City
+        <h1>{t('headerTitleOld')}
           <SiGooglemaps
             className="map-btn"
             onClick={handleClickMap}
@@ -134,18 +133,9 @@ const OldNazareth = () => {
         </h1>
       </div>
       <div className='content'>
-        <p>
-          Nazareth’s Old City is most famous for its shuk (outdoor market) which attracts Israelis from across the country looking for traditional Arabic produce. This in itself is an experience, and a great contrast to the air-conditioned malls dotted around the country. For those interested in Christianity, the Old City and surrounds are filled with important Christian sites, including the Church of the Annunciation.
-        </p>
-        <p>
-          The Greek Orthodox Church of the Annunciation sits above the spring where Orthodox Christians believe the Annunciation took place. As the Virgin Mary went to draw water from the spring, the Archangel Gabriel appeared and informed her that she would conceive and give birth to a son who she would name Jesus. The current church dates back to 1750, when Daher al-Omar, the Bedouin ruler of the Galilee, gave the Greek Orthodox community permission to build it.
-        </p>
-        <p>
-          The church has a central nave with two aisles and contains a beautiful wooden iconostasis donated by a Greek merchant in 1767. The church was redecorated by Romanian artists from 1977 to 1978. An arched passageway leads down to a small chapel, which is decorated with Armenian tiles and has seven steps leading to the spring, believed to have been built by the Crusaders in the 12th century.
-        </p>
-        <p>
-          About 140 meters from the church is Mary’s Well, which was once fed by the spring and served as a local source of water for several centuries. The fountain was repaired in 1967 and again in 2000 but does not function today.
-        </p>
+        <p>{t('mapDescriptionOld')}</p>
+        <p>{t('churchDescriptionOld')}</p>
+        <p>{t('waterSourceOld')}</p>
       </div>
       <div className="gallery">
         <div className="gallery-queue">
@@ -160,7 +150,6 @@ const OldNazareth = () => {
         </div>
       </div>
 
-
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>
           <span className="close">&times;</span>
@@ -172,7 +161,7 @@ const OldNazareth = () => {
           <button
             className="prev"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from closing the modal
+              e.stopPropagation();
               handlePrevImage();
             }}
           >
@@ -181,7 +170,7 @@ const OldNazareth = () => {
           <button
             className="next"
             onClick={(e) => {
-              e.stopPropagation(); // Prevents click event from closing the modal
+              e.stopPropagation();
               handleNextImage();
             }}
           >

@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useTranslation } from 'react-i18next';
 import "../styles/PaypalCandle.css";
 import ConfirmationCandle from '../components/ConfirmationCandle';
 
 const PayPalComponent = ({ form }) => {
-    const [paymentConfirmed, setPaymentConfirmed] = useState(false); // State to control payment initiation
-    const [showAlert, setShowAlert] = useState(false); // State to control visibility of alert
+    const { t } = useTranslation(); // Hook to use translations
+    const [paymentConfirmed, setPaymentConfirmed] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
     const [showConfirmation, setShowConfirmation] = useState(false);
 
     const initialOptions = {
         clientId: "AfhOc9ToAj72gf5KEowYfhpWShGRSpzSL-Ps2HYX4ky95KmVX8vNRb0o5FZ3AGw3muq8DIvDP0Ua2_ad"
     };
 
-    const intent = 'capture'; // Set your intent variable here
+    const intent = 'capture';
 
     const onCancel = (data) => {
         setShowAlert(true);
-        // Set a timer to hide the alert after 2 seconds
         setTimeout(() => {
             setShowAlert(false);
         }, 2000);
@@ -41,11 +42,9 @@ const PayPalComponent = ({ form }) => {
             }
 
             const order = await response.json();
-
             return order.id;
         } catch (error) {
             console.error('Error creating order:');
-            // Handle error here
         }
     };
 
@@ -79,21 +78,19 @@ const PayPalComponent = ({ form }) => {
 
     return (
         <div className="App-paypal-candle">
-            {/* Display form summary */}
             <div className="form-summary">
-                <h2>Order Summary</h2>
-                <p><strong>First Name:</strong> {form.firstname}</p>
-                <p><strong>Last Name:</strong> {form.lastname}</p>
-                <p><strong>Email:</strong> {form.email}</p>
-                <p><strong>Prayer at:</strong> {form.pray}</p>
-                <p><strong>Coast:</strong> 5$ </p>
+                <h2>{t("orderSummary")}</h2>
+                <p><strong>{t("firstName")}</strong> {form.firstname}</p>
+                <p><strong>{t("lastName")}</strong> {form.lastname}</p>
+                <p><strong>{t("email")}</strong> {form.email}</p>
+                <p><strong>{t("prayerAt")}</strong> {form.pray}</p>
+                <p><strong>{t("cost")}</strong> 5$</p>
 
                 <button onClick={handleConfirmPayment}>
-                    {paymentConfirmed ? "Confirmed" : "Confirm Details & Pay"}
+                    {paymentConfirmed ? t("confirmed") : t("confirmDetails")}
                 </button>
             </div>
 
-            {/* Render PayPalButtons right below the form */}
             <div className="paypal-card1">
                 <PayPalScriptProvider options={initialOptions}>
                     {!showConfirmation && paymentConfirmed && (
@@ -120,7 +117,7 @@ const PayPalComponent = ({ form }) => {
             {showAlert && (
                 <div className="ms-alert ms-action2 ms-small">
                     <span className="ms-close"></span>
-                    <p>Order cancelled!</p>
+                    <p>{t("orderCancelled")}</p>
                 </div>
             )}
         </div>

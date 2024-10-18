@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useShopContext } from '../context/shop-context'; // Import the context hook
+import { useTranslation } from 'react-i18next'; // Import the translation hook
 
 function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice }) {
     const { clearCart } = useShopContext(); // Get the clearCart function from the context
     const navigate = useNavigate(); // Get the navigate function
+    const { t } = useTranslation(); // Initialize the translation hook
 
     useEffect(() => {
         const sendOrderDetails = async () => {
-            
             try {
                 const requestBody = {
                     firstName,
@@ -41,19 +42,19 @@ function ThankYou({ cartItems, firstName, lastName, phone, email, street, city, 
                 }, 5000);
 
             } catch (error) {
-                console.error('Error sending order details:');
+                console.error('Error sending order details:', error);
             }
         };
 
         sendOrderDetails();
-    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice, navigate]); // Add dependencies here
+    }, [cartItems, firstName, lastName, phone, email, street, city, state, postal, country, totalPrice, navigate, clearCart]); // Add dependencies here
 
     return (
         <div style={styles.container}>
-            <h1>Thank You!</h1>
-            <p>Your payment has been successfully processed.</p>
-            <p>A receipt has been sent to your email address.</p>
-            <p>Thank you for your order!</p>
+            <h1>{t('thankYou.thankYou')}</h1>
+            <p>{t('thankYou.paymentSuccess')}</p>
+            <p>{t('thankYou.receipt')}</p>
+            <p>{t('thankYou.gratitude')}</p>
         </div>
     );
 }

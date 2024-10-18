@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import '../styles/Pages.css';
 import { SiGooglemaps } from "react-icons/si";
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 import "../App.css";
 
 const GreekChurch = () => {
+  const { t } = useTranslation(); // Initialize translation function
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
   const [isPinch, setIsPinch] = useState(false);
+  
   const images = [
     "images/greek/greek1.jpg",
     "images/greek/greek2.jpg",
@@ -27,7 +30,6 @@ const GreekChurch = () => {
     "images/greek/greek16.jpg",
     "images/greek/greek17.jpg",
     "images/greek/greek18.jpg",
-
   ];
 
   const handleClickMap = () => {
@@ -128,24 +130,19 @@ const GreekChurch = () => {
     <div className='mypage'>
       <div className='header'>
         <h1>
-          Explore the beauty of Greek Church
+          {t('headerGreek.title')}
           <SiGooglemaps
             className="map-btn"
             onClick={handleClickMap}
+            title={t('headerGreek.mapButton')} // Title for the map button
           />
         </h1>
       </div>
 
       <div className='content'>
-        <p>
-          The Greek Orthodox Church of the Annunciation sits above the spring where Orthodox Christians believe the Annunciation took place. As the Virgin Mary went to draw water from the spring, the Archangel Gabriel appeared and informed her that she would conceive and give birth to a son who she would name Jesus. The current church dates back to 1750, when Daher al-Omar, the Bedouin ruler of the Galilee, gave the Greek Orthodox community permission to build it.
-        </p>
-        <p>
-          The church has a central nave with two aisles and contains a beautiful wooden iconostasis donated by a Greek merchant in 1767. The church was redecorated by Romanian artists from 1977 to 1978. An arched passageway leads down to a small chapel, which is decorated with Armenian tiles and has seven steps leading to the spring, believed to have been built by the Crusaders in the 12th century.
-        </p>
-        <p>
-          About 140 meters from the church is Mary’s Well, which was once fed by the spring and served as a local source of water for several centuries. The fountain was repaired in 1967 and again in 2000 but does not function today.
-        </p>
+        <p>{t('contentGreek.paragraph1')}</p>
+        <p>{t('contentGreek.paragraph2')}</p>
+        <p>{t('contentGreek.paragraph3')}</p>
       </div>
 
       <div className="gallery">
@@ -160,7 +157,6 @@ const GreekChurch = () => {
           ))}
         </div>
       </div>
-
 
       {selectedImageIndex !== null && (
         <div className="modal" onClick={handleCloseModal}>

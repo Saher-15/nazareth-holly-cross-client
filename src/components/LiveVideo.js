@@ -9,18 +9,19 @@ const events = [
 
 const pastVideos = [
   {
-    title: 'Interview with the Nazareth Community',
+    titleKey: 'videos.interview_nazareth.title',
+    descriptionKey: 'videos.interview_nazareth.description',
     src: 'https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Finterview.mp4?alt=media&token=8465ecc1-614f-4080-acc6-1113f1623ea6',
-    description: 'Watch the exclusive interview streamed live from Nazareth.',
     thumbnail: 'images/interview.jpg'
   },
   {
-    title: 'Live Prayer from the Latin Church',
+    titleKey: 'videos.live_prayer_latin.title',
+    descriptionKey: 'videos.live_prayer_latin.description',
     src: 'https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Flive-17-9-24.mp4?alt=media&token=9bbb1fe2-4439-497c-adf6-038697cde4e0',
-    description: 'Experience a live broadcast of heartfelt prayers from the Latin Church.',
     thumbnail: 'images/live-17-9-24.jpg'
   }
 ];
+
 
 const LiveVideo = () => {
   const { t } = useTranslation(); // Initialize translation hook
@@ -33,21 +34,21 @@ const LiveVideo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const now = new Date();
-    
+
     const upcomingEvents = events.filter(event => new Date(event.dateTime) >= now);
     const endedEvents = events.filter(event => new Date(event.dateTime) < now);
-    
+
     setPastEvents(endedEvents.sort((a, b) => b.dateTime - a.dateTime));
-    
+
     const mostUpcomingEvent = upcomingEvents.sort((a, b) => a.dateTime - b.dateTime)[0] || null;
-    
+
     if (!mostUpcomingEvent) {
       const liveEvents = events.filter(event => {
         const eventDateTime = new Date(event.dateTime);
         const eventEndTime = new Date(eventDateTime.getTime() + 2 * 60 * 60 * 1000);
         return now >= eventDateTime && now <= eventEndTime;
       });
-      
+
       if (liveEvents.length > 0) {
         setUpcomingEvent(liveEvents[0]);
         setInLiveMode(true);
@@ -56,7 +57,7 @@ const LiveVideo = () => {
     } else {
       setUpcomingEvent(mostUpcomingEvent);
     }
-    
+
     if (!upcomingEvent) {
       setInLiveMode(false);
       setCanJoinLive(false);
@@ -137,11 +138,12 @@ const LiveVideo = () => {
                   <source src={video.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                <h3>{video.title}</h3>
-                <p>{video.description}</p>
+                <h3>{t(video.titleKey)}</h3>
+                <p>{t(video.descriptionKey)}</p>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </div>

@@ -2,52 +2,52 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaRegEnvelope, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 import '../styles/Footer.css';
-// import logo from '../images/logo.webp'; // Ensure the correct path to your logo
+import { useTranslation } from 'react-i18next'; // Import the translation hook
 
 function Footer() {
+  const { t } = useTranslation(); // Initialize the translation hook
+
   return (
     <div className="footer-container">
       <div className="footer-content">
         <div className="footer-section about-us">
-          <h2>About Us</h2>
-          <p>
-            We are dedicated to preserving the spirit of Nazareth and spreading the message of hope. Visit our website to explore the journey.
-          </p>
+          <h2>{t('footer.aboutUs')}</h2>
+          <p>{t('footer.aboutUsDescription')}</p>
           <Link to='/about' className='about-us-link'>
-            Learn More
+            {t('footer.learnMore')}
           </Link>
         </div>
 
         <div className="footer-section contact-us">
-          <h2>Contact Us</h2>
+          <h2>{t('footer.contactUs')}</h2>
           <div className="contact-details">
             <a href="mailto:nazarethholycross@gmail.com" className="email-button">
               <FaRegEnvelope className="icon" />
-              <span>nazarethholycross@gmail.com</span>
+              <span>{t('footer.email')}</span>
             </a>
             <a href="https://www.instagram.com/nazareth_holy_cross/" target="_blank" rel="noopener noreferrer" className="instagram-button">
               <FaInstagram className="icon" />
-              <span>Follow us on Instagram</span>
+              <span>{t('footer.followInstagram')}</span>
             </a>
             <a href="https://www.facebook.com/profile.php?id=61566447860803" target="_blank" rel="noopener noreferrer" className="instagram-button">
               <FaFacebook className="icon" />
-              <span>Follow us on Facebook</span>
+              <span>{t('footer.followFacebook')}</span>
             </a>
           </div>
         </div>
 
         <div className="footer-section credits">
-          <h2>Credits</h2>
+          <h2>{t('footer.credits')}</h2>
           <div className="credit-item">
             <a href="https://www.linkedin.com/in/saher-saadi-a637b11b5/" target="_blank" rel="noopener noreferrer" className="linkedin-link">
               <FaLinkedin className="linkedin-icon" />
-              Saher Saadi
+              {t('footer.creditLink1')}
             </a>
           </div>
           <div className="credit-item">
             <a href="http://linkedin.com/in/haythamt95" target="_blank" rel="noopener noreferrer" className="linkedin-link">
               <FaLinkedin className="linkedin-icon" />
-              Haytham Taweel
+              {t('footer.creditLink2')}
             </a>
           </div>
         </div>
@@ -57,7 +57,7 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <p className="copyright-text">
-          Copyright © 2024 - All rights reserved by NazarethHolyCross
+          {t('footer.copyright')}
         </p>
       </div>
     </div>
