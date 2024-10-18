@@ -1,8 +1,9 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import ShopContextProvider from "./context/shop-context";
+import ReactGA from "react-ga4";
 
 // Lazy load all pages
 const Home = lazy(() => import("./pages/Home"));
@@ -23,183 +24,196 @@ const Tour = lazy(() => import("./components/NazarethTour"));
 const Shop = lazy(() => import("./pages/shop/shop"));
 const ProductPage = lazy(() => import("./pages/shop/ProductPage"));
 
+// A reusable loading component
+const Loading = ({ message }) => <div>{message || "Loading..."}</div>;
+
 function App() {
+  // Initialize Google Analytics
+  useEffect(() => {
+    ReactGA.initialize("G-VE42K6WP4H");  // Replace with your Google Analytics tracking ID
+  }, []);
+
+  const location = useLocation();
+
+  // Track page views on route changes
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
+  }, [location]);
+
   return (
     <ShopContextProvider>
-      <Router>
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <Suspense fallback={<div>Loading Home...</div>}>
-                <Layout>
-                  <Home />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/candle" 
-            element={
-              <Suspense fallback={<div>Loading Services...</div>}>
-                <Layout>
-                  <Candle />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/tour" 
-            element={
-              <Suspense fallback={<div>Loading Tour...</div>}>
-                <Layout>
-                  <Tour />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/shop" 
-            element={
-              <Suspense fallback={<div>Loading Shop...</div>}>
-                <Layout>
-                  <Shop />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/product/:id" 
-            element={
-              <Suspense fallback={<div>Loading Product...</div>}>
-                <Layout>
-                  <ProductPage />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/oldcity" 
-            element={
-              <Suspense fallback={<div>Loading Old City...</div>}>
-                <Layout>
-                  <OldCity />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/city" 
-            element={
-              <Suspense fallback={<div>Loading City...</div>}>
-                <Layout>
-                  <City />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/maryswell" 
-            element={
-              <Suspense fallback={<div>Loading Mary's Well...</div>}>
-                <Layout>
-                  <MarysWell />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/latin" 
-            element={
-              <Suspense fallback={<div>Loading Latin...</div>}>
-                <Layout>
-                  <Latin />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/greek" 
-            element={
-              <Suspense fallback={<div>Loading Greek...</div>}>
-                <Layout>
-                  <Greek />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/cart" 
-            element={
-              <Suspense fallback={<div>Loading Cart...</div>}>
-                <Layout>
-                  <Cart />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/reviews" 
-            element={
-              <Suspense fallback={<div>Loading Prayer...</div>}>
-                <Layout>
-                  <Prayer />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/about" 
-            element={
-              <Suspense fallback={<div>Loading About...</div>}>
-                <Layout>
-                  <About />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/checkout" 
-            element={
-              <Suspense fallback={<div>Loading CheckOut...</div>}>
-                <Layout>
-                  <CheckOut />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/checkoutcandle" 
-            element={
-              <Suspense fallback={<div>Loading CheckOut Candle...</div>}>
-                <Layout>
-                  <CheckOutCandle />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/checkoutdonation" 
-            element={
-              <Suspense fallback={<div>Loading CheckOut Donation...</div>}>
-                <Layout>
-                  <CheckOutDonation />
-                </Layout>
-              </Suspense>
-            } 
-          />
-          <Route 
-            path="/Live" 
-            element={
-              <Suspense fallback={<div>Loading Live...</div>}>
-                <Layout>
-                  <Live />
-                </Layout>
-              </Suspense>
-            } 
-          />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<Loading message="Loading Home..." />}>
+              <Layout>
+                <Home />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/candle"
+          element={
+            <Suspense fallback={<Loading message="Loading Services..." />}>
+              <Layout>
+                <Candle />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/tour"
+          element={
+            <Suspense fallback={<Loading message="Loading Tour..." />}>
+              <Layout>
+                <Tour />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <Suspense fallback={<Loading message="Loading Shop..." />}>
+              <Layout>
+                <Shop />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={
+            <Suspense fallback={<Loading message="Loading Product..." />}>
+              <Layout>
+                <ProductPage />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/oldcity"
+          element={
+            <Suspense fallback={<Loading message="Loading Old City..." />}>
+              <Layout>
+                <OldCity />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/city"
+          element={
+            <Suspense fallback={<Loading message="Loading City..." />}>
+              <Layout>
+                <City />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/maryswell"
+          element={
+            <Suspense fallback={<Loading message="Loading Mary's Well..." />}>
+              <Layout>
+                <MarysWell />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/latin"
+          element={
+            <Suspense fallback={<Loading message="Loading Latin Church..." />}>
+              <Layout>
+                <Latin />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/greek"
+          element={
+            <Suspense fallback={<Loading message="Loading Greek Church..." />}>
+              <Layout>
+                <Greek />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Suspense fallback={<Loading message="Loading Cart..." />}>
+              <Layout>
+                <Cart />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/reviews"
+          element={
+            <Suspense fallback={<Loading message="Loading Prayer..." />}>
+              <Layout>
+                <Prayer />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<Loading message="Loading About..." />}>
+              <Layout>
+                <About />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <Suspense fallback={<Loading message="Loading CheckOut..." />}>
+              <Layout>
+                <CheckOut />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/checkoutcandle"
+          element={
+            <Suspense fallback={<Loading message="Loading CheckOut Candle..." />}>
+              <Layout>
+                <CheckOutCandle />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/checkoutdonation"
+          element={
+            <Suspense fallback={<Loading message="Loading CheckOut Donation..." />}>
+              <Layout>
+                <CheckOutDonation />
+              </Layout>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/live"
+          element={
+            <Suspense fallback={<Loading message="Loading Live..." />}>
+              <Layout>
+                <Live />
+              </Layout>
+            </Suspense>
+          }
+        />
+      </Routes>
     </ShopContextProvider>
   );
 }
