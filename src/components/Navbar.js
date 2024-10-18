@@ -26,10 +26,11 @@ function Navbar({ currentLanguage, onLanguageChange }) {
           <i className="fas fa-cross" style={{ color: "rgba(255, 0, 0, 0.5)", fontSize: "2em", marginRight: "10px" }}></i>
           <span>NAZARETH HOLY CROSS</span>
         </Link>
+        <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} onClick={closeMobileMenu} /> {/* Include the LanguageSwitcher */}
+
         {/* <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           <span style={{ color: '#ffcc00', marginRight: "35px" }}>FEEL THE BLESSING</span>
         </Link> */}
-        <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} onClick={closeMobileMenu} /> {/* Include the LanguageSwitcher */}
 
         <div className='navbar-container'>
 
