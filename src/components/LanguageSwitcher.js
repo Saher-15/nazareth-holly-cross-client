@@ -33,6 +33,18 @@ const LanguageSwitcher = () => {
                     <div className="language-card" onClick={() => changeLanguage('es')}>
                         <h3>Spanish</h3>
                     </div>
+                    <div className="language-card" onClick={() => changeLanguage('ru')}>
+                        <h3>Russain</h3>
+                    </div>
+                    <div className="language-card" onClick={() => changeLanguage('pt')}>
+                        <h3>Portuguese </h3>
+                    </div>
+                    <div className="language-card" onClick={() => changeLanguage('it')}>
+                        <h3>Italian  </h3>
+                    </div>
+                    <div className="language-card" onClick={() => changeLanguage('pl')}>
+                        <h3>Polish  </h3>
+                    </div>
                     {/* Add other languages as needed */}
                 </div>
             )}

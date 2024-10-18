@@ -14,6 +14,18 @@ i18n
       es: {
         translation: require('./translation/es.json'), // Ensure path is correct
       },
+      ru: {
+        translation: require('./translation/ru.json'), // Ensure path is correct
+      },
+      pt: {
+        translation: require('./translation/pt.json'), // Ensure path is correct
+      },
+      it: {
+        translation: require('./translation/it.json'), // Ensure path is correct
+      },
+      pl: {
+        translation: require('./translation/pl.json'), // Ensure path is correct
+      }
     },
     lng: 'en', // Default language
     fallbackLng: 'en', // Fallback language
