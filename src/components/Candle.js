@@ -34,7 +34,7 @@ function Candle() {
   const handleLightButton = async () => {
     // Check if any input fields are empty
     if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray || !selectedChurch) {
-      setInputWarning(t("candle.pleaseSelectChurch")); // Use translation
+      setInputWarning(t("candle.inputWarning")); // Use translation
       setTimeout(() => {
         setInputWarning(""); // Clear the warning message after 2 seconds
       }, 2000);
