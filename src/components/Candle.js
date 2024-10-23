@@ -168,11 +168,12 @@ function Candle() {
               ></textarea>
               {inputWarning && <p className="error-message">{inputWarning}</p>}
             </div>
-          </div>
-
-          <label className="block text-sm font-semibold leading-6 text-accent-content text-center">
+            <label className="block text-sm font-semibold leading-6 text-accent-content text-center" style={{fontSize:"1.4rem", textAlign:"center", color: "#ffdf00"}}>
             {t("candle.toLightACandlePay")}
           </label>
+          </div>
+
+          
 
           <div className="hero-btns-candle">
             <button onClick={handleLightButton}>{t("candle.light")}</button>
