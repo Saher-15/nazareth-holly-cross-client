@@ -68,7 +68,8 @@
         "shopButton": "Магазин",
         "tourButton": "ТУР В НАЗАРЕТ",
         "shopIcon": "fa fa-shopping-cart",
-        "tourIcon": "far fa-play-circle"
+        "tourIcon": "far fa-play-circle",
+        "discount": "Наслаждайтесь 10% скидкой на все товары в нашем магазине—только на нашем сайте!"
     },
     "cards": {
         "title": "Посетите эти ЭПИЧЕСКИЕ места!",

@@ -68,7 +68,9 @@
         "shopButton": "Sklep",
         "tourButton": "WYCIECZKA DO NAZARETU",
         "shopIcon": "fa fa-shopping-cart",
-        "tourIcon": "far fa-play-circle"
+        "tourIcon": "far fa-play-circle",
+        "discount":"Skorzystaj z 10% zniżki na wszystkie produkty w naszym sklepie—wyłącznie na naszej stronie!"
+
     },
     "cards": {
         "title": "Sprawdź te EPICKIE miejsca!",

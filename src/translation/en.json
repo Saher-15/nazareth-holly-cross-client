@@ -68,7 +68,8 @@
     "shopButton": "Shop",
     "tourButton": "NAZARETH TOUR",
     "shopIcon": "fa fa-shopping-cart",
-    "tourIcon": "far fa-play-circle"
+    "tourIcon": "far fa-play-circle",
+    "discount":"Enjoy a 10% discount on all items in our shop—exclusively on our website!"
   },
   "cards": {
     "title": "Check out these EPIC Destinations!",

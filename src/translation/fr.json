@@ -68,7 +68,9 @@
         "shopButton": "Boutique",
         "tourButton": "VISITE DE NAZARETH",
         "shopIcon": "fa fa-shopping-cart",
-        "tourIcon": "far fa-play-circle"
+        "tourIcon": "far fa-play-circle",
+        "discount":"Profitez de 10% de réduction sur tous les articles de notre boutique—exclusivement sur notre site internet !"
+
     },
     "cards": {
         "title": "Découvrez ces destinations ÉPIQUES!",

@@ -65,11 +65,11 @@ function HeroSection() {
 
       <h1>{t('heroSection.heading')}</h1>  {/* Translated Heading */}
       <p>{t('heroSection.subHeading')}</p>  {/* Translated Subheading */}
-      
+
       <button className='sound-control-btn' onClick={togglePlayPause}>
         <i className={isPlaying ? 'fas fa-volume-mute' : 'fas fa-volume-up'}></i>
       </button>
-      
+
       <div className='hero-btns'>
         <Button
           destination='/candle'
@@ -98,6 +98,36 @@ function HeroSection() {
         >
           {t('heroSection.tourButton')} <i className={t('heroSection.tourIcon')} /> {/* Translated Tour Button with Icon */}
         </Button>
+      </div>
+      <div style={{
+        backgroundColor: "#333",
+        color: "#fff",
+        padding: "15px 30px",
+        borderRadius: "8px",
+        textAlign: "center",
+        margin: "20px auto",
+        maxWidth: "700px",
+        fontFamily: "Arial, sans-serif",
+        position: "relative",
+        overflow: "hidden"
+      }}>
+        <div style={{
+          position: "absolute",
+          top: "0",
+          left: "-20px",
+          height: "100%",
+          width: "160px",
+          backgroundColor: "tomato",
+          transform: "skewX(-25deg)"
+        }}></div>
+        <p style={{
+          fontSize: "20px",
+          fontWeight: "bold",
+          position: "relative",
+          zIndex: 1,
+          margin: 0
+        }}>
+          {t('heroSection.discount')}    </p>
       </div>
 
       {/* The donation modal code is commented out for now */}

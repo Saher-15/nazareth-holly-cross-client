@@ -68,7 +68,8 @@
     "shopButton": "Tienda",
     "tourButton": "TOUR POR NAZARET",
     "shopIcon": "fa fa-shopping-cart",
-    "tourIcon": "far fa-play-circle"
+    "tourIcon": "far fa-play-circle",
+    "discount":"Disfruta de un 10% de descuento en todos los artículos de nuestra tienda—¡exclusivamente en nuestro sitio web!"
   },
   "cards": {
     "title": "¡Descubre estos destinos ÉPICOS!",

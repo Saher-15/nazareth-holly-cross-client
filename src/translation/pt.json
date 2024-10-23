@@ -68,7 +68,9 @@
         "shopButton": "Comprar",
         "tourButton": "PASSEIO POR NAZARÉ",
         "shopIcon": "fa fa-shopping-cart",
-        "tourIcon": "far fa-play-circle"
+        "tourIcon": "far fa-play-circle",
+        "discount":"Aproveite 10% de desconto em todos os itens da nossa loja—exclusivamente no nosso site!"
+
     },
     "cards": {
         "title": "Confira esses destinos ÉPICOS!",
