@@ -10,6 +10,7 @@ const Cart = () => {
   const { cartItems } = useShopContext();
   const navigate = useNavigate();
   const [totalAmount, setTotalAmount] = useState(0);
+  const [discountAmount, setdiscountAmount] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,6 +22,8 @@ const Cart = () => {
       total += item.price * item.quantity;
     });
     setTotalAmount(total + 5); // Added shipping fee
+    setdiscountAmount(total*0.9 + 5); // Added shipping fee
+
   }, [cartItems]);
 
   return (
@@ -39,10 +42,12 @@ const Cart = () => {
           <div className="shipping-note">
             <p>{t("cart.shipping")}</p>
             <p>{t("cart.subtotal", { amount: totalAmount.toFixed(2) })}</p>
+            <p>{t("cart.subtotalDiscount", { amount: discountAmount.toFixed(2) })}</p>
+
           </div>
 
           <button onClick={() => navigate("/shop")}>{t("cart.continueShopping")}</button>
-          <button onClick={() => navigate("/checkout", { state: { totalAmount, cartItems } })}>
+          <button onClick={() => navigate("/checkout", { state: { discountAmount, cartItems } })}>
             {t("cart.checkout")} {/* Use translation for Checkout button */}
           </button>
         </div>

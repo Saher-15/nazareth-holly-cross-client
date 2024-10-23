@@ -34,7 +34,7 @@ const PayPalComponent = ({ form }) => {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 },
-                body: JSON.stringify({ "intent": intent, "amount": "5" })
+                body: JSON.stringify({ "intent": intent, "amount": "3" })
             });
 
             if (!response.ok) {
@@ -84,7 +84,7 @@ const PayPalComponent = ({ form }) => {
                 <p><strong>{t("lastName")}</strong> {form.lastname}</p>
                 <p><strong>{t("email")}</strong> {form.email}</p>
                 <p><strong>{t("prayerAt")}</strong> {form.pray}</p>
-                <p><strong>{t("cost")}</strong> 5$</p>
+                <p><strong>{t("cost")}</strong> 3$</p>
 
                 <button onClick={handleConfirmPayment}>
                     {paymentConfirmed ? t("confirmed") : t("confirmDetails")}

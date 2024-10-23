@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaRegEnvelope, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaRegEnvelope, FaLinkedin, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
 import '../styles/Footer.css';
 import { useTranslation } from 'react-i18next'; // Import the translation hook
 
@@ -32,6 +32,10 @@ function Footer() {
             <a href="https://www.facebook.com/profile.php?id=61566447860803" target="_blank" rel="noopener noreferrer" className="instagram-button">
               <FaFacebook className="icon" />
               <span>{t('footer.followFacebook')}</span>
+            </a>
+            <a href="https://www.youtube.com/@nazarethholycross" target="_blank" rel="noopener noreferrer" className="instagram-button">
+              <FaYoutube className="icon" />
+              <span>{t('footer.subscribeYoutube')}</span>
             </a>
           </div>
         </div>
