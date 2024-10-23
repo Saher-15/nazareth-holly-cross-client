@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import '../styles/Candle.css';
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { useTranslation } from 'react-i18next';
 
 function Candle() {
-  const { t } = useTranslation(); // Initialize translation hook
+  const { t } = useTranslation();
 
   const [form, setForm] = useState({
     firstname: "",
@@ -14,7 +14,7 @@ function Candle() {
     pray: ""
   });
 
-  const [selectedChurch, setSelectedChurch] = useState(""); // State for selected church
+  const [selectedChurch, setSelectedChurch] = useState("");
   const navigate = useNavigate();
   const [emailMatchError, setEmailMatchError] = useState("");
   const [inputWarning, setInputWarning] = useState("");
@@ -28,34 +28,30 @@ function Candle() {
   };
 
   const handleChurchSelection = (e) => {
-    setSelectedChurch(e.target.value); // Update selected church state
+    setSelectedChurch(e.target.value);
   };
 
   const handleLightButton = async () => {
-    // Check if any input fields are empty
     if (!form.firstname || !form.lastname || !form.email || !form.confirmEmail || !form.pray || !selectedChurch) {
-      setInputWarning(t("candle.inputWarning")); // Use translation
+      setInputWarning(t("candle.inputWarning"));
       setTimeout(() => {
-        setInputWarning(""); // Clear the warning message after 2 seconds
+        setInputWarning("");
       }, 2000);
       return;
     }
 
-    // Check if both email inputs match
     if (form.email !== form.confirmEmail) {
-      setEmailMatchError(t("candle.emailsDontMatch")); // Use translation
+      setEmailMatchError(t("candle.emailsDontMatch"));
       setTimeout(() => {
-        setEmailMatchError(""); // Clear the error message after 2 seconds
+        setEmailMatchError("");
       }, 2000);
       return;
     }
 
     try {
-      // Append selected church to the prayer
       const updatedPray = `${selectedChurch}, ${form.pray}`;
       setForm((prevForm) => ({ ...prevForm, pray: updatedPray }));
 
-      // Navigate to PayPal component with form data
       navigate("/checkoutcandle", { state: { form: { ...form, pray: updatedPray } } });
     } catch (error) {
       console.error("Error lighting a candle:");
@@ -63,36 +59,12 @@ function Candle() {
   };
 
   useEffect(() => {
-    // Scroll to the top of the page when the component mounts
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="candle">
-      <div className="leftSide">
-        <div>
-          <h2 style={{ color: "white", textAlign: "center", fontSize: "2em" }}>{t("candle.howToLightACandle")}</h2>
-          <p style={{ color: "white", textAlign: "center", fontSize: "1.5em" }}>{t("candle.itsSimple")}</p>
-          <ul style={{ color: "white", fontSize: "1.2em" }}>
-            <li>{t("candle.step1")}</li>
-            <li>{t("candle.step2")}</li>
-            <li>{t("candle.step3")}</li>
-          </ul>
-        </div>
-        <br />
-        <p style={{ color: "white" }}>{t("candle.note")}</p>
-
-        <div className="video-container">
-          <video controls poster="/images/lightAcandle.jpg">
-            <source
-              src="https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2FWhatsApp%20Video%202024-09-12%20at%2011.57.40_4a6da68a.mp4?alt=media&token=ab7e16da-d452-41ec-a5b9-fafd2ca97495"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-
+      {/* Right side moved to the left */}
       <div className="rightSide">
         <form className="candle-form center-form" onSubmit={(e) => e.preventDefault()}>
           <label
@@ -105,7 +77,7 @@ function Candle() {
           <div className="form-group church-selection">
             <label className="church-label">{t("candle.selectChurch")}</label>
             <div className="church-options">
-            <label className="church-option">
+              <label className="church-option">
                 <input
                   type="radio"
                   value="Annunciation church"
@@ -141,8 +113,7 @@ function Candle() {
                 value={form.firstname}
                 onChange={handleChangeForm}
                 required
-                autoComplete="given-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm"
               />
             </div>
 
@@ -155,8 +126,7 @@ function Candle() {
                 value={form.lastname}
                 onChange={handleChangeForm}
                 required
-                autoComplete="family-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm"
               />
             </div>
 
@@ -169,8 +139,7 @@ function Candle() {
                 value={form.email}
                 onChange={handleChangeForm}
                 required
-                autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm"
               />
             </div>
 
@@ -183,7 +152,7 @@ function Candle() {
                 value={form.confirmEmail}
                 onChange={handleChangeForm}
                 required
-                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 shadow-sm"
               />
               {emailMatchError && <p className="error-message">{emailMatchError}</p>}
             </div>
@@ -201,16 +170,43 @@ function Candle() {
             </div>
           </div>
 
-          <label
-            className="block text-sm font-semibold leading-6 text-accent-content text-center"
-          >
+          <label className="block text-sm font-semibold leading-6 text-accent-content text-center">
             {t("candle.toLightACandlePay")}
           </label>
 
-          <div className='hero-btns-candle'>
+          <div className="hero-btns-candle">
             <button onClick={handleLightButton}>{t("candle.light")}</button>
           </div>
         </form>
+      </div>
+
+      {/* Left side moved to the right */}
+      <div className="leftSide">
+        <div>
+          <h2 style={{ color: "white", textAlign: "center", fontSize: "2em" }}>
+            {t("candle.howToLightACandle")}
+          </h2>
+          <p style={{ color: "white", textAlign: "center", fontSize: "1.5em" }}>
+            {t("candle.itsSimple")}
+          </p>
+          <ol style={{ color: "white", fontSize: "1.2em" }}>
+            <li>{t("candle.step1")}</li>
+            <li>{t("candle.step2")}</li>
+            <li>{t("candle.step3")}</li>
+          </ol>
+        </div>
+        <br />
+        <p style={{ color: "white" }}>{t("candle.note")}</p>
+
+        <div className="video-container">
+          <video controls poster="/images/lightAcandle.jpg">
+            <source
+              src="https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2FWhatsApp%20Video%202024-09-12%20at%2011.57.40_4a6da68a.mp4?alt=media&token=ab7e16da-d452-41ec-a5b9-fafd2ca97495"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </div>
   );
