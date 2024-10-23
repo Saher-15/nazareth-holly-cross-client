@@ -25,6 +25,9 @@ i18n
       },
       pl: {
         translation: require('./translation/pl.json'), // Ensure path is correct
+      },
+      de: {
+        translation: require('./translation/de.json'), // Ensure path is correct
       }
     },
     lng: 'en', // Default language
