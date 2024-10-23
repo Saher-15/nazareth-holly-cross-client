@@ -8,12 +8,12 @@ import { useLocation } from 'react-router-dom';
 function CheckOut() {
 
   const location = useLocation();
-  const { totalAmount } = location.state;
+  const { discountAmount } = location.state;
   const { cartItems } = location.state;
 
   return (
     <>
-      <Paypal totalAmount = {totalAmount} cartItems={cartItems} />
+      <Paypal discountAmount = {discountAmount} cartItems={cartItems} />
     </>
   );
 }

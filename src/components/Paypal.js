@@ -8,7 +8,7 @@ import PhoneInput from 'react-phone-number-input';
 import "../styles/PaypalProduct.css";
 import { useTranslation } from 'react-i18next';
 
-const PayPalComponent = ({ totalAmount, cartItems }) => {
+const PayPalComponent = ({ discountAmount, cartItems }) => {
     const { t } = useTranslation();
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
@@ -71,7 +71,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 },
-                body: JSON.stringify({ "intent": intent, "amount": totalAmount })
+                body: JSON.stringify({ "intent": intent, "amount": discountAmount })
             });
 
             if (!response.ok) {
@@ -253,7 +253,7 @@ const PayPalComponent = ({ totalAmount, cartItems }) => {
                             state={form.state}
                             postal={form.postal}
                             country={form.country}
-                            totalPrice={totalAmount}
+                            totalPrice={discountAmount}
                         />
                     )}
                     {showAlert && (
