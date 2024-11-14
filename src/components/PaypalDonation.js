@@ -30,7 +30,7 @@ const PayPalComponent = ({ name, amount }) => {
 
     const createOrder = async () => {
         try {
-            const response = await fetch("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/create_order", {
+            const response = await fetch("https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/order/create_order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json; charset=utf-8"
@@ -59,7 +59,7 @@ const PayPalComponent = ({ name, amount }) => {
             "order_id": order_id
         };
 
-        await fetch("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/order/complete_order", {
+        await fetch("https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/order/complete_order", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json; charset=utf-8"

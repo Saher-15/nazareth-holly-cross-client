@@ -18,7 +18,8 @@ const ConfirmationCandle = ({ firstName, lastName, email, prayer }) => {
                 };
 
                 // Send order details to the server
-                await axios.post("https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/candle/lightACandle", requestBody);
+                //https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/
+                await axios.post("https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/candle/lightACandle", requestBody);
 
                 // Redirect to homepage after 5 seconds
                 setTimeout(() => {

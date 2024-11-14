@@ -28,7 +28,7 @@ const Shop = () => {
       setLoading(true);
       try {
         const allProductsResponse = await axios.get(
-          `https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getAllProducts`
+          `https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/product/getAllProducts`
         );
         window.scrollTo(0, 0); // Scroll to the top when going to the previous page
         setAllProducts(allProductsResponse.data);

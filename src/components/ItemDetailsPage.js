@@ -10,7 +10,7 @@ const ItemDetailsPage = () => {
   useEffect(() => {
     async function fetchItemData() {
       try {
-        const response = await axios.get(`https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getNProducts?_id=${_id}`);
+        const response = await axios.get(`https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/product/getNProducts?_id=${_id}`);
         setItem(response.data); // Set the item data in state
       } catch (error) {
         console.error('Error fetching item data:');

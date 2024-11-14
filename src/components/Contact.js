@@ -36,7 +36,7 @@ function Contact() {
 
     try {
       // Send form data to server
-      await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/contact_us_request', formData);
+      await axios.post('https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/contact/contact_us_request', formData);
 
       // Handle success
 

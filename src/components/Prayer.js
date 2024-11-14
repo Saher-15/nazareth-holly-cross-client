@@ -36,7 +36,7 @@ function Pray() {
     // Function to fetch all reviewed messages
     const fetchMessages = async () => {
         try {
-            const response = await axios.get('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/get_all_contact_us');
+            const response = await axios.get('https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/contact/get_all_contact_us');
             // Filter messages that are marked as done and reverse order
             const reviewedMessages = response.data.filter(message => message.done);
             const reversedMessages = reviewedMessages.reverse();
@@ -63,7 +63,7 @@ function Pray() {
             const modifiedFormData = { ...formData, email: formData.email };
 
             // Send form data to server
-            await axios.post('https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/contact/contact_us_request', modifiedFormData);
+            await axios.post('https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/contact/contact_us_request', modifiedFormData);
 
             // Reset form fields
             setFormData({

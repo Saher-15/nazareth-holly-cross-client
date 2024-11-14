@@ -29,7 +29,7 @@ const ProductPage = () => {
 
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://nazareth-holly-city-server-8b53453baac6.herokuapp.com/product/getProduct/${id}`);
+        const response = await fetch(`https://nazareth-holy-cross-c5896e0462c5.herokuapp.com/product/getProduct/${id}`);
         if (!response.ok) throw new Error(t('product.product.error.fetchProduct')); // Use translation for error message
         const data = await response.json();
         setProduct(data);
