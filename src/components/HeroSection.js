@@ -1,17 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import { useNavigate } from "react-router-dom";
-// import ReactGA from 'react-ga';
 import { useTranslation } from 'react-i18next'; // Import the useTranslation hook
 import '../styles/HeroSection.css';
 
 function HeroSection() {
   const { t } = useTranslation(); // Initialize translation hook
   const [isPlaying, setIsPlaying] = useState(true);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [name, setName] = useState('');
-  // const [amount, setAmount] = useState('');
-  // const [formError, setFormError] = useState('');
   const audioRef = useRef(new Audio('/sounds/christians.mp3'));
   const navigate = useNavigate();
 
@@ -22,6 +17,11 @@ function HeroSection() {
     localStorage.setItem('currentPage', 1);
 
     // Navigate to the shop page
+    navigate('/shop');
+  };
+
+  const handleDiscountClick = () => {
+    // Navigate to the shop page when the discount area is clicked
     navigate('/shop');
   };
 
@@ -83,7 +83,7 @@ function HeroSection() {
         <Button
           className='btns'
           onClick={handleShopClick}
-          destination='shop'
+          destination='/shop'
           buttonStyle='btn--half'
           buttonSize='btn--large'
         >
@@ -99,83 +99,46 @@ function HeroSection() {
           {t('heroSection.tourButton')} <i className={t('heroSection.tourIcon')} /> {/* Translated Tour Button with Icon */}
         </Button>
       </div>
-      <div style={{
-        backgroundColor: "#333",
-        color: "#fff",
-        padding: "15px 30px",
-        borderRadius: "8px",
-        textAlign: "center",
-        margin: "20px auto",
-        maxWidth: "700px",
-        fontFamily: "Arial, sans-serif",
-        position: "relative",
-        overflow: "hidden"
-      }}>
-        <div style={{
-          position: "absolute",
-          top: "0",
-          left: "-20px",
-          height: "100%",
-          width: "160px",
-          backgroundColor: "tomato",
-          transform: "skewX(-25deg)"
-        }}></div>
-        <p style={{
-          fontSize: "20px",
-          fontWeight: "bold",
+
+      <div
+        onClick={handleDiscountClick}
+        style={{
+          backgroundColor: "#333",
+          color: "#fff",
+          padding: "15px 30px",
+          borderRadius: "8px",
+          textAlign: "center",
+          margin: "20px auto",
+          maxWidth: "700px",
+          fontFamily: "Arial, sans-serif",
           position: "relative",
-          zIndex: 1,
-          margin: 0
-        }}>
+          overflow: "hidden",
+          cursor: "pointer" // Indicate it's clickable
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "-20px",
+            height: "100%",
+            width: "160px",
+            backgroundColor: "tomato",
+            transform: "skewX(-25deg)"
+          }}
+        ></div>
+        <p
+          style={{
+            fontSize: "20px",
+            fontWeight: "bold",
+            position: "relative",
+            zIndex: 1,
+            margin: 0
+          }}
+        >
           {t('heroSection.discount')}    </p>
       </div>
 
-      {/* The donation modal code is commented out for now */}
-      {/* 
-      <p className='duty-in-naz'>{t('heroSection.dutyInNaz')}</p>
-      <button className='donate-btn' onClick={openModal}>
-        <i className='fas fa-donate'></i>
-      </button>
-      {isModalOpen && (
-        <div className='donation-modal show'>
-          <div className='donation-content'>
-            <button className='close-btn' onClick={closeModal}>×</button>
-            {formError && <p className='form-error'>{formError}</p>}
-            <form onSubmit={handleSubmit}>
-              <h3>{t('heroSection.supportNazareth')}</h3>
-              <div className='form-group'>
-                <input
-                  type='text'
-                  id='name'
-                  name='name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  placeholder={t('heroSection.namePlaceholder')}
-                />
-              </div>
-              <div className='form-group'>
-                <input
-                  type='number'
-                  id='amount'
-                  name='amount'
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  required
-                  placeholder={t('heroSection.amountPlaceholder')}
-                />
-              </div>
-              <button
-                className='donation-submit'
-                type='submit'
-                disabled={!name || !amount}
-              >
-                {t('heroSection.donateButton')}
-              </button>
-            </form>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 }
