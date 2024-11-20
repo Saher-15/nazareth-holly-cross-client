@@ -248,11 +248,16 @@ function Candle() {
                   backgroundPosition: "center",
                 }}
               >
-                <video controls playsInline muted>
-                  <source src={video.url} type="video/mp4" />
-                  <source src={video.url.replace('.mp4', '.webm')} type="video/webm" />
+                <video
+                  src={video.url}
+                  type="video/mp4"
+                  className="video-tour"
+                  controls
+                  poster="images/lightACandle.jpg"
+                >
                   Your browser does not support the video tag.
                 </video>
+
               </div>
             ))}
           </div>

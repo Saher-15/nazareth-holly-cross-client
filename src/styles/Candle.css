@@ -315,7 +315,7 @@ video {
 .video-item video {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* Ensures videos cover the area without distortion */
+  object-fit: contain;  /* Ensures videos cover the area without distortion */
   border-radius: 8px;  /* Rounded corners on the video itself */
   transition: opacity 0.3s ease;  /* Smooth transition */
 }
