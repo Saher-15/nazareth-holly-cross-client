@@ -6,6 +6,7 @@
 }
 
 .language-button {
+    margin-right: 10px;
     background-color: #ffdf00;
     color: #242424;
     border: none;

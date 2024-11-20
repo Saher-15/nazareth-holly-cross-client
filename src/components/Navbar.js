@@ -35,7 +35,7 @@ function Navbar({ currentLanguage, onLanguageChange }) {
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            
+
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>{t('navbar.home')}</Link> {/* Use translation for Home */}
             </li>
@@ -58,10 +58,11 @@ function Navbar({ currentLanguage, onLanguageChange }) {
           </ul>
           <LanguageSwitcher currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} onClick={closeMobileMenu} /> {/* Include the LanguageSwitcher */}
 
+
         </div>
 
       </nav>
-      
+
     </>
   );
 }
