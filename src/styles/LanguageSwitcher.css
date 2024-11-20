@@ -25,7 +25,8 @@
 .language-options {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 0; /* Center the dropdown */
+    transform: translateX(-50%); /* Adjust the dropdown to be centered */
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -37,6 +38,25 @@
     padding: 12px;
     min-width: 200px;
     transition: all 0.3s ease;
+    max-width: 90vw; /* Ensure it doesn't overflow */
+    max-height: 300px; /* Set a max height to trigger scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Scrollbar styles */
+.language-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.language-options::-webkit-scrollbar-thumb {
+    background-color: #ffdf00;
+    border-radius: 10px;
+    border: 2px solid #e0c200;
+}
+
+.language-options::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
 }
 
 .language-card {
@@ -67,6 +87,8 @@
 }
 
 /* Media Queries for Responsiveness */
+
+/* For devices larger than 768px (tablets and desktops) */
 @media (max-width: 768px) {
     .language-button {
         font-size: 1rem;
@@ -75,6 +97,9 @@
 
     .language-options {
         min-width: 160px;
+        max-width: 200px; /* Limit max width on smaller screens */
+        left: 0; /* Center the dropdown */
+        transform: translateX(-50%); /* Adjust the dropdown to center it */
     }
 
     .language-card h3 {
@@ -86,14 +111,19 @@
     }
 }
 
+/* For small devices (mobile phones in portrait) */
 @media (max-width: 480px) {
     .language-button {
-        font-size: 0.5rem;
+        font-size: 0.9rem;
         padding: 8px 14px;
     }
 
     .language-options {
         min-width: 140px;
+        max-width: 90vw; /* Ensure dropdown stays within screen width */
+        left: 0; /* Center the dropdown */
+        transform: translateX(-50%); /* Adjust the dropdown to center it */
+        padding: 10px;
     }
 
     .language-card {
@@ -106,5 +136,33 @@
 
     .icon-language {
         font-size: 1.8rem;
+    }
+}
+
+/* For portrait mode (even smaller devices) */
+@media (max-width: 320px) {
+    .language-button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+
+    .language-options {
+        min-width: 120px;
+        max-width: 80vw; /* Ensure it fits smaller devices */
+        padding: 8px;
+        left: 0;
+        transform: translateX(-50%);
+    }
+
+    .language-card {
+        padding: 8px;
+    }
+
+    .language-card h3 {
+        font-size: 0.8rem;
+    }
+
+    .icon-language {
+        font-size: 1.6rem;
     }
 }

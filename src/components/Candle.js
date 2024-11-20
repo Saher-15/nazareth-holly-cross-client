@@ -168,9 +168,21 @@ function Candle() {
               ></textarea>
               {inputWarning && <p className="error-message">{inputWarning}</p>}
             </div>
-            <label className="block text-sm font-semibold leading-6 text-accent-content text-center" style={{ fontSize: "1.4rem", textAlign: "center", color: "#ffdf00" }}>
+            <label
+              className="block text-sm font-semibold leading-6 text-accent-content"
+              style={{
+                fontSize: "1.4rem",
+                textAlign: "center",
+                color: "#ffdf00",
+                display: "flex",          // Using flexbox for centering
+                justifyContent: "center", // Horizontally center the text
+                alignItems: "center",     // Vertically center the text
+                height: "100%"            // Ensure it takes full height of the parent if needed
+              }}
+            >
               {t("candle.toLightACandlePay")}
             </label>
+
           </div>
 
 
