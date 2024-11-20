@@ -233,15 +233,7 @@ function Candle() {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.58_71978b55.mp4?alt=media&token=006a14aa-9398-49f4-bbf5-464c144f14f0",
               }
             ].map((video, index) => (
-              <div
-                className="video-item"
-                key={index}
-                style={{
-                  backgroundImage: `url(${video.thumbnail})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
+              
                 <video
                   src={video.url}
                   type="video/mp4"
@@ -251,7 +243,6 @@ function Candle() {
                   Your browser does not support the video tag.
                 </video>
 
-              </div>
             ))}
           </div>
         </div>
