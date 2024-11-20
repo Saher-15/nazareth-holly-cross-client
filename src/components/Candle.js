@@ -216,27 +216,21 @@ function Candle() {
             {[
               {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.14_fc5f95e7.mp4?alt=media&token=cab3d08c-237e-40b6-a64d-957d19d71731",
-                thumbnail: "public/images/lightAcandle.jpg",
               },
               {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.15_c6586f18.mp4?alt=media&token=abc653e4-85ff-425d-b8b5-fa9d903a3d49",
-                thumbnail: "public/images/lightAcandle.jpg",
               },
               {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.37_c546bb3f.mp4?alt=media&token=8d03dac8-640b-466c-81f0-bc35ce0a7230",
-                thumbnail: "public/images/lightAcandle.jpg",
               },
               {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.39_83f23b38.mp4?alt=media&token=cd8ea957-6c00-499e-9374-cdd99d2cbec1",
-                thumbnail: "public/images/lightAcandle.jpg",
               },
               {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.44_4caad8a0.mp4?alt=media&token=4052f0b5-aac5-42a2-9a43-b7e70bae5fc3",
-                thumbnail: "public/images/lightAcandle.jpg",
               },
               {
                 url: "https://firebasestorage.googleapis.com/v0/b/nazareth-holy-cross.appspot.com/o/videos%2Fcandle_pray%2FWhatsApp%20Video%202024-11-05%20at%2002.34.58_71978b55.mp4?alt=media&token=006a14aa-9398-49f4-bbf5-464c144f14f0",
-                thumbnail: "public/images/lightAcandle.jpg",
               }
             ].map((video, index) => (
               <div
@@ -251,7 +245,6 @@ function Candle() {
                 <video
                   src={video.url}
                   type="video/mp4"
-                  className="video-tour"
                   controls
                   poster="images/lightACandle.jpg"
                 >
