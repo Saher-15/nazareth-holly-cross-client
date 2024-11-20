@@ -248,8 +248,9 @@ function Candle() {
                   backgroundPosition: "center",
                 }}
               >
-                <video controls playsInline>
+                <video controls playsInline muted>
                   <source src={video.url} type="video/mp4" />
+                  <source src={video.url.replace('.mp4', '.webm')} type="video/webm" />
                   Your browser does not support the video tag.
                 </video>
               </div>
