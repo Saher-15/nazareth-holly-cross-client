@@ -197,7 +197,7 @@ function Candle() {
           </ol>
         </div>
         <br />
-        <p style={{ color: "white" }}>{t("candle.note")}</p>
+        {/* <p style={{ color: "white" }}>{t("candle.note")}</p> */}
 
         <div className="video-container">
           <div className="video-gallery">

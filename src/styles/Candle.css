@@ -186,12 +186,17 @@ textarea[name="pray"],
 }
 
 .video-container {
-  max-height: 500px; /* Set the height of the container */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 16px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* Align to the top to allow scrolling */
+  padding: 20px;
+  background-color: #f9f9f9;  /* Light gray background for contrast */
+  border-radius: 8px;  /* Soft rounded corners for a modern look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 500px;  /* Set a fixed height to allow scrolling */
 }
 
 video {
@@ -265,9 +270,13 @@ video {
 }
 
 .video-gallery {
-  display: flex;
-  flex-direction: column; /* Stack videos vertically */
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Responsive grid */
+  gap: 20px;
+  width: 100%;
+  justify-items: center;
+  overflow-y: auto;  /* Enable vertical scrolling */
+  max-height: 100%;  /* Ensure the gallery doesn't overflow the container */
 }
 
 .video-gallery::-webkit-scrollbar {
@@ -285,16 +294,13 @@ video {
 
 .video-item {
   position: relative;
-  width: 100%; /* Make it responsive to the container width */
-  height: 200px; /* Fixed height for videos */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #000; /* Background color for contrast */
-  background-size: cover;
-  background-position: center;
-  border: 2px solid #f9c846; /* Yellow border */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  width: 100%;
+  height: 200px;  /* Fixed height */
+  border-radius: 8px;  /* Rounded corners */
+  overflow: hidden;  /* Ensures video fits well */
+  background-color: #000;  /* Default background color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Soft shadow for the video items */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-item:hover video {
@@ -302,16 +308,16 @@ video {
 }
 
 .video-item:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
-  border-color: #f9c846; /* Change border color on hover */
+  transform: scale(1.05);  /* Slight zoom effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Increased shadow on hover */
 }
 
 .video-item video {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Ensures the entire video is visible */
-  background-color: #000;
+  object-fit: cover;  /* Ensures videos cover the area without distortion */
+  border-radius: 8px;  /* Rounded corners on the video itself */
+  transition: opacity 0.3s ease;  /* Smooth transition */
 }
 
 .video-title {
@@ -332,6 +338,20 @@ video {
   height: 5px;
   background-color: #f9c846; /* Yellow accent at the bottom of the video */
 }
+
+.video-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;  /* Inherit the background image */
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.3s ease;
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
